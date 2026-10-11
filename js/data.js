@@ -46,17 +46,17 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Dark Rum", icon: "🥃" },
-        { name: "Ceylon Cinnamon", icon: "🪵" }
+        { name: "Dark Rum" },
+        { name: "Ceylon Cinnamon" }
       ],
       heart: [
-        { name: "Tobacco Leaf", icon: "🍂" },
-        { name: "Saffron", icon: "🌾" },
-        { name: "Hedione", icon: "✨" }
+        { name: "Tobacco Leaf" },
+        { name: "Saffron" },
+        { name: "Hedione" }
       ],
       base: [
-        { name: "Madagascar Vanilla", icon: "🍦" },
-        { name: "Sandalwood", icon: "🪵" }
+        { name: "Madagascar Vanilla" },
+        { name: "Sandalwood" }
       ]
     },
     description: "An irresistible narcotic blend of warm aged rum, honeyed tobacco leaf, sharp cinnamon bark, and creamy Madagascar vanilla. Intoxicating for upscale date nights and winter soirees.",
@@ -104,23 +104,23 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Grapefruit", icon: "🍊" },
-        { name: "Lemon", icon: "🍋" },
-        { name: "Mint", icon: "🌿" },
-        { name: "Pink Pepper", icon: "🌶️" }
+        { name: "Grapefruit" },
+        { name: "Lemon" },
+        { name: "Mint" },
+        { name: "Pink Pepper" }
       ],
       heart: [
-        { name: "Ginger", icon: "🫚" },
-        { name: "Nutmeg", icon: "🌰" },
-        { name: "Jasmine", icon: "🌸" },
-        { name: "Melon", icon: "🍈" }
+        { name: "Ginger" },
+        { name: "Nutmeg" },
+        { name: "Jasmine" },
+        { name: "Melon" }
       ],
       base: [
-        { name: "Incense", icon: "🕯️" },
-        { name: "Amber", icon: "🪨" },
-        { name: "Cedar", icon: "🌲" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Patchouli", icon: "🌿" }
+        { name: "Incense" },
+        { name: "Amber" },
+        { name: "Cedar" },
+        { name: "Sandalwood" },
+        { name: "Patchouli" }
       ]
     },
     description: "The definitive blue fragrance masterclass. Sparkling fresh grapefruit and invigorating ginger drying down into rich resinous incense, amber, and dry cedar. Flawlessly versatile in any setting.",
@@ -168,20 +168,20 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Bergamot", icon: "🍋" },
-        { name: "Lemon", icon: "🍋" },
-        { name: "Lavender", icon: "🪻" }
+        { name: "Bergamot" },
+        { name: "Lemon" },
+        { name: "Lavender" }
       ],
       heart: [
-        { name: "Honey", icon: "🍯" },
-        { name: "Cinnamon", icon: "🪵" },
-        { name: "Cashmeran", icon: "🧣" },
-        { name: "Jasmine Sambac", icon: "🌸" }
+        { name: "Honey" },
+        { name: "Cinnamon" },
+        { name: "Cashmeran" },
+        { name: "Jasmine Sambac" }
       ],
       base: [
-        { name: "Tobacco Leaf", icon: "🍂" },
-        { name: "Tonka Bean", icon: "🌰" },
-        { name: "Vanilla", icon: "🍦" }
+        { name: "Tobacco Leaf" },
+        { name: "Tonka Bean" },
+        { name: "Vanilla" }
       ]
     },
     description: "An Italian Mediterranean tribute combining sun-drenched Sicilian lemon and aromatic lavender with decadent golden honey, rich blonde tobacco leaves, and warm tonka bean.",
@@ -225,24 +225,24 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Cardamom", icon: "🫚" },
-        { name: "Nutmeg", icon: "🌰" },
-        { name: "Saffron", icon: "🌾" },
-        { name: "Mandarin Orange", icon: "🍊" },
-        { name: "Neroli", icon: "🌼" }
+        { name: "Cardamom" },
+        { name: "Nutmeg" },
+        { name: "Saffron" },
+        { name: "Mandarin Orange" },
+        { name: "Neroli" }
       ],
       heart: [
-        { name: "Kulfi Accord", icon: "🍧" },
-        { name: "Rose", icon: "🌹" },
-        { name: "Mastic", icon: "🪵" },
-        { name: "Jasmine", icon: "🌸" },
-        { name: "Orange Blossom", icon: "🌼" }
+        { name: "Kulfi Accord" },
+        { name: "Rose" },
+        { name: "Mastic" },
+        { name: "Jasmine" },
+        { name: "Orange Blossom" }
       ],
       base: [
-        { name: "Madagascar Vanilla", icon: "🍦" },
-        { name: "Amber", icon: "🪨" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Woody Notes", icon: "🌲" }
+        { name: "Madagascar Vanilla" },
+        { name: "Amber" },
+        { name: "Sandalwood" },
+        { name: "Woody Notes" }
       ]
     },
     description: "An amber-drenched, woody oriental with an appetizing heart of traditional Indian Kulfi dessert, saffron, and cardamom. Universally recognized as one of the greatest date night fragrances in history.",
@@ -290,18 +290,18 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Black Pepper", icon: "🌶️" },
-        { name: "Pimento", icon: "🌶️" }
+        { name: "Black Pepper" },
+        { name: "Pimento" }
       ],
       heart: [
-        { name: "Tobacco Leaf", icon: "🍂" },
-        { name: "Cinnamon", icon: "🪵" },
-        { name: "Cumin", icon: "🌰" }
+        { name: "Tobacco Leaf" },
+        { name: "Cinnamon" },
+        { name: "Cumin" }
       ],
       base: [
-        { name: "Bourbon Vanilla", icon: "🍦" },
-        { name: "Amber", icon: "🪨" },
-        { name: "Lavender", icon: "🪻" }
+        { name: "Bourbon Vanilla" },
+        { name: "Amber" },
+        { name: "Lavender" }
       ]
     },
     description: "An explosive winter firestorm of fiery black pepper, rich aromatic pipe tobacco, grated cinnamon, and intoxicating dark bourbon vanilla. Supreme cold-weather protection.",
@@ -345,15 +345,15 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Bourbon Vanilla", icon: "🍦" }
+        { name: "Bourbon Vanilla" }
       ],
       heart: [
-        { name: "Cedarwood", icon: "🌲" }
+        { name: "Cedarwood" }
       ],
       base: [
-        { name: "Agarwood (Oud)", icon: "🪵" },
-        { name: "Black Amber", icon: "🪨" },
-        { name: "Musk", icon: "✨" }
+        { name: "Agarwood (Oud)" },
+        { name: "Black Amber" },
+        { name: "Musk" }
       ]
     },
     description: "A legendary Arabian classic blending rich Madagascar vanilla bean, aromatic Atlas cedarwood, precious oud, and black amber into a soft yet unforgettable presence.",
@@ -401,22 +401,22 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Sicilian Lemon", icon: "🍋" },
-        { name: "Blackcurrant", icon: "🫐" },
-        { name: "Bergamot", icon: "🍋" },
-        { name: "Spicy Notes", icon: "🌶️" }
+        { name: "Sicilian Lemon" },
+        { name: "Blackcurrant" },
+        { name: "Bergamot" },
+        { name: "Spicy Notes" }
       ],
       heart: [
-        { name: "Fruity Notes", icon: "🍎" },
-        { name: "Patchouli Leaf", icon: "🌿" },
-        { name: "Water Jasmine", icon: "🌸" }
+        { name: "Fruity Notes" },
+        { name: "Patchouli Leaf" },
+        { name: "Water Jasmine" }
       ],
       base: [
-        { name: "Cedar", icon: "🌲" },
-        { name: "Leather", icon: "🧥" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Vanilla", icon: "🍦" },
-        { name: "White Musk", icon: "✨" }
+        { name: "Cedar" },
+        { name: "Leather" },
+        { name: "Sandalwood" },
+        { name: "Vanilla" },
+        { name: "White Musk" }
       ]
     },
     description: "Vibrant zesty Sicilian lemon and blackcurrant bursting over a heart of juicy fruits, patchouli, velvety cedarwood, and supple leather. An extraordinary signature all-rounder.",
@@ -462,13 +462,13 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Iso E Super", icon: "✨" }
+        { name: "Iso E Super" }
       ],
       heart: [
-        { name: "Velvet Cedar nuance", icon: "🪵" }
+        { name: "Velvet Cedar nuance" }
       ],
       base: [
-        { name: "Warm Ambergris aura", icon: "🌊" }
+        { name: "Warm Ambergris aura" }
       ]
     },
     description: "A minimalist marvel consisting of pure Iso E Super. Creates a warm, velvety cedarwood cocoon that fades and re-emerges mysteriously with your body heat. The undisputed champion of fragrance layering.",
@@ -515,16 +515,16 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Mandarin Orange", icon: "🍊" },
-        { name: "Citrus Zest", icon: "🍋" }
+        { name: "Mandarin Orange" },
+        { name: "Citrus Zest" }
       ],
       heart: [
-        { name: "Iso E Super", icon: "✨" },
-        { name: "Cedar Shavings", icon: "🪵" }
+        { name: "Iso E Super" },
+        { name: "Cedar Shavings" }
       ],
       base: [
-        { name: "Velvety Amber", icon: "🪨" },
-        { name: "Warm Musk", icon: "🌊" }
+        { name: "Velvety Amber" },
+        { name: "Warm Musk" }
       ]
     },
     description: "A modern masterpiece marrying photorealistic sparkling mandarin orange juice with the velvety cedarwood projection of Iso E Super. Clean, effervescent, and uplifting.",
@@ -572,20 +572,20 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Sea Notes", icon: "🌊" },
-        { name: "Aquozone", icon: "💧" },
-        { name: "Green Mandarin", icon: "🍊" },
-        { name: "Bergamot", icon: "🍋" }
+        { name: "Sea Notes" },
+        { name: "Aquozone" },
+        { name: "Green Mandarin" },
+        { name: "Bergamot" }
       ],
       heart: [
-        { name: "Rosemary", icon: "🌱" },
-        { name: "Cypress", icon: "🌲" },
-        { name: "Lavender", icon: "🪻" }
+        { name: "Rosemary" },
+        { name: "Cypress" },
+        { name: "Lavender" }
       ],
       base: [
-        { name: "Mineral Amber", icon: "🪨" },
-        { name: "Patchouli", icon: "🌿" },
-        { name: "Musk", icon: "✨" }
+        { name: "Mineral Amber" },
+        { name: "Patchouli" },
+        { name: "Musk" }
       ]
     },
     description: "Deep oceanic plunge with fresh sparkling bergamot and mandarin diving into aromatic rosemary, lavender, and mineral amber. The ultimate gym and beach companion.",
@@ -633,17 +633,17 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Sea Notes", icon: "🌊" },
-        { name: "Bergamot", icon: "🍋" }
+        { name: "Sea Notes" },
+        { name: "Bergamot" }
       ],
       heart: [
-        { name: "Rosemary", icon: "🌱" },
-        { name: "Sage", icon: "🌿" },
-        { name: "Geranium", icon: "🌸" }
+        { name: "Rosemary" },
+        { name: "Sage" },
+        { name: "Geranium" }
       ],
       base: [
-        { name: "Incense", icon: "🕯️" },
-        { name: "Patchouli", icon: "🌿" }
+        { name: "Incense" },
+        { name: "Patchouli" }
       ]
     },
     description: "Dark crashing waves against black volcanic rocks. Salty sea mist colliding with aromatic wild herbs and hypnotic church incense. Sophisticated and universally respected.",
@@ -687,19 +687,19 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Grapefruit", icon: "🍊" },
-        { name: "Coriander", icon: "🌾" },
-        { name: "Basil", icon: "🍃" }
+        { name: "Grapefruit" },
+        { name: "Coriander" },
+        { name: "Basil" }
       ],
       heart: [
-        { name: "Cardamom", icon: "🫚" },
-        { name: "Ginger", icon: "🫚" },
-        { name: "Orange Blossom", icon: "🌼" }
+        { name: "Cardamom" },
+        { name: "Ginger" },
+        { name: "Orange Blossom" }
       ],
       base: [
-        { name: "Amber", icon: "🪨" },
-        { name: "Tobacco", icon: "🍂" },
-        { name: "Cedar", icon: "🌲" }
+        { name: "Amber" },
+        { name: "Tobacco" },
+        { name: "Cedar" }
       ]
     },
     description: "The modern benchmark for masculine seduction. An intoxicating blend of sparkling grapefruit, spicy cardamom, warm amber, and refined pipe tobacco designed specifically for close encounters.",
@@ -743,19 +743,19 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Rosewood", icon: "🪵" },
-        { name: "Cardamom", icon: "🫚" },
-        { name: "Sichuan Pepper", icon: "🌶️" }
+        { name: "Rosewood" },
+        { name: "Cardamom" },
+        { name: "Sichuan Pepper" }
       ],
       heart: [
-        { name: "Agarwood (Oud)", icon: "🪵" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Vetiver", icon: "🌾" }
+        { name: "Agarwood (Oud)" },
+        { name: "Sandalwood" },
+        { name: "Vetiver" }
       ],
       base: [
-        { name: "Tonka Bean", icon: "🌰" },
-        { name: "Vanilla", icon: "🍦" },
-        { name: "Amber", icon: "🪨" }
+        { name: "Tonka Bean" },
+        { name: "Vanilla" },
+        { name: "Amber" }
       ]
     },
     description: "Smoky exotic rosewood and cardamom giving way to a rare blend of precious oud wood, sandalwood, and vetiver. Luxurious grooming touch for active and boardroom days alike.",
@@ -799,19 +799,19 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Fresh Mahogany", icon: "🪵" },
-        { name: "Blood Orange", icon: "🍊" },
-        { name: "Red Pepper", icon: "🌶️" }
+        { name: "Fresh Mahogany" },
+        { name: "Blood Orange" },
+        { name: "Red Pepper" }
       ],
       heart: [
-        { name: "Clary Sage", icon: "🌿" },
-        { name: "Cognac", icon: "🥃" },
-        { name: "Bourbon Vanilla", icon: "🍦" }
+        { name: "Clary Sage" },
+        { name: "Cognac" },
+        { name: "Bourbon Vanilla" }
       ],
       base: [
-        { name: "Golden Amber", icon: "🪨" },
-        { name: "Tonka Bean", icon: "🌰" },
-        { name: "Sandalwood", icon: "🪵" }
+        { name: "Golden Amber" },
+        { name: "Tonka Bean" },
+        { name: "Sandalwood" }
       ]
     },
     description: "A rich, rugged blend of fresh mahogany, blood orange, chilled cognac, and warm bourbon vanilla over golden amber. Widely celebrated as Bath & Body Works' greatest men's release of all time.",
@@ -854,15 +854,15 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Mandarin", icon: "🍊" },
-        { name: "Spices", icon: "🌶️" }
+        { name: "Mandarin" },
+        { name: "Spices" }
       ],
       heart: [
-        { name: "Dark Vanilla Bean", icon: "🍦" }
+        { name: "Dark Vanilla Bean" }
       ],
       base: [
-        { name: "Smoky Oud Wood", icon: "🪵" },
-        { name: "Amber", icon: "🪨" }
+        { name: "Smoky Oud Wood" },
+        { name: "Amber" }
       ]
     },
     description: "A refined daily signature pump blending smoky oud wood with sensual dark Madagascar vanilla. Convenient, modern, and reliably pleasant for daily tasks and workouts.",
@@ -910,23 +910,23 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Crisp Apple", icon: "🍏" },
-        { name: "Lavender", icon: "🪻" },
-        { name: "Bergamot", icon: "🍋" },
-        { name: "Mandarin", icon: "🍊" }
+        { name: "Crisp Apple" },
+        { name: "Lavender" },
+        { name: "Bergamot" },
+        { name: "Mandarin" }
       ],
       heart: [
-        { name: "Geranium", icon: "🌸" },
-        { name: "Violet", icon: "💐" },
-        { name: "Jasmine", icon: "🌺" }
+        { name: "Geranium" },
+        { name: "Violet" },
+        { name: "Jasmine" }
       ],
       base: [
-        { name: "Bourbon Vanilla", icon: "🍦" },
-        { name: "Cardamom", icon: "🫚" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Black Pepper", icon: "🌶️" },
-        { name: "Patchouli", icon: "🌿" },
-        { name: "Guaiac Wood", icon: "🌲" }
+        { name: "Bourbon Vanilla" },
+        { name: "Cardamom" },
+        { name: "Sandalwood" },
+        { name: "Black Pepper" },
+        { name: "Patchouli" },
+        { name: "Guaiac Wood" }
       ]
     },
     description: "A majestic royal signature opening with crisp green apple, zesty bergamot, and soothing lavender before evolving into a floral heart of geranium and a luxurious drydown of bourbon vanilla, spicy cardamom, and creamy sandalwood. Parfums de Marly's crowned prince.",
@@ -974,22 +974,22 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Sour Cherry", icon: "🍒" },
-        { name: "Bitter Almond", icon: "🌰" },
-        { name: "Cherry Liqueur", icon: "🍷" }
+        { name: "Sour Cherry" },
+        { name: "Bitter Almond" },
+        { name: "Cherry Liqueur" }
       ],
       heart: [
-        { name: "Griotte Cherry Syrup", icon: "🍒" },
-        { name: "Turkish Rose", icon: "🌹" },
-        { name: "Jasmine Sambac", icon: "🌸" },
-        { name: "Plum", icon: "🫐" }
+        { name: "Griotte Cherry Syrup" },
+        { name: "Turkish Rose" },
+        { name: "Jasmine Sambac" },
+        { name: "Plum" }
       ],
       base: [
-        { name: "Peru Balsam", icon: "🍯" },
-        { name: "Roasted Tonka Bean", icon: "🌰" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Vetiver", icon: "🌾" },
-        { name: "Cedarwood", icon: "🌲" }
+        { name: "Peru Balsam" },
+        { name: "Roasted Tonka Bean" },
+        { name: "Sandalwood" },
+        { name: "Vetiver" },
+        { name: "Cedarwood" }
       ]
     },
     description: "An opulent and intoxicating voyage into forbidden decadence. Ripe luscious black cherries drenched in cherry liqueur and bitter almond, wrapped in Turkish rose, warm Peru balsam, and roasted tonka beans.",
@@ -1037,18 +1037,18 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Tobacco Leaf", icon: "🍂" },
-        { name: "Spicy Notes", icon: "🌶️" }
+        { name: "Tobacco Leaf" },
+        { name: "Spicy Notes" }
       ],
       heart: [
-        { name: "Tonka Bean", icon: "🌰" },
-        { name: "Tobacco Blossom", icon: "🌸" },
-        { name: "Vanilla", icon: "🍦" },
-        { name: "Cacao Pod", icon: "🍫" }
+        { name: "Tonka Bean" },
+        { name: "Tobacco Blossom" },
+        { name: "Vanilla" },
+        { name: "Cacao Pod" }
       ],
       base: [
-        { name: "Dried Fruits", icon: "🍇" },
-        { name: "Woody Notes", icon: "🪵" }
+        { name: "Dried Fruits" },
+        { name: "Woody Notes" }
       ]
     },
     description: "An iconic London private club aroma reimagined with opulent tobacco leaf accords, aromatic spices, and creamy tonka bean, unfolding into rich cacao, sweet dried fruits, and mellow wood sap.",
@@ -1096,18 +1096,18 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Martinique Rum", icon: "🥃" },
-        { name: "Sugar Cane", icon: "🎋" }
+        { name: "Martinique Rum" },
+        { name: "Sugar Cane" }
       ],
       heart: [
-        { name: "Dark Chocolate", icon: "🍫" },
-        { name: "Roasted Coffee", icon: "☕" },
-        { name: "Almond", icon: "🌰" }
+        { name: "Dark Chocolate" },
+        { name: "Roasted Coffee" },
+        { name: "Almond" }
       ],
       base: [
-        { name: "Caramel", icon: "🍮" },
-        { name: "Sandalwood", icon: "🪵" },
-        { name: "Heliotrope", icon: "🌸" }
+        { name: "Caramel" },
+        { name: "Sandalwood" },
+        { name: "Heliotrope" }
       ]
     },
     description: "A pirate ship anchored in the dark waters of the Caribbean. Heady Martinique rum infused with roasted dark coffee, velvety bittersweet chocolate, almond milk, and golden sugar cane. Sinfully seductive.",
@@ -1154,13 +1154,13 @@ const FRAGRANCE_DATABASE = [
     ],
     notes: {
       top: [
-        { name: "Pure Ambroxan", icon: "✨" }
+        { name: "Pure Ambroxan" }
       ],
       heart: [
-        { name: "Velvety Mineral Sheen", icon: "🌊" }
+        { name: "Velvety Mineral Sheen" }
       ],
       base: [
-        { name: "Radiant Ambergris Aura", icon: "🪨" }
+        { name: "Radiant Ambergris Aura" }
       ]
     },
     description: "A miraculous single-molecule fragrance featuring pure Ambroxan. Smells like warm sunlit skin, clean mineral ambergris, and sweet oceanic air. Highly diffusive and radiant, it works as both an irresistible skin scent and an ultra-potent projection booster when layered.",
