@@ -28,7 +28,7 @@ Key highlights:
 
 | Page | File | Purpose |
 | :--- | :--- | :--- |
-| **Home** | `index.html` | Editorial hero showcase, live Scent of the Day recommendation engine (rerollable), and 6 preview cards for occasions (including Gym). |
+| **Home** | `index.html` | Editorial hero showcase, seasonal Scent of the Day recommendation engine (matched strictly to time of year, with interactive in-season options picker), and 6 preview cards for occasions (including Gym). |
 | **All Fragrances** | `collection.html` / `vault.html` | Complete 20-bottle catalog with 7 multi-dimensional filter rows, live search, sort options, and bottle detail modal. |
 | **Occasions** | `occasions.html` / `scentscapes.html` | "When to Wear" guide with dedicated sections for **Gym & Workouts**, Running, Walking, Work/Office, Dates, and Formal Events. |
 | **Layering** | `layering.html` | 6 tested signature combinations plus an interactive pairing calculator ranking all 19 partner bottles with compatibility percentages and spray orders. |
