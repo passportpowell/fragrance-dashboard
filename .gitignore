@@ -15,3 +15,6 @@ __pycache__/
 
 # Bundle safety
 - Base Prompts and Skill/
+
+.vercel
+.env*
