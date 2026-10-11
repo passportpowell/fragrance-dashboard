@@ -3,596 +3,583 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Fragrance Atelier — Collection & Fragrantica Analytics</title>
+  <title>Atelier Parfum — Olfactory Archive & Fragrantica Analytics</title>
+  
+  <!-- Typography Stack: Cinzel (Display), Plus Jakarta Sans (UI), JetBrains Mono (Metrics) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Top Sticky Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand-wrapper">
-        <div class="brand-crest">FA</div>
-        <div>
-          <h1 class="brand-title">The Fragrance Atelier</h1>
-          <p class="brand-subtitle">Fragrantica Analytics & Bottle Inventory</p>
+  <!-- Floating Island Navigation Bar (Fluid Island) -->
+  <div class="island-header-wrapper">
+    <header class="island-nav">
+      <a href="#" class="brand-anchor" aria-label="Atelier Parfum Archive">
+        <div class="brand-monogram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L3 7v9l9 5 9-5V7l-9-5z"/>
+            <path d="M12 22V12"/>
+            <path d="M21 7l-9 5-9-5"/>
+          </svg>
         </div>
-      </div>
+        <div class="brand-meta">
+          <span class="brand-eyebrow">Edition 2026 // Private Vault</span>
+          <span class="brand-headline">ATELIER PARFUM</span>
+        </div>
+      </a>
 
-      <div class="header-actions">
-        <button id="proTipsBtn" class="btn btn-secondary" title="Fragrance Masterclass & Field Guide">
-          <span>💡</span>
-          <span>Pro Tips & Guide</span>
+      <!-- Island Navigation Actions with Button-in-Button Trailing Icons -->
+      <nav class="nav-actions" aria-label="Primary Actions">
+        <button id="proTipsBtn" class="btn-island btn-island-ghost" title="Executive Masterclass & Field Guide">
+          <span>Field Guide</span>
+          <div class="icon-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </div>
         </button>
-        <button id="sotdPickerBtn" class="btn btn-secondary" title="Scent of the Day Assistant">
-          <span>✨</span>
-          <span>SOTD Assistant</span>
+
+        <button id="sotdPickerBtn" class="btn-island btn-island-ghost" title="Curator's Scent of the Day Assistant">
+          <span>Curator SOTD</span>
+          <div class="icon-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
         </button>
-        <button id="addFragranceBtn" class="btn btn-gold" title="Add New Bottle">
-          <span>＋</span>
-          <span>Add Bottle</span>
+
+        <button id="addFragranceBtn" class="btn-island btn-island-primary" title="Add Bottle to Vault">
+          <span>Index Flacon</span>
+          <div class="icon-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
         </button>
-        <button id="exportJsonBtn" class="btn btn-icon" title="Export Inventory JSON">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+
+        <button id="exportJsonBtn" class="btn-icon-square" title="Export Vault JSON" aria-label="Export Vault JSON">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
         </button>
-        <label for="importJsonInput" class="btn btn-icon" title="Import Inventory JSON" style="cursor: pointer; margin: 0;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+
+        <label for="importJsonInput" class="btn-icon-square" title="Import Vault JSON" aria-label="Import Vault JSON" style="cursor: pointer; margin: 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
           <input type="file" id="importJsonInput" accept=".json" style="display: none;">
         </label>
-      </div>
-    </div>
-  </header>
+      </nav>
+    </header>
+  </div>
 
-  <!-- Main App Shell -->
-  <main class="dashboard-container">
+  <!-- Primary Application Viewport -->
+  <main class="dashboard-viewport">
 
-    <!-- Overview Stats & SOTD Banner -->
-    <section class="stats-banner">
-      <div class="stat-card">
-        <div class="stat-label">Total Collection</div>
-        <div class="stat-value" id="statTotalCount">0</div>
-        <div class="stat-meta" id="statTotalVolume">0 ml Total Juice</div>
-      </div>
+    <!-- Curator's SOTD Bento Showcase (Asymmetric Hero Grid) -->
+    <section class="hero-bento-grid" aria-label="Curator Highlights">
+      
+      <!-- SOTD Spotlight Card (Double-Bezel Architecture) -->
+      <article class="bezel-shell sotd-spotlight-shell">
+        <div class="bezel-core sotd-spotlight-core">
+          <div class="sotd-top-strip">
+            <div class="eyebrow-pill">
+              <span class="eyebrow-pill-dot"></span>
+              <span>Curator Recommendation</span>
+            </div>
+            <button id="sotdRefreshBtn" class="reroll-button" title="Reroll recommendation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M23 4v6h-6"/>
+                <path d="M1 20v-6h6"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+              <span>Recalibrate</span>
+            </button>
+          </div>
 
-      <div class="stat-card">
-        <div class="stat-label">Perfume Parlour Clones</div>
-        <div class="stat-value" id="statCloneCount">0</div>
-        <div class="stat-meta">High-Fidelity Duplication</div>
-      </div>
+          <div class="sotd-featured-split">
+            <div class="sotd-flacon-stage">
+              <div class="sotd-pedestal-aura"></div>
+              <img id="sotdImg" class="sotd-bottle-photo" src="assets/bottles/cropped/pp_herb_garden_1598.jpg" alt="Featured Fragrance Flacon">
+            </div>
+            <div class="sotd-narrative">
+              <span class="sotd-clone-marker" id="sotdCloneMeta">Inspired by Layton // Parfums de Marly</span>
+              <h2 class="sotd-fragrance-name" id="sotdTitle">Herb Garden (1598)</h2>
+              <p class="sotd-curator-notes" id="sotdSubtitle">Crisp green apple, lavender, and spicy bourbon vanilla. Ideal for today's atmospheric temperature and versatile daily agenda.</p>
+            </div>
+          </div>
 
-      <div class="stat-card">
-        <div class="stat-label">Top Versatile Signature</div>
-        <div class="stat-value" id="statVersatileName" style="font-size: 1.25rem;">—</div>
-        <div class="stat-meta" id="statVersatileScore">9+ Occasions Supported</div>
-      </div>
-
-      <!-- Live SOTD Recommendation Tile -->
-      <div class="sotd-card" id="sotdCard">
-        <div class="sotd-header">
-          <span class="sotd-badge">Today's Recommendation</span>
-          <button id="sotdRefreshBtn" class="btn-icon" style="padding: 0.3rem;" title="Reroll recommendation">🔄</button>
+          <div class="sotd-action-row">
+            <div class="sotd-blueprint-tag" id="sotdBlueprint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px; color: var(--gold-primary);">
+                <circle cx="12" cy="12" r="9"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <span>Voj Blueprint: 3-4 Sprays (Behind Ears, Back of Neck)</span>
+            </div>
+            <button id="sotdInspectBtn" class="btn-island btn-island-ghost" style="padding: 0.35rem 0.85rem; font-size: 0.74rem;">
+              <span>Inspect Accord Dossier</span>
+            </button>
+          </div>
         </div>
-        <div class="sotd-body">
-          <div class="sotd-name" id="sotdTitle">Loading recommendation...</div>
-          <p class="sotd-reason" id="sotdSubtitle">Matching current weather & season</p>
-        </div>
-        <button id="sotdInspectBtn" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 0.75rem;">
-          View Accord Pyramid
-        </button>
-      </div>
-    </section>
+      </article>
 
-    <!-- Fragrantica-Grade Filter Deck -->
-    <section class="filter-deck">
-      <div class="search-row">
-        <div class="search-input-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" placeholder="Search by name, clone inspiration (e.g. Aventus), PP code, or notes (Bergamot, Amber, Vanilla)...">
-        </div>
-        <select id="sortSelect" class="sort-select">
-          <option value="rating">Rating (Highest First)</option>
-          <option value="name">Fragrance Name (A-Z)</option>
-          <option value="brand">Brand / House</option>
-          <option value="volume">Remaining Volume</option>
-          <option value="clonesFirst">Perfume Parlour Clones First</option>
-        </select>
-      </div>
-
-      <!-- Multi-Dimension Filter Categories -->
-      <div class="filter-groups-grid">
+      <!-- Stacked Metric Pods Column -->
+      <div class="metrics-stack">
         
-        <!-- Occasion / Event Filter -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>Occasion / Event</span>
-            <span id="occasionCount" style="color: var(--text-dim); font-size: 0.68rem;">9 Events</span>
-          </div>
-          <div class="filter-pills" id="occasionPills">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- Season Filter -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>Season</span>
-            <span style="color: var(--text-dim); font-size: 0.68rem;">Climate Profile</span>
-          </div>
-          <div class="filter-pills" id="seasonPills">
-            <!-- Rendered by JS -->
+        <!-- Total Vault Pod -->
+        <div class="bezel-shell metric-pod-shell">
+          <div class="bezel-core metric-pod-core">
+            <div class="metric-pod-header">
+              <span class="metric-title">Archived Flacons</span>
+              <span class="metric-indicator-dot"></span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-number" id="statTotalCount">20</span>
+              <span class="metric-unit">Bottles</span>
+            </div>
+            <p class="metric-footnote" id="statTotalVolume">Calculated volume across entire personal inventory</p>
           </div>
         </div>
 
-        <!-- Time of Day & House -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>Time of Day & Source</span>
-            <span style="color: var(--text-dim); font-size: 0.68rem;">Day / Night</span>
-          </div>
-          <div class="filter-pills" id="timeAndHousePills">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- Accord & CRG Classification -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>Scent Family / CRG</span>
-            <span style="color: var(--text-dim); font-size: 0.68rem;">Fragrance Wheel</span>
-          </div>
-          <div class="filter-pills" id="crgPills">
-            <!-- Rendered by JS -->
+        <!-- Clones & Extrait Pod -->
+        <div class="bezel-shell metric-pod-shell">
+          <div class="bezel-core metric-pod-core">
+            <div class="metric-pod-header">
+              <span class="metric-title">High-Fidelity Clones</span>
+              <span class="metric-indicator-dot" style="background: var(--accent-spring);"></span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-number" id="statCloneCount">14</span>
+              <span class="metric-unit">Perfume Parlour & FA Paris</span>
+            </div>
+            <p class="metric-footnote">Benchmarked against Xerjoff, Kilian, Tom Ford & Marly</p>
           </div>
         </div>
 
-        <!-- Wardrobe Archetype (Voj & Reddit 5-Bottle Framework) -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>Wardrobe Archetype</span>
-            <span style="color: var(--text-dim); font-size: 0.68rem;">5-Bottle System</span>
-          </div>
-          <div class="filter-pills" id="archetypePills">
-            <!-- Rendered by JS -->
+        <!-- Signature Versatility Pod -->
+        <div class="bezel-shell metric-pod-shell">
+          <div class="bezel-core metric-pod-core">
+            <div class="metric-pod-header">
+              <span class="metric-title">Most Versatile Signature</span>
+              <span class="metric-indicator-dot" style="background: var(--accent-winter);"></span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-number" id="statVersatileName" style="font-size: 1.35rem; font-family: var(--font-display);">Herb Garden</span>
+            </div>
+            <p class="metric-footnote" id="statVersatileScore">Active across 8 distinct lifestyle scenarios including Running & Walking</p>
           </div>
         </div>
 
-      </div>
-
-      <!-- Active Filters Bar -->
-      <div class="active-filters-bar" id="activeFiltersBar" style="display: none;">
-        <div class="active-tags-list" id="activeTagsList"></div>
-        <button id="clearFiltersBtn" class="clear-filters-btn">Clear All Filters</button>
       </div>
     </section>
 
-    <!-- Fragrance Results Grid -->
-    <section>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h2 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700;">
-          Curated Inventory (<span id="resultsCount">0</span>)
-        </h2>
-        <span style="font-size: 0.75rem; color: var(--text-dim);">Click any card for full Fragrantica pyramid & notes</span>
+    <!-- Multi-Dimension Filter Deck (Dynamic Hardware Island) -->
+    <section class="bezel-shell filter-deck-shell" aria-label="Vault Filter Deck">
+      <div class="bezel-core filter-deck-core">
+        
+        <!-- Search & Sorter Row -->
+        <div class="filter-top-bar">
+          <div class="search-field-wrapper">
+            <svg class="search-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, clone inspiration (e.g. Layton, Lost Cherry), code (#1598), or note...">
+            <span class="search-kbd-badge">ESC to clear</span>
+          </div>
+
+          <div class="sort-select-wrapper">
+            <select id="sortSelect" class="sort-select" aria-label="Sort Flacons">
+              <option value="rating">Rating (Highest Caliber)</option>
+              <option value="name">Flacon Name (A–Z)</option>
+              <option value="brand">Maison / House</option>
+              <option value="volume">Remaining Volume</option>
+              <option value="clonesFirst">Clones Prioritized</option>
+            </select>
+            <svg class="sort-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Filter Dimension Rows -->
+        <div class="filter-sections-grid">
+          
+          <!-- Occasion / Scenario (Includes Running & Walking) -->
+          <div class="filter-category-row">
+            <div class="filter-category-label">
+              <span>Lifestyle Occasions & Scenarios</span>
+              <span id="occasionCount" style="color: var(--gold-primary);">11 Dimensions</span>
+            </div>
+            <div class="filter-pills-flow" id="occasionPills">
+              <!-- Rendered by JS: Running, Walking, Gym, Office / Work, Dates, Wedding, etc. -->
+            </div>
+          </div>
+
+          <!-- Wardrobe Archetypes (5-Bottle Wardrobe) -->
+          <div class="filter-category-row">
+            <div class="filter-category-label">
+              <span>5-Bottle Wardrobe Archetypes</span>
+              <span>Essential Lanes</span>
+            </div>
+            <div class="filter-pills-flow" id="archetypePills">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Seasonal Atmospheric Fit -->
+          <div class="filter-category-row">
+            <div class="filter-category-label">
+              <span>Atmospheric Seasonality</span>
+              <span>Molecular Vaporization</span>
+            </div>
+            <div class="filter-pills-flow" id="seasonPills">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Time of Day & Diurnal Cycle -->
+          <div class="filter-category-row">
+            <div class="filter-category-label">
+              <span>Diurnal Rhythm</span>
+              <span>Photoperiod</span>
+            </div>
+            <div class="filter-pills-flow" id="timeOfDayPills">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Olfactory Houses / Brands -->
+          <div class="filter-category-row">
+            <div class="filter-category-label">
+              <span>Perfumer Houses</span>
+              <span>Maisons</span>
+            </div>
+            <div class="filter-pills-flow" id="housePills">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Active Filter Indicator & Reset -->
+        <div class="active-filters-summary">
+          <span id="filterSummaryText">Displaying full collection</span>
+          <button id="clearFiltersBtn" class="clear-all-link">Reset All Filters</button>
+        </div>
+
       </div>
-      <div class="fragrance-grid" id="fragranceGrid">
-        <!-- Rendered dynamically by JS -->
+    </section>
+
+    <!-- Museum Exhibition Flacons Grid -->
+    <section class="flacons-gallery-section" aria-label="Archived Fragrance Flacons">
+      <div class="flacons-section-header">
+        <h2 class="section-headline">VAULT FLACONS</h2>
+        <span class="section-counter"><span id="resultsCount">20</span> OF 20 AVAILABLE</span>
+      </div>
+
+      <div class="fragrance-cards-grid" id="fragranceGrid">
+        <!-- Flacon cards rendered dynamically by js/app.js -->
       </div>
     </section>
 
   </main>
 
-  <!-- Deep Dive Fragrantica Detail Modal -->
-  <div class="modal-overlay" id="detailModal">
-    <div class="modal-content">
-      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
-      
-      <div class="modal-hero">
-        <div class="modal-bottle-container">
-          <div class="modal-bottle-frame">
-            <img id="modalBottleImg" src="assets/bottles/pp-extrait-gold.svg" alt="Fragrance Bottle">
+  <!-- Deep Inspection Dossier Modal -->
+  <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bezel-shell modal-dossier-shell">
+      <div class="bezel-core modal-dossier-core">
+        <div class="dossier-header-bar">
+          <div>
+            <span class="brand-eyebrow" id="modalConcentration">EAU DE PARFUM</span>
+            <h2 class="dossier-title" id="modalTitle">Flacon Dossier</h2>
           </div>
-          <label class="upload-photo-btn">
-            📷 Change Bottle Photo
-            <input type="file" id="modalPhotoInput" accept="image/*" style="display: none;">
-          </label>
+          <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Dossier">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
         </div>
 
-        <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-            <span id="modalBrandBadge" class="badge-pp">PERFUME PARLOUR</span>
-            <span id="modalConcentrationBadge" class="badge-pp" style="background: rgba(255,255,255,0.06); border-color: var(--border-subtle); color: #fff;">EXTRAIT</span>
-            <span id="modalRatingBadge" class="badge-rating">⭐ 4.8</span>
-          </div>
-
-          <h2 id="modalTitle" style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: #fff; line-height: 1.2;">
-            Avalanche (Extrait)
-          </h2>
-
-          <div id="modalCloneBox" class="card-clone-banner" style="font-size: 0.85rem; padding: 0.6rem 0.8rem;">
-            Inspired by <strong>Creed Aventus</strong> &bull; 94% Match &bull; PP Ref: <span id="modalPpCode">0022</span>
-          </div>
-
-          <p id="modalDescription" style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.6;">
-            The crown jewel of masculine fresh signatures...
-          </p>
-
-          <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; font-size: 0.78rem; border-top: 1px solid var(--border-subtle); padding-top: 0.75rem;">
-            <div>
-              <div style="color: var(--text-dim); text-transform: uppercase; font-size: 0.68rem; font-weight: 700;">Longevity</div>
-              <div id="modalLongevity" style="color: #fff; font-weight: 600;">Long Lasting (8-10h)</div>
-            </div>
-            <div>
-              <div style="color: var(--text-dim); text-transform: uppercase; font-size: 0.68rem; font-weight: 700;">Sillage</div>
-              <div id="modalSillage" style="color: #fff; font-weight: 600;">Strong</div>
-            </div>
-            <div>
-              <div style="color: var(--text-dim); text-transform: uppercase; font-size: 0.68rem; font-weight: 700;">Bottle Volume</div>
-              <div id="modalVolume" style="color: var(--gold-light); font-weight: 600;">46 / 50 ml Remaining</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detailed Fragrantica Notes Pyramid & Accords Breakdown -->
-      <div class="modal-deep-details">
-        
-        <!-- Left: Accords Breakdown & Seasonal Voting -->
-        <div>
-          <h3 class="detail-block-title">
-            <span>📊</span>
-            <span>Main Accords (Fragrantica Bar Chart)</span>
-          </h3>
-          <div id="modalAccordsList" class="accords-preview" style="gap: 0.6rem; margin-bottom: 1.5rem;">
-            <!-- Rendered by JS -->
-          </div>
-
-          <h3 class="detail-block-title" style="margin-top: 1.5rem;">
-            <span>⛅</span>
-            <span>Seasonal Affinity</span>
-          </h3>
-          <div id="modalSeasonsList">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- Right: Note Pyramid & Ideal Occasions -->
-        <div>
-          <h3 class="detail-block-title">
-            <span>🔺</span>
-            <span>Fragrance Note Pyramid</span>
-          </h3>
+        <div class="dossier-content-grid">
           
-          <div class="pyramid-section">
-            <!-- Top Notes -->
-            <div class="pyramid-tier">
-              <div class="pyramid-tier-header">
-                <span>🍋</span>
-                <span>Top Notes (Opening &bull; First 30 Mins)</span>
+          <!-- Left Column: High-Res Flacon Display & Specs -->
+          <div class="dossier-visual-panel">
+            <div class="dossier-flacon-stage">
+              <img id="modalBottleImg" class="dossier-bottle-image" src="" alt="Flacon Bottle Preview">
+            </div>
+
+            <!-- Upload Real Bottle Photo Tool -->
+            <label for="modalPhotoInput" class="btn-island btn-island-ghost" style="width: 100%; justify-content: center; cursor: pointer; font-size: 0.74rem;">
+              <span>Update Shelf Photo</span>
+              <input type="file" id="modalPhotoInput" accept="image/*" style="display: none;">
+            </label>
+
+            <!-- Technical Specifications Table -->
+            <div class="dossier-specs-table">
+              <div class="spec-entry">
+                <span class="spec-entry-label">Maison</span>
+                <span class="spec-entry-val" id="modalBrand">—</span>
               </div>
-              <div class="notes-badges-list" id="modalTopNotes"></div>
-            </div>
-
-            <!-- Heart Notes -->
-            <div class="pyramid-tier">
-              <div class="pyramid-tier-header">
-                <span>🌸</span>
-                <span>Heart Notes (Core Identity &bull; 1-4 Hours)</span>
+              <div class="spec-entry">
+                <span class="spec-entry-label">Clone Origin</span>
+                <span class="spec-entry-val" id="modalCloneOrigin">—</span>
               </div>
-              <div class="notes-badges-list" id="modalHeartNotes"></div>
-            </div>
-
-            <!-- Base Notes -->
-            <div class="pyramid-tier">
-              <div class="pyramid-tier-header">
-                <span>🪵</span>
-                <span>Base Notes (Drydown &bull; 4+ Hours)</span>
+              <div class="spec-entry">
+                <span class="spec-entry-label">Similarity Rating</span>
+                <span class="spec-entry-val" id="modalSimilarity">—</span>
               </div>
-              <div class="notes-badges-list" id="modalBaseNotes"></div>
+              <div class="spec-entry">
+                <span class="spec-entry-label">Remaining Juice</span>
+                <span class="spec-entry-val" id="modalVolume">—</span>
+              </div>
+              <div class="spec-entry">
+                <span class="spec-entry-label">CRG Family</span>
+                <span class="spec-entry-val" id="modalCrg">—</span>
+              </div>
+              <div class="spec-entry">
+                <span class="spec-entry-label">Longevity / Sillage</span>
+                <span class="spec-entry-val" id="modalPerformance">—</span>
+              </div>
             </div>
           </div>
 
-          <h3 class="detail-block-title" style="margin-top: 1.5rem;">
-            <span>🎯</span>
-            <span>Best Suited Occasions</span>
-          </h3>
-          <div id="modalOccasionsList" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
-            <!-- Rendered by JS -->
-          </div>
+          <!-- Right Column: Accord Pyramid, Voj Blueprint & Reddit Maceration -->
+          <div class="dossier-main-data">
+            
+            <!-- Description -->
+            <div>
+              <div class="dossier-section-heading">
+                <span>Olfactory Description</span>
+              </div>
+              <p id="modalDescription" style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;"></p>
+            </div>
 
-          <!-- Voj Spray Blueprint & Anti-Noseblind Guide -->
-          <div class="pro-insight-box">
-            <div class="pro-insight-header">
-              <span>🎯</span>
-              <span>Optimal Spray Count & Zone Blueprint (Voj Guide)</span>
+            <!-- Fragrantica Main Accords -->
+            <div>
+              <div class="dossier-section-heading">
+                <span>Fragrantica Main Accords</span>
+              </div>
+              <div id="modalAccordsList" style="display: flex; flex-direction: column; gap: 0.45rem;">
+                <!-- Rendered dynamically -->
+              </div>
             </div>
-            <div style="font-size: 0.8rem; font-weight: 600; color: #fff;" id="modalSprayCount">
-              3-4 Sprays
-            </div>
-            <div class="spray-zones-list" id="modalSprayZones">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
 
-          <!-- Reddit Maceration & Maturation Tracker -->
-          <div class="pro-insight-box" style="margin-top: 0.75rem;">
-            <div class="pro-insight-header">
-              <span>⏳</span>
-              <span>Maturation Status & Maceration Advice (Reddit r/fragrance)</span>
+            <!-- 3-Tier Notes Pyramid -->
+            <div>
+              <div class="dossier-section-heading">
+                <span>Notes Pyramid (Top, Heart, Base)</span>
+              </div>
+              <div class="pyramid-container">
+                <div class="pyramid-tier">
+                  <span class="tier-label">Top Notes (0–30 mins)</span>
+                  <div class="notes-capsules-row" id="modalTopNotes"></div>
+                </div>
+                <div class="pyramid-tier">
+                  <span class="tier-label">Heart Notes (30 mins – 4 hrs)</span>
+                  <div class="notes-capsules-row" id="modalHeartNotes"></div>
+                </div>
+                <div class="pyramid-tier">
+                  <span class="tier-label">Base Notes (4 hrs+)</span>
+                  <div class="notes-capsules-row" id="modalBaseNotes"></div>
+                </div>
+              </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
-              <span class="maceration-badge" id="modalMacerationBadge">Matured & Settled</span>
-              <span style="font-size: 0.72rem; color: var(--text-dim);" id="modalMaturationWeeks">6 Weeks Rested</span>
-            </div>
-            <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.5;" id="modalMacerationTips">
-              Reddit consensus: Benefits from oxygenation rest...
-            </p>
-          </div>
 
-          <!-- Perfume Parlour Layering Strategy -->
-          <div class="pro-insight-box" style="margin-top: 0.75rem;">
-            <div class="pro-insight-header">
-              <span>🧪</span>
-              <span>Oil + Spray Layering Secret</span>
+            <!-- Voj Spray Blueprint -->
+            <div class="voj-blueprint-pod">
+              <div class="dossier-section-heading" style="margin-bottom: 0.25rem;">
+                <span>Voj Anti-Noseblind Spray Blueprint</span>
+              </div>
+              <div id="modalSpraysCount" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary);">3-4 Sprays Recommended</div>
+              <div class="blueprint-points-list" id="modalSprayBlueprint">
+                <!-- Spray Points -->
+              </div>
             </div>
-            <p style="font-size: 0.76rem; color: var(--gold-light); line-height: 1.5;" id="modalLayeringTips">
-              Pair with matching perfume oil on pulse points for 14h+ endurance.
-            </p>
+
+            <!-- Reddit Clone Maturation & Maceration -->
+            <div class="maceration-tracker-pod">
+              <div class="dossier-section-heading" style="margin-bottom: 0.25rem;">
+                <span>Reddit Maturation Status & Tips</span>
+              </div>
+              <div id="modalMacerationStatus" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-spring); margin-bottom: 0.4rem;">Fully Matured</div>
+              <p id="modalMacerationTips" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;"></p>
+              <div id="modalLayeringPartner" style="margin-top: 0.6rem; font-size: 0.8rem; color: var(--gold-light); font-family: var(--font-mono);"></div>
+            </div>
+
           </div>
 
         </div>
-
       </div>
     </div>
   </div>
 
-  <!-- Pro Tips & Field Guide Modal (Voj YouTube & Reddit Curation) -->
-  <div class="modal-overlay" id="proTipsModal">
-    <div class="modal-content" style="max-width: 950px; padding: 2rem;">
-      <button class="modal-close-btn" id="proTipsCloseBtn">&times;</button>
-      
-      <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
-        <span class="badge-pp" style="margin-bottom: 0.5rem; display: inline-block;">COLLECTOR MASTERCLASS</span>
-        <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: #fff;">
-          The Fragrance Blueprint & Community Wisdom
-        </h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">
-          Key principles compiled from Voj's YouTube guides and the Reddit fragrance clone community (r/fragrance, r/fragranceclones, r/PerfumeParlour).
-        </p>
-      </div>
-
-      <div class="tips-grid">
+  <!-- Executive Masterclass & Pro Tips Modal -->
+  <div class="modal-overlay" id="proTipsModal" role="dialog" aria-modal="true" aria-labelledby="proTipsModalTitle">
+    <div class="bezel-shell modal-dossier-shell" style="max-width: 880px;">
+      <div class="bezel-core modal-dossier-core">
         
-        <!-- Tip 1: The Anti-Noseblind Spray Blueprint -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>👃</span>
-            <span>Stop Spraying Your Chest (Nose Blindness)</span>
-            <span class="tip-source-tag">Voj Guide</span>
+        <div class="dossier-header-bar">
+          <div>
+            <span class="brand-eyebrow">Executive Masterclass</span>
+            <h2 class="dossier-title" id="proTipsModalTitle">Curator Field Guide & Protocols</h2>
           </div>
-          <div class="tip-body">
-            Spraying directly on your neck or chest directly below your nose causes your olfactory receptors to shut down in under 30 minutes. You'll think the fragrance has vanished while people 10 feet away are choking on it.
+          <button class="modal-close-btn" id="proTipsCloseBtn" aria-label="Close Field Guide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tips-tabs-nav">
+          <button class="tab-btn active" data-tab="sprayTab">Spray Architecture</button>
+          <button class="tab-btn" data-tab="concentrationTab">Concentration Spectrum</button>
+          <button class="tab-btn" data-tab="lanesTab">Voj 3 Fall Lanes</button>
+          <button class="tab-btn" data-tab="macerationTab">Reddit Maturation</button>
+          <button class="tab-btn" data-tab="layeringTab">Arabian Layering</button>
+        </div>
+
+        <!-- Tab 1: Voj Spray Blueprint -->
+        <div class="tab-pane active" id="sprayTab">
+          <div class="tip-card">
+            <h3 class="tip-title">The Anti-Noseblind Architecture</h3>
+            <p class="tip-body">Spraying directly onto the front of your chest or throat causes continuous rising vapor to overwhelm your olfactory receptors, triggering olfactory fatigue (anosmia) within 15–20 minutes. You will mistakenly assume the fragrance has vanished while projecting a heavy cloud onto everyone else.</p>
+            <p class="tip-body"><strong>Optimal Zone Blueprint:</strong> Apply exclusively behind each earlobe and across the back of the neck/hairline. As you move, this creates a trailing sillage wake behind you without bombarding your own nose.</p>
           </div>
-          <div class="tip-highlight">
-            <strong>The Fix:</strong> Spray behind each ear and across the back of your hairline. The scent will project outward as you walk, creating a hypnotic sillage cloud without fatiguing your senses.
+          <div class="tip-card">
+            <h3 class="tip-title">Molecular Evaporation Physics</h3>
+            <p class="tip-body">Skin heat expands aromatic molecules, accelerating evaporation and projection. During intense activity such as <em>Running</em> or <em>Gym</em> sessions, heart rate amplifies diffusion by 200%. Stick to light airy aromatics (e.g. Citrus Particle, Intenso Water) with 3 sprays max.</p>
           </div>
         </div>
 
-        <!-- Tip 2: Voj's 3 Fall Lanes -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>🍂</span>
-            <span>The 3 Fall Fragrance Lanes</span>
-            <span class="tip-source-tag">Voj Guide</span>
-          </div>
-          <div class="tip-body">
-            Autumn demands a deliberate wardrobe transition as temperatures drop:
-            <ul style="padding-left: 1.2rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.25rem;">
-              <li><strong>Lane 1 (Spicy Gourmand):</strong> Cinnamon, vanilla, praline, dates (e.g. Khamrah, Angels' Share).</li>
-              <li><strong>Lane 2 (Dry Woody Amber):</strong> Cedar, sandalwood, dry resins.</li>
-              <li><strong>Lane 3 (Leather / Boozy):</strong> Tuscan Leather, rum, smoky birch.</li>
-            </ul>
-          </div>
-          <div class="tip-highlight">
-            <strong>Early vs Late Fall:</strong> Start with fresh spices in September/October; transition to dense gourmands & leathers as frost arrives.
+        <!-- Tab 2: Concentration Hierarchy -->
+        <div class="tab-pane" id="concentrationTab">
+          <div class="tip-card">
+            <h3 class="tip-title">The Concentration Spectrum</h3>
+            <p class="tip-body"><strong>Eau de Toilette (EDT, 5–15% Oil):</strong> High alcohol carrier ratio. Sharp, expansive initial projection; dissipates in 4–6 hours. Excellent for workouts and casual strolls.</p>
+            <p class="tip-body"><strong>Eau de Parfum (EDP, 15–20% Oil):</strong> Perfect golden mean. Strong 8–10 hour longevity with balanced sillage radius. Dominates versatile signatures like Herb Garden and Navy Intense.</p>
+            <p class="tip-body"><strong>Extrait de Parfum (20–40% Oil):</strong> Extremely dense, resinous concentration (e.g. After Effect). Hugs the skin initially, leaving an opulent, narcotic scent trail for 12+ hours.</p>
+            <p class="tip-body"><strong>Pure Perfume Oil (100% Oil):</strong> Zero alcohol carrier. Intimate scent bubble, zero alcohol blast, unmatched longevity. The foundation for Middle Eastern layering.</p>
           </div>
         </div>
 
-        <!-- Tip 3: Reddit Maceration & Maturation -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>⏳</span>
-            <span>Clone Maceration Protocol</span>
-            <span class="tip-source-tag">Reddit Wisdom</span>
+        <!-- Tab 3: Voj 3 Fall Lanes -->
+        <div class="tab-pane" id="lanesTab">
+          <div class="tip-card">
+            <h3 class="tip-title">Lane 1: Sweet Spicy Gourmand</h3>
+            <p class="tip-body">Tobacco, bourbon vanilla, cinnamon, and golden honey. Built for cool autumn evenings and intimate date nights. Champions in your vault: <em>Leaf Flavour (Tobacco Vanille)</em>, <em>Voux Elegante (Naxos)</em>, <em>Noir Extreme</em>.</p>
           </div>
-          <div class="tip-body">
-            Perfume Parlour and Middle Eastern clones are frequently blended on-demand. When your package arrives, give the bottle <strong>5 to 10 sprays</strong> to introduce an air pocket, then let it rest in a cool, dark drawer for <strong>2 to 6 weeks</strong>.
+          <div class="tip-card">
+            <h3 class="tip-title">Lane 2: Dry Woody Amber</h3>
+            <p class="tip-body">Smoky cedar, mineral amber, and crisp spices. Professional, sophisticated, and commanding in boardroom or autumn strolls. Champions: <em>Wood Miracle (Cedrat Boise)</em>, <em>Mahogany Woods</em>.</p>
           </div>
-          <div class="tip-highlight">
-            <strong>Never Use Domestic Fridges:</strong> Extreme cold and humidity can kill volatile top citrus molecules and destabilize aroma compounds.
-          </div>
-        </div>
-
-        <!-- Tip 4: Testing on Skin vs Paper -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>🧪</span>
-            <span>Skin Chemistry vs Paper Strips</span>
-            <span class="tip-source-tag">Voj Guide</span>
-          </div>
-          <div class="tip-body">
-            Paper blotters only show top notes (alcohol-heavy in first 15 mins). Your body heat, skin oils, and sebum interact directly with base notes like birch, oakmoss, vanilla, and ambergris over 6 to 10 hours.
-          </div>
-          <div class="tip-highlight">
-            <strong>Golden Rule:</strong> Never purchase or dismiss a fragrance based on a 5-minute paper strip test. Test on skin and evaluate at hour 2 and hour 6.
+          <div class="tip-card">
+            <h3 class="tip-title">Lane 3: Leather & Boozy Decadence</h3>
+            <p class="tip-body">Dark rum, aged cognac, roasted coffee, bitter cacao, and black leather. Deep, dark statement signatures: <em>After Effect (Side Effect)</em>, <em>Noire Illusion (Black Phantom)</em>.</p>
           </div>
         </div>
 
-        <!-- Tip 5: Perfume Parlour Oil + Spray Layering -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>👑</span>
-            <span>The Arabian Oil + Spray Technique</span>
-            <span class="tip-source-tag">PP Reddit Tip</span>
-          </div>
-          <div class="tip-body">
-            Perfume oils have zero alcohol evaporation, anchoring deep into the epidermis for 12+ hours with intimate sillage. Extrait sprays have alcohol volatility, providing expansive projection.
-          </div>
-          <div class="tip-highlight">
-            <strong>The Technique:</strong> Roll the perfume oil on pulse points (wrists, base of neck), then mist the matching Extrait spray over your clothes and hair.
+        <!-- Tab 4: Reddit Clone Maturation -->
+        <div class="tab-pane" id="macerationTab">
+          <div class="tip-card">
+            <h3 class="tip-title">The Reddit 5-Spray Oxygenation Protocol</h3>
+            <p class="tip-body">Freshly compounded clones from houses like Perfume Parlour often need time to settle. Spray 5 to 10 sprays upon receipt to introduce oxygen into the headspace of the bottle. Store in a cool, dark drawer at stable room temperature for 2 to 6 weeks. <em>Never refrigerate</em> — cold suppresses molecular bonding and causes separation.</p>
           </div>
         </div>
 
-        <!-- Tip 6: The 5-Bottle Capsule Wardrobe -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>🏛️</span>
-            <span>The Essential 5-Bottle Framework</span>
-            <span class="tip-source-tag">Curator Strategy</span>
-          </div>
-          <div class="tip-body">
-            You don't need 100 bottles. A complete gentleman's wardrobe requires only 5 archetypes:
-            <ol style="padding-left: 1.2rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.25rem;">
-              <li><strong>Everyday Signature:</strong> Versatile office freshie.</li>
-              <li><strong>Gym / High Heat:</strong> Sparkling citrus or ocean aquatic.</li>
-              <li><strong>Date Night Seduction:</strong> Warm, intimate vanilla or boozy amber.</li>
-              <li><strong>Cold Weather Beast:</strong> Nuclear leather or spicy gourmand.</li>
-              <li><strong>Formal / Wedding:</strong> Noble iris, neroli, or refined floral wood.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Tip 7: The Concentration Spectrum (Mega Guide) -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>💧</span>
-            <span>The Concentration Hierarchy</span>
-            <span class="tip-source-tag">Voj Mega Guide</span>
-          </div>
-          <div class="tip-body">
-            Understanding the oil-to-alcohol ratio transforms how you spray:
-            <ul style="padding-left: 1.2rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.25rem;">
-              <li><strong>EDT (5-15% Oil):</strong> High alcohol volatility = loud initial projection, 3-5h longevity.</li>
-              <li><strong>EDP (15-20% Oil):</strong> Balanced standard, 6-8h longevity.</li>
-              <li><strong>Extrait (20-40% Oil):</strong> Sits closer to skin initially, dense sillage trail, 10-14h+ endurance.</li>
-              <li><strong>Perfume Oil (100% Oil):</strong> Zero alcohol evaporation, intimate bubble, 14h+ on skin.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Tip 8: Molecular Evaporation Physics -->
-        <div class="tip-card">
-          <div class="tip-card-header">
-            <span>🌡️</span>
-            <span>Heat Amplification & Cold Physics</span>
-            <span class="tip-source-tag">Voj Mega Guide</span>
-          </div>
-          <div class="tip-body">
-            Heat expands and accelerates aromatic molecules. A fragrance that feels warm and cozy in 5°C winter will turn suffocatingly sweet and nauseating in 28°C summer heat.
-          </div>
-          <div class="tip-highlight">
-            <strong>The Winter Rule:</strong> Cold air compresses light citrus and fresh mint molecules so they barely project. Reach for heavy resins, smoky birch, vanilla, and spices to cut through freezing air.
+        <!-- Tab 5: Arabian Layering -->
+        <div class="tab-pane" id="layeringTab">
+          <div class="tip-card">
+            <h3 class="tip-title">The Arabian Double-Action Technique</h3>
+            <p class="tip-body">Apply a small dab of concentrated perfume oil or Iso E Super / Ambroxan primer onto pulse points (wrists, base of throat), then mist an Eau de Parfum or Extrait spray over your clothes and hair. The oil locks to the skin creating intimate heat, while the alcohol spray projects through the air.</p>
           </div>
         </div>
 
       </div>
     </div>
   </div>
-
 
   <!-- Add Bottle Modal -->
-  <div class="modal-overlay" id="addBottleModal">
-    <div class="modal-content" style="max-width: 650px; padding: 2rem;">
-      <button class="modal-close-btn" id="addModalCloseBtn">&times;</button>
-      <h2 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.25rem;">Add New Bottle to Vault</h2>
-      
-      <form id="addFragranceForm" style="display: flex; flex-direction: column; gap: 1rem;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Fragrance Name</label>
-            <input type="text" id="addName" required style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-          </div>
-          <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Brand / House</label>
-            <input type="text" id="addBrand" value="Perfume Parlour" required style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-          </div>
+  <div class="modal-overlay" id="addBottleModal" role="dialog" aria-modal="true" aria-labelledby="addBottleTitle">
+    <div class="bezel-shell modal-dossier-shell" style="max-width: 600px;">
+      <div class="bezel-core modal-dossier-core" style="padding: 2rem;">
+        <div class="dossier-header-bar" style="position: static; padding: 0 0 1.25rem 0;">
+          <h2 class="dossier-title" id="addBottleTitle">Index New Flacon</h2>
+          <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Add Modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+        <form id="addFragranceForm" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
           <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">PP Code (e.g. 0022)</label>
-            <input type="text" id="addPpCode" placeholder="0022" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
+            <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Flacon Name</label>
+            <input type="text" id="newName" class="search-input" required placeholder="e.g. Citrus Particle (0616)" style="margin-top: 0.35rem;">
           </div>
           <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Concentration</label>
-            <select id="addConcentration" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-              <option value="Extrait de Parfum">Extrait de Parfum</option>
-              <option value="Eau de Parfum">Eau de Parfum</option>
-              <option value="Perfume Oil">Perfume Oil</option>
-              <option value="Eau de Toilette">Eau de Toilette</option>
-            </select>
+            <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Maison / Brand</label>
+            <input type="text" id="newBrand" class="search-input" required placeholder="e.g. Perfume Parlour" style="margin-top: 0.35rem;">
           </div>
           <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Bottle Size (ml)</label>
-            <input type="number" id="addSize" value="50" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
+            <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Clone Inspiration (Optional)</label>
+            <input type="text" id="newCloneOf" class="search-input" placeholder="e.g. Molecule 01 + Mandarin" style="margin-top: 0.35rem;">
           </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Clone Of (Original Perfume)</label>
-            <input type="text" id="addCloneOriginal" placeholder="e.g. Creed Aventus" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Size (ml)</label>
+              <input type="number" id="newSize" class="search-input" required value="30" style="margin-top: 0.35rem;">
+            </div>
+            <div>
+              <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Remaining (ml)</label>
+              <input type="number" id="newRemaining" class="search-input" required value="28" style="margin-top: 0.35rem;">
+            </div>
           </div>
-          <div>
-            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Original House</label>
-            <input type="text" id="addCloneHouse" placeholder="e.g. Creed" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
+          <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem;">
+            <button type="button" id="cancelAddBtn" class="btn-island btn-island-ghost">Cancel</button>
+            <button type="submit" class="btn-island btn-island-primary">Save to Vault</button>
           </div>
-        </div>
-
-        <div>
-          <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Occasions (Comma Separated)</label>
-          <input type="text" id="addOccasions" value="Office / Work, Dates, City Centre, Wedding" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-        </div>
-
-        <div>
-          <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Main Accords (Comma Separated)</label>
-          <input type="text" id="addAccords" value="Citrus, Woody, Amber, Warm Spicy" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-        </div>
-
-        <div>
-          <label style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Bottle Photo (Take picture / Select file)</label>
-          <input type="file" id="addPhotoInput" accept="image/*" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 0.5rem; color: #fff;">
-        </div>
-
-        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem;">
-          <button type="button" id="cancelAddBtn" class="btn btn-secondary">Cancel</button>
-          <button type="submit" class="btn btn-gold">Save to Vault</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 
-  <!-- Mandatory Footer with GitHub link to passportpowell.com/card -->
+  <!-- Mandatory Footer with GitHub Icon pointing to Passport Powell -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 The Fragrance Atelier &bull; Curated Scent Analytics & Vault
+      <div>
+        <div class="footer-brand">ATELIER PARFUM ARCHIVE</div>
+        <div class="footer-sub">ENGINEERED FOR PRIVATE OLFACTORY COLLECTION // PASSPORT POWELL</div>
       </div>
-
-      <div class="footer-links">
-        <!-- MANDATORY GITHUB ICON LINK TO PASSPORTPOWELL.COM/CARD -->
-        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="github-profile-link" title="Passport Powell on GitHub">
-          <svg class="github-icon-svg" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      <div>
+        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-github-link" title="Passport Powell Card" aria-label="Passport Powell Card">
+          <!-- Mandatory GitHub Icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
           </svg>
-          <span>Passport Powell</span>
+          <span>Passport Powell Card</span>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Core App Scripts -->
+  <!-- Scripts -->
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>

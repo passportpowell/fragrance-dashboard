@@ -92,7 +92,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Can be layered over PP Particle (ISO E-Super) for an all-day boardroom presence.",
     seasons: { spring: 35, summer: 35, autumn: 20, winter: 10 },
     timeOfDay: { day: 70, night: 30 },
-    occasions: ["Office / Work", "City Centre", "Malls", "Dates", "Wedding", "Casual"],
+    occasions: ["Office / Work", "City Centre", "Malls", "Dates", "Wedding", "Casual", "Walking"],
     longevity: "Long Lasting (8h+)",
     sillage: "Moderate",
     mainAccords: [
@@ -389,7 +389,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Layer over Particle (ISO E-Super) for all-day sillage trail.",
     seasons: { spring: 35, summer: 35, autumn: 25, winter: 5 },
     timeOfDay: { day: 75, night: 25 },
-    occasions: ["Office / Work", "City Centre", "Malls", "Dates", "Casual"],
+    occasions: ["Office / Work", "City Centre", "Malls", "Dates", "Casual", "Walking"],
     longevity: "Long Lasting (8h+)",
     sillage: "Moderate",
     mainAccords: [
@@ -452,7 +452,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "The Holy Grail Layering Tool: Spray under ANY cologne in your vault to double its projection and longevity.",
     seasons: { spring: 25, summer: 25, autumn: 25, winter: 25 },
     timeOfDay: { day: 50, night: 50 },
-    occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Dates", "Casual"],
+    occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Dates", "Casual", "Running", "Walking"],
     longevity: "Eternal (12h+)",
     sillage: "Moderate",
     mainAccords: [
@@ -504,7 +504,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Layers phenomenally with warm vanilla or tobacco scents to inject a burst of natural citrus top notes.",
     seasons: { spring: 35, summer: 50, autumn: 15, winter: 0 },
     timeOfDay: { day: 85, night: 15 },
-    occasions: ["Gym", "Parks", "Office / Work", "City Centre", "Malls", "Casual"],
+    occasions: ["Gym", "Parks", "Office / Work", "City Centre", "Malls", "Casual", "Running", "Walking"],
     longevity: "Moderate (6-7h)",
     sillage: "Moderate",
     mainAccords: [
@@ -560,7 +560,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Pairs with PP Particle for extended sea-breeze projection.",
     seasons: { spring: 30, summer: 55, autumn: 15, winter: 0 },
     timeOfDay: { day: 85, night: 15 },
-    occasions: ["Gym", "Parks", "City Centre", "Malls", "Casual"],
+    occasions: ["Gym", "Parks", "City Centre", "Malls", "Casual", "Running", "Walking"],
     longevity: "Moderate (6-7h)",
     sillage: "Moderate",
     mainAccords: [
@@ -621,7 +621,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Layers masterfully with woody scents.",
     seasons: { spring: 35, summer: 35, autumn: 25, winter: 5 },
     timeOfDay: { day: 60, night: 40 },
-    occasions: ["Office / Work", "Dates", "City Centre", "Wedding", "Casual"],
+    occasions: ["Office / Work", "Dates", "City Centre", "Wedding", "Casual", "Walking"],
     longevity: "Long Lasting (8h+)",
     sillage: "Strong",
     mainAccords: [
@@ -787,7 +787,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Layers sensationally under warm vanilla and amber scents.",
     seasons: { spring: 10, summer: 0, autumn: 45, winter: 45 },
     timeOfDay: { day: 30, night: 70 },
-    occasions: ["Parks", "Malls", "City Centre", "Casual"],
+    occasions: ["Parks", "Malls", "City Centre", "Casual", "Walking"],
     longevity: "Long Lasting (8h+ on fabric)",
     sillage: "Strong",
     mainAccords: [
@@ -898,7 +898,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "Pairs with PP Particle (1365) (Iso E Super) for enormous woody projection in cool weather.",
     seasons: { spring: 25, summer: 10, autumn: 40, winter: 25 },
     timeOfDay: { day: 45, night: 55 },
-    occasions: ["Office / Work", "Dates", "City Centre", "Malls", "Casual", "Wedding"],
+    occasions: ["Office / Work", "Dates", "City Centre", "Malls", "Casual", "Wedding", "Walking"],
     longevity: "Long Lasting (8-10h)",
     sillage: "Strong",
     mainAccords: [
@@ -1143,7 +1143,7 @@ const FRAGRANCE_DATABASE = [
     layeringPartner: "The absolute king of layering! Spray 2 sprays on base of neck before any other fragrance to 2x its projection.",
     seasons: { spring: 30, summer: 35, autumn: 20, winter: 15 },
     timeOfDay: { day: 70, night: 30 },
-    occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Casual"],
+    occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Casual", "Running", "Walking"],
     longevity: "Long Lasting (8h+)",
     sillage: "Radiant (Intimate yet diffusive)",
     mainAccords: [
@@ -1185,6 +1185,8 @@ const FILTER_DIMENSIONS = {
     "Wedding",
     "Office / Work",
     "Gym",
+    "Running",
+    "Walking",
     "Parks",
     "City Centre",
     "Malls",
