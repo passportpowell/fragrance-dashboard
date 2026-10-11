@@ -6,6 +6,7 @@
 - **Root Directory**: `S:\Otis Projects\fragrance-dashboard`
 - **GitHub Repository**: [`passportpowell/fragrance-dashboard`](https://github.com/passportpowell/fragrance-dashboard)
 - **Git Branches**: `master` (default) and `main`
+- **Live Vercel Production URL**: [https://fragrance-dashboard.vercel.app](https://fragrance-dashboard.vercel.app)
 - **Tailscale HTTPS Endpoint**: `https://desktop-smsroim.tail0be63c.ts.net/` (proxying `127.0.0.1:62872`)
 - **Local Dev Server**: `http://127.0.0.1:62872` (Python HTTP server daemon)
 
