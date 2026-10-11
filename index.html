@@ -33,6 +33,17 @@
 
       <!-- Island Navigation Actions with Button-in-Button Trailing Icons -->
       <nav class="nav-actions" aria-label="Primary Actions">
+        <button id="layeringNavBtn" class="btn-island btn-island-ghost" title="Layering Studio & Combinatorics">
+          <span>Layering Studio</span>
+          <div class="icon-orb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+        </button>
+
         <button id="proTipsBtn" class="btn-island btn-island-ghost" title="Executive Masterclass & Field Guide">
           <span>Field Guide</span>
           <div class="icon-orb">
@@ -179,6 +190,93 @@
               <span class="metric-number" id="statVersatileName" style="font-size: 1.35rem; font-family: var(--font-display);">Herb Garden</span>
             </div>
             <p class="metric-footnote" id="statVersatileScore">Active across 8 distinct lifestyle scenarios including Running & Walking</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Layering Atelier & Olfactory Synergy Lab (Double-Bezel Architecture) -->
+    <section id="layeringLabSection" class="bezel-shell layering-lab-shell" aria-label="Olfactory Layering Studio">
+      <div class="bezel-core layering-lab-core">
+        
+        <!-- Section Header with Mode Toggles -->
+        <div class="layering-header-bar">
+          <div>
+            <div class="eyebrow-pill">
+              <span class="eyebrow-pill-dot" style="background: var(--gold-primary);"></span>
+              <span>Olfactory Chemistry // Synergy Engine</span>
+            </div>
+            <h2 class="layering-main-title">LAYERING ATELIER &amp; PAIRING STUDIO</h2>
+            <p class="layering-main-desc">Calculate molecular compatibility scores, complementary contrast synergies, and Arabian base-layering blueprints across your personal flacons.</p>
+          </div>
+
+          <!-- Mode Selector Tabs -->
+          <div class="layering-mode-toggle" role="tablist">
+            <button id="modeUserPickBtn" class="layering-tab-btn active" role="tab" aria-selected="true" data-mode="user-pick">
+              <span>Interactive Pairing Studio</span>
+            </button>
+            <button id="modeAutoCuratedBtn" class="layering-tab-btn" role="tab" aria-selected="false" data-mode="auto-curated">
+              <span>Curator Signature Duos (Auto)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode 1: Interactive Pairing Studio (Pick Base -> Ranked Suggestions) -->
+        <div id="layeringStudioMode" class="layering-mode-view active">
+          <div class="pairing-studio-split">
+            
+            <!-- Left: Base Flacon Anchor Stage -->
+            <div class="base-flacon-pod">
+              <div class="base-pod-header">
+                <span class="metric-title">1. Anchor Flacon (Base)</span>
+                <span class="pod-step-badge">Step 1</span>
+              </div>
+
+              <div class="base-picker-wrapper">
+                <label for="baseFragranceSelect" class="base-select-label">Choose Base Fragrance:</label>
+                <div class="sort-select-wrapper" style="width: 100%;">
+                  <select id="baseFragranceSelect" class="sort-select" aria-label="Select Base Flacon">
+                    <!-- Populated dynamically with all 20 flacons -->
+                  </select>
+                  <svg class="sort-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Base Flacon Preview Card -->
+              <div class="base-flacon-preview" id="baseFlaconPreview">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Right: Ranked Layering Companions -->
+            <div class="ranked-pairings-pod">
+              <div class="ranked-pod-header">
+                <div>
+                  <span class="metric-title">2. Compatible Companions</span>
+                  <p class="ranked-pod-sub">Ranked from highest olfactory harmony to lowest compatibility</p>
+                </div>
+                <span id="companionsCountBadge" class="badge-code">19 Candidates</span>
+              </div>
+
+              <div class="ranked-options-scroll" id="rankedOptionsContainer">
+                <!-- Dynamically populated cards ranked by synergy score -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Mode 2: Auto-Curated Signature Duos Grid -->
+        <div id="layeringAutoMode" class="layering-mode-view">
+          <div class="auto-duos-header-row">
+            <span class="metric-title">Top 6 Pre-Calculated Synergy Masterpieces</span>
+            <span class="badge-code">Engineered by Molecular Compatibility</span>
+          </div>
+          <div class="auto-duos-grid" id="autoDuosGrid">
+            <!-- Rendered by JS with highest synergy pairings -->
           </div>
         </div>
 

@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   updateDashboard();
   initSotdRecommendation();
+  initLayeringAtelier();
 });
 
 // Load Collection from LocalStorage or Seed Data
@@ -308,6 +309,45 @@ function setupEventListeners() {
     sotdPickerBtn.addEventListener('click', () => {
       initSotdRecommendation(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Layering Navigation Button
+  const layeringNavBtn = document.getElementById('layeringNavBtn');
+  if (layeringNavBtn) {
+    layeringNavBtn.addEventListener('click', () => {
+      const target = document.getElementById('layeringLabSection');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Layering Mode Tabs (Studio vs Auto Duos)
+  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
+  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
+  const layeringStudioMode = document.getElementById('layeringStudioMode');
+  const layeringAutoMode = document.getElementById('layeringAutoMode');
+
+  if (modeUserPickBtn && modeAutoCuratedBtn) {
+    modeUserPickBtn.addEventListener('click', () => {
+      modeUserPickBtn.classList.add('active');
+      modeAutoCuratedBtn.classList.remove('active');
+      if (layeringStudioMode) layeringStudioMode.classList.add('active');
+      if (layeringAutoMode) layeringAutoMode.classList.remove('active');
+    });
+
+    modeAutoCuratedBtn.addEventListener('click', () => {
+      modeAutoCuratedBtn.classList.add('active');
+      modeUserPickBtn.classList.remove('active');
+      if (layeringAutoMode) layeringAutoMode.classList.add('active');
+      if (layeringStudioMode) layeringStudioMode.classList.remove('active');
+    });
+  }
+
+  // Base Fragrance Selection Change
+  const baseFragranceSelect = document.getElementById('baseFragranceSelect');
+  if (baseFragranceSelect) {
+    baseFragranceSelect.addEventListener('change', (e) => {
+      onBaseFlaconSelected(e.target.value);
     });
   }
 }
@@ -862,3 +902,357 @@ function handleImportJSON(e) {
   };
   reader.readAsText(file);
 }
+
+// ==========================================================================
+// LAYERING ATELIER & OLFACTORY SYNERGY ENGINE
+// ==========================================================================
+
+const CURATED_SIGNATURE_DUOS = [
+  {
+    title: "The Modern Alchemist",
+    vibe: "Cold Weather Elegance // Spiced Zest",
+    baseId: "user-pp-leaf-flavour-0401",
+    companionId: "user-pp-citrus-particle-0616",
+    score: 98,
+    synergyType: "Mandarin Spark Over Spiced Cavendish Tobacco",
+    narrative: "Photorealistic mandarin zest explodes in the opening, cutting clean through dense vanilla and pipe tobacco before settling into velvety Iso E Super cedarwood.",
+    sequence: "Step 1: 2 sprays Leaf Flavour on neck. Step 2: 2 sprays Citrus Particle on shirt & wrists."
+  },
+  {
+    title: "The Velvet Shadow",
+    vibe: "Forbidden Date Night Seduction",
+    baseId: "user-after-effect-fa-paris",
+    companionId: "user-pp-astray-fruit-1947",
+    score: 97,
+    synergyType: "Dark Rum Liqueur Laced with Tart Griotte Cherry",
+    narrative: "Initio Side Effect's boozy Martinique rum, cinnamon, and tobacco harmonize luxuriously with Lost Cherry's tart syrup and bitter almond.",
+    sequence: "Step 1: 2 sprays After Effect behind ears. Step 2: 1 spray Astray Fruit on chest."
+  },
+  {
+    title: "The Royal Vanguard",
+    vibe: "Aristocratic Autumn Versatility",
+    baseId: "user-pp-herb-garden-1598",
+    companionId: "user-pp-particle-iso-e-super",
+    score: 96,
+    synergyType: "Green Apple & 12-Hour Diffusive Cedar Cloud",
+    narrative: "Parfums de Marly Layton's crisp green apple, lavender, and bourbon vanilla are amplified 2x in sillage by pure Molecule 01 Iso E Super.",
+    sequence: "Step 1: 2 sprays Particle 1365 as molecular primer. Step 2: 2 sprays Herb Garden over collar."
+  },
+  {
+    title: "The Mediterranean Sovereign",
+    vibe: "Prestige Formal & Black Tie",
+    baseId: "user-voux-elegante",
+    companionId: "user-pp-second-particle-1980",
+    score: 96,
+    synergyType: "Honeyed Lavender & Ambergris Skin Radiance",
+    narrative: "Xerjoff Naxos golden honey and blonde tobacco gain an ethereal, velvety skin warmth from pure Molecule 02 Ambroxan.",
+    sequence: "Step 1: 2 sprays Voux Elegante behind ears. Step 2: 1 spray Second Particle on collarbones."
+  },
+  {
+    title: "The Oceanic Abyss",
+    vibe: "High-Heat Aquatic Mastery",
+    baseId: "user-pp-sweet-water-1262",
+    companionId: "user-pp-intenso-water-1329",
+    score: 95,
+    synergyType: "Deep Marine Mineral & Incense Interplay",
+    narrative: "ADG Profondo's sparkling green mandarin and sea notes anchored by ADG Profumo's smoky incense, rosemary, and patchouli.",
+    sequence: "Step 1: 2 sprays Sweet Water on base of neck. Step 2: 2 sprays Intenso Water on shoulders."
+  },
+  {
+    title: "The Midnight Barista",
+    vibe: "Sensual Winter Decadence",
+    baseId: "user-pp-noire-illusion-1746",
+    companionId: "user-tf-noir-extreme",
+    score: 95,
+    synergyType: "Pistachio Kulfi & Roasted Espresso Gourmand",
+    narrative: "Tom Ford's Indian kulfi dessert and saffron creaminess infused with Kilian Black Phantom's bitter dark chocolate, rum, and roasted coffee.",
+    sequence: "Step 1: 2 sprays Noir Extreme. Step 2: 1 spray Noire Illusion."
+  }
+];
+
+function initLayeringAtelier() {
+  const baseSelect = document.getElementById('baseFragranceSelect');
+  if (!baseSelect || collection.length === 0) return;
+
+  baseSelect.innerHTML = '';
+  collection.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.id;
+    opt.textContent = `${item.name} (${item.brand})`;
+    baseSelect.appendChild(opt);
+  });
+
+  // Default to Leaf Flavour or first item
+  const defaultBase = collection.find(c => c.id === 'user-pp-leaf-flavour-0401') || collection[0];
+  baseSelect.value = defaultBase.id;
+
+  onBaseFlaconSelected(defaultBase.id);
+  renderAutoCuratedDuos();
+}
+
+function onBaseFlaconSelected(baseId) {
+  const baseItem = collection.find(c => c.id === baseId);
+  if (!baseItem) return;
+
+  renderBaseFlaconPreview(baseItem);
+  renderRankedCompanions(baseItem);
+}
+
+function renderBaseFlaconPreview(baseItem) {
+  const preview = document.getElementById('baseFlaconPreview');
+  if (!preview) return;
+
+  const imgSrc = baseItem.userPhoto || baseItem.image || 'assets/bottles/default-bottle.svg';
+  const cloneText = baseItem.isClone && baseItem.cloneOf ? `Clone of ${baseItem.cloneOf.originalName}` : baseItem.brand;
+
+  preview.innerHTML = `
+    <div class="base-preview-stage">
+      <img src="${imgSrc}" class="base-preview-img" alt="${baseItem.name}">
+    </div>
+    <div class="base-preview-info">
+      <span class="card-concentration-tag">${baseItem.concentration}</span>
+      <h3 class="base-preview-name">${baseItem.name}</h3>
+      <span class="base-preview-meta">${cloneText} &bull; ${baseItem.crg}</span>
+      <div style="font-size: 11px; color: var(--text-secondary); margin-top: 0.35rem; font-family: var(--font-mono);">
+        Recommended Sprays: ${baseItem.recommendedSprays || '3-4 Sprays'}
+      </div>
+    </div>
+  `;
+}
+
+function calculateSynergy(base, companion) {
+  let score = 70;
+  let synergyType = "Harmonious Complement";
+  let rationale = "Balanced interplay of complementary accords.";
+  let sequence = `Step 1: 2 sprays ${base.name} on base of neck. Step 2: 1-2 sprays ${companion.name} on collarbones.`;
+
+  const bId = base.id;
+  const cId = companion.id;
+
+  // 1. Molecular Primers / Boosters (Particle 1365 & Second Particle 1980)
+  if (cId === 'user-pp-particle-iso-e-super' || cId === 'user-pp-second-particle-1980') {
+    const isHeavy = ['Sweet Tobacco / Boozy Gourmand', 'Gourmand / Amber Woody', 'Woody Leather / Fruity Animalic'].includes(base.crg);
+    score = isHeavy ? 98 : 94;
+    synergyType = cId === 'user-pp-particle-iso-e-super' ? "Iso E Super Molecular Amplifier" : "Ambroxan Radiant Sillage Booster";
+    rationale = `Pure ${cId === 'user-pp-particle-iso-e-super' ? 'Iso E Super' : 'Ambroxan'} acts as a magnetic projection engine, doubling the diffusive sillage radius of ${base.name} without altering its notes.`;
+    sequence = `Step 1: Apply 2 sprays ${companion.name} onto pulse points as a primer. Step 2: Mist 2 sprays ${base.name} over collar and chest.`;
+  }
+  // If base is a molecular booster and companion is anything else
+  else if (bId === 'user-pp-particle-iso-e-super' || bId === 'user-pp-second-particle-1980') {
+    score = 96;
+    synergyType = "Molecular Fixative Primer";
+    rationale = `Locks ${companion.name} to the skin with warm cedarwood / ambergris radiance, preventing premature evaporation.`;
+    sequence = `Step 1: Apply 2 sprays ${base.name} as primer. Step 2: Mist 2 sprays ${companion.name} on top.`;
+  }
+  // 2. Citrus Particle 0616 (Molecule 01 + Mandarin)
+  else if (cId === 'user-pp-citrus-particle-0616') {
+    if (base.crg.includes('Tobacco') || base.crg.includes('Gourmand') || base.crg.includes('Amber')) {
+      score = 97;
+      synergyType = "Photorealistic Citrus & Spiced Contrast";
+      rationale = `Sparkling mandarin orange cuts straight through the warm density of ${base.name}, delivering an electrifying top-note explosion before resolving into rich warmth.`;
+      sequence = `Step 1: Apply 2 sprays ${base.name} on neck. Step 2: Apply 2 sprays Citrus Particle on shirt & wrists.`;
+    } else {
+      score = 93;
+      synergyType = "Bright Citrus Elevation";
+      rationale = `Infuses crisp mandarin zest and airy cedar projection into ${base.name}'s structure.`;
+      sequence = `Step 1: Apply ${base.name}. Step 2: Top with Citrus Particle.`;
+    }
+  }
+  // 3. Decadent Boozy Rum & Cherry Liqueur (After Effect + Astray Fruit 1947)
+  else if ((bId === 'user-after-effect-fa-paris' && cId === 'user-pp-astray-fruit-1947') ||
+           (bId === 'user-pp-astray-fruit-1947' && cId === 'user-after-effect-fa-paris')) {
+    score = 97;
+    synergyType = "Decadent Boozy Cherry & Rum Liqueur";
+    rationale = `Initio Side Effect's boozy Martinique rum, cinnamon, and tobacco harmonize luxuriously with Lost Cherry's tart griotte syrup and bitter almond. Pure intoxicating night-time seduction.`;
+    sequence = `Step 1: 2 sprays After Effect behind ears. Step 2: 1 spray Astray Fruit on chest & collar.`;
+  }
+  // 4. Parfums de Marly Layton (Herb Garden 1598) + Spiced Tobacco (Leaf Flavour or Voux Elegante)
+  else if (bId === 'user-pp-herb-garden-1598' && (cId === 'user-pp-leaf-flavour-0401' || cId === 'user-voux-elegante')) {
+    score = 95;
+    synergyType = "Crisp Apple & Blonde Tobacco Fusion";
+    rationale = `Layton's crisp green apple and bourbon vanilla creates an aristocratic contrast with golden honey and warm pipe tobacco.`;
+    sequence = `Step 1: 2 sprays ${base.name}. Step 2: 1 spray ${companion.name} on jacket/wrists.`;
+  }
+  // 5. Marine Aquatic Synergy (Intenso Water 1329 + Sweet Water 1262)
+  else if ((bId === 'user-pp-intenso-water-1329' && cId === 'user-pp-sweet-water-1262') ||
+           (bId === 'user-pp-sweet-water-1262' && cId === 'user-pp-intenso-water-1329')) {
+    score = 94;
+    synergyType = "Deep Oceanic & Incense Mineral Interplay";
+    rationale = `ADG Profondo's bright sparkling sea notes merge with ADG Profumo's smoky incense and patchouli base for the ultimate 3D oceanic signature.`;
+    sequence = `Step 1: 2 sprays Sweet Water on base of neck. Step 2: 2 sprays Intenso Water on shoulders.`;
+  }
+  // 6. Kilian Black Phantom (Noire Illusion 1746) + Tom Ford Noir Extreme
+  else if ((bId === 'user-pp-noire-illusion-1746' && cId === 'user-tf-noir-extreme') ||
+           (bId === 'user-tf-noir-extreme' && cId === 'user-pp-noire-illusion-1746')) {
+    score = 95;
+    synergyType = "Milky Kulfi & Roasted Espresso Gourmand";
+    rationale = `Tom Ford's pistachio-cardamom kulfi creaminess blends into Kilian's roasted coffee, bitter dark chocolate, and Martinique rum for an elite winter dessert aroma.`;
+    sequence = `Step 1: 2 sprays Noir Extreme. Step 2: 1 spray Noire Illusion.`;
+  }
+  // 7. General Shared / Complementary Logic
+  else {
+    const baseAccords = new Set((base.mainAccords || []).map(a => a.name.toLowerCase()));
+    const compAccords = new Set((companion.mainAccords || []).map(a => a.name.toLowerCase()));
+    let sharedCount = 0;
+    baseAccords.forEach(a => { if (compAccords.has(a)) sharedCount++; });
+
+    if (sharedCount >= 2) {
+      score += 12;
+      synergyType = "Harmonious Accord Alignment";
+      rationale = `Both flacons share prominent aromatic bridges, creating a seamless, natural transition throughout drydown.`;
+    } else if (base.gender === companion.gender) {
+      score += 5;
+    }
+
+    if ((base.crg.includes('Aquatic') && companion.crg.includes('Tobacco')) ||
+        (base.crg.includes('Tobacco') && companion.crg.includes('Aquatic'))) {
+      score = Math.max(48, score - 15);
+      synergyType = "Experimental Contrast";
+      rationale = `High olfactory contrast between marine sea-salt and dense warm tobacco. Requires minimal dosing to avoid discordance.`;
+      sequence = `Step 1: 1 spray only of ${base.name}. Step 2: 1 spray of ${companion.name} on opposite wrist.`;
+    }
+  }
+
+  score = Math.min(99, Math.max(45, score));
+  let tier = 'low';
+  if (score >= 95) tier = 'transcendent';
+  else if (score >= 85) tier = 'harmonious';
+  else if (score >= 70) tier = 'moderate';
+
+  return { score, tier, synergyType, rationale, sequence };
+}
+
+function renderRankedCompanions(baseItem) {
+  const container = document.getElementById('rankedOptionsContainer');
+  const countBadge = document.getElementById('companionsCountBadge');
+  if (!container) return;
+
+  const candidates = collection.filter(c => c.id !== baseItem.id);
+  if (countBadge) countBadge.textContent = `${candidates.length} Vault Candidates`;
+
+  const scored = candidates.map(candidate => {
+    const synergy = calculateSynergy(baseItem, candidate);
+    return { candidate, ...synergy };
+  }).sort((a, b) => b.score - a.score);
+
+  container.innerHTML = '';
+  scored.forEach(res => {
+    const cand = res.candidate;
+    const thumbSrc = cand.userPhoto || cand.image || 'assets/bottles/default-bottle.svg';
+
+    const card = document.createElement('div');
+    card.className = 'pairing-candidate-card';
+    card.innerHTML = `
+      <div class="candidate-top-row">
+        <div class="candidate-left-meta">
+          <div class="candidate-thumb-wrapper">
+            <img src="${thumbSrc}" class="candidate-thumb-img" alt="${cand.name}">
+          </div>
+          <div class="candidate-name-col">
+            <h4 class="candidate-title">${cand.name}</h4>
+            <span class="candidate-house-meta">${cand.brand} &bull; ${cand.crg}</span>
+          </div>
+        </div>
+        <div class="synergy-score-gauge synergy-score-tier-${res.tier}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <span>${res.score}% SYNERGY</span>
+        </div>
+      </div>
+
+      <div class="candidate-narrative">
+        <span class="candidate-synergy-type">${res.synergyType}</span>
+        <p class="candidate-rationale">${res.rationale}</p>
+      </div>
+
+      <div class="candidate-sequence-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 13px; height: 13px; color: var(--gold-primary);">
+          <circle cx="12" cy="12" r="9"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>${res.sequence}</span>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function renderAutoCuratedDuos() {
+  const grid = document.getElementById('autoDuosGrid');
+  if (!grid) return;
+
+  grid.innerHTML = '';
+  CURATED_SIGNATURE_DUOS.forEach(duo => {
+    const base = collection.find(c => c.id === duo.baseId);
+    const comp = collection.find(c => c.id === duo.companionId);
+    if (!base || !comp) return;
+
+    const baseSrc = base.userPhoto || base.image || 'assets/bottles/default-bottle.svg';
+    const compSrc = comp.userPhoto || comp.image || 'assets/bottles/default-bottle.svg';
+
+    const card = document.createElement('div');
+    card.className = 'auto-duo-card';
+    card.innerHTML = `
+      <div class="auto-duo-top-meta">
+        <span class="brand-eyebrow">${duo.vibe}</span>
+        <div class="synergy-score-gauge synergy-score-tier-transcendent">
+          <span>${duo.score}% SYNERGY</span>
+        </div>
+      </div>
+
+      <h3 class="auto-duo-title">${duo.title}</h3>
+
+      <div class="auto-duo-flacons-stage">
+        <div class="duo-flacon-unit">
+          <img src="${baseSrc}" class="duo-flacon-img" alt="${base.name}">
+          <span class="duo-flacon-label">${base.name}</span>
+        </div>
+
+        <div class="duo-synergy-orb">
+          <span>${duo.score}%</span>
+          <span class="duo-synergy-orb-label">LINK</span>
+        </div>
+
+        <div class="duo-flacon-unit">
+          <img src="${compSrc}" class="duo-flacon-img" alt="${comp.name}">
+          <span class="duo-flacon-label">${comp.name}</span>
+        </div>
+      </div>
+
+      <p class="auto-duo-notes">${duo.narrative}</p>
+
+      <div class="auto-duo-action-bar">
+        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary);">${duo.sequence}</span>
+        <button class="btn-island btn-island-ghost" style="padding: 0.35rem 0.85rem; font-size: 0.72rem;" onclick="loadDuoInStudio('${base.id}', '${comp.id}')">
+          <span>Load In Studio</span>
+        </button>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+function loadDuoInStudio(baseId, companionId) {
+  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
+  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
+  const layeringStudioMode = document.getElementById('layeringStudioMode');
+  const layeringAutoMode = document.getElementById('layeringAutoMode');
+  const baseSelect = document.getElementById('baseFragranceSelect');
+
+  if (modeUserPickBtn && modeAutoCuratedBtn && layeringStudioMode && layeringAutoMode && baseSelect) {
+    modeUserPickBtn.classList.add('active');
+    modeAutoCuratedBtn.classList.remove('active');
+    layeringStudioMode.classList.add('active');
+    layeringAutoMode.classList.remove('active');
+
+    baseSelect.value = baseId;
+    onBaseFlaconSelected(baseId);
+
+    const target = document.getElementById('layeringLabSection');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+

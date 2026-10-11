@@ -1392,6 +1392,500 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
+   Layering Atelier & Olfactory Synergy Lab
+   -------------------------------------------------------------------------- */
+.layering-lab-shell {
+  width: 100%;
+}
+
+.layering-lab-core {
+  padding: 2.25rem 2.5rem;
+  background: radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+              var(--surface-core);
+}
+
+.layering-header-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  flex-wrap: wrap;
+}
+
+.layering-main-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  margin: 0.35rem 0 0.25rem;
+}
+
+.layering-main-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  max-width: 65ch;
+  line-height: 1.55;
+}
+
+.layering-mode-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-hairline-bright);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem;
+  gap: 0.35rem;
+}
+
+.layering-tab-btn {
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-spring);
+  user-select: none;
+}
+
+.layering-tab-btn:hover {
+  color: #ffffff;
+}
+
+.layering-tab-btn.active {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--border-gold-active);
+  color: var(--gold-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.layering-mode-view {
+  display: none;
+}
+
+.layering-mode-view.active {
+  display: block;
+}
+
+/* Mode 1: Pairing Studio Split */
+.pairing-studio-split {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .pairing-studio-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.base-flacon-pod {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-core-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.base-pod-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pod-step-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.base-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.base-select-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.base-flacon-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.base-preview-stage {
+  height: 200px;
+  border-radius: var(--radius-core-md);
+  background: radial-gradient(circle at 50% 65%, rgba(212, 175, 55, 0.15) 0%, transparent 68%),
+              #08090d;
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.base-preview-img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.95));
+}
+
+.base-preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.base-preview-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.base-preview-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold-primary);
+}
+
+/* Ranked Companions Column */
+.ranked-pairings-pod {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-core-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ranked-pod-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-hairline);
+  padding-bottom: 0.85rem;
+}
+
+.ranked-pod-sub {
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+  margin-top: 0.15rem;
+}
+
+.ranked-options-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-height: 580px;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+}
+
+.ranked-options-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.ranked-options-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.ranked-options-scroll::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+}
+
+/* Individual Companion Pairing Card */
+.pairing-candidate-card {
+  padding: 1rem 1.25rem;
+  background: var(--surface-core);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-core-md);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.pairing-candidate-card:hover {
+  border-color: var(--border-gold-subtle);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.candidate-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.candidate-left-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.candidate-thumb-wrapper {
+  width: 46px;
+  height: 52px;
+  border-radius: 8px;
+  background: #090a0e;
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.candidate-thumb-img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.candidate-name-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.candidate-house-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+/* Synergy Score Badges */
+.synergy-score-gauge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.synergy-score-tier-transcendent {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--border-gold-active);
+  color: var(--gold-primary);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+}
+
+.synergy-score-tier-harmonious {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--accent-spring);
+}
+
+.synergy-score-tier-moderate {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: var(--accent-winter);
+}
+
+.synergy-score-tier-low {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-tertiary);
+}
+
+/* Candidate Body & Narrative */
+.candidate-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+}
+
+.candidate-synergy-type {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.candidate-rationale {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Sequence Protocol */
+.candidate-sequence-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* Mode 2: Auto-Curated Signature Duos */
+.auto-duos-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.auto-duos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.auto-duo-card {
+  padding: 1.5rem;
+  background: var(--surface-core);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-core-lg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  position: relative;
+  transition: all 0.35s var(--ease-spring);
+}
+
+.auto-duo-card:hover {
+  border-color: var(--border-gold-subtle);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.1);
+}
+
+.auto-duo-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auto-duo-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.auto-duo-flacons-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.25rem 0.5rem;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
+              #08090d;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-core-md);
+  position: relative;
+}
+
+.duo-flacon-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100px;
+  text-align: center;
+}
+
+.duo-flacon-img {
+  height: 95px;
+  max-width: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.95));
+}
+
+.duo-flacon-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 95px;
+}
+
+.duo-synergy-orb {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(0, 0, 0, 0.8) 100%);
+  border: 1px solid var(--border-gold-active);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.duo-synergy-orb-label {
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}
+
+.auto-duo-notes {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.auto-duo-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
+/* --------------------------------------------------------------------------
    Mandatory Footer (With GitHub Icon to Passport Powell)
    -------------------------------------------------------------------------- */
 .site-footer {
