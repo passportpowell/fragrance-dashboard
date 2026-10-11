@@ -4,8 +4,8 @@
 - Updated at: 2026-10-11T00:20:45Z
 - Root: S:\Otis Projects\fragrance-dashboard
 - Branch: master
-- HEAD: initial
-- Status: READY — Tailscale active and Mega Guide integrated
+- HEAD: 2a26afd
+- Status: READY — Tailscale active, 15 bottles integrated, initial commit 2a26afd
 - Tree: Clean workspace with active Tailscale daemon
 - Workspace ID: initial
 - Routing: Tailscale serve & Voj Mega Guide integration — JEV: inline, gemini-3.8-flash:medium -> used: inline, Gemini 3.8 Flash (High)
