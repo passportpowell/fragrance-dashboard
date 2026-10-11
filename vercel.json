@@ -1,6 +1,11 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/vault(.html)?", "destination": "/collection", "permanent": true },
+    { "source": "/scentscapes(.html)?", "destination": "/occasions", "permanent": true },
+    { "source": "/codex(.html)?", "destination": "/guide", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -34,7 +34,7 @@ let vaultFilters = {
 // 6 Signature Layering Combinations
 const CURATED_SIGNATURE_DUOS = [
   {
-    title: "The Sicilian Emperor",
+    title: "Honey Tobacco & Iso E Super",
     vibe: "Warm Honey & Golden Tobacco",
     baseId: "user-voux-elegante",
     companionId: "user-pp-particle-iso-e-super",
@@ -44,7 +44,7 @@ const CURATED_SIGNATURE_DUOS = [
     sequence: "Step 1: 2 sprays of Particle on neck as primer. Step 2: 2 sprays of Voux Elegante behind ears."
   },
   {
-    title: "Black Tie Smoked Leather",
+    title: "Smoked Oud & Warm Rum",
     vibe: "Dark Leather & Boozy Rum",
     baseId: "user-tf-oud-wood-spray",
     companionId: "user-after-effect-fa-paris",
@@ -54,7 +54,7 @@ const CURATED_SIGNATURE_DUOS = [
     sequence: "Step 1: 3 sprays of Oud Wood body spray on chest and shirt. Step 2: 2 sprays of After Effect on pulse points."
   },
   {
-    title: "Bourbon Orchard",
+    title: "Crisp Apple & Spiced Vanilla",
     vibe: "Crisp Apple & Spiced Vanilla",
     baseId: "user-pp-herb-garden-1598",
     companionId: "user-pp-intense-aroma-exploding",
@@ -64,7 +64,7 @@ const CURATED_SIGNATURE_DUOS = [
     sequence: "Step 1: 2 sprays of Herb Garden on neck. Step 2: 1-2 sprays of Intense Aroma Exploding on jacket or scarf."
   },
   {
-    title: "Velvet Shadow",
+    title: "Boozy Rum & Dark Cherry",
     vibe: "Dark Cherry & Boozy Tobacco",
     baseId: "user-pp-astray-fruit-1947",
     companionId: "user-after-effect-fa-paris",
@@ -74,7 +74,7 @@ const CURATED_SIGNATURE_DUOS = [
     sequence: "Step 1: 2 sprays of After Effect behind ears. Step 2: 1 spray of Astray Fruit on chest and collar."
   },
   {
-    title: "The Oceanic Abyss",
+    title: "Deep Marine & Smoky Incense",
     vibe: "Deep Marine & Smoky Incense",
     baseId: "user-pp-sweet-water-1262",
     companionId: "user-pp-intenso-water-1329",
@@ -84,7 +84,7 @@ const CURATED_SIGNATURE_DUOS = [
     sequence: "Step 1: 2 sprays of Sweet Water on neck. Step 2: 2 sprays of Intenso Water on shoulders."
   },
   {
-    title: "The Midnight Barista",
+    title: "Dark Chocolate & Kulfi Amber",
     vibe: "Coffee, Dark Chocolate & Vanilla",
     baseId: "user-pp-noire-illusion-1746",
     companionId: "user-tf-noir-extreme",
@@ -923,7 +923,7 @@ function updateInteractivePairings(baseId) {
 }
 
 function calculatePairingSynergy(base, companion) {
-  let score = 70;
+  let score = 72;
   let synergyType = "Harmonious Complement";
   let rationale = "Balanced interplay of complementary notes and accords.";
   let sequence = `Step 1: 2 sprays ${base.name} on neck. Step 2: 1-2 sprays ${companion.name} on collar.`;
@@ -931,65 +931,144 @@ function calculatePairingSynergy(base, companion) {
   const bId = base.id;
   const cId = companion.id;
 
-  // Molecular Primers (Iso E Super & Ambroxan)
+  // 1. Single-Molecule Primers (Iso E Super & Ambroxan)
   if (cId === 'user-pp-particle-iso-e-super' || cId === 'user-pp-second-particle-1980') {
     score = 98;
     synergyType = cId === 'user-pp-particle-iso-e-super' ? "Iso E Super Sillage Amplifier" : "Ambroxan Projection Booster";
-    rationale = `Pure ${cId === 'user-pp-particle-iso-e-super' ? 'Iso E Super' : 'Ambroxan'} binds to skin lipids and doubles the projection of ${base.name} without changing its scent.`;
-    sequence = `Step 1: Apply 2 sprays ${companion.name} on pulse points as primer. Step 2: Mist 2 sprays ${base.name} over collar.`;
+    rationale = `Pure ${cId === 'user-pp-particle-iso-e-super' ? 'Iso E Super' : 'Ambroxan'} binds to skin lipids and extends the projection of ${base.name} without altering its scent profile.`;
+    sequence = `Step 1: Apply 2 sprays ${companion.name} on pulse points as primer. Step 2: Mist 2 sprays ${base.name} over top.`;
+    return { score, synergyType, rationale, sequence };
   } else if (bId === 'user-pp-particle-iso-e-super' || bId === 'user-pp-second-particle-1980') {
     score = 96;
     synergyType = "Molecular Fixative Primer";
-    rationale = `Locks ${companion.name} to the skin with warm cedarwood or ambergris radiance, preventing premature fading.`;
-    sequence = `Step 1: Apply 2 sprays ${base.name} as primer. Step 2: Mist 2 sprays ${companion.name} on top.`;
+    rationale = `Locks ${companion.name} to the skin with a warm cedarwood or ambergris glow, preventing premature drydown fade.`;
+    sequence = `Step 1: Apply 2 sprays ${base.name} as primer on skin. Step 2: Mist 2 sprays ${companion.name} over collar.`;
+    return { score, synergyType, rationale, sequence };
   }
-  // Citrus Particle
-  else if (cId === 'user-pp-citrus-particle-0616') {
+
+  // 2. Fresh Citrus Top Note Contrast over Warm Rich Bases
+  if (cId === 'user-pp-citrus-particle-0616') {
     score = 97;
-    synergyType = "Photorealistic Citrus Contrast";
-    rationale = `Sparkling mandarin orange cuts through the warmth of ${base.name}, giving a bright opening before settling into rich base notes.`;
-    sequence = `Step 1: Apply 2 sprays ${base.name} on neck. Step 2: Apply 2 sprays Citrus Particle on shirt & wrists.`;
+    synergyType = "Fresh Citrus & Warm Base Contrast";
+    rationale = `Sparkling mandarin orange cuts cleanly through the warmth of ${base.name}, adding a crisp opening before settling into deep base notes.`;
+    sequence = `Step 1: Apply 2 sprays ${base.name} on neck. Step 2: Apply 2 sprays Citrus Particle on shirt collar and wrists.`;
+    return { score, synergyType, rationale, sequence };
+  } else if (bId === 'user-pp-citrus-particle-0616') {
+    score = 95;
+    synergyType = "Zesty Top Note Layer";
+    rationale = `Lifts ${companion.name} with natural mandarin zest over its existing heart notes.`;
+    sequence = `Step 1: Apply 2 sprays ${companion.name} on neck. Step 2: Apply 1-2 sprays Citrus Particle on wrists.`;
+    return { score, synergyType, rationale, sequence };
   }
-  // Boozy Rum & Cherry (After Effect + Astray Fruit)
-  else if ((bId === 'user-after-effect-fa-paris' && cId === 'user-pp-astray-fruit-1947') ||
-           (bId === 'user-pp-astray-fruit-1947' && cId === 'user-after-effect-fa-paris')) {
+
+  // 3. Hand-Crafted Iconic Pairings
+  if ((bId === 'user-after-effect-fa-paris' && cId === 'user-pp-astray-fruit-1947') ||
+      (bId === 'user-pp-astray-fruit-1947' && cId === 'user-after-effect-fa-paris')) {
     score = 97;
-    synergyType = "Boozy Cherry & Rum Liqueur";
-    rationale = `Side Effect's boozy rum and tobacco blend seamlessly with Lost Cherry's sweet griotte cherry and almond syrup. Great for evening dates.`;
+    synergyType = "Boozy Rum & Dark Cherry";
+    rationale = `Side Effect's aged rum and tobacco blend seamlessly with Lost Cherry's sweet griotte cherry and almond syrup. An intoxicating evening combination.`;
     sequence = `Step 1: 2 sprays After Effect behind ears. Step 2: 1 spray Astray Fruit on chest and collar.`;
+    return { score, synergyType, rationale, sequence };
   }
-  // Layton (Herb Garden) + Spiced Tobacco
-  else if (bId === 'user-pp-herb-garden-1598' && (cId === 'user-pp-leaf-flavour-0401' || cId === 'user-voux-elegante')) {
-    score = 95;
-    synergyType = "Crisp Apple & Sweet Tobacco";
-    rationale = `Layton's green apple and vanilla contrast with golden honey and warm pipe tobacco.`;
-    sequence = `Step 1: 2 sprays ${base.name}. Step 2: 1 spray ${companion.name} on jacket or wrists.`;
+
+  if ((bId === 'user-tf-oud-wood-spray' && cId === 'user-after-effect-fa-paris') ||
+      (bId === 'user-after-effect-fa-paris' && cId === 'user-tf-oud-wood-spray')) {
+    score = 97;
+    synergyType = "Smoked Oud & Warm Rum";
+    rationale = `Side Effect's warm rum, cinnamon, and tobacco layer over Tom Ford Oud Wood's dry smoked woods for a masculine evening presence.`;
+    sequence = `Step 1: 3 sprays Oud Wood body spray on chest and shirt. Step 2: 2 sprays After Effect on pulse points.`;
+    return { score, synergyType, rationale, sequence };
   }
-  // Marine Aquatic (Sweet Water + Intenso Water)
-  else if ((bId === 'user-pp-intenso-water-1329' && cId === 'user-pp-sweet-water-1262') ||
-           (bId === 'user-pp-sweet-water-1262' && cId === 'user-pp-intenso-water-1329')) {
-    score = 95;
-    synergyType = "Fresh Marine & Smoky Incense";
-    rationale = `ADG Profondo's bright sea notes merge with ADG Profumo's smoky incense and patchouli base for a deep aquatic scent.`;
+
+  if ((bId === 'user-pp-intenso-water-1329' && cId === 'user-pp-sweet-water-1262') ||
+      (bId === 'user-pp-sweet-water-1262' && cId === 'user-pp-intenso-water-1329')) {
+    score = 96;
+    synergyType = "Deep Marine & Smoky Incense";
+    rationale = `Acqua Di Giò Profondo's bright mineral sea notes merge with Profumo's dark smoky incense and patchouli for a rich Mediterranean aquatic.`;
     sequence = `Step 1: 2 sprays Sweet Water on base of neck. Step 2: 2 sprays Intenso Water on shoulders.`;
-  }
-  // General Accords
-  else {
-    const baseAccords = new Set((base.mainAccords || []).map(a => a.name.toLowerCase()));
-    const compAccords = new Set((companion.mainAccords || []).map(a => a.name.toLowerCase()));
-    let sharedCount = 0;
-    baseAccords.forEach(a => { if (compAccords.has(a)) sharedCount++; });
-
-    if (sharedCount >= 2) {
-      score += 15;
-      synergyType = "Shared Accord Harmony";
-      rationale = `Both perfumes share prominent fragrance notes, creating a smooth and natural blend as they dry down.`;
-    } else {
-      score += 5;
-    }
+    return { score, synergyType, rationale, sequence };
   }
 
-  score = Math.min(99, Math.max(50, score));
+  if ((bId === 'user-pp-noire-illusion-1746' && cId === 'user-tf-noir-extreme') ||
+      (bId === 'user-tf-noir-extreme' && cId === 'user-pp-noire-illusion-1746')) {
+    score = 95;
+    synergyType = "Dark Chocolate & Kulfi Amber";
+    rationale = `Tom Ford Noir Extreme's milky kulfi dessert blends with Kilian Black Phantom's roasted coffee, bitter dark chocolate, and rum.`;
+    sequence = `Step 1: 2 sprays Noir Extreme on neck. Step 2: 1 spray Noire Illusion on collar.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  if ((bId === 'user-pp-herb-garden-1598' && cId === 'user-pp-intense-aroma-exploding') ||
+      (bId === 'user-pp-intense-aroma-exploding' && cId === 'user-pp-herb-garden-1598')) {
+    score = 96;
+    synergyType = "Crisp Apple & Spiced Vanilla";
+    rationale = `Layton's green apple and lavender notes complement Spicebomb Extreme's black pepper, cinnamon, and dark bourbon vanilla.`;
+    sequence = `Step 1: 2 sprays Herb Garden on neck. Step 2: 1-2 sprays Intense Aroma Exploding on coat or scarf.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  if ((bId === 'user-voux-elegante' && cId === 'user-pp-herb-garden-1598') ||
+      (bId === 'user-pp-herb-garden-1598' && cId === 'user-voux-elegante')) {
+    score = 94;
+    synergyType = "Honey Lavender & Crisp Apple";
+    rationale = `Naxos's golden honey and blonde tobacco pair with Layton's crisp orchard apple, lavender, and sandalwood.`;
+    sequence = `Step 1: 2 sprays Herb Garden on neck. Step 2: 2 sprays Voux Elegante on collar.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  // 4. Dynamic Clash Detection
+  const baseAccords = (base.mainAccords || []).map(a => a.name.toLowerCase());
+  const compAccords = (companion.mainAccords || []).map(a => a.name.toLowerCase());
+  const isBaseMarine = baseAccords.some(a => a.includes('marine') || a.includes('aquatic'));
+  const isCompMarine = compAccords.some(a => a.includes('marine') || a.includes('aquatic'));
+  const isBaseDarkGourmand = baseAccords.some(a => a.includes('chocolate') || a.includes('coffee') || a.includes('rum') || a.includes('boozy'));
+  const isCompDarkGourmand = compAccords.some(a => a.includes('chocolate') || a.includes('coffee') || a.includes('rum') || a.includes('boozy'));
+
+  if ((isBaseMarine && isCompDarkGourmand) || (isCompMarine && isBaseDarkGourmand)) {
+    score = 58;
+    synergyType = "Opposing Notes (Clash Risk)";
+    rationale = `Crisp salty marine notes and dense boozy chocolate notes pull in opposite directions. Recommended to test with 1 light spray before wearing out.`;
+    sequence = `Step 1: 1 spray ${base.name} on skin. Step 2: 1 spray ${companion.name} on jacket hem only.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  // 5. Shared Accord Harmony
+  const baseAccordSet = new Set(baseAccords);
+  const sharedAccords = compAccords.filter(a => baseAccordSet.has(a));
+
+  if (sharedAccords.length >= 2) {
+    score = 88 + Math.min(8, sharedAccords.length * 3);
+    const prettyShared = sharedAccords.slice(0, 3).map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(' and ');
+    synergyType = `Shared ${prettyShared} Harmony`;
+    rationale = `Both fragrances share strong ${prettyShared} notes, ensuring a smooth transition as the top notes fade into a rich drydown.`;
+    sequence = base.concentration === 'Extrait de Parfum' || base.concentration === 'Eau de Parfum'
+      ? `Step 1: 2 sprays ${base.name} on neck. Step 2: 1-2 sprays ${companion.name} on collar.`
+      : `Step 1: 2 sprays ${companion.name} on neck. Step 2: 2 sprays ${base.name} over top.`;
+    return { score, synergyType, rationale, sequence };
+  } else if (sharedAccords.length === 1) {
+    score = 82;
+    const match = sharedAccords[0].charAt(0).toUpperCase() + sharedAccords[0].slice(1);
+    synergyType = `Complementary ${match} Accord`;
+    rationale = `Connected by a shared ${match} foundation that anchors both scents without competing for attention.`;
+    sequence = `Step 1: 2 sprays ${base.name} on pulse points. Step 2: 1 spray ${companion.name} on shirt.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  // 6. Woody / Amber Balance
+  const isBaseWoody = baseAccords.some(a => a.includes('wood') || a.includes('cedar') || a.includes('amber'));
+  const isCompWoody = compAccords.some(a => a.includes('wood') || a.includes('cedar') || a.includes('amber'));
+  if (isBaseWoody && isCompWoody) {
+    score = 84;
+    synergyType = "Warm Woody Foundation";
+    rationale = `Both scents share clean woody and amber drydown bases that create depth and extended projection.`;
+    sequence = `Step 1: 2 sprays ${base.name} on neck. Step 2: 1-2 sprays ${companion.name} on chest.`;
+    return { score, synergyType, rationale, sequence };
+  }
+
+  score = 75;
+  synergyType = "Balanced Complement";
+  rationale = `Distinct note profiles that offer an intriguing, well-rounded combination throughout the day.`;
+  sequence = `Step 1: 2 sprays ${base.name} on pulse points. Step 2: 1 spray ${companion.name} on shirt collar.`;
   return { score, synergyType, rationale, sequence };
 }
 
@@ -1035,7 +1114,7 @@ window.openDetailModal = function(fragranceId) {
 
   const concentrationEl = document.getElementById('modalConcentration');
   if (concentrationEl) {
-    concentrationEl.textContent = `${item.concentration} • Bottle Size: ${item.bottleSize}ml`;
+    concentrationEl.textContent = item.flaconFormat || `${item.concentration} • ${item.bottleSize}ml`;
   }
 
   const cloneOriginEl = document.getElementById('modalCloneOrigin');
