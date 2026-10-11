@@ -528,8 +528,8 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A modern masterpiece marrying photorealistic sparkling mandarin orange juice with the velvety cedarwood projection of Iso E Super. Clean, effervescent, and uplifting.",
-    image: "assets/bottles/cropped/pp_particle.jpg",
-    userPhoto: "assets/bottles/cropped/pp_particle.jpg",
+    image: "assets/bottles/cropped/pp_citrus_particle_0616.jpg",
+    userPhoto: "assets/bottles/cropped/pp_citrus_particle_0616.jpg",
     batchYear: 2024
   },
   {
@@ -868,6 +868,304 @@ const FRAGRANCE_DATABASE = [
     description: "A refined daily signature pump blending smoky oud wood with sensual dark Madagascar vanilla. Convenient, modern, and reliably pleasant for daily tasks and workouts.",
     image: "assets/bottles/cropped/lynx_oud_vanilla.jpg",
     userPhoto: "assets/bottles/cropped/lynx_oud_vanilla.jpg",
+    batchYear: 2024
+  },
+  {
+    id: "user-pp-herb-garden-1598",
+    name: "Herb Garden (1598)",
+    brand: "Perfume Parlour",
+    perfumeParlourCode: "1598",
+    isClone: true,
+    cloneOf: {
+      originalName: "Layton",
+      originalHouse: "Parfums de Marly",
+      similarityScore: 96
+    },
+    concentration: "Eau de Parfum",
+    bottleSize: 30,
+    bottleType: "Spray",
+    remainingMl: 28,
+    purchaseSource: "Perfume Parlour",
+    rating: 4.9,
+    gender: "Masculine",
+    crg: "Aromatic Fougere / Green Woody",
+    wardrobeArchetype: "Everyday Office / Versatile Signature",
+    recommendedSprays: "3-4 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck", "Collarbones"],
+    maturationWeeks: 5,
+    macerationStatus: "Fully Matured (Crisp Apple & Spicy Vanilla)",
+    macerationTips: "Oxygenation unlocks the signature crisp green apple, lavender, and rich vanilla-cardamom drydown. Hand-labeled 'LA TON' on bottle.",
+    layeringPartner: "Pairs with PP Particle (1365) (Iso E Super) for enormous woody projection in cool weather.",
+    seasons: { spring: 25, summer: 10, autumn: 40, winter: 25 },
+    timeOfDay: { day: 45, night: 55 },
+    occasions: ["Office / Work", "Dates", "City Centre", "Malls", "Casual", "Wedding"],
+    longevity: "Long Lasting (8-10h)",
+    sillage: "Strong",
+    mainAccords: [
+      { name: "Warm Spicy", percentage: 98, color: "#dc2626" },
+      { name: "Vanilla", percentage: 94, color: "#fbbf24" },
+      { name: "Aromatic Lavender", percentage: 88, color: "#a855f7" },
+      { name: "Crisp Apple", percentage: 85, color: "#84cc16" },
+      { name: "Woody", percentage: 78, color: "#854d0e" }
+    ],
+    notes: {
+      top: [
+        { name: "Crisp Apple", icon: "🍏" },
+        { name: "Lavender", icon: "🪻" },
+        { name: "Bergamot", icon: "🍋" },
+        { name: "Mandarin", icon: "🍊" }
+      ],
+      heart: [
+        { name: "Geranium", icon: "🌸" },
+        { name: "Violet", icon: "💐" },
+        { name: "Jasmine", icon: "🌺" }
+      ],
+      base: [
+        { name: "Bourbon Vanilla", icon: "🍦" },
+        { name: "Cardamom", icon: "🫚" },
+        { name: "Sandalwood", icon: "🪵" },
+        { name: "Black Pepper", icon: "🌶️" },
+        { name: "Patchouli", icon: "🌿" },
+        { name: "Guaiac Wood", icon: "🌲" }
+      ]
+    },
+    description: "A majestic royal signature opening with crisp green apple, zesty bergamot, and soothing lavender before evolving into a floral heart of geranium and a luxurious drydown of bourbon vanilla, spicy cardamom, and creamy sandalwood. Parfums de Marly's crowned prince.",
+    image: "assets/bottles/cropped/pp_herb_garden_1598.jpg",
+    userPhoto: "assets/bottles/cropped/pp_herb_garden_1598.jpg",
+    batchYear: 2024
+  },
+  {
+    id: "user-pp-astray-fruit-1947",
+    name: "Astray Fruit (1947)",
+    brand: "Perfume Parlour",
+    perfumeParlourCode: "1947",
+    isClone: true,
+    cloneOf: {
+      originalName: "Lost Cherry",
+      originalHouse: "Tom Ford",
+      similarityScore: 93
+    },
+    concentration: "Eau de Parfum",
+    bottleSize: 30,
+    bottleType: "Spray",
+    remainingMl: 26,
+    purchaseSource: "Perfume Parlour",
+    rating: 4.8,
+    gender: "Unisex",
+    crg: "Gourmand / Amber Woody",
+    wardrobeArchetype: "Date Night Seduction",
+    recommendedSprays: "3-4 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck", "Wrists"],
+    maturationWeeks: 6,
+    macerationStatus: "Matured (Decadent Cherry Liqueur & Roasted Tonka)",
+    macerationTips: "Cherry notes settle beautifully after resting in a cool dark space. The boozy liqueur and bitter almond deepen dramatically.",
+    layeringPartner: "Incredible layered with Tom Ford Noir Extreme or After Effect for dark boozy cherry richness.",
+    seasons: { spring: 15, summer: 5, autumn: 40, winter: 40 },
+    timeOfDay: { day: 25, night: 75 },
+    occasions: ["Dates", "Clubbing / Evening", "City Centre", "Malls", "Casual"],
+    longevity: "Long Lasting (8h+)",
+    sillage: "Strong",
+    mainAccords: [
+      { name: "Sweet Cherry", percentage: 100, color: "#be123c" },
+      { name: "Almond & Nutty", percentage: 92, color: "#a16207" },
+      { name: "Boozy Liqueur", percentage: 88, color: "#b45309" },
+      { name: "Warm Amber", percentage: 82, color: "#d97706" },
+      { name: "Vanilla & Tonka", percentage: 80, color: "#fbbf24" }
+    ],
+    notes: {
+      top: [
+        { name: "Sour Cherry", icon: "🍒" },
+        { name: "Bitter Almond", icon: "🌰" },
+        { name: "Cherry Liqueur", icon: "🍷" }
+      ],
+      heart: [
+        { name: "Griotte Cherry Syrup", icon: "🍒" },
+        { name: "Turkish Rose", icon: "🌹" },
+        { name: "Jasmine Sambac", icon: "🌸" },
+        { name: "Plum", icon: "🫐" }
+      ],
+      base: [
+        { name: "Peru Balsam", icon: "🍯" },
+        { name: "Roasted Tonka Bean", icon: "🌰" },
+        { name: "Sandalwood", icon: "🪵" },
+        { name: "Vetiver", icon: "🌾" },
+        { name: "Cedarwood", icon: "🌲" }
+      ]
+    },
+    description: "An opulent and intoxicating voyage into forbidden decadence. Ripe luscious black cherries drenched in cherry liqueur and bitter almond, wrapped in Turkish rose, warm Peru balsam, and roasted tonka beans.",
+    image: "assets/bottles/cropped/pp_astray_fruit_1947.jpg",
+    userPhoto: "assets/bottles/cropped/pp_astray_fruit_1947.jpg",
+    batchYear: 2024
+  },
+  {
+    id: "user-pp-leaf-flavour-0401",
+    name: "Leaf Flavour (0401)",
+    brand: "Perfume Parlour",
+    perfumeParlourCode: "0401",
+    isClone: true,
+    cloneOf: {
+      originalName: "Tobacco Vanille",
+      originalHouse: "Tom Ford",
+      similarityScore: 95
+    },
+    concentration: "Eau de Parfum",
+    bottleSize: 30,
+    bottleType: "Spray",
+    remainingMl: 27,
+    purchaseSource: "Perfume Parlour",
+    rating: 4.9,
+    gender: "Unisex",
+    crg: "Sweet Tobacco / Boozy Gourmand",
+    wardrobeArchetype: "Cold Weather Beast",
+    recommendedSprays: "2-3 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck"],
+    maturationWeeks: 8,
+    macerationStatus: "Rich Aged Tobacco & Bourbon Vanilla",
+    macerationTips: "Voj Lane 1 champion! Dark Cavendish pipe tobacco and creamy vanilla become velvety and smooth with patience. Hand-labeled 'T VANILLA' on bottle.",
+    layeringPartner: "Layer with Citrus Particle (0616) for a mindblowing mandarin-dusted spiced tobacco contrast.",
+    seasons: { spring: 10, summer: 0, autumn: 45, winter: 45 },
+    timeOfDay: { day: 20, night: 80 },
+    occasions: ["Dates", "Wedding", "Clubbing / Evening", "City Centre", "Casual"],
+    longevity: "Beast Mode (10-12h)",
+    sillage: "Enormous",
+    mainAccords: [
+      { name: "Sweet Tobacco", percentage: 100, color: "#92400e" },
+      { name: "Vanilla", percentage: 95, color: "#fbbf24" },
+      { name: "Warm Spicy", percentage: 90, color: "#dc2626" },
+      { name: "Sweet Dried Fruits", percentage: 85, color: "#b45309" },
+      { name: "Cacao", percentage: 78, color: "#78350f" }
+    ],
+    notes: {
+      top: [
+        { name: "Tobacco Leaf", icon: "🍂" },
+        { name: "Spicy Notes", icon: "🌶️" }
+      ],
+      heart: [
+        { name: "Tonka Bean", icon: "🌰" },
+        { name: "Tobacco Blossom", icon: "🌸" },
+        { name: "Vanilla", icon: "🍦" },
+        { name: "Cacao Pod", icon: "🍫" }
+      ],
+      base: [
+        { name: "Dried Fruits", icon: "🍇" },
+        { name: "Woody Notes", icon: "🪵" }
+      ]
+    },
+    description: "An iconic London private club aroma reimagined with opulent tobacco leaf accords, aromatic spices, and creamy tonka bean, unfolding into rich cacao, sweet dried fruits, and mellow wood sap.",
+    image: "assets/bottles/cropped/pp_leaf_flavour_0401.jpg",
+    userPhoto: "assets/bottles/cropped/pp_leaf_flavour_0401.jpg",
+    batchYear: 2024
+  },
+  {
+    id: "user-pp-noire-illusion-1746",
+    name: "Noire Illusion (1746)",
+    brand: "Perfume Parlour",
+    perfumeParlourCode: "1746",
+    isClone: true,
+    cloneOf: {
+      originalName: "Black Phantom (Memento Mori)",
+      originalHouse: "Kilian",
+      similarityScore: 94
+    },
+    concentration: "Eau de Parfum",
+    bottleSize: 30,
+    bottleType: "Spray",
+    remainingMl: 25,
+    purchaseSource: "Perfume Parlour",
+    rating: 4.8,
+    gender: "Unisex",
+    crg: "Gourmand / Amber Woody",
+    wardrobeArchetype: "Date Night Seduction",
+    recommendedSprays: "2-3 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck"],
+    maturationWeeks: 6,
+    macerationStatus: "Dark Roasted Coffee & Dark Chocolate Liqueur",
+    macerationTips: "Voj Lane 3 dark gourmand masterpiece. Bitter dark chocolate and roasted Martinique rum harmonize after 4+ weeks. Hand-labeled 'BLACK PHANT' on bottle.",
+    layeringPartner: "Layers with PP Second Particle (Ambroxan) to lift the heavy dark chocolate aura into a sillage cloud.",
+    seasons: { spring: 10, summer: 0, autumn: 45, winter: 45 },
+    timeOfDay: { day: 10, night: 90 },
+    occasions: ["Dates", "Clubbing / Evening", "City Centre", "Malls"],
+    longevity: "Long Lasting (9-10h)",
+    sillage: "Strong",
+    mainAccords: [
+      { name: "Sweet Gourmand", percentage: 100, color: "#78350f" },
+      { name: "Warm Rum / Boozy", percentage: 94, color: "#b45309" },
+      { name: "Dark Chocolate", percentage: 92, color: "#451a03" },
+      { name: "Roasted Coffee", percentage: 88, color: "#292524" },
+      { name: "Caramel & Almond", percentage: 85, color: "#d97706" }
+    ],
+    notes: {
+      top: [
+        { name: "Martinique Rum", icon: "🥃" },
+        { name: "Sugar Cane", icon: "🎋" }
+      ],
+      heart: [
+        { name: "Dark Chocolate", icon: "🍫" },
+        { name: "Roasted Coffee", icon: "☕" },
+        { name: "Almond", icon: "🌰" }
+      ],
+      base: [
+        { name: "Caramel", icon: "🍮" },
+        { name: "Sandalwood", icon: "🪵" },
+        { name: "Heliotrope", icon: "🌸" }
+      ]
+    },
+    description: "A pirate ship anchored in the dark waters of the Caribbean. Heady Martinique rum infused with roasted dark coffee, velvety bittersweet chocolate, almond milk, and golden sugar cane. Sinfully seductive.",
+    image: "assets/bottles/cropped/pp_noire_illusion_1746.jpg",
+    userPhoto: "assets/bottles/cropped/pp_noire_illusion_1746.jpg",
+    batchYear: 2024
+  },
+  {
+    id: "user-pp-second-particle-1980",
+    name: "Second Particle (1980)",
+    brand: "Perfume Parlour",
+    perfumeParlourCode: "1980",
+    isClone: true,
+    cloneOf: {
+      originalName: "Molecule 02 (Ambroxan)",
+      originalHouse: "Escentric Molecules",
+      similarityScore: 96
+    },
+    concentration: "Eau de Parfum",
+    bottleSize: 30,
+    bottleType: "Spray",
+    remainingMl: 28,
+    purchaseSource: "Perfume Parlour",
+    rating: 4.8,
+    gender: "Unisex",
+    crg: "Fresh Citrus / Aromatic Woody",
+    wardrobeArchetype: "Everyday Office / Versatile Signature",
+    recommendedSprays: "4-5 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck", "Collarbones", "Wrists"],
+    maturationWeeks: 4,
+    macerationStatus: "Mineral Ambergris Aura",
+    macerationTips: "Pure Ambroxan requires no maceration but blossoms with body heat. Fades in and out to prevent olfactory fatigue.",
+    layeringPartner: "The absolute king of layering! Spray 2 sprays on base of neck before any other fragrance to 2x its projection.",
+    seasons: { spring: 30, summer: 35, autumn: 20, winter: 15 },
+    timeOfDay: { day: 70, night: 30 },
+    occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Casual"],
+    longevity: "Long Lasting (8h+)",
+    sillage: "Radiant (Intimate yet diffusive)",
+    mainAccords: [
+      { name: "Mineral Ambergris", percentage: 100, color: "#0284c7" },
+      { name: "Velvety Musky", percentage: 92, color: "#64748b" },
+      { name: "Warm Skin", percentage: 85, color: "#d97706" },
+      { name: "Woody", percentage: 75, color: "#854d0e" }
+    ],
+    notes: {
+      top: [
+        { name: "Pure Ambroxan", icon: "✨" }
+      ],
+      heart: [
+        { name: "Velvety Mineral Sheen", icon: "🌊" }
+      ],
+      base: [
+        { name: "Radiant Ambergris Aura", icon: "🪨" }
+      ]
+    },
+    description: "A miraculous single-molecule fragrance featuring pure Ambroxan. Smells like warm sunlit skin, clean mineral ambergris, and sweet oceanic air. Highly diffusive and radiant, it works as both an irresistible skin scent and an ultra-potent projection booster when layered.",
+    image: "assets/bottles/cropped/pp_second_particle_1980.jpg",
+    userPhoto: "assets/bottles/cropped/pp_second_particle_1980.jpg",
     batchYear: 2024
   }
 ];

@@ -37,12 +37,21 @@ function loadCollection() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      // Upgrade to user's real shelf bottles if previous seed was stored
-      const hasRealBottles = parsed.some(item => item.id && item.id.startsWith('user-'));
-      if (hasRealBottles) {
-        collection = parsed;
-      } else {
-        collection = [...FRAGRANCE_DATABASE];
+      // Ensure all seed fragrances from FRAGRANCE_DATABASE exist in collection
+      const existingIds = new Set(parsed.map(item => item.id));
+      const missingSeedItems = FRAGRANCE_DATABASE.filter(seed => !existingIds.has(seed.id));
+
+      // Update any existing item with newer cropped images if seed was updated
+      collection = parsed.map(item => {
+        const seedMatch = FRAGRANCE_DATABASE.find(s => s.id === item.id);
+        if (seedMatch && !item.userUploadedCustomPhoto) {
+          return { ...item, image: seedMatch.image, userPhoto: seedMatch.userPhoto };
+        }
+        return item;
+      });
+
+      if (missingSeedItems.length > 0) {
+        collection = [...collection, ...missingSeedItems];
         saveCollection();
       }
     } else {
