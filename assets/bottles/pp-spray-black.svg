@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blackMatte" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="30%" stop-color="#18181b"/>
+      <stop offset="70%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cap -->
+  <rect x="110" y="40" width="80" height="60" rx="4" fill="url(#blackMatte)" stroke="#3f3f46" stroke-width="1"/>
+  <rect x="115" y="98" width="70" height="12" fill="url(#goldTrim)"/>
+
+  <!-- Sprayer Collar -->
+  <rect x="130" y="110" width="40" height="15" fill="url(#goldTrim)"/>
+
+  <!-- Bottle Body -->
+  <rect x="60" y="125" width="180" height="240" rx="14" fill="url(#blackMatte)" stroke="#3f3f46" stroke-width="1.5"/>
+
+  <!-- Gold Embossed Plaque -->
+  <rect x="85" y="185" width="130" height="130" rx="4" fill="#121214" stroke="url(#goldTrim)" stroke-width="1.5"/>
+  <rect x="91" y="191" width="118" height="118" rx="2" fill="none" stroke="url(#goldTrim)" stroke-width="0.75" stroke-dasharray="3,3"/>
+
+  <text x="150" y="228" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#fef08a" text-anchor="middle" letter-spacing="3">PERFUME</text>
+  <text x="150" y="246" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#fef08a" text-anchor="middle" letter-spacing="3">PARLOUR</text>
+  <line x1="115" y1="260" x2="185" y2="260" stroke="url(#goldTrim)" stroke-width="1"/>
+  <text x="150" y="280" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#e4e4e7" text-anchor="middle" letter-spacing="1">EAU DE PARFUM</text>
+  <text x="150" y="298" font-family="'Inter', sans-serif" font-size="8" fill="#a1a1aa" text-anchor="middle">50 ML</text>
+
+  <!-- Specular Reflection -->
+  <path d="M 72 135 L 72 355" stroke="#ffffff" stroke-width="2" opacity="0.15"/>
+</svg>

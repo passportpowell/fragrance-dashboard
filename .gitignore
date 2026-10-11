@@ -1,0 +1,17 @@
+# System & IDE
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+
+# Bundle safety
+- Base Prompts and Skill/

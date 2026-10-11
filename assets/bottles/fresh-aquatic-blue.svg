@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blueJuice" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="silverCap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Magnetic Silver Cap -->
+  <rect x="110" y="45" width="80" height="55" rx="6" fill="url(#silverCap)" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="130" y="100" width="40" height="15" fill="#64748b"/>
+
+  <!-- Cylindrical Blue Body -->
+  <rect x="65" y="115" width="170" height="250" rx="30" fill="url(#blueJuice)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- Minimalist Clean Type -->
+  <text x="150" y="225" font-family="'Cinzel', serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="3">AQUATIC</text>
+  <text x="150" y="245" font-family="'Inter', sans-serif" font-size="9" fill="#bae6fd" text-anchor="middle" letter-spacing="2">FRESH CITRUS</text>
+  <line x1="120" y1="260" x2="180" y2="260" stroke="#7dd3fc" stroke-width="1" opacity="0.6"/>
+  <text x="150" y="280" font-family="'Inter', sans-serif" font-size="8" fill="#e0f2fe" text-anchor="middle">EXTRAIT DE PARFUM</text>
+
+  <!-- Specular Reflection Curve -->
+  <path d="M 80 130 Q 95 240 90 350" stroke="#ffffff" stroke-width="2.5" opacity="0.4" fill="none"/>
+</svg>
