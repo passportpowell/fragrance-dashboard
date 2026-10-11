@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'Atelier Olfactif — Haute Parfumerie & Private Archive</title>
+  <title>L'Atelier Olfactif — Maison Powell // Haute Parfumerie Privée</title>
   
   <!-- High-End Editorial Typography Stack -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body data-page="salon">
 
   <!-- ======================================================================
        MAISON NAVIGATION (Floating Luxury Pill)
@@ -21,7 +21,7 @@
     <header class="maison-navbar">
       
       <!-- Brand Crest -->
-      <a href="#" class="maison-brand" aria-label="L'Atelier Olfactif Home">
+      <a href="index.html" class="maison-brand" aria-label="L'Atelier Olfactif Home">
         <div class="brand-monogram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M12 2L3 7v9l9 5 9-5V7l-9-5z"/>
@@ -37,16 +37,15 @@
 
       <!-- Center Editorial Navigation Links -->
       <nav class="maison-nav-links" aria-label="Primary Navigation">
-        <a href="#curatorSection" class="maison-nav-link">Curator's Choice</a>
-        <a href="#worldsSection" class="maison-nav-link">Curated Worlds</a>
-        <a href="#boutiqueSection" class="maison-nav-link">The Collection</a>
-        <a href="#layeringSection" class="maison-nav-link">The Layering Ritual</a>
-        <a href="#codexSection" class="maison-nav-link">Philosophy &amp; Craft</a>
+        <a href="index.html" class="maison-nav-link active">The Salon</a>
+        <a href="vault.html" class="maison-nav-link">The Flacon Vault</a>
+        <a href="scentscapes.html" class="maison-nav-link">Scentscapes</a>
+        <a href="layering.html" class="maison-nav-link">The Layering Atelier</a>
+        <a href="codex.html" class="maison-nav-link">The Scent Codex</a>
       </nav>
 
       <!-- Right Utility Actions -->
       <div class="maison-nav-actions">
-        <!-- Theme Switcher (Default Light Mode -> Dark Mode) -->
         <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -62,9 +61,37 @@
             </svg>
           </div>
         </button>
+
+        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
 
     </header>
+  </div>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobileDrawer" class="mobile-drawer-overlay">
+    <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link active">The Salon</a>
+      <a href="vault.html" class="mobile-drawer-link">The Flacon Vault</a>
+      <a href="scentscapes.html" class="mobile-drawer-link">Scentscapes</a>
+      <a href="layering.html" class="mobile-drawer-link">The Layering Atelier</a>
+      <a href="codex.html" class="mobile-drawer-link">The Scent Codex</a>
+    </div>
+    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;">
+      Maison Powell // Private Collection
+    </div>
   </div>
 
   <!-- Primary Website Main -->
@@ -93,8 +120,8 @@
           </p>
 
           <div class="hero-action-row">
-            <a href="#boutiqueSection" class="btn-luxury btn-luxury-primary">
-              <span>Explore The Collection</span>
+            <a href="vault.html" class="btn-luxury btn-luxury-primary">
+              <span>Explore The Vault</span>
               <div class="icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
                   <line x1="7" y1="17" x2="17" y2="7"/>
@@ -103,8 +130,8 @@
               </div>
             </a>
 
-            <a href="#layeringSection" class="btn-luxury btn-luxury-ghost">
-              <span>The Layering Ritual</span>
+            <a href="layering.html" class="btn-luxury btn-luxury-ghost">
+              <span>The Layering Atelier</span>
               <div class="icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px;">
                   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
@@ -215,93 +242,116 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 3: CURATED OLFACTORY WORLDS (EDITORIAL SCENARIOS)
+         SECTION 3: ATMOSPHERIC SCENTSCAPES PORTAL
          ====================================================================== -->
-    <section id="worldsSection" class="section-container-spacious" aria-label="Curated Scent Worlds">
+    <section class="section-container-spacious" aria-label="Curated Scent Worlds Preview">
       <div class="section-container">
         
         <div class="section-header-editorial">
           <span class="section-sup-title">Atmospheric Contexts</span>
-          <h2 class="section-title-large">CURATED SCENT WORLDS</h2>
-          <p class="section-sub-desc">Four distinct olfactory lanes engineered for specific lifestyle rituals, atmospheric temperatures, and emotional resonances.</p>
+          <h2 class="section-title-large">OLFACTORY SCENTSCAPES</h2>
+          <p class="section-sub-desc">Four distinct olfactory realms calibrated for specific lifestyle rituals, kinetic body heat, and emotional presence.</p>
         </div>
 
         <div class="worlds-editorial-grid">
           
-          <!-- World I: High-Heat Motion (Running & Sport) -->
+          <!-- Realm I: Running & Athletics -->
           <article class="world-card">
             <div>
-              <span class="world-badge-code">World I // Athletics &amp; Kinetic Motion</span>
+              <span class="world-badge-code">Realm I // Athletics &amp; Kinetic Motion</span>
               <h3 class="world-title">High-Heat Motion &amp; Athletics</h3>
               <p class="world-narrative">
-                Skin heat accelerates molecular vaporization by up to 200%. For running, outdoor walking, and gym sessions, heavy ambers become suffocating. This lane features diffusive molecular primers and sparkling solar mandarins that energize without olfactory fatigue.
+                Skin heat accelerates vaporization by up to 200%. For running and intensive training, heavy ambers become suffocating. This realm features diffusive molecular primers and solar mandarins that energize without olfactory fatigue.
               </p>
             </div>
 
             <div class="world-flacons-row">
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Running')">
+              <a href="scentscapes.html#realm-running" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_01_mandarin.jpg" alt="Citrus Particle">
                 <span class="world-flacon-thumb-name">Citrus Particle</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Running')">
+              </a>
+              <a href="scentscapes.html#realm-running" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/adg_profondo.jpg" alt="Intenso Water">
                 <span class="world-flacon-thumb-name">Intenso Water</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Running')">
+              </a>
+              <a href="scentscapes.html#realm-running" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_02.jpg" alt="Second Particle">
                 <span class="world-flacon-thumb-name">Second Particle</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Running')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_01.jpg" alt="Particle">
-                <span class="world-flacon-thumb-name">Particle</span>
-              </div>
+              </a>
             </div>
 
-            <button class="btn-text-link" onclick="filterByScenario('Running')">
-              <span>View Running &amp; Athletics Lane</span>
+            <a href="scentscapes.html#realm-running" class="btn-text-link">
+              <span>Explore Athletics Scentscape</span>
               <span>&rarr;</span>
-            </button>
+            </a>
           </article>
 
-          <!-- World II: Intimate Nightfall -->
+          <!-- Realm II: Walking & Strolls -->
           <article class="world-card">
             <div>
-              <span class="world-badge-code">World II // Nocturnal Seduction</span>
-              <h3 class="world-title">Intimate Nightfall &amp; Date Nights</h3>
+              <span class="world-badge-code">Realm II // Contemplative Motion</span>
+              <h3 class="world-title">The Open-Air Stroll (Walking)</h3>
+              <p class="world-narrative">
+                Outdoor breezes draw out rich mahogany woods, soothing lavender, and bourbon vanilla. Formulations that leave an effortless trailing sillage wake on brisk weekend walks.
+              </p>
+            </div>
+
+            <div class="world-flacons-row">
+              <a href="scentscapes.html#realm-walking" class="world-flacon-thumb-item">
+                <img class="world-flacon-thumb-img" src="assets/bottles/studio/bbw_mahogany_woods.jpg" alt="Mahogany Woods">
+                <span class="world-flacon-thumb-name">Mahogany Woods</span>
+              </a>
+              <a href="scentscapes.html#realm-walking" class="world-flacon-thumb-item">
+                <img class="world-flacon-thumb-img" src="assets/bottles/studio/neemah_laya.jpg" alt="Laya EDP">
+                <span class="world-flacon-thumb-name">Laya EDP</span>
+              </a>
+              <a href="scentscapes.html#realm-walking" class="world-flacon-thumb-item">
+                <img class="world-flacon-thumb-img" src="assets/bottles/studio/pdm_layton.jpg" alt="Herb Garden">
+                <span class="world-flacon-thumb-name">Herb Garden</span>
+              </a>
+            </div>
+
+            <a href="scentscapes.html#realm-walking" class="btn-text-link">
+              <span>Explore Walking Scentscape</span>
+              <span>&rarr;</span>
+            </a>
+          </article>
+
+          <!-- Realm III: Evening Dates -->
+          <article class="world-card">
+            <div>
+              <span class="world-badge-code">Realm III // Nocturnal Intimacy</span>
+              <h3 class="world-title">Intimate Nightfall &amp; Dates</h3>
               <p class="world-narrative">
                 Rich Martinique rum, honeyed blonde tobacco, bitter cherry liqueur, and roasted Madagascar vanilla. Resinous compositions that hug close to the skin and leave an intoxicating trail in intimate evening settings.
               </p>
             </div>
 
             <div class="world-flacons-row">
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Dates')">
+              <a href="scentscapes.html#realm-dates" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/after_effect_fa_paris.jpg" alt="After Effect">
                 <span class="world-flacon-thumb-name">After Effect</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Dates')">
+              </a>
+              <a href="scentscapes.html#realm-dates" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_lost_cherry.jpg" alt="Astray Fruit">
                 <span class="world-flacon-thumb-name">Astray Fruit</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Dates')">
+              </a>
+              <a href="scentscapes.html#realm-dates" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_tobacco_vanille.jpg" alt="Leaf Flavour">
                 <span class="world-flacon-thumb-name">Leaf Flavour</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Dates')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_noir_extreme.jpg" alt="Noir Extreme">
-                <span class="world-flacon-thumb-name">Noir Extreme</span>
-              </div>
+              </a>
             </div>
 
-            <button class="btn-text-link" onclick="filterByScenario('Dates')">
-              <span>View Intimate Nightfall Lane</span>
+            <a href="scentscapes.html#realm-dates" class="btn-text-link">
+              <span>Explore Evening Scentscape</span>
               <span>&rarr;</span>
-            </button>
+            </a>
           </article>
 
-          <!-- World III: The Executive Sovereign -->
+          <!-- Realm IV: The Boardroom & Office -->
           <article class="world-card">
             <div>
-              <span class="world-badge-code">World III // Executive Presence</span>
+              <span class="world-badge-code">Realm IV // Executive Presence</span>
               <h3 class="world-title">The Boardroom &amp; Formal Sovereign</h3>
               <p class="world-narrative">
                 Commanding aromatic fougères and crisp citrus woods. Polished cedar, incense, and Calabrian bergamot that project impeccable professionalism, credibility, and refined masculine elegance.
@@ -309,186 +359,95 @@
             </div>
 
             <div class="world-flacons-row">
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Office / Work')">
+              <a href="scentscapes.html#realm-office" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/bdc_edp.jpg" alt="Navy Intense">
                 <span class="world-flacon-thumb-name">Navy Intense</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Office / Work')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/pdm_layton.jpg" alt="Herb Garden">
-                <span class="world-flacon-thumb-name">Herb Garden</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Office / Work')">
+              </a>
+              <a href="scentscapes.html#realm-office" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/voux_elegante.jpg" alt="Voux Elegante">
                 <span class="world-flacon-thumb-name">Voux Elegante</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Office / Work')">
+              </a>
+              <a href="scentscapes.html#realm-office" class="world-flacon-thumb-item">
                 <img class="world-flacon-thumb-img" src="assets/bottles/studio/mancera_cedrat_boise.jpg" alt="Wood Miracle">
                 <span class="world-flacon-thumb-name">Wood Miracle</span>
-              </div>
+              </a>
             </div>
 
-            <button class="btn-text-link" onclick="filterByScenario('Office / Work')">
-              <span>View Executive Sovereign Lane</span>
+            <a href="scentscapes.html#realm-office" class="btn-text-link">
+              <span>Explore Executive Scentscape</span>
               <span>&rarr;</span>
-            </button>
+            </a>
           </article>
 
-          <!-- World IV: Rare Woods & Gourmand -->
-          <article class="world-card">
-            <div>
-              <span class="world-badge-code">World IV // Decadent Craft</span>
-              <h3 class="world-title">Rare Woods &amp; Decadent Amber</h3>
-              <p class="world-narrative">
-                Warm smoky cedar, roasted espresso, cardamom kulfi, and aged mahogany. A haven of comfort and quiet luxury for autumn strolls, cozy evenings, and sophisticated gatherings.
-              </p>
-            </div>
+        </div>
 
-            <div class="world-flacons-row">
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Walking')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/bbw_mahogany_woods.jpg" alt="Mahogany Woods">
-                <span class="world-flacon-thumb-name">Mahogany Woods</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Walking')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/neemah_laya.jpg" alt="Laya EDP">
-                <span class="world-flacon-thumb-name">Laya EDP</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Walking')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/kilian_black_phantom.jpg" alt="Noire Illusion">
-                <span class="world-flacon-thumb-name">Noire Illusion</span>
-              </div>
-              <div class="world-flacon-thumb-item" onclick="filterByScenario('Walking')">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/lynx_oud_vanilla.jpg" alt="Oud Wood & Dark Vanilla">
-                <span class="world-flacon-thumb-name">Oud Vanilla</span>
-              </div>
-            </div>
-
-            <button class="btn-text-link" onclick="filterByScenario('Walking')">
-              <span>View Rare Woods Lane</span>
-              <span>&rarr;</span>
-            </button>
-          </article>
-
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="scentscapes.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
+            <span>View All Olfactory Scentscapes</span>
+            <div class="icon-circle">&rarr;</div>
+          </a>
         </div>
 
       </div>
     </section>
 
     <!-- ======================================================================
-         SECTION 4: THE BOUTIQUE ARCHIVE (CLEAN E-COMMERCE / GALLERY)
+         SECTION 4: THE VAULT TEASER
          ====================================================================== -->
-    <section id="boutiqueSection" class="section-container-spacious" aria-label="The Boutique Archive">
+    <section class="section-container-spacious" style="background: var(--canvas-surface); border-top: 1px solid var(--canvas-border); border-bottom: 1px solid var(--canvas-border);">
       <div class="section-container">
-        
         <div class="section-header-editorial">
-          <span class="section-sup-title">The Complete Archive</span>
-          <h2 class="section-title-large">THE FLACON CATALOG</h2>
-          <p class="section-sub-desc">Browse all twenty curated compositions. Meticulously cataloged with complete note pyramids, clone benchmarks, and application blueprints.</p>
+          <span class="section-sup-title">The Master Catalog</span>
+          <h2 class="section-title-large">THE FLACON VAULT</h2>
+          <p class="section-sub-desc">Explore all twenty hand-curated extraits, eau de parfums, and molecular amplifiers with complete multi-dimensional filtering.</p>
         </div>
 
-        <!-- Boutique Toolbar -->
-        <div class="boutique-nav-toolbar">
-          <div class="boutique-filter-pills" id="boutiqueFilterBar">
-            <button class="boutique-pill active" data-filter="all">All Flacons (20)</button>
-            <button class="boutique-pill" data-filter="Running">Running &amp; Athletics</button>
-            <button class="boutique-pill" data-filter="Walking">Walking &amp; Strolls</button>
-            <button class="boutique-pill" data-filter="Dates">Evening &amp; Dates</button>
-            <button class="boutique-pill" data-filter="Office / Work">Office &amp; Boardroom</button>
-            <button class="boutique-pill" data-filter="Wedding">Wedding &amp; Formal</button>
-            <button class="boutique-pill" data-filter="Summer">Summer Solar</button>
-            <button class="boutique-pill" data-filter="Winter">Winter Warm</button>
-          </div>
-
-          <div class="boutique-search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input type="text" id="boutiqueSearchInput" class="boutique-search-input" placeholder="Search by name, note, or clone inspiration...">
-          </div>
+        <div style="text-align: center; margin-top: 1rem;">
+          <a href="vault.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
+            <span>Enter The Flacon Vault (20 Compositions)</span>
+            <div class="icon-circle">&rarr;</div>
+          </a>
         </div>
-
-        <!-- Product Cards Grid (Clean, Luxurious, Zero-Clutter) -->
-        <div class="boutique-product-grid" id="boutiqueProductGrid">
-          <!-- Populated dynamically by js/app.js -->
-        </div>
-
       </div>
     </section>
 
     <!-- ======================================================================
-         SECTION 5: THE ART OF LAYERING (EDITORIAL DUPLEX SPREADS)
+         SECTION 5: THE ART OF LAYERING TEASER
          ====================================================================== -->
-    <section id="layeringSection" class="layering-editorial-section section-container-spacious" aria-label="The Art of Layering">
+    <section class="section-container-spacious">
       <div class="section-container">
-        
         <div class="section-header-editorial">
           <span class="section-sup-title">L'Art de la Superposition</span>
-          <h2 class="section-title-large">THE ART OF LAYERING</h2>
-          <p class="section-sub-desc">
-            In Middle Eastern perfumery, fragrance is never worn in isolation. By pairing molecular anchors with contrasting aromatic modifiers, you forge a bespoke, unmistakable olfactory signature.
-          </p>
+          <h2 class="section-title-large">THE LAYERING ATELIER</h2>
+          <p class="section-sub-desc">Discover our six master-compounded signature duos or enter our interactive pairing studio to calculate compatibility scores for any base flacon.</p>
         </div>
 
-        <!-- 6 Curator Signature Duos -->
-        <div class="layering-duos-grid" id="layeringDuosContainer">
-          <!-- Rendered dynamically by js/app.js -->
+        <div style="text-align: center; margin-top: 1rem;">
+          <a href="layering.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
+            <span>Enter The Layering Atelier</span>
+            <div class="icon-circle">&rarr;</div>
+          </a>
         </div>
-
       </div>
     </section>
 
     <!-- ======================================================================
-         SECTION 6: THE SCENT CODEX (MAISON PHILOSOPHY & CRAFTSMANSHIP)
+         SECTION 6: THE SCENT CODEX TEASER
          ====================================================================== -->
-    <section id="codexSection" class="section-container-spacious" aria-label="Philosophy and Craft">
+    <section class="section-container-spacious" style="background: var(--canvas-surface); border-top: 1px solid var(--canvas-border);">
       <div class="section-container">
-        
         <div class="section-header-editorial">
-          <span class="section-sup-title">Maison Philosophy</span>
-          <h2 class="section-title-large">THE SCENT CODEX &amp; CRAFTSMANSHIP</h2>
-          <p class="section-sub-desc">The principles of sillage architecture, clone oxygenation, and concentration dynamics.</p>
+          <span class="section-sup-title">Maison Doctrine</span>
+          <h2 class="section-title-large">THE SCENT CODEX</h2>
+          <p class="section-sub-desc">The five foundational doctrines of olfactory mastery: The Voj Anti-Noseblind Law, Maceration Kinetics, and Molecular Primers.</p>
         </div>
 
-        <div class="codex-stories-grid">
-          
-          <!-- Story 1: Voj Spray Blueprint -->
-          <article class="codex-story-card">
-            <span class="codex-roman-num">I.</span>
-            <h3 class="codex-story-title">The Anti-Noseblind Law</h3>
-            <p class="codex-story-text">
-              Spraying the front of your chest or throat directly exposes your olfactory receptors to rising volatile fumes, inducing olfactory fatigue (anosmia) within 20 minutes. You believe your fragrance has vanished while projecting a heavy cloud onto everyone else.
-            </p>
-            <p class="codex-story-text">
-              <strong>The Voj Protocol:</strong> Apply exclusively behind each earlobe and across the nape of the neck. Movement creates an intoxicating trailing sillage wake behind you without fatiguing your own senses.
-            </p>
-          </article>
-
-          <!-- Story 2: Maturation Protocol -->
-          <article class="codex-story-card">
-            <span class="codex-roman-num">II.</span>
-            <h3 class="codex-story-title">Artisanal Maturation</h3>
-            <p class="codex-story-text">
-              Freshly compounded perfume oils and clones from houses like Perfume Parlour undergo active molecular bonding. Upon receiving a new flacon, spray 5 to 10 sprays to introduce oxygen into the headspace of the bottle.
-            </p>
-            <p class="codex-story-text">
-              Store in a dark, temperate drawer for 2 to 6 weeks. The sharp alcohol opening softens, allowing deep resins, vanilla, and woods to meld into a seamless, velvety drydown.
-            </p>
-          </article>
-
-          <!-- Story 3: Concentration Spectrum -->
-          <article class="codex-story-card">
-            <span class="codex-roman-num">III.</span>
-            <h3 class="codex-story-title">The Concentration Spectrum</h3>
-            <p class="codex-story-text">
-              <strong>Eau de Toilette (5–15% Oil):</strong> Sharp expansive projection ideal for warm athletics.<br>
-              <strong>Eau de Parfum (15–20% Oil):</strong> The golden mean of 8-hour versatility.<br>
-              <strong>Extrait de Parfum (20–40% Oil):</strong> Narcotic, resinous density lasting 12+ hours.<br>
-              <strong>Pure Perfume Oil (100%):</strong> Intimate warmth and the ideal Middle Eastern base.
-            </p>
-          </article>
-
+        <div style="text-align: center; margin-top: 1rem;">
+          <a href="codex.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
+            <span>Read The Scent Codex</span>
+            <div class="icon-circle">&rarr;</div>
+          </a>
         </div>
-
       </div>
     </section>
 
@@ -499,7 +458,6 @@
        ====================================================================== -->
   <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-dossier-card">
-      
       <div class="modal-header-row">
         <div>
           <span class="eyebrow-pill" id="modalConcentration">EXTRAIT DE PARFUM</span>
@@ -561,7 +519,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -606,8 +563,6 @@
        ====================================================================== -->
   <footer class="maison-footer">
     <div class="footer-inner-grid">
-      
-      <!-- Brand Heritage Column -->
       <div class="footer-brand-column">
         <span class="footer-headline">L'ATELIER OLFACTIF</span>
         <p class="footer-manifesto">
@@ -615,48 +570,42 @@
         </p>
       </div>
 
-      <!-- Navigation Column -->
       <div class="footer-nav-column">
         <span class="footer-col-title">The Archive</span>
         <ul class="footer-links-list">
-          <li><a href="#curatorSection">Curator's Choice</a></li>
-          <li><a href="#worldsSection">Curated Worlds</a></li>
-          <li><a href="#boutiqueSection">The Collection</a></li>
-          <li><a href="#layeringSection">Layering Rituals</a></li>
-          <li><a href="#codexSection">Maison Philosophy</a></li>
+          <li><a href="index.html">The Salon</a></li>
+          <li><a href="vault.html">The Flacon Vault</a></li>
+          <li><a href="scentscapes.html">Olfactory Scentscapes</a></li>
+          <li><a href="layering.html">The Layering Atelier</a></li>
+          <li><a href="codex.html">The Scent Codex</a></li>
         </ul>
       </div>
 
-      <!-- Scenarios Column -->
       <div class="footer-nav-column">
         <span class="footer-col-title">Lifestyle Lanes</span>
         <ul class="footer-links-list">
-          <li><a href="#boutiqueSection" onclick="filterByScenario('Running')">Running &amp; Athletics</a></li>
-          <li><a href="#boutiqueSection" onclick="filterByScenario('Walking')">Walking &amp; Strolls</a></li>
-          <li><a href="#boutiqueSection" onclick="filterByScenario('Dates')">Evening &amp; Date Night</a></li>
-          <li><a href="#boutiqueSection" onclick="filterByScenario('Office / Work')">Office &amp; Boardroom</a></li>
-          <li><a href="#boutiqueSection" onclick="filterByScenario('Wedding')">Wedding &amp; Formal</a></li>
+          <li><a href="vault.html?scenario=Running">Running &amp; Athletics</a></li>
+          <li><a href="vault.html?scenario=Walking">Walking &amp; Strolls</a></li>
+          <li><a href="vault.html?scenario=Dates">Evening &amp; Date Night</a></li>
+          <li><a href="vault.html?scenario=Office%20/%20Work">Office &amp; Boardroom</a></li>
+          <li><a href="vault.html?scenario=Wedding">Wedding &amp; Formal</a></li>
         </ul>
       </div>
 
-      <!-- Maison Imprint & Card Link -->
       <div class="footer-nav-column">
         <span class="footer-col-title">Maison Powell</span>
         <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
           Private Olfactory Collection. All compositions preserved in dark-cupboard temperature stability.
         </p>
         <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-github-link" title="Passport Powell Card" aria-label="Passport Powell Card">
-          <!-- Mandatory GitHub Icon -->
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
           </svg>
           <span>Passport Powell Card</span>
         </a>
       </div>
-
     </div>
 
-    <!-- Copyright -->
     <div class="footer-bottom-bar">
       <span class="footer-copyright">&copy; 2026 L'Atelier Olfactif &bull; Maison Powell. All rights reserved.</span>
       <span class="footer-copyright">Engineered with high-end editorial luxury principles.</span>

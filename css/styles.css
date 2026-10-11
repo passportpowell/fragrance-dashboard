@@ -1365,6 +1365,559 @@ button, input, select {
 }
 
 /* ==========================================================================
+   MULTI-PAGE NAVIGATION & ACTIVE STATES
+   ========================================================================== */
+.maison-nav-link.active {
+  color: var(--text-primary);
+  background: var(--canvas-surface);
+  font-weight: 600;
+  border: 1px solid var(--canvas-border-subtle);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 10, 13, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  padding: 6rem 2rem 3rem;
+  justify-content: space-between;
+}
+
+.mobile-drawer-overlay.open {
+  display: flex;
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-drawer-link {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.mobile-drawer-link.active,
+.mobile-drawer-link:hover {
+  color: var(--gold-primary);
+}
+
+.mobile-drawer-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   PAGE HERO BANNER (SHARED ACROSS VAULT, SCENTSCAPES, LAYERING, CODEX)
+   ========================================================================== */
+.page-hero-banner {
+  width: 100%;
+  padding: 7rem 1.5rem 3.5rem;
+  background: radial-gradient(circle at 50% 0%, var(--canvas-surface) 0%, var(--canvas-bg) 75%);
+  border-bottom: 1px solid var(--canvas-border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-hero-banner .eyebrow-pill {
+  margin-bottom: 1.25rem;
+}
+
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  line-height: 1.08;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  color: var(--gold-primary);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.page-hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 68ch;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   IMPROVED MULTI-DIMENSIONAL FILTER SUITE (VAULT.HTML)
+   ========================================================================== */
+.vault-filter-system {
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.25rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-group-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.filter-group-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  font-weight: 700;
+  width: 140px;
+  padding-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+.filter-pills-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.filter-chip-btn {
+  padding: 0.42rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.filter-chip-btn:hover {
+  background: var(--canvas-card);
+  color: var(--text-primary);
+  border-color: var(--gold-primary);
+}
+
+.filter-chip-btn.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Filter Summary & Control Bar */
+.vault-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--canvas-border);
+}
+
+.vault-live-counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vault-live-counter strong {
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+.vault-sort-select {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  outline: none;
+  cursor: pointer;
+}
+
+.active-filters-chips-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 0;
+}
+
+.active-filter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--gold-primary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.active-filter-remove {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+
+.active-filter-remove:hover {
+  color: var(--text-primary);
+}
+
+.clear-all-filters-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+.clear-all-filters-btn:hover {
+  color: var(--gold-primary);
+}
+
+/* ==========================================================================
+   SCENTSCAPES REALM CARDS (SCENTSCAPES.HTML)
+   ========================================================================== */
+.scentscape-realm-block {
+  margin-bottom: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.scentscape-realm-header {
+  border-left: 3px solid var(--gold-primary);
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.scentscape-realm-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.scentscape-science-card {
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.scentscape-science-text {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.scentscape-blueprint-box {
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scentscape-blueprint-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+.scentscape-bottles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   INTERACTIVE PAIRING STUDIO (LAYERING.HTML)
+   ========================================================================== */
+.layering-mode-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.layering-mode-btn {
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.layering-mode-btn.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.interactive-studio-stage {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.base-selector-pod {
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.base-selector-dropdown {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.base-flacon-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at 50% 65%, var(--canvas-pedestal) 0%, var(--canvas-surface) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--canvas-border-subtle);
+  gap: 1rem;
+}
+
+.base-flacon-preview-img {
+  max-width: 150px;
+  max-height: 170px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.15));
+}
+
+.ranked-companions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.companion-rank-card {
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: 90px 1fr 110px;
+  gap: 1.75rem;
+  align-items: center;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.companion-rank-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.companion-rank-img {
+  width: 80px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+.companion-rank-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.companion-synergy-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  border-left: 1px solid var(--canvas-border-subtle);
+  padding-left: 1.25rem;
+}
+
+.companion-synergy-score {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+}
+
+/* ==========================================================================
+   THE SCENT CODEX CHAPTER LAYOUT (CODEX.HTML)
+   ========================================================================== */
+.codex-chapter-wrap {
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.codex-chapter-numeral {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  line-height: 1;
+}
+
+.codex-chapter-content {
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.codex-chapter-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.codex-lead-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-primary);
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.codex-prose {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.codex-prose strong {
+  color: var(--text-primary);
+}
+
+.codex-rule-box {
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
    MOBILE RESPONSIVENESS (Skill Directives: Collapse below 768px)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1388,6 +1941,19 @@ button, input, select {
   .modal-content-split {
     grid-template-columns: 1fr;
   }
+  .scentscape-science-card {
+    grid-template-columns: 1fr;
+  }
+  .interactive-studio-stage {
+    grid-template-columns: 1fr;
+  }
+  .base-selector-pod {
+    position: static;
+  }
+  .codex-chapter-wrap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1397,8 +1963,14 @@ button, input, select {
   .maison-nav-links {
     display: none;
   }
+  .mobile-menu-toggle {
+    display: flex;
+  }
   .section-container {
     padding: 3.5rem 1.25rem;
+  }
+  .page-hero-banner {
+    padding: 5.5rem 1.25rem 2.5rem;
   }
   .curator-magazine-spread {
     padding: 2rem 1.5rem;
@@ -1418,4 +1990,27 @@ button, input, select {
   .modal-dossier-card {
     padding: 2rem 1.5rem;
   }
+  .vault-filter-system {
+    padding: 1.5rem 1.25rem;
+  }
+  .filter-group-label {
+    width: 100%;
+  }
+  .companion-rank-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .companion-rank-img {
+    margin: 0 auto;
+  }
+  .companion-synergy-column {
+    border-left: none;
+    border-top: 1px solid var(--canvas-border-subtle);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .codex-chapter-content {
+    padding: 2rem 1.5rem;
+  }
 }
+
