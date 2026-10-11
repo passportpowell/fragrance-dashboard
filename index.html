@@ -162,15 +162,49 @@
       <div class="section-container">
         
         <div class="section-header-editorial">
-          <span class="section-sup-title">Today's Recommendation</span>
+          <div class="sotd-season-indicator-pill" id="sotdSeasonBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <span id="sotdSeasonBadgeText">Autumn Selection // October</span>
+          </div>
+          <span class="section-sup-title" id="sotdSupTitle">Today's Recommendation</span>
           <h2 class="section-title-large">SCENT OF THE DAY</h2>
-          <p class="section-sub-desc">Picked fresh based on weather, temperature, and everyday wear.</p>
+          <p class="section-sub-desc" id="sotdSectionDesc">
+            Curated for Autumn weather in October. Filtered strictly from the in-season bottles in your collection.
+          </p>
+
+          <!-- Season Switcher Buttons -->
+          <div class="sotd-season-nav" id="sotdSeasonNav" aria-label="Season Selection">
+            <button class="sotd-season-btn active" data-season="autumn" type="button">
+              <span>Autumn</span>
+              <span class="sotd-season-badge-tag" id="sotdTagAutumn">Current</span>
+              <span class="sotd-season-count" id="sotdCountAutumn">18</span>
+            </button>
+            <button class="sotd-season-btn" data-season="winter" type="button">
+              <span>Winter</span>
+              <span class="sotd-season-badge-tag" id="sotdTagWinter" style="display:none;">Current</span>
+              <span class="sotd-season-count" id="sotdCountWinter">14</span>
+            </button>
+            <button class="sotd-season-btn" data-season="spring" type="button">
+              <span>Spring</span>
+              <span class="sotd-season-badge-tag" id="sotdTagSpring" style="display:none;">Current</span>
+              <span class="sotd-season-count" id="sotdCountSpring">12</span>
+            </button>
+            <button class="sotd-season-btn" data-season="summer" type="button">
+              <span>Summer</span>
+              <span class="sotd-season-badge-tag" id="sotdTagSummer" style="display:none;">Current</span>
+              <span class="sotd-season-count" id="sotdCountSummer">8</span>
+            </button>
+          </div>
         </div>
 
         <div class="curator-magazine-spread">
           
           <!-- Bottle Photo Column -->
           <div class="curator-photo-column">
+            <div class="sotd-season-chip" id="sotdPhotoSeasonTag">Autumn Match 45%</div>
             <img id="sotdImg" src="assets/bottles/studio/pdm_layton.jpg" alt="Scent of the Day Bottle">
           </div>
 
@@ -222,7 +256,7 @@
                 </div>
               </button>
 
-              <button id="sotdRefreshBtn" class="btn-luxury btn-luxury-ghost" title="Pick another recommendation">
+              <button id="sotdRefreshBtn" class="btn-luxury btn-luxury-ghost" title="Pick another recommendation from in-season options">
                 <span>Pick Another Scent</span>
                 <div class="icon-circle">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
@@ -236,6 +270,20 @@
 
           </div>
 
+        </div>
+
+        <!-- In-Season Options Carousel/Rail -->
+        <div class="sotd-options-container" id="sotdOptionsContainer">
+          <div class="sotd-options-header">
+            <div>
+              <span class="sotd-options-kicker">Options For This Season</span>
+              <h3 class="sotd-options-title" id="sotdOptionsTitle">Autumn Options in Your Collection (18 Bottles)</h3>
+            </div>
+            <span class="sotd-options-hint">Click any bottle below to set as Scent of the Day</span>
+          </div>
+          <div class="sotd-options-rail" id="sotdOptionsRail" role="list">
+            <!-- Dynamically populated with in-season candidate thumbnails -->
+          </div>
         </div>
 
       </div>

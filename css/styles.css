@@ -706,6 +706,269 @@ button, input, select {
   flex-wrap: wrap;
 }
 
+/* SOTD Seasonal Controls & Badge */
+.sotd-season-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-card);
+  border: 1px solid var(--gold-radiant);
+  color: var(--gold-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.sotd-season-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.sotd-season-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--canvas-border);
+  background: var(--canvas-card);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-spring);
+  box-shadow: var(--shadow-subtle);
+}
+
+.sotd-season-btn:hover {
+  border-color: var(--gold-radiant);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.sotd-season-btn.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.sotd-season-badge-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--gold-badge-bg);
+  color: var(--gold-primary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.sotd-season-btn.active .sotd-season-badge-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.sotd-season-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.8;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-pedestal);
+  color: inherit;
+}
+
+.sotd-season-btn.active .sotd-season-count {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.sotd-season-chip {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-glass-heavy);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--canvas-border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* SOTD In-Season Options Container & Rail */
+.sotd-options-container {
+  margin-top: 2.5rem;
+  padding: 2rem 2.5rem;
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.sotd-options-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--canvas-border-subtle);
+}
+
+.sotd-options-kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.sotd-options-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.sotd-options-hint {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-sans);
+}
+
+.sotd-options-rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sotd-options-rail::-webkit-scrollbar {
+  height: 6px;
+}
+
+.sotd-options-rail::-webkit-scrollbar-track {
+  background: var(--canvas-pedestal);
+  border-radius: 9999px;
+}
+
+.sotd-options-rail::-webkit-scrollbar-thumb {
+  background: var(--canvas-border);
+  border-radius: 9999px;
+}
+
+.sotd-options-rail::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-radiant);
+}
+
+.sotd-option-card {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.15rem 0.85rem;
+  background: var(--canvas-surface);
+  border: 1.5px solid var(--canvas-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-spring);
+  position: relative;
+  user-select: none;
+}
+
+.sotd-option-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-radiant);
+  box-shadow: var(--shadow-hover);
+  background: var(--canvas-card);
+}
+
+.sotd-option-card.active {
+  border-color: var(--gold-primary);
+  background: var(--canvas-card);
+  box-shadow: 0 0 0 2px var(--gold-glow), var(--shadow-card);
+}
+
+.sotd-option-active-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: var(--gold-primary);
+  color: var(--text-inverse);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sotd-option-thumb {
+  width: 76px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.65rem;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.sotd-option-card:hover .sotd-option-thumb {
+  transform: scale(1.08);
+}
+
+.sotd-option-name {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.1em;
+}
+
+.sotd-option-match {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--gold-badge-bg);
+  white-space: nowrap;
+}
+
 /* ==========================================================================
    SECTION 3: CURATED OLFACTORY WORLDS (EDITORIAL SCENARIOS)
    ========================================================================== */
@@ -2011,6 +2274,27 @@ button, input, select {
   }
   .codex-chapter-content {
     padding: 2rem 1.5rem;
+  }
+  .sotd-options-container {
+    padding: 1.5rem 1rem;
+    margin-top: 1.5rem;
+  }
+  .sotd-options-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .sotd-option-card {
+    flex: 0 0 135px;
+    padding: 0.85rem 0.5rem;
+  }
+  .sotd-option-thumb {
+    width: 60px;
+    height: 80px;
+  }
+  .sotd-season-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
   }
 }
 

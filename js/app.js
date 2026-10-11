@@ -211,40 +211,145 @@ function saveCollection() {
 }
 
 // ==========================================================================
-// 4. SCENT OF THE DAY (RECOMMENDATION ALGORITHM)
+// 4. SCENT OF THE DAY (SEASONAL TIME-OF-YEAR RECOMMENDATION ENGINE)
 // ==========================================================================
-function initSotdRecommendation(forceReroll = false) {
-  if (!collection || collection.length === 0) return;
+let sotdActiveSeason = null;
 
-  const month = new Date().getMonth();
-  let currentSeason = 'spring';
-  if (month >= 2 && month <= 4) currentSeason = 'spring';
-  else if (month >= 5 && month <= 7) currentSeason = 'summer';
-  else if (month >= 8 && month <= 10) currentSeason = 'autumn';
-  else currentSeason = 'winter';
+function getCalendarSeasonInfo() {
+  const monthIdx = new Date().getMonth();
+  let season = 'spring';
+  if (monthIdx >= 2 && monthIdx <= 4) season = 'spring';
+  else if (monthIdx >= 5 && monthIdx <= 7) season = 'summer';
+  else if (monthIdx >= 8 && monthIdx <= 10) season = 'autumn';
+  else season = 'winter';
+
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
 
   const hour = new Date().getHours();
-  const timeKey = (hour >= 18 || hour < 6) ? 'night' : 'day';
+  const isEvening = (hour >= 18 || hour < 6);
+  const timeKey = isEvening ? 'night' : 'day';
+  const timeLabel = isEvening ? 'Evening' : 'Daytime';
 
-  // Weather and timing score
-  const candidates = collection.map(item => {
-    const seasonScore = item.seasons?.[currentSeason] || 15;
+  return {
+    calendarSeason: season,
+    monthName: monthNames[monthIdx],
+    isEvening,
+    timeKey,
+    timeLabel
+  };
+}
+
+function getInSeasonCandidates(seasonKey) {
+  if (!collection || collection.length === 0) return [];
+
+  const normSeason = (seasonKey || 'autumn').toLowerCase();
+
+  // Strict seasonal match: at least 20% compatibility rating
+  let matched = collection.filter(item => {
+    const score = item.seasons?.[normSeason] || 0;
+    return score >= 20;
+  });
+
+  // Safe fallback if collection has fewer items
+  if (matched.length === 0) {
+    matched = collection.filter(item => (item.seasons?.[normSeason] || 0) > 0);
+  }
+  if (matched.length === 0) {
+    matched = [...collection];
+  }
+
+  const { timeKey } = getCalendarSeasonInfo();
+
+  return matched.map(item => {
+    const seasonScore = item.seasons?.[normSeason] || 0;
     const timeScore = item.timeOfDay?.[timeKey] || 30;
     const ratingBonus = (item.rating || 4.5) * 10;
-    return { item, totalScore: seasonScore + timeScore + ratingBonus };
+    // Weighted scoring: Season match is primary, followed by time of day & rating
+    const totalScore = (seasonScore * 2.5) + timeScore + ratingBonus;
+    return { item, totalScore, seasonScore };
   }).sort((a, b) => b.totalScore - a.totalScore);
+}
+
+function initSotdRecommendation(forceReroll = false, targetId = null, newSeason = null) {
+  if (!collection || collection.length === 0) return;
+
+  const cal = getCalendarSeasonInfo();
+
+  if (newSeason) {
+    sotdActiveSeason = newSeason.toLowerCase();
+  } else if (!sotdActiveSeason) {
+    sotdActiveSeason = cal.calendarSeason;
+  }
+
+  const candidates = getInSeasonCandidates(sotdActiveSeason);
+  if (candidates.length === 0) return;
 
   let selected;
-  if (forceReroll && candidates.length > 1) {
-    const topCandidates = candidates.slice(0, 5);
-    const randIndex = Math.floor(Math.random() * topCandidates.length);
-    selected = topCandidates[randIndex].item;
+  if (targetId) {
+    const match = candidates.find(c => c.item.id === targetId);
+    selected = match ? match.item : collection.find(c => c.id === targetId) || candidates[0].item;
+  } else if (forceReroll && candidates.length > 1) {
+    // Pick another in-season candidate excluding the currently shown bottle
+    const otherCandidates = candidates.filter(c => c.item.id !== currentSotdFragranceId);
+    const pool = otherCandidates.length > 0 ? otherCandidates : candidates;
+    const randIdx = Math.floor(Math.random() * pool.length);
+    selected = pool[randIdx].item;
   } else {
     selected = candidates[0].item;
   }
 
   currentSotdFragranceId = selected.id;
 
+  const capSeason = sotdActiveSeason.charAt(0).toUpperCase() + sotdActiveSeason.slice(1);
+  const isCurrentCalendar = (sotdActiveSeason === cal.calendarSeason);
+
+  // Update Section Header & Badges
+  const sotdSeasonBadgeText = document.getElementById('sotdSeasonBadgeText');
+  if (sotdSeasonBadgeText) {
+    sotdSeasonBadgeText.textContent = isCurrentCalendar
+      ? `${capSeason} Selection // ${cal.monthName} (${cal.timeLabel} Wear)`
+      : `${capSeason} Selection // Custom Season (${cal.timeLabel} Wear)`;
+  }
+
+  const sotdSectionDesc = document.getElementById('sotdSectionDesc');
+  if (sotdSectionDesc) {
+    sotdSectionDesc.textContent = isCurrentCalendar
+      ? `Curated for ${capSeason} weather in ${cal.monthName} (${cal.timeLabel} wear). Picked strictly from the ${candidates.length} bottles in your collection rated for this season.`
+      : `Curated for ${capSeason} weather (${cal.timeLabel} wear). Picked strictly from the ${candidates.length} bottles in your collection rated for this season.`;
+  }
+
+  const sotdPhotoSeasonTag = document.getElementById('sotdPhotoSeasonTag');
+  if (sotdPhotoSeasonTag) {
+    const matchPct = selected.seasons?.[sotdActiveSeason] || 0;
+    sotdPhotoSeasonTag.textContent = `${capSeason} Match ${matchPct}%`;
+  }
+
+  // Update Season Switcher Buttons & Counts
+  const allSeasons = ['autumn', 'winter', 'spring', 'summer'];
+  allSeasons.forEach(s => {
+    const capS = s.charAt(0).toUpperCase() + s.slice(1);
+    const btn = document.querySelector(`.sotd-season-btn[data-season="${s}"]`);
+    const countEl = document.getElementById(`sotdCount${capS}`);
+    const tagEl = document.getElementById(`sotdTag${capS}`);
+
+    const count = collection.filter(b => (b.seasons?.[s] || 0) >= 20).length;
+    if (countEl) countEl.textContent = count;
+    if (tagEl) tagEl.style.display = (s === cal.calendarSeason) ? 'inline-block' : 'none';
+
+    if (btn) {
+      if (s === sotdActiveSeason) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+      btn.onclick = () => initSotdRecommendation(false, null, s);
+    }
+  });
+
+  // Update SOTD Bottle Card Details
   const sotdImg = document.getElementById('sotdImg');
   const sotdTitle = document.getElementById('sotdTitle');
   const sotdCloneMeta = document.getElementById('sotdCloneMeta');
@@ -265,7 +370,8 @@ function initSotdRecommendation(forceReroll = false) {
       : `${selected.brand} — Original`;
   }
   if (sotdSubtitle) {
-    sotdSubtitle.textContent = selected.description || `${selected.name} is a versatile ${selected.crg} fragrance. Great choice for today's weather.`;
+    const matchPct = selected.seasons?.[sotdActiveSeason] || 0;
+    sotdSubtitle.textContent = selected.description || `${selected.name} is a versatile ${selected.crg} fragrance with a ${matchPct}% compatibility rating for ${capSeason} wear.`;
   }
 
   if (sotdTopNotes) {
@@ -295,6 +401,46 @@ function initSotdRecommendation(forceReroll = false) {
 
   const refreshBtn = document.getElementById('sotdRefreshBtn');
   if (refreshBtn) refreshBtn.onclick = () => initSotdRecommendation(true);
+
+  // Render the In-Season Options Rail
+  const optionsTitle = document.getElementById('sotdOptionsTitle');
+  if (optionsTitle) {
+    optionsTitle.textContent = `${capSeason} Options in Your Collection (${candidates.length} Bottles)`;
+  }
+
+  const optionsRail = document.getElementById('sotdOptionsRail');
+  if (optionsRail) {
+    optionsRail.innerHTML = candidates.map(c => {
+      const b = c.item;
+      const isSelected = (b.id === selected.id);
+      const score = b.seasons?.[sotdActiveSeason] || 0;
+      return `
+        <div class="sotd-option-card ${isSelected ? 'active' : ''}" data-id="${b.id}" role="button" tabindex="0" title="Set ${b.name} as Scent of the Day">
+          ${isSelected ? '<span class="sotd-option-active-badge">Active</span>' : ''}
+          <img class="sotd-option-thumb" src="${b.image || b.userPhoto || 'assets/bottles/default-bottle.svg'}" alt="${b.name}" loading="lazy">
+          <span class="sotd-option-name">${b.name}</span>
+          <span class="sotd-option-match">${score}% ${capSeason}</span>
+        </div>
+      `;
+    }).join('');
+
+    // Attach click handlers to option cards
+    optionsRail.querySelectorAll('.sotd-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.id;
+        if (id) {
+          initSotdRecommendation(false, id);
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  }
 }
 
 // ==========================================================================
