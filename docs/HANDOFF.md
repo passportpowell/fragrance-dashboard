@@ -1,54 +1,55 @@
 # Current Handoff
-- Project: Fragrance Dashboard
+- Project: Fragrance Dashboard -> L'Atelier Olfactif
 - Updated by: Antigravity; Gemini 3.8 Flash (High); inline; Antigravity
-- Updated at: 2026-10-11T01:41:00Z
+- Updated at: 2026-10-11T01:53:00Z
 - Root: S:\Otis Projects\fragrance-dashboard
 - Branch: master
-- HEAD: in-progress (Layering Atelier & Combinatorial Chemistry)
-- Status: READY — Layering Atelier & Auto-Duos Live over Tailscale
+- HEAD: in-progress (Luxury Maison Pivot & Studio Imagery)
+- Status: READY — Luxury Editorial Website Live over Tailscale
 - Tree: Clean workspace with active Tailscale daemon
 - Workspace ID: initial
-- Routing: Layering Atelier implementation (Interactive Studio & Auto-Duos) — JEV: inline, gemini-3.8-flash:medium -> used: inline, Gemini 3.8 Flash (High)
+- Routing: Luxury Editorial Website Overhaul — JEV: inline, gemini-3.8-flash:medium -> used: inline, Gemini 3.8 Flash (High)
 - Usage: not measured; 0 retries; 0 escalations
 
 ## Objective
-Provide an ultra-luxurious Fragrantica-style Fragrance Dashboard for Perfume Parlour and other bottles, accessible across the user's Tailnet with full bottle photos, note pyramids, layering engine, and comprehensive guides.
+Transform the project from an admin dashboard into an upscale, editorial luxury maison website ("L'Atelier Olfactif"). Default to Light Mode with Dark Mode toggle, replace user photos with studio-grade packshot imagery, and preserve the Layering Atelier, Occasions (Running & Walking), and mandatory footer link.
 
 ## Done
-- Spun up HTTP server on random port 62872.
-- Configured Tailscale serve daemon (`https://desktop-smsroim.tail0be63c.ts.net/` proxying `127.0.0.1:62872`).
-- Integrated user's 20 real bottles from shelf photos with note pyramids and accords.
-- Complete Agency-Tier Design Overhaul based on `soft-skill` and `taste-skill`:
-  - Double-Bezel nested hardware architecture.
-  - Zero-emoji policy enforced with clean SVG vector line icons.
-  - Floating Fluid Island navigation bar.
-- Added **"Running"** and **"Walking"** categories across all relevant fragrances.
-- Built **Layering Atelier & Olfactory Synergy Lab**:
-  - **Mode 1: Interactive Pairing Studio**: User selects any base anchor flacon (e.g. Leaf Flavour, Voux Elegante, After Effect, Herb Garden) and receives real-time ranked companion suggestions from most compatible (98%) to least compatible, complete with synergy scores, olfactory rationale, and step-by-step spray sequencing.
-  - **Mode 2: Auto-Curated Signature Duos**: Features the top 6 pre-calculated combinations (The Modern Alchemist, The Velvet Shadow, The Royal Vanguard, The Mediterranean Sovereign, The Oceanic Abyss, The Midnight Barista) with dual-flacon stages, synergy link orbs, and one-click "Load in Studio" action.
-  - Layering Studio quick-jump button in top floating island navigation bar.
-- Verified test suite (`test/validate-inventory.js`) — 100% pass across all 20 bottles.
+- **Luxury Editorial Maison Pivot**:
+  - Eliminated the SaaS/admin dashboard feel in favor of a high-fashion editorial digital boutique inspired by Kilian, Le Labo, and Tom Ford.
+  - Implemented asymmetric split Hero section ("THE PRIVATE ARCHIVE // L'Art de la Haute Parfumerie") with SOTD spotlight pedestal.
+  - Added horizontal Lifestyle Occasions Ribbon with icons and flacon count tags (Running, Walking, Date Night, Office, Evening Soirée, Summer, Winter, Wedding, Gym, City Centre, Malls, Casual).
+- **Dual-Theme System (Default Light Mode + Dark Mode)**:
+  - Default: Warm Alabaster & Ecru (`#FDFBF7`, `#F8F5EE`), deep caviar espresso typography (`#141518`), warm champagne gold accents (`#A8812D`, `#C5A059`), and diffused soft shadows.
+  - Dark Mode Toggle: OLED Obsidian (`#090A0D`), dark bronze, radiant champagne gold (`#D4AF37`), and ivory text.
+  - Theme switcher button in floating island navigation bar with smooth SVG sun/moon icon transition and localStorage persistence.
+- **Studio-Grade Bottle Imagery**:
+  - Replaced phone camera shelf crops with high-resolution, studio-lit packshot images for all 20 fragrances in `assets/bottles/studio/`.
+  - Updated `js/data.js` and `js/app.js` to reference and prioritize studio packshots.
+- **Preserved Core Features**:
+  - 20 flacons with full Fragrantica pyramids, accords, clone lineages, and batch years.
+  - Layering Atelier & Olfactory Synergy Lab (Interactive Pairing Studio + 6 Curator Signature Duos).
+  - Scent Codex & Field Guide modal (Voj spray blueprint, Reddit maturation, concentration spectrum, Arabian layering).
+  - Mandatory footer GitHub icon linking to `https://www.passportpowell.com/card`.
+  - Zero-emoji policy strictly maintained with vector SVGs.
+- **Testing & Verification**:
+  - `node test/validate-inventory.js` -> 100% PASS.
+  - All 20 studio images verified on disk.
+  - Server active on port 62872 and Tailscale HTTPS at `https://desktop-smsroim.tail0be63c.ts.net/`.
 
 ## In progress
 - None.
 
 ## Next steps
-1. User can review the redesigned, high-end agency dashboard on mobile or desktop via Tailscale.
-2. Confirm if any additional niche/designer bottles should be indexed.
+- User to review the new luxury editorial aesthetic on mobile and desktop via Tailscale.
 
 ## Tests
-- Passed: `node test/validate-inventory.js` (20 bottles, 11 occasion tags, 5 wardrobe archetypes validated cleanly).
+- Passed: `node test/validate-inventory.js` (20 flacons, 11 occasions, 5 archetypes).
 - Passed: `curl -I http://127.0.0.1:62872/` -> HTTP 200 OK.
 - Passed: `curl -k -I https://desktop-smsroim.tail0be63c.ts.net/` -> HTTP 200 OK.
-- Failed: None.
-- Not run: None.
+- Passed: All 20 studio images verified on disk and served over HTTP.
 
 ## Gotchas / do not undo
 - Tailscale serve is proxying `http://127.0.0.1:62872` to `https://desktop-smsroim.tail0be63c.ts.net/`.
 - Mandatory footer GitHub icon links to `https://www.passportpowell.com/card`.
-
-## Blockers / errors
-- None.
-
-## Open questions for user
-- How does the new luxury double-bezel aesthetic feel on your mobile device?
+- Light Mode must remain the default on initial load.

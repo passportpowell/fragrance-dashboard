@@ -1,14 +1,15 @@
 /**
    ==========================================================================
-   ATELIER PARFUM — CORE APPLICATION ENGINE (AWWWARDS-TIER)
-   Architected for Double-Bezel Hardware Components, Zero-Emoji Visuals,
-   Multi-Factor Filtering (including Running & Walking), SOTD Assistant,
-   and Fragrantica Accord Visualizations.
+   L'ATELIER OLFACTIF — CORE MAISON APPLICATION ENGINE
+   Architected for High-End Editorial Luxury, Double-Bezel Hardware Components,
+   Default Light Mode with Dark Mode Toggle, Zero-Emoji Visuals,
+   Studio Bottle Imagery, Multi-Factor Scenario Filtering (Running & Walking),
+   Curator SOTD Assistant, and Interactive Layering Atelier.
    ==========================================================================
 */
 
-// Local Storage Key
-const STORAGE_KEY = 'fragrance_atelier_collection_v2';
+// Local Storage Key (v3 to enforce clean studio imagery update)
+const STORAGE_KEY = 'fragrance_atelier_collection_v3';
 
 // Application State
 let collection = [];
@@ -30,20 +31,57 @@ const ICONS = {
   spray: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
   leaf: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`,
   droplet: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
-  sparkle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18M6.5 6.5l11 11M6.5 17.5l11-11"/></svg>`
+  sparkle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18M6.5 6.5l11 11M6.5 17.5l11-11"/></svg>`,
+  layer: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+  inspect: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`
 };
 
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   loadCollection();
-  initFilterPills();
+  initScenarioRibbon();
   setupEventListeners();
   updateDashboard();
   initSotdRecommendation();
   initLayeringAtelier();
 });
 
-// Load Collection from LocalStorage or Seed Data
+// ==========================================================================
+// THEME MANAGEMENT (DEFAULT: LIGHT MODE, TOGGLE: DARK MODE)
+// ==========================================================================
+function initTheme() {
+  const savedTheme = localStorage.getItem('atelier_theme') || 'light';
+  applyTheme(savedTheme);
+
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('atelier_theme', theme);
+
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  if (themeToggleBtn) {
+    const isDark = theme === 'dark';
+    themeToggleBtn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    themeToggleBtn.innerHTML = isDark
+      ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
+      : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  }
+}
+
+// ==========================================================================
+// DATA LOADING & PERSISTENCE
+// ==========================================================================
 function loadCollection() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -52,14 +90,14 @@ function loadCollection() {
       const existingIds = new Set(parsed.map(item => item.id));
       const missingSeedItems = FRAGRANCE_DATABASE.filter(seed => !existingIds.has(seed.id));
 
-      // Synchronize updated image paths & occasions from seed
+      // Always synchronize studio image paths from seed
       collection = parsed.map(item => {
         const seedMatch = FRAGRANCE_DATABASE.find(s => s.id === item.id);
         if (seedMatch) {
           return {
             ...item,
             image: seedMatch.image,
-            userPhoto: item.userUploadedCustomPhoto ? item.userPhoto : seedMatch.userPhoto,
+            userPhoto: item.userUploadedCustomPhoto ? item.userPhoto : seedMatch.image,
             occasions: seedMatch.occasions || item.occasions
           };
         }
@@ -80,7 +118,6 @@ function loadCollection() {
   }
 }
 
-// Persist Collection to LocalStorage
 function saveCollection() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(collection));
@@ -89,109 +126,42 @@ function saveCollection() {
   }
 }
 
-// Initialize Dynamic Filter Pills from FILTER_DIMENSIONS
-function initFilterPills() {
-  // Occasions (including Running and Walking)
-  const occasionContainer = document.getElementById('occasionPills');
-  if (occasionContainer && FILTER_DIMENSIONS.occasions) {
-    occasionContainer.innerHTML = '';
-    const occCount = document.getElementById('occasionCount');
-    if (occCount) occCount.textContent = `${FILTER_DIMENSIONS.occasions.length} Dimensions`;
+// ==========================================================================
+// SCENARIO RIBBON (HORIZONTAL LIFESTYLE OCCASIONS BAR)
+// ==========================================================================
+function initScenarioRibbon() {
+  const ribbon = document.getElementById('scenarioRibbon');
+  if (!ribbon) return;
 
-    FILTER_DIMENSIONS.occasions.forEach(occ => {
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.textContent = occ;
-      pill.dataset.dimension = 'occasions';
-      pill.dataset.value = occ;
-      pill.addEventListener('click', () => toggleFilter('occasions', occ, pill));
-      occasionContainer.appendChild(pill);
-    });
-  }
+  const buttons = ribbon.querySelectorAll('.scenario-pill');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const scenario = btn.dataset.scenario;
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-  // Wardrobe Archetypes
-  const archetypeContainer = document.getElementById('archetypePills');
-  if (archetypeContainer && FILTER_DIMENSIONS.wardrobeArchetypes) {
-    archetypeContainer.innerHTML = '';
-    FILTER_DIMENSIONS.wardrobeArchetypes.forEach(arch => {
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.textContent = arch;
-      pill.dataset.dimension = 'archetypes';
-      pill.dataset.value = arch;
-      pill.addEventListener('click', () => toggleFilter('archetypes', arch, pill));
-      archetypeContainer.appendChild(pill);
+      if (scenario === 'all') {
+        activeFilters.occasions.clear();
+      } else {
+        activeFilters.occasions.clear();
+        activeFilters.occasions.add(scenario);
+      }
+      updateDashboard();
     });
-  }
-
-  // Seasons
-  const seasonContainer = document.getElementById('seasonPills');
-  if (seasonContainer && FILTER_DIMENSIONS.seasons) {
-    seasonContainer.innerHTML = '';
-    FILTER_DIMENSIONS.seasons.forEach(season => {
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.textContent = season;
-      pill.dataset.dimension = 'seasons';
-      pill.dataset.value = season;
-      pill.addEventListener('click', () => toggleFilter('seasons', season, pill));
-      seasonContainer.appendChild(pill);
-    });
-  }
-
-  // Time of Day
-  const timeContainer = document.getElementById('timeOfDayPills');
-  if (timeContainer && FILTER_DIMENSIONS.timesOfDay) {
-    timeContainer.innerHTML = '';
-    FILTER_DIMENSIONS.timesOfDay.forEach(time => {
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.textContent = time;
-      pill.dataset.dimension = 'timesOfDay';
-      pill.dataset.value = time;
-      pill.addEventListener('click', () => toggleFilter('timesOfDay', time, pill));
-      timeContainer.appendChild(pill);
-    });
-  }
-
-  // Houses / Brands
-  const houseContainer = document.getElementById('housePills');
-  if (houseContainer && FILTER_DIMENSIONS.brands) {
-    houseContainer.innerHTML = '';
-    FILTER_DIMENSIONS.brands.forEach(house => {
-      const pill = document.createElement('button');
-      pill.className = 'filter-pill';
-      pill.textContent = house;
-      pill.dataset.dimension = 'houses';
-      pill.dataset.value = house;
-      pill.addEventListener('click', () => toggleFilter('houses', house, pill));
-      houseContainer.appendChild(pill);
-    });
-  }
+  });
 }
 
-// Toggle Filter Helper
-function toggleFilter(dimension, value, element) {
-  if (activeFilters[dimension].has(value)) {
-    activeFilters[dimension].delete(value);
-    element.classList.remove('active');
-  } else {
-    activeFilters[dimension].add(value);
-    element.classList.add('active');
-  }
-  updateDashboard();
-}
-
-// Setup Event Listeners
+// ==========================================================================
+// EVENT LISTENERS & CONCIERGE CONTROLS
+// ==========================================================================
 function setupEventListeners() {
-  // Search
+  // Concierge Search
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       activeFilters.search = e.target.value.trim().toLowerCase();
       updateDashboard();
     });
-    // ESC to clear
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && document.activeElement === searchInput) {
         searchInput.value = '';
@@ -201,7 +171,7 @@ function setupEventListeners() {
     });
   }
 
-  // Sort
+  // Sorter
   const sortSelect = document.getElementById('sortSelect');
   if (sortSelect) {
     sortSelect.addEventListener('change', (e) => {
@@ -216,13 +186,88 @@ function setupEventListeners() {
     clearFiltersBtn.addEventListener('click', resetAllFilters);
   }
 
-  // Modal Closers
+  // Detail Modal Closers
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const detailModal = document.getElementById('detailModal');
   if (modalCloseBtn && detailModal) {
     modalCloseBtn.addEventListener('click', () => detailModal.classList.remove('open'));
     detailModal.addEventListener('click', (e) => {
       if (e.target === detailModal) detailModal.classList.remove('open');
+    });
+  }
+
+  // SOTD Inspect Button
+  const sotdInspectBtn = document.getElementById('sotdInspectBtn');
+  if (sotdInspectBtn) {
+    sotdInspectBtn.addEventListener('click', () => {
+      if (currentSotdFragranceId) {
+        openDetailModal(currentSotdFragranceId);
+      }
+    });
+  }
+
+  // SOTD Recalibrate Button
+  const sotdRefreshBtn = document.getElementById('sotdRefreshBtn');
+  if (sotdRefreshBtn) {
+    sotdRefreshBtn.addEventListener('click', () => {
+      initSotdRecommendation(true);
+    });
+  }
+
+  // Pro Tips / Scent Codex Modal
+  const proTipsBtn = document.getElementById('proTipsBtn');
+  const proTipsModal = document.getElementById('proTipsModal');
+  const proTipsCloseBtn = document.getElementById('proTipsCloseBtn');
+  if (proTipsBtn && proTipsModal) {
+    proTipsBtn.addEventListener('click', () => proTipsModal.classList.add('open'));
+  }
+  if (proTipsCloseBtn && proTipsModal) {
+    proTipsCloseBtn.addEventListener('click', () => proTipsModal.classList.remove('open'));
+  }
+  if (proTipsModal) {
+    proTipsModal.addEventListener('click', (e) => {
+      if (e.target === proTipsModal) proTipsModal.classList.remove('open');
+    });
+  }
+
+  // Scent Codex Tab Switching
+  document.querySelectorAll('.tips-tabs-nav .tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tips-tabs-nav .tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const targetPane = document.getElementById(btn.dataset.tab);
+      if (targetPane) targetPane.classList.add('active');
+    });
+  });
+
+  // Layering Atelier Mode Switcher
+  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
+  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
+  const layeringStudioMode = document.getElementById('layeringStudioMode');
+  const layeringAutoMode = document.getElementById('layeringAutoMode');
+
+  if (modeUserPickBtn && modeAutoCuratedBtn) {
+    modeUserPickBtn.addEventListener('click', () => {
+      modeUserPickBtn.classList.add('active');
+      modeAutoCuratedBtn.classList.remove('active');
+      layeringStudioMode.classList.add('active');
+      layeringAutoMode.classList.remove('active');
+    });
+
+    modeAutoCuratedBtn.addEventListener('click', () => {
+      modeAutoCuratedBtn.classList.add('active');
+      modeUserPickBtn.classList.remove('active');
+      layeringAutoMode.classList.add('active');
+      layeringStudioMode.classList.remove('active');
+    });
+  }
+
+  // Base Flacon Select change
+  const baseFragranceSelect = document.getElementById('baseFragranceSelect');
+  if (baseFragranceSelect) {
+    baseFragranceSelect.addEventListener('change', (e) => {
+      onBaseFlaconSelected(e.target.value);
     });
   }
 
@@ -255,100 +300,13 @@ function setupEventListeners() {
   // Export JSON
   const exportBtn = document.getElementById('exportJsonBtn');
   if (exportBtn) {
-    exportBtn.addEventListener('click', exportInventoryJSON);
+    exportBtn.addEventListener('click', exportCollectionJson);
   }
 
   // Import JSON
   const importInput = document.getElementById('importJsonInput');
   if (importInput) {
-    importInput.addEventListener('change', handleImportJSON);
-  }
-
-  // Photo Upload in Detail Modal
-  const modalPhotoInput = document.getElementById('modalPhotoInput');
-  if (modalPhotoInput) {
-    modalPhotoInput.addEventListener('change', handleModalPhotoUpload);
-  }
-
-  // Pro Tips & Field Guide Modal
-  const proTipsBtn = document.getElementById('proTipsBtn');
-  const proTipsModal = document.getElementById('proTipsModal');
-  const proTipsCloseBtn = document.getElementById('proTipsCloseBtn');
-  if (proTipsBtn && proTipsModal) {
-    proTipsBtn.addEventListener('click', () => proTipsModal.classList.add('open'));
-  }
-  if (proTipsCloseBtn && proTipsModal) {
-    proTipsCloseBtn.addEventListener('click', () => proTipsModal.classList.remove('open'));
-  }
-  if (proTipsModal) {
-    proTipsModal.addEventListener('click', (e) => {
-      if (e.target === proTipsModal) proTipsModal.classList.remove('open');
-    });
-  }
-
-  // Pro Tips Tab Navigation
-  const tabBtns = document.querySelectorAll('.tips-tabs-nav .tab-btn');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      const targetId = btn.dataset.tab;
-      const targetPane = document.getElementById(targetId);
-      if (targetPane) targetPane.classList.add('active');
-    });
-  });
-
-  // SOTD Buttons
-  const sotdRefreshBtn = document.getElementById('sotdRefreshBtn');
-  if (sotdRefreshBtn) {
-    sotdRefreshBtn.addEventListener('click', () => initSotdRecommendation(true));
-  }
-  const sotdPickerBtn = document.getElementById('sotdPickerBtn');
-  if (sotdPickerBtn) {
-    sotdPickerBtn.addEventListener('click', () => {
-      initSotdRecommendation(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Layering Navigation Button
-  const layeringNavBtn = document.getElementById('layeringNavBtn');
-  if (layeringNavBtn) {
-    layeringNavBtn.addEventListener('click', () => {
-      const target = document.getElementById('layeringLabSection');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  // Layering Mode Tabs (Studio vs Auto Duos)
-  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
-  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
-  const layeringStudioMode = document.getElementById('layeringStudioMode');
-  const layeringAutoMode = document.getElementById('layeringAutoMode');
-
-  if (modeUserPickBtn && modeAutoCuratedBtn) {
-    modeUserPickBtn.addEventListener('click', () => {
-      modeUserPickBtn.classList.add('active');
-      modeAutoCuratedBtn.classList.remove('active');
-      if (layeringStudioMode) layeringStudioMode.classList.add('active');
-      if (layeringAutoMode) layeringAutoMode.classList.remove('active');
-    });
-
-    modeAutoCuratedBtn.addEventListener('click', () => {
-      modeAutoCuratedBtn.classList.add('active');
-      modeUserPickBtn.classList.remove('active');
-      if (layeringAutoMode) layeringAutoMode.classList.add('active');
-      if (layeringStudioMode) layeringStudioMode.classList.remove('active');
-    });
-  }
-
-  // Base Fragrance Selection Change
-  const baseFragranceSelect = document.getElementById('baseFragranceSelect');
-  if (baseFragranceSelect) {
-    baseFragranceSelect.addEventListener('change', (e) => {
-      onBaseFlaconSelected(e.target.value);
-    });
+    importInput.addEventListener('change', importCollectionJson);
   }
 }
 
@@ -364,7 +322,13 @@ function resetAllFilters() {
   const searchInput = document.getElementById('searchInput');
   if (searchInput) searchInput.value = '';
 
-  document.querySelectorAll('.filter-pill.active').forEach(p => p.classList.remove('active'));
+  const ribbon = document.getElementById('scenarioRibbon');
+  if (ribbon) {
+    ribbon.querySelectorAll('.scenario-pill').forEach(b => b.classList.remove('active'));
+    const allBtn = ribbon.querySelector('[data-scenario="all"]');
+    if (allBtn) allBtn.classList.add('active');
+  }
+
   updateDashboard();
 }
 
@@ -381,21 +345,19 @@ function updateActiveFiltersBar() {
                       (activeFilters.search ? 1 : 0);
 
   if (totalActive === 0) {
-    summaryEl.textContent = `Displaying full vault (${collection.length} flacons)`;
+    summaryEl.textContent = `Displaying full collection (${collection.length} flacons)`;
   } else {
     const parts = [];
     if (activeFilters.search) parts.push(`"${activeFilters.search}"`);
-    if (activeFilters.occasions.size) parts.push(`${activeFilters.occasions.size} occasions`);
-    if (activeFilters.seasons.size) parts.push(`${activeFilters.seasons.size} seasons`);
-    if (activeFilters.archetypes.size) parts.push(`${activeFilters.archetypes.size} archetypes`);
+    if (activeFilters.occasions.size) parts.push(`${Array.from(activeFilters.occasions).join(', ')}`);
     summaryEl.textContent = `Filtered by: ${parts.join(', ')}`;
   }
 }
 
-// Multi-Dimension Filter Engine
+// Filter Engine
 function getFilteredFragrances() {
   return collection.filter(item => {
-    // Text search query
+    // Search query
     if (activeFilters.search) {
       const q = activeFilters.search;
       const matchName = item.name.toLowerCase().includes(q);
@@ -425,34 +387,6 @@ function getFilteredFragrances() {
       if (!hasOccasion) return false;
     }
 
-    // Seasons
-    if (activeFilters.seasons.size > 0) {
-      const hasSeason = Array.from(activeFilters.seasons).some(season => {
-        const key = season.toLowerCase();
-        return item.seasons && item.seasons[key] && item.seasons[key] >= 20;
-      });
-      if (!hasSeason) return false;
-    }
-
-    // Time of Day
-    if (activeFilters.timesOfDay.size > 0) {
-      const hasTime = Array.from(activeFilters.timesOfDay).some(time => {
-        const key = time.toLowerCase();
-        return item.timeOfDay && item.timeOfDay[key] && item.timeOfDay[key] >= 30;
-      });
-      if (!hasTime) return false;
-    }
-
-    // Perfumer Houses
-    if (activeFilters.houses.size > 0) {
-      if (!activeFilters.houses.has(item.brand)) return false;
-    }
-
-    // Wardrobe Archetype
-    if (activeFilters.archetypes.size > 0) {
-      if (!activeFilters.archetypes.has(item.wardrobeArchetype)) return false;
-    }
-
     return true;
   }).sort((a, b) => {
     switch (activeFilters.sort) {
@@ -474,7 +408,7 @@ function getFilteredFragrances() {
   });
 }
 
-// Render Museum Exhibition Flacons Grid
+// Render Flacon Boutique Pedestals Grid
 function renderFragranceGrid(items) {
   const grid = document.getElementById('fragranceGrid');
   const countEl = document.getElementById('resultsCount');
@@ -485,9 +419,9 @@ function renderFragranceGrid(items) {
 
   if (items.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; padding: 4rem 2rem; text-align: center; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-hairline); border-radius: var(--radius-shell-lg);">
+      <div style="grid-column: 1 / -1; padding: 4rem 2rem; text-align: center; background: var(--surface-card); border: 1px dashed var(--border-hairline); border-radius: var(--radius-shell-lg);">
         <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--gold-primary); margin-bottom: 0.5rem;">No Flacons Match This Criteria</h3>
-        <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 45ch; margin: 0 auto 1.5rem;">Adjust your scenario filters or clear search keywords to browse your collection.</p>
+        <p style="color: var(--text-secondary); font-size: 0.88rem; max-width: 45ch; margin: 0 auto 1.5rem;">Adjust your scenario filters or clear keywords to view your archived collection.</p>
         <button onclick="resetAllFilters()" class="btn-island btn-island-primary">Reset Filters</button>
       </div>
     `;
@@ -497,9 +431,9 @@ function renderFragranceGrid(items) {
   items.forEach(item => {
     const cardShell = document.createElement('article');
     cardShell.className = 'bezel-shell fragrance-card-shell';
-    cardShell.addEventListener('click', () => openDetailModal(item.id));
 
-    const bottleSrc = item.userPhoto || item.image || 'assets/bottles/default-bottle.svg';
+    // Prioritize studio imagery
+    const bottleSrc = item.image || item.userPhoto || 'assets/bottles/default-bottle.svg';
 
     // Top 3 Accords preview
     const topAccordsHtml = (item.mainAccords || []).slice(0, 3).map(acc => `
@@ -528,7 +462,7 @@ function renderFragranceGrid(items) {
       </div>
     `;
 
-    // Remaining volume
+    // Remaining volume percentage
     const volumePercent = Math.round((item.remainingMl / item.bottleSize) * 100);
 
     cardShell.innerHTML = `
@@ -578,43 +512,53 @@ function renderFragranceGrid(items) {
           </div>
         </div>
 
+        <!-- Card Actions -->
+        <div class="card-action-bar">
+          <button class="btn-island btn-island-ghost inspect-flacon-btn" data-id="${item.id}" title="Examine Olfactory Dossier">
+            <span>Dossier</span>
+            <div class="icon-orb">${ICONS.inspect}</div>
+          </button>
+          <button class="btn-island btn-island-primary pair-flacon-btn" data-id="${item.id}" title="Pair this bottle in Layering Atelier">
+            <span>Layer</span>
+            <div class="icon-orb">${ICONS.layer}</div>
+          </button>
+        </div>
+
       </div>
     `;
+
+    // Attach card action listeners
+    const inspectBtn = cardShell.querySelector('.inspect-flacon-btn');
+    if (inspectBtn) {
+      inspectBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openDetailModal(item.id);
+      });
+    }
+
+    const pairBtn = cardShell.querySelector('.pair-flacon-btn');
+    if (pairBtn) {
+      pairBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setLayeringBaseFlacon(item.id);
+      });
+    }
+
+    cardShell.addEventListener('click', () => openDetailModal(item.id));
 
     grid.appendChild(cardShell);
   });
 }
 
-// Update Overview Stats Banner
+// Update Overview Stats
 function updateStatsBanner() {
   const totalCountEl = document.getElementById('statTotalCount');
-  const totalVolumeEl = document.getElementById('statTotalVolume');
   const cloneCountEl = document.getElementById('statCloneCount');
-  const versatileNameEl = document.getElementById('statVersatileName');
-  const versatileScoreEl = document.getElementById('statVersatileScore');
 
   if (totalCountEl) totalCountEl.textContent = collection.length;
-
-  const totalJuice = collection.reduce((sum, item) => sum + (item.remainingMl || 0), 0);
-  if (totalVolumeEl) totalVolumeEl.textContent = `${totalJuice} ml Total Juice in Vault`;
-
-  const cloneCount = collection.filter(c => c.brand === 'Perfume Parlour' || c.isClone).length;
-  if (cloneCountEl) cloneCountEl.textContent = cloneCount;
-
-  // Most versatile fragrance
-  let mostVersatile = null;
-  let maxOccasions = -1;
-  collection.forEach(item => {
-    const occLen = (item.occasions || []).length;
-    if (occLen > maxOccasions) {
-      maxOccasions = occLen;
-      mostVersatile = item;
-    }
-  });
-
-  if (mostVersatile && versatileNameEl) {
-    versatileNameEl.textContent = mostVersatile.name;
-    if (versatileScoreEl) versatileScoreEl.textContent = `Active across ${maxOccasions} distinct lifestyle scenarios`;
+  if (cloneCountEl) {
+    const cloneCount = collection.filter(c => c.brand === 'Perfume Parlour' || c.isClone).length;
+    cloneCountEl.textContent = cloneCount;
   }
 }
 
@@ -626,7 +570,11 @@ function updateDashboard() {
   updateStatsBanner();
 }
 
-// SOTD (Scent of the Day) Assistant
+// ==========================================================================
+// SOTD (SCENT OF THE DAY) CURATOR ASSISTANT
+// ==========================================================================
+let currentSotdFragranceId = null;
+
 function initSotdRecommendation(forceReroll = false) {
   if (collection.length === 0) return;
 
@@ -649,51 +597,52 @@ function initSotdRecommendation(forceReroll = false) {
     return { item, totalScore };
   }).sort((a, b) => b.totalScore - a.totalScore);
 
-  let picked = candidates[0]?.item;
+  let selected;
   if (forceReroll && candidates.length > 1) {
-    const pool = candidates.slice(0, 4);
-    picked = pool[Math.floor(Math.random() * pool.length)].item;
+    const topCandidates = candidates.slice(0, 5);
+    const randIndex = Math.floor(Math.random() * topCandidates.length);
+    selected = topCandidates[randIndex].item;
+  } else {
+    selected = candidates[0].item;
   }
 
-  if (picked) {
-    const titleEl = document.getElementById('sotdTitle');
-    const cloneMetaEl = document.getElementById('sotdCloneMeta');
-    const subEl = document.getElementById('sotdSubtitle');
-    const imgEl = document.getElementById('sotdImg');
-    const blueprintEl = document.getElementById('sotdBlueprint');
-    const inspectBtn = document.getElementById('sotdInspectBtn');
+  currentSotdFragranceId = selected.id;
 
-    if (titleEl) titleEl.textContent = picked.name;
-    if (cloneMetaEl) {
-      cloneMetaEl.textContent = picked.isClone && picked.cloneOf 
-        ? `Inspired by ${picked.cloneOf.originalName} // ${picked.cloneOf.originalHouse}`
-        : `Original Masterpiece // ${picked.brand}`;
-    }
-    if (imgEl) {
-      imgEl.src = picked.userPhoto || picked.image || 'assets/bottles/default-bottle.svg';
-    }
-    if (subEl) {
-      const seasonCapital = currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1);
-      const timeCapital = isNight ? 'Evening' : 'Daytime';
-      subEl.textContent = `${picked.description} Optimized for ${seasonCapital} ${timeCapital} wear.`;
-    }
-    if (blueprintEl) {
-      blueprintEl.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px; color: var(--gold-primary);">
-          <circle cx="12" cy="12" r="9"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        <span>Voj Blueprint: ${picked.recommendedSprays || '3-4 Sprays'} (${(picked.sprayBlueprint || []).join(', ')})</span>
-      `;
-    }
-    if (inspectBtn) {
-      inspectBtn.onclick = () => openDetailModal(picked.id);
-    }
+  // Render to SOTD Card
+  const sotdImg = document.getElementById('sotdImg');
+  const sotdTitle = document.getElementById('sotdTitle');
+  const sotdCloneMeta = document.getElementById('sotdCloneMeta');
+  const sotdSubtitle = document.getElementById('sotdSubtitle');
+  const sotdBlueprint = document.getElementById('sotdBlueprint');
+
+  if (sotdImg) {
+    sotdImg.src = selected.image || selected.userPhoto || 'assets/bottles/default-bottle.svg';
+  }
+  if (sotdTitle) sotdTitle.textContent = selected.name;
+  if (sotdCloneMeta) {
+    sotdCloneMeta.textContent = selected.isClone && selected.cloneOf
+      ? `Inspired by ${selected.cloneOf.originalName} // ${selected.cloneOf.originalHouse}`
+      : `${selected.brand} // Signature Formulation`;
+  }
+  if (sotdSubtitle) {
+    sotdSubtitle.textContent = selected.description || `${selected.crg} formulation. Ideal for today's temperature and versatile schedule.`;
+  }
+  if (sotdBlueprint) {
+    const bpText = selected.sprayBlueprint ? selected.sprayBlueprint.join(', ') : 'Behind Ears, Back of Neck';
+    sotdBlueprint.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px; color: var(--gold-primary);">
+        <circle cx="12" cy="12" r="9"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <span>Voj Blueprint: ${selected.recommendedSprays || '3-4 Sprays'} (${bpText})</span>
+    `;
   }
 }
 
-// Open Detailed Dossier Modal
+// ==========================================================================
+// DEEP INSPECTION DOSSIER MODAL
+// ==========================================================================
 function openDetailModal(fragranceId) {
   const item = collection.find(c => c.id === fragranceId);
   if (!item) return;
@@ -702,10 +651,10 @@ function openDetailModal(fragranceId) {
   const modal = document.getElementById('detailModal');
   if (!modal) return;
 
-  // Header & Visual
+  // Studio Image
   const bottleImg = document.getElementById('modalBottleImg');
   if (bottleImg) {
-    bottleImg.src = item.userPhoto || item.image || 'assets/bottles/default-bottle.svg';
+    bottleImg.src = item.image || item.userPhoto || 'assets/bottles/default-bottle.svg';
   }
 
   document.getElementById('modalTitle').textContent = item.name;
@@ -727,8 +676,8 @@ function openDetailModal(fragranceId) {
   if (accordsList) {
     accordsList.innerHTML = (item.mainAccords || []).map(acc => `
       <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; gap: 0.75rem;">
-        <span style="width: 110px; color: var(--text-secondary);">${acc.name}</span>
-        <div style="flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 9999px; overflow: hidden;">
+        <span style="width: 110px; color: var(--text-secondary); font-weight: 500;">${acc.name}</span>
+        <div style="flex: 1; height: 6px; background: var(--surface-shell); border-radius: 9999px; overflow: hidden;">
           <div style="height: 100%; width: ${acc.percentage}%; background-color: ${acc.color || 'var(--gold-primary)'}; border-radius: 9999px;"></div>
         </div>
         <span style="font-family: var(--font-mono); color: var(--text-tertiary); width: 35px; text-align: right;">${acc.percentage}%</span>
@@ -736,26 +685,26 @@ function openDetailModal(fragranceId) {
     `).join('');
   }
 
-  // Notes Pyramid (Top, Heart, Base) with clean typography
+  // Notes Pyramid (Top, Heart, Base) with clean vector typography
   const topNotesEl = document.getElementById('modalTopNotes');
   const heartNotesEl = document.getElementById('modalHeartNotes');
   const baseNotesEl = document.getElementById('modalBaseNotes');
 
   if (topNotesEl) {
     topNotesEl.innerHTML = (item.notes?.top || []).map(n => `
-      <span class="note-capsule"><span class="note-capsule-icon">${ICONS.sparkle}</span> ${n.name}</span>
+      <span class="note-capsule">${n.name}</span>
     `).join('') || '<span style="color: var(--text-tertiary); font-size: 11px;">Unlisted top notes</span>';
   }
 
   if (heartNotesEl) {
     heartNotesEl.innerHTML = (item.notes?.heart || []).map(n => `
-      <span class="note-capsule"><span class="note-capsule-icon">${ICONS.leaf}</span> ${n.name}</span>
+      <span class="note-capsule">${n.name}</span>
     `).join('') || '<span style="color: var(--text-tertiary); font-size: 11px;">Unlisted heart notes</span>';
   }
 
   if (baseNotesEl) {
     baseNotesEl.innerHTML = (item.notes?.base || []).map(n => `
-      <span class="note-capsule"><span class="note-capsule-icon">${ICONS.droplet}</span> ${n.name}</span>
+      <span class="note-capsule">${n.name}</span>
     `).join('') || '<span style="color: var(--text-tertiary); font-size: 11px;">Unlisted base notes</span>';
   }
 
@@ -766,7 +715,7 @@ function openDetailModal(fragranceId) {
   const blueprintList = document.getElementById('modalSprayBlueprint');
   if (blueprintList) {
     blueprintList.innerHTML = (item.sprayBlueprint || []).map(pt => `
-      <span class="spray-point-badge">${pt}</span>
+      <span class="note-capsule" style="background: var(--surface-card); border-color: var(--gold-pill-border); color: var(--gold-primary);">${pt}</span>
     `).join('');
   }
 
@@ -775,7 +724,7 @@ function openDetailModal(fragranceId) {
   if (macStatus) macStatus.textContent = item.macerationStatus || 'Fully Matured';
 
   const macTips = document.getElementById('modalMacerationTips');
-  if (macTips) macTips.textContent = item.macerationTips || 'Store in a cool dark drawer. Standard maturation completed.';
+  if (macTips) macTips.textContent = item.macerationTips || 'Store in a cool dark cupboard. Standard maturation completed.';
 
   const layeringEl = document.getElementById('modalLayeringPartner');
   if (layeringEl) {
@@ -785,168 +734,49 @@ function openDetailModal(fragranceId) {
   modal.classList.add('open');
 }
 
-// Handle Custom Bottle Photo Upload
-function handleModalPhotoUpload(e) {
-  const file = e.target.files?.[0];
-  if (!file || !currentModalFragranceId) return;
-
-  const reader = new FileReader();
-  reader.onload = (event) => {
-    const base64Data = event.target.result;
-    const item = collection.find(c => c.id === currentModalFragranceId);
-    if (item) {
-      item.userPhoto = base64Data;
-      item.userUploadedCustomPhoto = true;
-      saveCollection();
-      updateDashboard();
-
-      const modalImg = document.getElementById('modalBottleImg');
-      if (modalImg) modalImg.src = base64Data;
-    }
-  };
-  reader.readAsDataURL(file);
-}
-
-// Add New Flacon Form Handler
-function handleAddFragrance(e) {
-  e.preventDefault();
-  const name = document.getElementById('newName').value.trim();
-  const brand = document.getElementById('newBrand').value.trim();
-  const cloneOf = document.getElementById('newCloneOf').value.trim();
-  const size = parseInt(document.getElementById('newSize').value, 10) || 50;
-  const remaining = parseInt(document.getElementById('newRemaining').value, 10) || size;
-
-  if (!name || !brand) return;
-
-  const newId = `user-custom-${Date.now()}`;
-  const newBottle = {
-    id: newId,
-    name,
-    brand,
-    perfumeParlourCode: brand === 'Perfume Parlour' ? 'Custom' : 'N/A',
-    isClone: Boolean(cloneOf),
-    cloneOf: cloneOf ? { originalName: cloneOf, originalHouse: 'Designer/Niche', similarityScore: 90 } : null,
-    concentration: 'Eau de Parfum',
-    bottleSize: size,
-    bottleType: 'Spray',
-    remainingMl: remaining,
-    purchaseSource: 'Personal Collection',
-    rating: 4.8,
-    gender: 'Unisex',
-    crg: 'Aromatic Fougere',
-    wardrobeArchetype: 'Everyday Office / Versatile Signature',
-    recommendedSprays: '3-4 Sprays',
-    sprayBlueprint: ['Behind Ears', 'Back of Neck'],
-    maturationWeeks: 4,
-    macerationStatus: 'Matured',
-    macerationTips: 'Store in cool dark cupboard.',
-    layeringPartner: 'Pairs with Particle (ISO E-Super).',
-    seasons: { spring: 30, summer: 30, autumn: 30, winter: 10 },
-    timeOfDay: { day: 60, night: 40 },
-    occasions: ['Office / Work', 'Walking', 'Casual', 'City Centre'],
-    longevity: 'Long Lasting (8h+)',
-    sillage: 'Moderate',
-    mainAccords: [
-      { name: 'Woody', percentage: 90, color: '#854d0e' },
-      { name: 'Citrus', percentage: 80, color: '#f59e0b' },
-      { name: 'Aromatic', percentage: 70, color: '#06b6d4' }
-    ],
-    notes: {
-      top: [{ name: 'Citrus Zest' }],
-      heart: [{ name: 'Aromatic Spices' }],
-      base: [{ name: 'Cedarwood' }]
-    },
-    description: `${name} by ${brand}. Indexed directly in your vault.`,
-    image: 'assets/bottles/default-bottle.svg',
-    userPhoto: 'assets/bottles/default-bottle.svg',
-    batchYear: 2024
-  };
-
-  collection.unshift(newBottle);
-  saveCollection();
-  updateDashboard();
-
-  const addBottleModal = document.getElementById('addBottleModal');
-  if (addBottleModal) addBottleModal.classList.remove('open');
-  e.target.reset();
-}
-
-// Export Inventory JSON
-function exportInventoryJSON() {
-  const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(collection, null, 2));
-  const downloadAnchor = document.createElement('a');
-  downloadAnchor.setAttribute('href', dataStr);
-  downloadAnchor.setAttribute('download', `atelier_parfum_vault_${new Date().toISOString().slice(0, 10)}.json`);
-  document.body.appendChild(downloadAnchor);
-  downloadAnchor.click();
-  downloadAnchor.remove();
-}
-
-// Import Inventory JSON
-function handleImportJSON(e) {
-  const file = e.target.files?.[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = (event) => {
-    try {
-      const imported = JSON.parse(event.target.result);
-      if (Array.isArray(imported) && imported.length > 0) {
-        collection = imported;
-        saveCollection();
-        updateDashboard();
-      }
-    } catch (err) {
-      console.error('Invalid JSON file format', err);
-    }
-  };
-  reader.readAsText(file);
-}
-
 // ==========================================================================
-// LAYERING ATELIER & OLFACTORY SYNERGY ENGINE
+// THE LAYERING ATELIER & PAIRING STUDIO
 // ==========================================================================
-
 const CURATED_SIGNATURE_DUOS = [
   {
-    title: "The Modern Alchemist",
-    vibe: "Cold Weather Elegance // Spiced Zest",
-    baseId: "user-pp-leaf-flavour-0401",
-    companionId: "user-pp-citrus-particle-0616",
-    score: 98,
-    synergyType: "Mandarin Spark Over Spiced Cavendish Tobacco",
-    narrative: "Photorealistic mandarin zest explodes in the opening, cutting clean through dense vanilla and pipe tobacco before settling into velvety Iso E Super cedarwood.",
-    sequence: "Step 1: 2 sprays Leaf Flavour on neck. Step 2: 2 sprays Citrus Particle on shirt & wrists."
-  },
-  {
-    title: "The Velvet Shadow",
-    vibe: "Forbidden Date Night Seduction",
-    baseId: "user-after-effect-fa-paris",
-    companionId: "user-pp-astray-fruit-1947",
-    score: 97,
-    synergyType: "Dark Rum Liqueur Laced with Tart Griotte Cherry",
-    narrative: "Initio Side Effect's boozy Martinique rum, cinnamon, and tobacco harmonize luxuriously with Lost Cherry's tart syrup and bitter almond.",
-    sequence: "Step 1: 2 sprays After Effect behind ears. Step 2: 1 spray Astray Fruit on chest."
-  },
-  {
-    title: "The Royal Vanguard",
-    vibe: "Aristocratic Autumn Versatility",
-    baseId: "user-pp-herb-garden-1598",
-    companionId: "user-pp-particle-iso-e-super",
-    score: 96,
-    synergyType: "Green Apple & 12-Hour Diffusive Cedar Cloud",
-    narrative: "Parfums de Marly Layton's crisp green apple, lavender, and bourbon vanilla are amplified 2x in sillage by pure Molecule 01 Iso E Super.",
-    sequence: "Step 1: 2 sprays Particle 1365 as molecular primer. Step 2: 2 sprays Herb Garden over collar."
-  },
-  {
-    title: "The Mediterranean Sovereign",
-    vibe: "Prestige Formal & Black Tie",
+    title: "The Sicilian Emperor",
+    vibe: "Opulent Golden Tobacco & Honey",
     baseId: "user-voux-elegante",
-    companionId: "user-pp-second-particle-1980",
+    companionId: "user-pp-particle-iso-e-super",
+    score: 98,
+    synergyType: "Molecular Fixation & Sillage Multiplication",
+    narrative: "Xerjoff Naxos's decadent golden honey, Calabrian lemon, and blonde tobacco anchored by Iso E Super cedarwood radiance for 16-hour boardroom presence.",
+    sequence: "Step 1: 2 sprays Particle (primer) on throat and collar. Step 2: 2 sprays Voux Elegante behind ears."
+  },
+  {
+    title: "Black Tie Smoked Leather",
+    vibe: "Dark Luxury Seduction",
+    baseId: "user-tf-oud-wood-spray",
+    companionId: "user-after-effect-fa-paris",
+    score: 97,
+    synergyType: "Smoky Cardamom Oud meets Boozy Tobacco Rum",
+    narrative: "Initio Side Effect's intoxicating aged rum and cinnamon infused over Tom Ford Oud Wood's dry smoked rosewood and creamy sandalwood.",
+    sequence: "Step 1: 3 sprays Oud Wood body mist on chest & shirt. Step 2: 2 sprays After Effect on pulse points."
+  },
+  {
+    title: "Bourbon Orchard",
+    vibe: "Autumn Aristocratic Gourmand",
+    baseId: "user-pp-herb-garden-1598",
+    companionId: "user-pp-intense-aroma-exploding",
     score: 96,
-    synergyType: "Honeyed Lavender & Ambergris Skin Radiance",
-    narrative: "Xerjoff Naxos golden honey and blonde tobacco gain an ethereal, velvety skin warmth from pure Molecule 02 Ambroxan.",
-    sequence: "Step 1: 2 sprays Voux Elegante behind ears. Step 2: 1 spray Second Particle on collarbones."
+    synergyType: "Crisp Green Apple & Exploding Bourbon Vanilla",
+    narrative: "Layton's crisp apple and lavender contrast with Spicebomb Extreme's black pepper, toasted cinnamon, and dark bourbon vanilla.",
+    sequence: "Step 1: 2 sprays Herb Garden on neck. Step 2: 1-2 sprays Intense Aroma Exploding on coat or scarf."
+  },
+  {
+    title: "Velvet Shadow",
+    vibe: "Narcotic Nightlife & Cherry Liqueur",
+    baseId: "user-pp-astray-fruit-1947",
+    companionId: "user-after-effect-fa-paris",
+    score: 97,
+    synergyType: "Tart Griotte Cherry meets Dark Martinique Rum",
+    narrative: "Lost Cherry's almond-cherry syrup folded directly into Side Effect's narcotic tobacco and rum. Hypnotic in winter dates.",
+    sequence: "Step 1: 2 sprays After Effect behind ears. Step 2: 1 spray Astray Fruit on chest & collarbones."
   },
   {
     title: "The Oceanic Abyss",
@@ -982,12 +812,38 @@ function initLayeringAtelier() {
     baseSelect.appendChild(opt);
   });
 
-  // Default to Leaf Flavour or first item
-  const defaultBase = collection.find(c => c.id === 'user-pp-leaf-flavour-0401') || collection[0];
+  const defaultBase = collection.find(c => c.id === 'user-voux-elegante') || collection[0];
   baseSelect.value = defaultBase.id;
 
   onBaseFlaconSelected(defaultBase.id);
   renderAutoCuratedDuos();
+}
+
+function setLayeringBaseFlacon(flaconId) {
+  const baseSelect = document.getElementById('baseFragranceSelect');
+  if (baseSelect) {
+    baseSelect.value = flaconId;
+    onBaseFlaconSelected(flaconId);
+  }
+
+  // Switch to Interactive Mode if not active
+  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
+  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
+  const layeringStudioMode = document.getElementById('layeringStudioMode');
+  const layeringAutoMode = document.getElementById('layeringAutoMode');
+
+  if (modeUserPickBtn && layeringStudioMode) {
+    modeUserPickBtn.classList.add('active');
+    modeAutoCuratedBtn.classList.remove('active');
+    layeringStudioMode.classList.add('active');
+    layeringAutoMode.classList.remove('active');
+  }
+
+  // Smooth scroll to Layering Atelier
+  const labSection = document.getElementById('layeringLabSection');
+  if (labSection) {
+    labSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 function onBaseFlaconSelected(baseId) {
@@ -1002,19 +858,19 @@ function renderBaseFlaconPreview(baseItem) {
   const preview = document.getElementById('baseFlaconPreview');
   if (!preview) return;
 
-  const imgSrc = baseItem.userPhoto || baseItem.image || 'assets/bottles/default-bottle.svg';
+  const imgSrc = baseItem.image || baseItem.userPhoto || 'assets/bottles/default-bottle.svg';
   const cloneText = baseItem.isClone && baseItem.cloneOf ? `Clone of ${baseItem.cloneOf.originalName}` : baseItem.brand;
 
   preview.innerHTML = `
-    <div class="base-preview-stage">
-      <img src="${imgSrc}" class="base-preview-img" alt="${baseItem.name}">
-    </div>
-    <div class="base-preview-info">
-      <span class="card-concentration-tag">${baseItem.concentration}</span>
-      <h3 class="base-preview-name">${baseItem.name}</h3>
-      <span class="base-preview-meta">${cloneText} &bull; ${baseItem.crg}</span>
-      <div style="font-size: 11px; color: var(--text-secondary); margin-top: 0.35rem; font-family: var(--font-mono);">
-        Recommended Sprays: ${baseItem.recommendedSprays || '3-4 Sprays'}
+    <div style="display: flex; gap: 1.25rem; align-items: center;">
+      <div style="width: 100px; height: 100px; border-radius: 12px; background: var(--surface-shell); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <img src="${imgSrc}" style="max-width: 80px; max-height: 85px; object-fit: contain; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));" alt="${baseItem.name}">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+        <span class="card-concentration-tag">${baseItem.concentration}</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">${baseItem.name}</h3>
+        <span style="font-size: 0.8rem; color: var(--text-secondary);">${cloneText} &bull; ${baseItem.crg}</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); margin-top: 0.25rem;">Recommended: ${baseItem.recommendedSprays || '3-4 Sprays'}</span>
       </div>
     </div>
   `;
@@ -1023,7 +879,7 @@ function renderBaseFlaconPreview(baseItem) {
 function calculateSynergy(base, companion) {
   let score = 70;
   let synergyType = "Harmonious Complement";
-  let rationale = "Balanced interplay of complementary accords.";
+  let rationale = "Balanced interplay of complementary notes and accords.";
   let sequence = `Step 1: 2 sprays ${base.name} on base of neck. Step 2: 1-2 sprays ${companion.name} on collarbones.`;
 
   const bId = base.id;
@@ -1035,9 +891,8 @@ function calculateSynergy(base, companion) {
     score = isHeavy ? 98 : 94;
     synergyType = cId === 'user-pp-particle-iso-e-super' ? "Iso E Super Molecular Amplifier" : "Ambroxan Radiant Sillage Booster";
     rationale = `Pure ${cId === 'user-pp-particle-iso-e-super' ? 'Iso E Super' : 'Ambroxan'} acts as a magnetic projection engine, doubling the diffusive sillage radius of ${base.name} without altering its notes.`;
-    sequence = `Step 1: Apply 2 sprays ${companion.name} onto pulse points as a primer. Step 2: Mist 2 sprays ${base.name} over collar and chest.`;
+    sequence = `Step 1: Apply 2 sprays ${companion.name} onto pulse points as primer. Step 2: Mist 2 sprays ${base.name} over collar and chest.`;
   }
-  // If base is a molecular booster and companion is anything else
   else if (bId === 'user-pp-particle-iso-e-super' || bId === 'user-pp-second-particle-1980') {
     score = 96;
     synergyType = "Molecular Fixative Primer";
@@ -1114,12 +969,7 @@ function calculateSynergy(base, companion) {
   }
 
   score = Math.min(99, Math.max(45, score));
-  let tier = 'low';
-  if (score >= 95) tier = 'transcendent';
-  else if (score >= 85) tier = 'harmonious';
-  else if (score >= 70) tier = 'moderate';
-
-  return { score, tier, synergyType, rationale, sequence };
+  return { score, synergyType, rationale, sequence };
 }
 
 function renderRankedCompanions(baseItem) {
@@ -1128,7 +978,7 @@ function renderRankedCompanions(baseItem) {
   if (!container) return;
 
   const candidates = collection.filter(c => c.id !== baseItem.id);
-  if (countBadge) countBadge.textContent = `${candidates.length} Vault Candidates`;
+  if (countBadge) countBadge.textContent = `${candidates.length} Candidates`;
 
   const scored = candidates.map(candidate => {
     const synergy = calculateSynergy(baseItem, candidate);
@@ -1138,40 +988,21 @@ function renderRankedCompanions(baseItem) {
   container.innerHTML = '';
   scored.forEach(res => {
     const cand = res.candidate;
-    const thumbSrc = cand.userPhoto || cand.image || 'assets/bottles/default-bottle.svg';
+    const thumbSrc = cand.image || cand.userPhoto || 'assets/bottles/default-bottle.svg';
 
     const card = document.createElement('div');
-    card.className = 'pairing-candidate-card';
+    card.className = 'companion-card';
     card.innerHTML = `
-      <div class="candidate-top-row">
-        <div class="candidate-left-meta">
-          <div class="candidate-thumb-wrapper">
-            <img src="${thumbSrc}" class="candidate-thumb-img" alt="${cand.name}">
-          </div>
-          <div class="candidate-name-col">
-            <h4 class="candidate-title">${cand.name}</h4>
-            <span class="candidate-house-meta">${cand.brand} &bull; ${cand.crg}</span>
-          </div>
-        </div>
-        <div class="synergy-score-gauge synergy-score-tier-${res.tier}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
-          <span>${res.score}% SYNERGY</span>
-        </div>
+      <img src="${thumbSrc}" class="companion-bottle-thumb" alt="${cand.name}">
+      <div class="companion-meta">
+        <span class="card-concentration-tag" style="font-size: 9px;">${res.synergyType}</span>
+        <h4 class="companion-name">${cand.name}</h4>
+        <p class="companion-sub">${res.rationale}</p>
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); margin-top: 0.25rem;">${res.sequence}</span>
       </div>
-
-      <div class="candidate-narrative">
-        <span class="candidate-synergy-type">${res.synergyType}</span>
-        <p class="candidate-rationale">${res.rationale}</p>
-      </div>
-
-      <div class="candidate-sequence-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 13px; height: 13px; color: var(--gold-primary);">
-          <circle cx="12" cy="12" r="9"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        <span>${res.sequence}</span>
+      <div class="companion-synergy-tag">
+        <span class="synergy-score-num">${res.score}%</span>
+        <span class="synergy-score-label">Synergy</span>
       </div>
     `;
 
@@ -1184,75 +1015,151 @@ function renderAutoCuratedDuos() {
   if (!grid) return;
 
   grid.innerHTML = '';
+
   CURATED_SIGNATURE_DUOS.forEach(duo => {
     const base = collection.find(c => c.id === duo.baseId);
     const comp = collection.find(c => c.id === duo.companionId);
     if (!base || !comp) return;
 
-    const baseSrc = base.userPhoto || base.image || 'assets/bottles/default-bottle.svg';
-    const compSrc = comp.userPhoto || comp.image || 'assets/bottles/default-bottle.svg';
+    const baseSrc = base.image || base.userPhoto || 'assets/bottles/default-bottle.svg';
+    const compSrc = comp.image || comp.userPhoto || 'assets/bottles/default-bottle.svg';
 
-    const card = document.createElement('div');
-    card.className = 'auto-duo-card';
-    card.innerHTML = `
-      <div class="auto-duo-top-meta">
-        <span class="brand-eyebrow">${duo.vibe}</span>
-        <div class="synergy-score-gauge synergy-score-tier-transcendent">
-          <span>${duo.score}% SYNERGY</span>
+    const cardShell = document.createElement('article');
+    cardShell.className = 'bezel-shell duo-card-shell';
+    cardShell.innerHTML = `
+      <div class="bezel-core duo-card-core">
+        <div>
+          <div class="duo-headline-strip">
+            <div>
+              <span class="card-concentration-tag" style="font-size: 9px;">${duo.vibe}</span>
+              <h3 class="duo-signature-title">${duo.title}</h3>
+            </div>
+            <span class="duo-compatibility-badge">${duo.score}% Synergy</span>
+          </div>
+
+          <div class="duo-flacons-row">
+            <div class="duo-flacon-item">
+              <img src="${baseSrc}" class="duo-bottle-img" alt="${base.name}">
+              <span style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">${base.name}</span>
+            </div>
+            <span class="duo-plus-sign">+</span>
+            <div class="duo-flacon-item">
+              <img src="${compSrc}" class="duo-bottle-img" alt="${comp.name}">
+              <span style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">${comp.name}</span>
+            </div>
+          </div>
+
+          <p class="duo-notes-summary">${duo.narrative}</p>
         </div>
-      </div>
 
-      <h3 class="auto-duo-title">${duo.title}</h3>
-
-      <div class="auto-duo-flacons-stage">
-        <div class="duo-flacon-unit">
-          <img src="${baseSrc}" class="duo-flacon-img" alt="${base.name}">
-          <span class="duo-flacon-label">${base.name}</span>
+        <div class="duo-sprays-protocol">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px; color: var(--gold-primary);">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span>${duo.sequence}</span>
         </div>
-
-        <div class="duo-synergy-orb">
-          <span>${duo.score}%</span>
-          <span class="duo-synergy-orb-label">LINK</span>
-        </div>
-
-        <div class="duo-flacon-unit">
-          <img src="${compSrc}" class="duo-flacon-img" alt="${comp.name}">
-          <span class="duo-flacon-label">${comp.name}</span>
-        </div>
-      </div>
-
-      <p class="auto-duo-notes">${duo.narrative}</p>
-
-      <div class="auto-duo-action-bar">
-        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary);">${duo.sequence}</span>
-        <button class="btn-island btn-island-ghost" style="padding: 0.35rem 0.85rem; font-size: 0.72rem;" onclick="loadDuoInStudio('${base.id}', '${comp.id}')">
-          <span>Load In Studio</span>
-        </button>
       </div>
     `;
 
-    grid.appendChild(card);
+    grid.appendChild(cardShell);
   });
 }
 
-function loadDuoInStudio(baseId, companionId) {
-  const modeUserPickBtn = document.getElementById('modeUserPickBtn');
-  const modeAutoCuratedBtn = document.getElementById('modeAutoCuratedBtn');
-  const layeringStudioMode = document.getElementById('layeringStudioMode');
-  const layeringAutoMode = document.getElementById('layeringAutoMode');
-  const baseSelect = document.getElementById('baseFragranceSelect');
+// ==========================================================================
+// ADD BOTTLE & JSON BACKUP
+// ==========================================================================
+function handleAddFragrance(e) {
+  e.preventDefault();
+  const name = document.getElementById('newName').value.trim();
+  const brand = document.getElementById('newBrand').value.trim();
+  const cloneOf = document.getElementById('newCloneOf').value.trim();
+  const size = parseInt(document.getElementById('newSize').value, 10) || 50;
+  const remaining = parseInt(document.getElementById('newRemaining').value, 10) || size;
 
-  if (modeUserPickBtn && modeAutoCuratedBtn && layeringStudioMode && layeringAutoMode && baseSelect) {
-    modeUserPickBtn.classList.add('active');
-    modeAutoCuratedBtn.classList.remove('active');
-    layeringStudioMode.classList.add('active');
-    layeringAutoMode.classList.remove('active');
+  if (!name || !brand) return;
 
-    baseSelect.value = baseId;
-    onBaseFlaconSelected(baseId);
+  const newId = `user-custom-${Date.now()}`;
+  const newBottle = {
+    id: newId,
+    name,
+    brand,
+    perfumeParlourCode: brand === 'Perfume Parlour' ? 'Custom' : 'N/A',
+    isClone: Boolean(cloneOf),
+    cloneOf: cloneOf ? { originalName: cloneOf, originalHouse: 'Designer/Niche', similarityScore: 90 } : null,
+    concentration: 'Eau de Parfum',
+    bottleSize: size,
+    bottleType: 'Spray',
+    remainingMl: remaining,
+    purchaseSource: 'Personal Vault',
+    rating: 4.8,
+    gender: 'Unisex',
+    crg: 'Aromatic Fougere',
+    wardrobeArchetype: 'Everyday Office / Versatile Signature',
+    recommendedSprays: '3-4 Sprays',
+    sprayBlueprint: ['Behind Ears', 'Back of Neck'],
+    maturationWeeks: 4,
+    macerationStatus: 'Matured',
+    macerationTips: 'Store in cool dark cupboard.',
+    layeringPartner: 'Pairs with Particle (ISO E-Super).',
+    seasons: { spring: 30, summer: 30, autumn: 30, winter: 10 },
+    timeOfDay: { day: 60, night: 40 },
+    occasions: ['Office / Work', 'Walking', 'Casual', 'City Centre'],
+    longevity: 'Long Lasting (8h+)',
+    sillage: 'Moderate',
+    mainAccords: [
+      { name: 'Woody', percentage: 90, color: '#854d0e' },
+      { name: 'Aromatic', percentage: 80, color: '#10b981' }
+    ],
+    notes: {
+      top: [{ name: 'Bergamot' }],
+      heart: [{ name: 'Lavender' }],
+      base: [{ name: 'Cedarwood' }, { name: 'Amber' }]
+    },
+    description: `${name} archived in private vault.`,
+    image: 'assets/bottles/default-bottle.svg',
+    batchYear: 2026
+  };
 
-    const target = document.getElementById('layeringLabSection');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  }
+  collection.unshift(newBottle);
+  saveCollection();
+  updateDashboard();
+
+  document.getElementById('addFragranceForm').reset();
+  const modal = document.getElementById('addBottleModal');
+  if (modal) modal.classList.remove('open');
 }
 
+function exportCollectionJson() {
+  const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(collection, null, 2));
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute('href', dataStr);
+  downloadAnchor.setAttribute('download', `atelier-olfactif-vault-${new Date().toISOString().slice(0, 10)}.json`);
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+}
+
+function importCollectionJson(e) {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    try {
+      const parsed = JSON.parse(event.target.result);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        collection = parsed;
+        saveCollection();
+        updateDashboard();
+        initSotdRecommendation();
+        initLayeringAtelier();
+        alert(`Successfully imported ${parsed.length} flacons!`);
+      }
+    } catch (err) {
+      alert('Error parsing JSON file. Please check file format.');
+    }
+  };
+  reader.readAsText(file);
+}

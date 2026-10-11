@@ -60,7 +60,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An irresistible narcotic blend of warm aged rum, honeyed tobacco leaf, sharp cinnamon bark, and creamy Madagascar vanilla. Intoxicating for upscale date nights and winter soirees.",
-    image: "assets/bottles/cropped/after_effect_fa_paris.jpg",
+    image: "assets/bottles/studio/after_effect_fa_paris.jpg",
     userPhoto: "assets/bottles/cropped/after_effect_fa_paris.jpg",
     batchYear: 2024
   },
@@ -124,7 +124,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "The definitive blue fragrance masterclass. Sparkling fresh grapefruit and invigorating ginger drying down into rich resinous incense, amber, and dry cedar. Flawlessly versatile in any setting.",
-    image: "assets/bottles/cropped/pp_navy_intense.jpg",
+    image: "assets/bottles/studio/bdc_edp.jpg",
     userPhoto: "assets/bottles/cropped/pp_navy_intense.jpg",
     batchYear: 2024
   },
@@ -185,7 +185,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An Italian Mediterranean tribute combining sun-drenched Sicilian lemon and aromatic lavender with decadent golden honey, rich blonde tobacco leaves, and warm tonka bean.",
-    image: "assets/bottles/cropped/voux_elegante.jpg",
+    image: "assets/bottles/studio/voux_elegante.jpg",
     userPhoto: "assets/bottles/cropped/voux_elegante.jpg",
     batchYear: 2024
   },
@@ -246,7 +246,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An amber-drenched, woody oriental with an appetizing heart of traditional Indian Kulfi dessert, saffron, and cardamom. Universally recognized as one of the greatest date night fragrances in history.",
-    image: "assets/bottles/cropped/tf_noir_extreme.jpg",
+    image: "assets/bottles/studio/tf_noir_extreme.jpg",
     userPhoto: "assets/bottles/cropped/tf_noir_extreme.jpg",
     batchYear: 2023
   },
@@ -305,7 +305,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An explosive winter firestorm of fiery black pepper, rich aromatic pipe tobacco, grated cinnamon, and intoxicating dark bourbon vanilla. Supreme cold-weather protection.",
-    image: "assets/bottles/cropped/pp_intense_aroma_exploding.jpg",
+    image: "assets/bottles/studio/spicebomb_extreme.jpg",
     userPhoto: "assets/bottles/cropped/pp_intense_aroma_exploding.jpg",
     batchYear: 2024
   },
@@ -357,7 +357,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A legendary Arabian classic blending rich Madagascar vanilla bean, aromatic Atlas cedarwood, precious oud, and black amber into a soft yet unforgettable presence.",
-    image: "assets/bottles/cropped/laya_edp.jpg",
+    image: "assets/bottles/studio/neemah_laya.jpg",
     userPhoto: "assets/bottles/cropped/laya_edp.jpg",
     batchYear: 2023
   },
@@ -420,7 +420,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "Vibrant zesty Sicilian lemon and blackcurrant bursting over a heart of juicy fruits, patchouli, velvety cedarwood, and supple leather. An extraordinary signature all-rounder.",
-    image: "assets/bottles/cropped/pp_wood_miracle.jpg",
+    image: "assets/bottles/studio/mancera_cedrat_boise.jpg",
     userPhoto: "assets/bottles/cropped/pp_wood_miracle.jpg",
     batchYear: 2024
   },
@@ -472,7 +472,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A minimalist marvel consisting of pure Iso E Super. Creates a warm, velvety cedarwood cocoon that fades and re-emerges mysteriously with your body heat. The undisputed champion of fragrance layering.",
-    image: "assets/bottles/cropped/pp_particle.jpg",
+    image: "assets/bottles/studio/molecule_01.jpg",
     userPhoto: "assets/bottles/cropped/pp_particle.jpg",
     batchYear: 2024
   },
@@ -528,7 +528,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A modern masterpiece marrying photorealistic sparkling mandarin orange juice with the velvety cedarwood projection of Iso E Super. Clean, effervescent, and uplifting.",
-    image: "assets/bottles/cropped/pp_citrus_particle_0616.jpg",
+    image: "assets/bottles/studio/molecule_01_mandarin.jpg",
     userPhoto: "assets/bottles/cropped/pp_citrus_particle_0616.jpg",
     batchYear: 2024
   },
@@ -589,7 +589,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "Deep oceanic plunge with fresh sparkling bergamot and mandarin diving into aromatic rosemary, lavender, and mineral amber. The ultimate gym and beach companion.",
-    image: "assets/bottles/cropped/pp_intenso_water.jpg",
+    image: "assets/bottles/studio/adg_profondo.jpg",
     userPhoto: "assets/bottles/cropped/pp_intenso_water.jpg",
     batchYear: 2024
   },
@@ -647,7 +647,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "Dark crashing waves against black volcanic rocks. Salty sea mist colliding with aromatic wild herbs and hypnotic church incense. Sophisticated and universally respected.",
-    image: "assets/bottles/cropped/pp_sweet_water.jpg",
+    image: "assets/bottles/studio/adg_profumo.jpg",
     userPhoto: "assets/bottles/cropped/pp_sweet_water.jpg",
     batchYear: 2024
   },
@@ -703,7 +703,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "The modern benchmark for masculine seduction. An intoxicating blend of sparkling grapefruit, spicy cardamom, warm amber, and refined pipe tobacco designed specifically for close encounters.",
-    image: "assets/bottles/cropped/dg_the_one.jpg",
+    image: "assets/bottles/studio/dg_the_one_edp.jpg",
     userPhoto: "assets/bottles/cropped/dg_the_one.jpg",
     batchYear: 2023
   },
@@ -759,7 +759,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "Smoky exotic rosewood and cardamom giving way to a rare blend of precious oud wood, sandalwood, and vetiver. Luxurious grooming touch for active and boardroom days alike.",
-    image: "assets/bottles/cropped/tf_oud_wood_spray.jpg",
+    image: "assets/bottles/studio/tf_oud_wood.jpg",
     userPhoto: "assets/bottles/cropped/tf_oud_wood_spray.jpg",
     batchYear: 2024
   },
@@ -815,7 +815,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A rich, rugged blend of fresh mahogany, blood orange, chilled cognac, and warm bourbon vanilla over golden amber. Widely celebrated as Bath & Body Works' greatest men's release of all time.",
-    image: "assets/bottles/cropped/bbw_mahogany_woods.jpg",
+    image: "assets/bottles/studio/bbw_mahogany_woods.jpg",
     userPhoto: "assets/bottles/cropped/bbw_mahogany_woods.jpg",
     batchYear: 2022
   },
@@ -866,7 +866,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A refined daily signature pump blending smoky oud wood with sensual dark Madagascar vanilla. Convenient, modern, and reliably pleasant for daily tasks and workouts.",
-    image: "assets/bottles/cropped/lynx_oud_vanilla.jpg",
+    image: "assets/bottles/studio/lynx_oud_vanilla.jpg",
     userPhoto: "assets/bottles/cropped/lynx_oud_vanilla.jpg",
     batchYear: 2024
   },
@@ -930,7 +930,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A majestic royal signature opening with crisp green apple, zesty bergamot, and soothing lavender before evolving into a floral heart of geranium and a luxurious drydown of bourbon vanilla, spicy cardamom, and creamy sandalwood. Parfums de Marly's crowned prince.",
-    image: "assets/bottles/cropped/pp_herb_garden_1598.jpg",
+    image: "assets/bottles/studio/pdm_layton.jpg",
     userPhoto: "assets/bottles/cropped/pp_herb_garden_1598.jpg",
     batchYear: 2024
   },
@@ -993,7 +993,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An opulent and intoxicating voyage into forbidden decadence. Ripe luscious black cherries drenched in cherry liqueur and bitter almond, wrapped in Turkish rose, warm Peru balsam, and roasted tonka beans.",
-    image: "assets/bottles/cropped/pp_astray_fruit_1947.jpg",
+    image: "assets/bottles/studio/tf_lost_cherry.jpg",
     userPhoto: "assets/bottles/cropped/pp_astray_fruit_1947.jpg",
     batchYear: 2024
   },
@@ -1052,7 +1052,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "An iconic London private club aroma reimagined with opulent tobacco leaf accords, aromatic spices, and creamy tonka bean, unfolding into rich cacao, sweet dried fruits, and mellow wood sap.",
-    image: "assets/bottles/cropped/pp_leaf_flavour_0401.jpg",
+    image: "assets/bottles/studio/tf_tobacco_vanille.jpg",
     userPhoto: "assets/bottles/cropped/pp_leaf_flavour_0401.jpg",
     batchYear: 2024
   },
@@ -1111,7 +1111,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A pirate ship anchored in the dark waters of the Caribbean. Heady Martinique rum infused with roasted dark coffee, velvety bittersweet chocolate, almond milk, and golden sugar cane. Sinfully seductive.",
-    image: "assets/bottles/cropped/pp_noire_illusion_1746.jpg",
+    image: "assets/bottles/studio/kilian_black_phantom.jpg",
     userPhoto: "assets/bottles/cropped/pp_noire_illusion_1746.jpg",
     batchYear: 2024
   },
@@ -1164,7 +1164,7 @@ const FRAGRANCE_DATABASE = [
       ]
     },
     description: "A miraculous single-molecule fragrance featuring pure Ambroxan. Smells like warm sunlit skin, clean mineral ambergris, and sweet oceanic air. Highly diffusive and radiant, it works as both an irresistible skin scent and an ultra-potent projection booster when layered.",
-    image: "assets/bottles/cropped/pp_second_particle_1980.jpg",
+    image: "assets/bottles/studio/molecule_02.jpg",
     userPhoto: "assets/bottles/cropped/pp_second_particle_1980.jpg",
     batchYear: 2024
   }
