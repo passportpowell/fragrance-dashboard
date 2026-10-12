@@ -29,7 +29,7 @@ Key highlights:
 
 | Page | File | URL Route | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Home** | `index.html` | `/` | Editorial hero showcase, seasonal Scent of the Day recommendation engine (matched strictly to time of year, with interactive in-season options picker), and 6 preview cards for occasions (including Gym). |
+| **Home** | `index.html` | `/` | Editorial hero showcase, seasonal Scent of the Day recommendation engine (matched strictly to time of year, with interactive in-season options picker, quick layering highlight, and 3-card dynamic layering combinations with bottle duplex previews and direct Layering Lab linking), and 6 preview cards for occasions (including Gym). |
 | **All Fragrances** | `collection.html` | `/collection` | Complete 20-bottle catalog with 7 multi-dimensional filter rows, live search, sort options, and bottle detail modal. |
 | **Occasions** | `occasions.html` | `/occasions` | "When to Wear" guide with complete bottle lists for **Gym & Workouts**, **Running**, **Walking**, **Work / Office**, **Dates & Evenings**, and **Weddings & Special Events**. |
 | **Layering** | `layering.html` | `/layering` | 6 hand-tested signature combinations in plain English plus an interactive pairing calculator ranking all 19 partner bottles with compatibility percentages, molecular primer boosts, and spray sequencing. |

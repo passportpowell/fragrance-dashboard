@@ -970,6 +970,259 @@ button, input, select {
 }
 
 /* ==========================================================================
+   SOTD QUICK LAYERING CALLOUT & SOTD LAYERING OPTIONS GRID
+   ========================================================================== */
+.sotd-quick-layer-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--canvas-pedestal);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sotd-quick-layer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--gold-primary);
+  background: var(--gold-badge-bg);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.sotd-quick-layer-badge svg {
+  width: 13px;
+  height: 13px;
+}
+
+.sotd-quick-layer-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.sotd-quick-layer-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* SOTD Layering Container */
+.sotd-layering-container {
+  margin-top: 2.5rem;
+  padding: 2.25rem 2.5rem;
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.sotd-layering-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--canvas-border-subtle);
+}
+
+.sotd-layering-hub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--gold-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sotd-layering-hub-link:hover {
+  color: var(--gold-radiant);
+  transform: translateX(3px);
+}
+
+.sotd-layering-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.5rem;
+}
+
+.sotd-layering-card {
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: all 0.3s var(--ease-spring);
+  position: relative;
+}
+
+.sotd-layering-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-hover);
+  background: var(--canvas-card);
+}
+
+.sotd-layering-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sotd-layering-score-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  background: var(--gold-badge-bg);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.sotd-layering-duplex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.25rem 0.75rem;
+  background: radial-gradient(circle, var(--canvas-pedestal) 0%, var(--canvas-surface) 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--canvas-border-subtle);
+  gap: 0.5rem;
+}
+
+.sotd-layering-flacon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  flex: 1;
+  max-width: 130px;
+}
+
+.sotd-layering-flacon img {
+  width: 68px;
+  height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.12));
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.sotd-layering-flacon:hover img {
+  transform: scale(1.08);
+}
+
+.sotd-layering-flacon-role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+.sotd-layering-flacon-name {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sotd-layering-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  color: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+.sotd-layering-plus svg {
+  width: 14px;
+  height: 14px;
+}
+
+.sotd-layering-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sotd-layering-pairing-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.sotd-layering-rationale {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.sotd-layering-sequence {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold-primary);
+  background: var(--canvas-pedestal);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--canvas-border-subtle);
+  line-height: 1.5;
+}
+
+.sotd-layering-sequence svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sotd-layering-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--canvas-border-subtle);
+  margin-top: auto;
+}
+
+/* ==========================================================================
    SECTION 3: CURATED OLFACTORY WORLDS (EDITORIAL SCENARIOS)
    ========================================================================== */
 .worlds-editorial-grid {
@@ -2295,6 +2548,18 @@ button, input, select {
   .sotd-season-btn {
     padding: 0.45rem 0.85rem;
     font-size: 0.78rem;
+  }
+  .sotd-layering-container {
+    padding: 1.5rem 1rem;
+    margin-top: 1.5rem;
+  }
+  .sotd-layering-grid {
+    grid-template-columns: 1fr;
+  }
+  .sotd-quick-layer-highlight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 

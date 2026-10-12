@@ -273,6 +273,85 @@ function getInSeasonCandidates(seasonKey) {
   }).sort((a, b) => b.totalScore - a.totalScore);
 }
 
+function getTopLayeringOptionsForFragrance(fragrance, limit = 3) {
+  if (!fragrance || !collection || collection.length <= 1) return [];
+
+  const candidates = collection.filter(c => c.id !== fragrance.id);
+  const options = [];
+
+  // 1. Curated Signature Duos first
+  CURATED_SIGNATURE_DUOS.forEach(duo => {
+    let partnerId = null;
+    if (duo.baseId === fragrance.id) {
+      partnerId = duo.companionId;
+    } else if (duo.companionId === fragrance.id) {
+      partnerId = duo.baseId;
+    }
+
+    if (partnerId) {
+      const partner = collection.find(c => c.id === partnerId);
+      if (partner && !options.some(o => o.partner.id === partner.id)) {
+        options.push({
+          partner,
+          title: duo.title,
+          synergyType: duo.synergyType || 'Curated Signature Duo',
+          score: duo.score || 98,
+          rationale: duo.narrative,
+          sequence: duo.sequence,
+          category: 'curated'
+        });
+      }
+    }
+  });
+
+  // 2. Score all remaining candidates dynamically using calculatePairingSynergy
+  const dynamicScored = candidates
+    .filter(c => !options.some(o => o.partner.id === c.id))
+    .map(candidate => {
+      const syn = calculatePairingSynergy(fragrance, candidate);
+      let category = 'harmony';
+      if (candidate.id === 'user-pp-particle-iso-e-super' || candidate.id === 'user-pp-second-particle-1980') {
+        category = 'primer';
+      } else if (candidate.id === 'user-pp-citrus-particle-0616') {
+        category = 'contrast';
+      } else if (syn.score >= 90) {
+        category = 'rich';
+      }
+      return {
+        partner: candidate,
+        title: `${fragrance.name} & ${candidate.name}`,
+        synergyType: syn.synergyType,
+        score: syn.score,
+        rationale: syn.rationale,
+        sequence: syn.sequence,
+        category
+      };
+    })
+    .filter(opt => opt.score >= 70) // filter clash risks
+    .sort((a, b) => b.score - a.score);
+
+  // 3. Ensure a molecular primer booster is included if fragrance is not already a primer
+  const isBasePrimer = (fragrance.id === 'user-pp-particle-iso-e-super' || fragrance.id === 'user-pp-second-particle-1980');
+  const alreadyHasPrimer = options.some(o => o.partner.id === 'user-pp-particle-iso-e-super' || o.partner.id === 'user-pp-second-particle-1980');
+
+  if (!isBasePrimer && !alreadyHasPrimer) {
+    const primerOpt = dynamicScored.find(o => o.category === 'primer');
+    if (primerOpt) {
+      options.push(primerOpt);
+    }
+  }
+
+  // 4. Fill remaining slots with the highest-scoring distinct dynamic options
+  for (const opt of dynamicScored) {
+    if (options.length >= limit) break;
+    if (!options.some(o => o.partner.id === opt.partner.id)) {
+      options.push(opt);
+    }
+  }
+
+  return options.slice(0, limit);
+}
+
 function initSotdRecommendation(forceReroll = false, targetId = null, newSeason = null) {
   if (!collection || collection.length === 0) return;
 
@@ -394,6 +473,83 @@ function initSotdRecommendation(forceReroll = false, targetId = null, newSeason 
       </svg>
       <span>Spray Routine: ${selected.recommendedSprays || '3-4 Sprays'} applied to ${bpText}.</span>
     `;
+  }
+
+  // Layering Options for Scent of the Day
+  const topLayeringOptions = getTopLayeringOptionsForFragrance(selected, 3);
+
+  const sotdQuickLayerText = document.getElementById('sotdQuickLayerText');
+  if (sotdQuickLayerText && topLayeringOptions.length > 0) {
+    const topOpt = topLayeringOptions[0];
+    sotdQuickLayerText.innerHTML = `Pair with <strong>${topOpt.partner.name}</strong> (${topOpt.score}% Synergy) — ${topOpt.sequence}`;
+  }
+
+  const sotdLayeringTitle = document.getElementById('sotdLayeringTitle');
+  if (sotdLayeringTitle) {
+    sotdLayeringTitle.textContent = `Recommended Layering Options for ${selected.name}`;
+  }
+
+  const sotdLayeringGrid = document.getElementById('sotdLayeringGrid');
+  if (sotdLayeringGrid) {
+    sotdLayeringGrid.innerHTML = topLayeringOptions.map(opt => {
+      const p = opt.partner;
+      const pSrc = p.image || p.userPhoto || 'assets/bottles/default-bottle.svg';
+      const selSrc = selected.image || selected.userPhoto || 'assets/bottles/default-bottle.svg';
+      return `
+        <article class="sotd-layering-card">
+          <div class="sotd-layering-card-top">
+            <span class="world-badge-code">${opt.synergyType}</span>
+            <span class="sotd-layering-score-pill">${opt.score}% Synergy</span>
+          </div>
+
+          <div class="sotd-layering-duplex">
+            <div class="sotd-layering-flacon" onclick="openDetailModal('${selected.id}')" role="button" tabindex="0" title="View ${selected.name}">
+              <img src="${selSrc}" alt="${selected.name}">
+              <span class="sotd-layering-flacon-role">Today's Scent</span>
+              <span class="sotd-layering-flacon-name">${selected.name}</span>
+            </div>
+
+            <div class="sotd-layering-plus">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+
+            <div class="sotd-layering-flacon" onclick="openDetailModal('${p.id}')" role="button" tabindex="0" title="View ${p.name}">
+              <img src="${pSrc}" alt="${p.name}">
+              <span class="sotd-layering-flacon-role">Layering Partner</span>
+              <span class="sotd-layering-flacon-name">${p.name}</span>
+            </div>
+          </div>
+
+          <div class="sotd-layering-body">
+            <h4 class="sotd-layering-pairing-title">${opt.title}</h4>
+            <p class="sotd-layering-rationale">${opt.rationale}</p>
+            
+            <div class="sotd-layering-sequence">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="9"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <span>${opt.sequence}</span>
+            </div>
+          </div>
+
+          <div class="sotd-layering-footer">
+            <button type="button" class="btn-text-link" onclick="openDetailModal('${p.id}')">
+              <span>View Partner Bottle</span>
+              <span>&rarr;</span>
+            </button>
+            <a href="layering.html?base=${selected.id}" class="btn-text-link" style="color: var(--gold-primary);">
+              <span>Test in Lab</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </article>
+      `;
+    }).join('');
   }
 
   const inspectBtn = document.getElementById('sotdInspectBtn');
@@ -790,6 +946,18 @@ function initLayeringPage() {
     });
   }
 
+  // Support ?base=... query parameter from Scent of the Day
+  const params = new URLSearchParams(window.location.search);
+  const baseParam = params.get('base');
+  if (baseParam && collection.some(c => c.id === baseParam)) {
+    if (curatedBtn && studioBtn) {
+      studioBtn.classList.add('active');
+      curatedBtn.classList.remove('active');
+      if (studioView) studioView.style.display = 'block';
+      if (curatedView) curatedView.style.display = 'none';
+    }
+  }
+
   initInteractivePairingStudio();
 }
 
@@ -864,7 +1032,13 @@ function initInteractivePairingStudio() {
     });
   }
 
-  const currentVal = baseSelect.value || collection[0].id;
+  const params = new URLSearchParams(window.location.search);
+  const baseParam = params.get('base');
+  let currentVal = baseSelect.value || collection[0].id;
+  if (baseParam && collection.some(c => c.id === baseParam)) {
+    baseSelect.value = baseParam;
+    currentVal = baseParam;
+  }
   updateInteractivePairings(currentVal);
 }
 
