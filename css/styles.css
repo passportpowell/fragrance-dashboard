@@ -1880,6 +1880,84 @@ button, input, select {
   fill: currentColor;
 }
 
+/* Footer Digital Contact Card Button */
+.footer-contact-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--canvas-pedestal);
+  border: 1px solid var(--canvas-border);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-spring);
+  width: 100%;
+  max-width: 270px;
+}
+
+.footer-contact-card-btn:hover {
+  border-color: var(--gold-primary);
+  background: var(--canvas-card);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle), 0 0 0 1px var(--gold-glow);
+}
+
+.footer-contact-card-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+.footer-card-btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  flex: 1;
+}
+
+.footer-card-btn-label {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.footer-card-btn-url {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-primary);
+  letter-spacing: 0.02em;
+}
+
+.footer-card-btn-arrow {
+  width: 14px !important;
+  height: 14px !important;
+  stroke: var(--text-tertiary) !important;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+  flex-shrink: 0;
+}
+
+.footer-contact-card-btn:hover .footer-card-btn-arrow {
+  transform: translate(2px, -2px);
+  stroke: var(--gold-primary) !important;
+}
+
+.footer-bottom-card-link {
+  color: var(--gold-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-bottom-card-link:hover {
+  color: var(--gold-radiant);
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    MULTI-PAGE NAVIGATION & ACTIVE STATES
    ========================================================================== */
