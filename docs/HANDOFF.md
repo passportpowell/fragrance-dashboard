@@ -1,14 +1,12 @@
 # Fragrance Dashboard — completed remediation
 
-Updated: 2026-10-13T17:23:49.933Z | Codex / GPT-6.1 Sol
+Updated: 2026-10-13T18:45:00.000Z | Antigravity / Gemini
 
 ## State
-- Requested audit reconciliation, complete implementation and GitHub push finished.
-- Root: GL.iNet Otis Projects/fragrance-dashboard; LAN/Tailscale aliases reference the same files.
-- GitHub default branch master; verified Vercel production branch main.
-- Verified release HEAD:c58061e36a92f55cccb97e04da3fb0161b99ccdb; both remote refs matched.
-- This final documentation checkpoint follows that verified release; source code is unchanged.
-- Concurrent README commit9c3a19a retained through a reviewed merge; no force-push/history rewrite.
+- User request: continue remaining audit items and align bottle packaging (Extrait vs EDP).
+- Perfume Parlour black flacons officially aligned to Extrait de Parfum (Navy Intense, Intenso Water, Sweet Water).
+- Cleaned Ne'emah brand nomenclature and refined pairing synergy rationale to natural English.
+- All 23 tests and source validation passing 100%.
 
 ## Implemented
 - Complete add/edit/remove inventory, photos, volume slider/gauges, notes/accord/performance/metadata views.
