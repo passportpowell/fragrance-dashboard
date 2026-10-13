@@ -11,11 +11,12 @@ Complete the five-page fragrance inventory dashboard and close all justified aud
 - [x] Keyboard, focus, contrast, reduced motion and responsive fixes.
 - [x] Own-photo publication allowlist, headers/cache/redirects and safe scripts.
 - [x] Independent review and automated/browser verification.
-- [~] Commit, reconcile concurrent README, push master and verify remote.
+- [x] Commit, reconcile concurrent README and push master.
+- [~] Fast-forward configured main production branch and verify live release.
 
 ## Fog of war
 - Source profiles remain provisional until the owner verifies labels and measurements.
 - Real-device/screen-reader acceptance and external image permissions are not certified.
 
 ## Operational boundary
-Vercel production publication and a dedicated Tailscale route are separate actions; no cloud/server routing configuration was changed. See docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md for every finding and decision.
+Vercel publishes through its verified existing main branch. A dedicated Tailscale route remains an operator action; existing server routing and cloud settings are unchanged. See docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md for every finding and decision.

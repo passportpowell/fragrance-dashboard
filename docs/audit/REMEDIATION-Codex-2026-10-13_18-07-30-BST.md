@@ -27,7 +27,7 @@ Date: 13 October 2026. Scope: all three audit documents; source implementation, 
 23. Added shared schema validation, numeric bounds, asset/link/fragment/hook/script-order/footer checks, security/storage/recommendation regression tests and build exclusions. Build validation runs before generated output is removed. Addresses Codex 14.
 24. Added a reproducible Chromium integration suite exercising manager operations, JSON recovery, CSP-safe text, multi-tab conflicts, focus, 20 layout/theme combinations and source-photo exclusion.
 25. Updated README, handover pointer, accepted plan/checklist, decisions, installed-skill record and project instructions; restored the removed secrets rule and preserved historical audits/notes. Addresses Codex 18/21, Claude 3/23–26/28–29.
-26. Kept GitHub's verified default master branch, preserved main and reconciled the concurrent README commit without force-pushing or rewriting history. Addresses Claude 27.
+26. Kept GitHub's verified default master branch, fast-forwarded the verified Vercel production branch main and reconciled the concurrent README commit without force-pushing or rewriting history. Addresses Claude 27.
 
 ## Reconciled findings and decisions
 - The other audit's “skills directory empty” and “complete occasion lists” assertions contradicted direct filesystem/tag checks. There are 18 installed skill entrypoints; the old lists were subsets. Both facts were verified and corrected.
@@ -38,7 +38,7 @@ Date: 13 October 2026. Scope: all three audit documents; source implementation, 
 - Unknown manufacturing facts, exact oil percentages, authenticity and chemical performance were not inferred or externally certified. Active copy uses provisional owner/curated labels.
 - Browser emulation covers desktop/mobile widths and light/dark, not physical-device or screen-reader certification. External fonts are blocked for deterministic offline regression checks; fallback typography is exercised.
 - The current PC's Tailscale routes belong to other projects. A fragrance route is not configured; existing routes remain intact. The required historical private-access link is a reference, not a verified live endpoint.
-- GitHub push, Vercel deployment and live parity are separate verification states. An account read confirmed the existing public production release was Ready from 12 October; no manual production deployment or cloud setting change is part of this source-only push.
+- GitHub push, Vercel deployment and live parity are separate verification states. The initial account read showed the 12 October production release. The Vercel API then confirmed main is the configured production branch; the authorized GitHub fast-forward triggers publication without manual deployment or cloud settings changes. Final live checks are recorded in HANDOFF.
 
 ## Verification
 - Core test suite: 23 passing tests, plus expanded source integrity validator.

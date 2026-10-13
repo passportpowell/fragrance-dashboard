@@ -27,7 +27,7 @@ Fragrance scores, volumes, performance and layering recommendations are provisio
 
 Vercel builds `public/` from an explicit allowlist in `scripts/build.js`. Source photographs, historical third-party studio images, internal documentation, installed skills and Git metadata are excluded. The code has no package dependencies. Clean URLs and legacy redirects are defined in `vercel.json`; stable image filenames use a one-hour revalidating cache. Security headers prohibit inline scripts; inline styles remain allowed for current UI rendering. HTTPS/HSTS is provided by the hosting platform.
 
-The verified GitHub default branch is `master`. Push intended commits to `origin master`; preserve remote `main` rather than updating both branches by habit. A successful push/build does not establish production parity; inspect the deployed routes, headers and source responses after deployment.
+The verified GitHub default branch is `master`, while Vercel's configured production branch is `main`. Develop and review on `master`; publishing the existing production site requires a normal fast-forward push of the same verified commit to `main`. Preserve both histories; never force-push or change cloud branch settings by habit. A successful push/build does not establish production parity; inspect the deployed routes, headers and source responses after deployment.
 
 The project-configured historical tailnet endpoint is https://desktop-smsroim.tail0be63c.ts.net/; its availability is not verified. Read-only status on this PC identifies `gaming-pc.tail0be63c.ts.net` and existing unrelated routes on 18765, 8765 and 33463 plus TCP 53677. No 62872 route exists. Preserve those routes. If the owner configures a separate fragrance HTTPS port, current installed Tailscale supports:
 
