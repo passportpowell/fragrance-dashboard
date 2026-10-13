@@ -1,0 +1,12 @@
+{
+  "name": "otis-powell-fragrance-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js && node test/validate-inventory.js",
+    "build": "node scripts/build.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

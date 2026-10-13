@@ -1190,6 +1190,20 @@ const FRAGRANCE_DATABASE = [
   }
 ];
 
+// Historical profiles are curated estimates, not verified product specifications.
+// Owner photographs show the actual collection instead of inspiration-brand packaging.
+FRAGRANCE_DATABASE.forEach(item => {
+  item.image = item.userPhoto || 'assets/bottles/default-bottle.svg';
+  if (item.brand === "Ne'emah / Ene'emahe") item.brand = "Ne'emah";
+  item.provenance = 'Historical curated profile; ratings, volumes, similarity, performance and wear scores are provisional estimates. Verify packaging against your label.';
+  item.description = `${item.name} is part of the personal collection. Listed notes and accords describe a provisional scent profile.`;
+  item.macerationStatus = 'Unverified; add your own observation';
+  item.macerationTips = 'Record how the bottle smells over time. Store upright away from heat and direct sunlight; no fixed resting time is guaranteed.';
+  item.layeringPartner = 'Try a small amount of a suggested pairing and record your preference. Scores are suggestions, not measured performance.';
+  item.recommendedSprays = ((item.recommendedSprays.match(/^\d+(?:-\d+)?/) || [''])[0] || '') + ' sprays';
+  item.sprayBlueprint = ['Behind ears', 'Back of neck', 'Clothing if suitable'];
+});
+
 // Available Filter Dimensions
 const FILTER_DIMENSIONS = {
   seasons: ["Spring", "Summer", "Autumn", "Winter"],

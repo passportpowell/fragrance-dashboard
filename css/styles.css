@@ -15,7 +15,7 @@
   --canvas-border-subtle: rgba(28, 25, 23, 0.05);
 
   /* Champagne Gold Scale */
-  --gold-primary: #A8812D; /* Rich warm antique gold for high legibility on light */
+  --gold-primary: #7D5E1B; /* Rich warm antique gold for high legibility on light */
   --gold-radiant: #C5A059;
   --gold-light: #E2CF97;
   --gold-deep: #7D5E1B;
@@ -25,7 +25,7 @@
   /* Editorial Typography Hierarchy */
   --text-primary: #141518;      /* Deep caviar espresso */
   --text-secondary: #635F56;    /* Warm taupe */
-  --text-tertiary: #969083;     /* Muted sand */
+  --text-tertiary: #635F56;     /* Muted sand */
   --text-inverse: #FFFFFF;
 
   /* Surfaces & Glass */
@@ -46,7 +46,7 @@
   --radius-pill: 9999px;
 
   /* Fonts */
-  --font-display: 'Cinzel', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -76,7 +76,7 @@
 
   --text-primary: #F7F6F2;
   --text-secondary: #9FA5B2;
-  --text-tertiary: #616775;
+  --text-tertiary: #A4AAB5;
   --text-inverse: #090A0D;
 
   --surface-glass: rgba(12, 14, 18, 0.88);
@@ -2641,3 +2641,73 @@ button, input, select {
   }
 }
 
+
+/* Inventory and accessibility */
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--gold-primary); outline-offset: 4px; }
+.skip-link { position: fixed; z-index: 2000; top: .5rem; left: .5rem; padding: .8rem 1rem; background: var(--canvas-card); color: var(--text-primary); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.inventory-toolbar { margin: 1.5rem auto; padding: 1.25rem; max-width: 1400px; border: 1px solid var(--canvas-border); border-radius: var(--radius-md); background: var(--canvas-card); }
+.inventory-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.inventory-toolbar p { color: var(--text-secondary); overflow-wrap: anywhere; }
+.inventory-actions label { display: grid; gap: .4rem; font-size: .85rem; }
+.inventory-editor { display: flex; flex-direction: column; gap: 1rem; }
+.editor-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.inventory-editor label, .editor-field { display: flex; flex-direction: column; gap: .4rem; font-size: .85rem; }
+.inventory-editor input, .inventory-editor select, .inventory-editor textarea { width: 100%; padding: .65rem .8rem; border: 1px solid var(--canvas-border); border-radius: var(--radius-sm); background: var(--canvas-surface); color: var(--text-primary); font: inherit; }
+.inventory-editor input[type=checkbox] { width: auto; }
+.inventory-editor textarea { min-height: 90px; resize: vertical; }
+.editor-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .75rem; }
+.inventory-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+.inventory-facts dt { font-size: .8rem; color: var(--text-secondary); }
+.inventory-facts dd { margin: .25rem 0 0; overflow-wrap: anywhere; }
+.accord-meter { display: grid; grid-template-columns: minmax(90px,1fr) 2fr; align-items: center; gap: .7rem; margin: .5rem 0; }
+.accord-meter meter { width: 100%; accent-color: var(--gold-primary); }
+button.boutique-product-card { font: inherit; color: var(--text-primary); text-align: left; width: 100%; cursor: pointer; }
+.world-flacons-row button, button.flacon-inspect { border: 0; background: transparent; color: inherit; cursor: pointer; }
+.world-flacons-row img { width: 65px; height: 85px; object-fit: contain; }
+.footer-private-access { max-width: 1400px; margin: 1.5rem auto 0; text-align: center; font-size: .85rem; }
+.footer-contact-card-btn svg:first-child { stroke: none; fill: var(--gold-primary); }
+.mobile-drawer-overlay { background: var(--canvas-base); overflow-y: auto; }
+.site-main, .section-container, .maison-nav-actions, .modal-info-stack { min-width: 0; }
+.modal-overlay { overflow-y: auto; }
+.modal-dossier-card { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+@media (max-width: 600px) {
+ .brand-title { font-size: 1rem; }
+ .brand-subtitle { font-size: 8px; }
+ .maison-nav-actions { gap: .3rem; }
+ .maison-nav-actions .btn-luxury { padding: .5rem; font-size: .75rem; }
+ .maison-nav-actions .icon-circle { display: none; }
+ .inventory-toolbar { margin: 1rem .75rem; }
+ .inventory-actions { align-items: stretch; flex-direction: column; }
+ .inventory-actions input { max-width: 100%; }
+ .editor-grid, .inventory-facts { grid-template-columns: minmax(0,1fr); }
+ .scentscape-bottles-grid { grid-template-columns: minmax(0,1fr); }
+ .layering-mode-nav { flex-wrap: wrap; }
+ .modal-dossier-card { width: calc(100% - 1rem); padding: 1.25rem; }
+ .hero-main-h1, .page-hero-title, .modal-flacon-name { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+.accord-row { display: grid; grid-template-columns: minmax(80px,1fr) 2fr auto; gap: .7rem; align-items: center; margin: .5rem 0; }
+.accord-row meter { width: 100%; accent-color: var(--gold-primary); }
+.editor-photo { object-fit: contain; max-width: 100%; }
+.flacon-inspect, .companion-bottle-button { border: 0; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+.flacon-inspect img, .companion-bottle-button img { width: 100px; height: 130px; object-fit: contain; }
+#detailRemaining { padding: .6rem; border: 1px solid var(--canvas-border); border-radius: var(--radius-sm); background: var(--canvas-surface); color: var(--text-primary); width: 100%; }
+@media (max-width: 400px) { .maison-brand { gap: .3rem; } .brand-monogram { width: 30px; height: 30px; } .brand-text-block { min-width: 0; } .maison-nav-actions .btn-luxury { white-space: normal; } .accord-row { grid-template-columns: minmax(0,1fr) minmax(0,1fr) auto; } }
+
+/* Bound the decorative hero glow to its stage on small screens. */
+.hero-stage-aura { max-width: 100%; }
+body.dialog-open { overflow: hidden; }
+#inventoryStatus.is-error, #editorError { color: var(--text-primary); font-weight: 600; }
+
+.accord-row meter::-webkit-meter-optimum-value { background: var(--accord-color, var(--gold-primary)); }
+.accord-row meter::-moz-meter-bar { background: var(--accord-color, var(--gold-primary)); }
+
+#sotdOccasionSelect, #sotdTimeSelect { padding: .65rem; margin: .5rem; max-width: 95%; border: 1px solid var(--canvas-border); border-radius: var(--radius-sm); background: var(--canvas-card); color: var(--text-primary); }
+
+.filter-chip-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.boutique-fragrance-name, .boutique-brand-name, .world-flacon-thumb-name, .duo-card-title, .companion-rank-meta { overflow-wrap: anywhere; min-width: 0; }

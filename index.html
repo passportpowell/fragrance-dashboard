@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Otis Powell Fragrance Collection — 20 Curated Bottles, Layering &amp; Guides</title>
-  <meta name="description" content="Personal collection of 20 fragrances by Otis Powell. Featuring seasonal scent recommendations, occasion guides (gym, running, walking, office, dates, weddings), bottle layering tools, and wear guides.">
+  <title>Otis Powell Fragrance Collection — Curated Bottles, Layering &amp; Guides</title>
+  <meta name="description" content="Personal fragrance collection by Otis Powell. Featuring seasonal scent recommendations, occasion guides (gym, running, walking, office, dates, weddings), bottle layering tools, and wear guides.">
   <link rel="canonical" href="https://fragrance-dashboard.vercel.app/">
-  <meta property="og:title" content="Otis Powell Fragrance Collection — 20 Curated Bottles, Layering &amp; Guides">
-  <meta property="og:description" content="Explore Otis Powell's personal collection of 20 fragrances with seasonal recommendations, custom layering pairings, and wear guides.">
+  <meta property="og:title" content="Otis Powell Fragrance Collection — Curated Bottles, Layering &amp; Guides">
+  <meta property="og:description" content="Explore Otis Powell's personal fragrance collection with seasonal recommendations, custom layering pairings, and wear guides.">
   <meta property="og:url" content="https://fragrance-dashboard.vercel.app/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/studio/after_effect_fa_paris.jpg">
+  <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M9 2h6v3H9zM7 6h10l2 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10l2-4zm5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E">
   
@@ -19,9 +19,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="home">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- ======================================================================
        NAVIGATION BAR
@@ -71,7 +73,7 @@
           </div>
         </button>
 
-        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
+        <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
@@ -84,7 +86,7 @@
   </div>
 
   <!-- Mobile Drawer Overlay -->
-  <div id="mobileDrawer" class="mobile-drawer-overlay">
+  <div id="mobileDrawer" class="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
     <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
         <line x1="18" y1="6" x2="6" y2="18"/>
@@ -104,7 +106,8 @@
   </div>
 
   <!-- Primary Website Main -->
-  <main class="site-main">
+  <main class="site-main" id="main-content">
+<section class="inventory-toolbar" aria-label="Collection backup"><p id="inventoryStatus" role="status" aria-live="polite"></p><div class="inventory-actions"><button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button><button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export recovery data</button><label for="importInventoryFile">Import collection JSON <input id="importInventoryFile" type="file" accept="application/json,.json"></label></div><p id="importPreview" role="status" aria-live="polite"></p><button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button></section>
 
     <!-- ======================================================================
          SECTION 1: HERO SECTION
@@ -116,7 +119,7 @@
         <div class="hero-story-block">
           <div class="eyebrow-pill">
             <span class="eyebrow-pill-dot"></span>
-            <span>20 Bottles // Personal Collection</span>
+            <span><span data-collection-count>0</span> Bottles // Personal Collection</span>
           </div>
 
           <div class="hero-title-wrap">
@@ -125,7 +128,7 @@
           </div>
 
           <p class="hero-narrative-copy">
-            A personal collection of 20 fragrances, from daily fresh scents and gym atomizers to evening vanillas and rich winter blends. Find the best bottle for any occasion or create custom layering pairs.
+            A personal fragrance collection, from daily fresh scents and gym atomizers to evening vanillas and rich winter blends. Find the best bottle for any occasion or create custom layering pairs.
           </p>
 
           <div class="hero-action-row">
@@ -156,7 +159,7 @@
         <div class="hero-visual-stage">
           <div class="hero-stage-aura"></div>
           <div class="hero-image-frame">
-            <img class="hero-flacon-img" src="assets/bottles/studio/after_effect_fa_paris.jpg" alt="After Effect Extrait de Parfum">
+            <img class="hero-flacon-img" src="assets/bottles/cropped/after_effect_fa_paris.jpg" alt="After Effect Extrait de Parfum">
             <span class="hero-frame-caption">Featured Bottle // French Avenue After Effect</span>
           </div>
         </div>
@@ -181,7 +184,7 @@
           <span class="section-sup-title" id="sotdSupTitle">Today's Recommendation</span>
           <h2 class="section-title-large">SCENT OF THE DAY</h2>
           <p class="section-sub-desc" id="sotdSectionDesc">
-            Curated for Autumn weather in October. Filtered strictly from the in-season bottles in your collection.
+            Suggested from seasonal collection tags, rather than a weather forecast.
           </p>
 
           <!-- Season Switcher Buttons -->
@@ -189,22 +192,22 @@
             <button class="sotd-season-btn active" data-season="autumn" type="button">
               <span>Autumn</span>
               <span class="sotd-season-badge-tag" id="sotdTagAutumn">Current</span>
-              <span class="sotd-season-count" id="sotdCountAutumn">18</span>
+              <span class="sotd-season-count" id="sotdCountAutumn">0</span>
             </button>
             <button class="sotd-season-btn" data-season="winter" type="button">
               <span>Winter</span>
               <span class="sotd-season-badge-tag" id="sotdTagWinter" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountWinter">14</span>
+              <span class="sotd-season-count" id="sotdCountWinter">0</span>
             </button>
             <button class="sotd-season-btn" data-season="spring" type="button">
               <span>Spring</span>
               <span class="sotd-season-badge-tag" id="sotdTagSpring" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountSpring">12</span>
+              <span class="sotd-season-count" id="sotdCountSpring">0</span>
             </button>
             <button class="sotd-season-btn" data-season="summer" type="button">
               <span>Summer</span>
               <span class="sotd-season-badge-tag" id="sotdTagSummer" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountSummer">8</span>
+              <span class="sotd-season-count" id="sotdCountSummer">0</span>
             </button>
           </div>
         </div>
@@ -213,8 +216,8 @@
           
           <!-- Bottle Photo Column -->
           <div class="curator-photo-column">
-            <div class="sotd-season-chip" id="sotdPhotoSeasonTag">Autumn Match 45%</div>
-            <img id="sotdImg" src="assets/bottles/studio/pdm_layton.jpg" alt="Scent of the Day Bottle">
+            <div class="sotd-season-chip" id="sotdPhotoSeasonTag">Seasonal suggestion</div>
+            <img id="sotdImg" src="assets/bottles/cropped/pp_herb_garden_1598.jpg" alt="Scent of the Day Bottle">
           </div>
 
           <!-- Editorial Narrative Column -->
@@ -251,7 +254,7 @@
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
               </svg>
-              <span>Voj Routine: 3-4 sprays behind ears and back of neck to prevent noseblindness.</span>
+              <span>Start lightly; adjust to your experience and the setting.</span>
             </div>
 
             <!-- Quick Layering Companion Highlight -->
@@ -263,7 +266,7 @@
                 <span>Recommended Layering</span>
               </div>
               <p class="sotd-quick-layer-text" id="sotdQuickLayerText">
-                Pair with <strong>Particle (ISO E-SUPER)</strong> for a 98% synergy longevity boost.
+                Explore a curated pairing idea. Scores compare collection metadata; performance is not guaranteed.
               </p>
             </div>
 
@@ -320,7 +323,7 @@
           <div class="sotd-options-header">
             <div>
               <span class="sotd-options-kicker">Options For This Season</span>
-              <h3 class="sotd-options-title" id="sotdOptionsTitle">Autumn Options in Your Collection (18 Bottles)</h3>
+              <h3 class="sotd-options-title" id="sotdOptionsTitle">Seasonal Options in Your Collection</h3>
             </div>
             <span class="sotd-options-hint">Click any bottle below to set as Scent of the Day</span>
           </div>
@@ -351,25 +354,10 @@
             <div>
               <span class="world-badge-code">Workouts &amp; Training</span>
               <h3 class="world-title">Gym &amp; Workouts</h3>
-              <p class="world-narrative">
-                Body heat multiplies scent projection. Heavy vanillas or ambers choke the room. Light citrus notes and clean molecular boosters stay fresh without being overpowering.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#gym" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_01_mandarin.jpg" alt="Citrus Particle">
-                <span class="world-flacon-thumb-name">Citrus Particle</span>
-              </a>
-              <a href="occasions.html#gym" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/adg_profondo.jpg" alt="Intenso Water">
-                <span class="world-flacon-thumb-name">Intenso Water</span>
-              </a>
-              <a href="occasions.html#gym" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_02.jpg" alt="Second Particle">
-                <span class="world-flacon-thumb-name">Second Particle</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Gym"></div>
 
             <a href="occasions.html#gym" class="btn-text-link">
               <span>Explore Gym Scents</span>
@@ -382,25 +370,10 @@
             <div>
               <span class="world-badge-code">Cardio &amp; High Heat</span>
               <h3 class="world-title">Running &amp; Outdoor Cardio</h3>
-              <p class="world-narrative">
-                Outdoor airflow and heavy sweat require fast-diffusing, energetic citrus and marine notes that won't cause scent fatigue.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#running" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_01_mandarin.jpg" alt="Citrus Particle">
-                <span class="world-flacon-thumb-name">Citrus Particle</span>
-              </a>
-              <a href="occasions.html#running" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/adg_profumo.jpg" alt="Sweet Water">
-                <span class="world-flacon-thumb-name">Sweet Water</span>
-              </a>
-              <a href="occasions.html#running" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/molecule_01.jpg" alt="Particle">
-                <span class="world-flacon-thumb-name">Particle</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Running"></div>
 
             <a href="occasions.html#running" class="btn-text-link">
               <span>Explore Running Scents</span>
@@ -413,25 +386,10 @@
             <div>
               <span class="world-badge-code">Casual &amp; Outdoors</span>
               <h3 class="world-title">Walking &amp; Daily Strolls</h3>
-              <p class="world-narrative">
-                Crisp breezes bring out warm mahogany woods, soft lavender, and vanilla. Easygoing scents that leave an effortless sillage wake.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#walking" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/bbw_mahogany_woods.jpg" alt="Mahogany Woods">
-                <span class="world-flacon-thumb-name">Mahogany Woods</span>
-              </a>
-              <a href="occasions.html#walking" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/neemah_laya.jpg" alt="Laya EDP">
-                <span class="world-flacon-thumb-name">Laya EDP</span>
-              </a>
-              <a href="occasions.html#walking" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/pdm_layton.jpg" alt="Herb Garden">
-                <span class="world-flacon-thumb-name">Herb Garden</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Walking"></div>
 
             <a href="occasions.html#walking" class="btn-text-link">
               <span>Explore Walking Scents</span>
@@ -444,25 +402,10 @@
             <div>
               <span class="world-badge-code">Office &amp; Professional</span>
               <h3 class="world-title">Work &amp; Everyday Office</h3>
-              <p class="world-narrative">
-                Clean cedarwood, fresh bergamot, and subtle spices. Professional scents that project credibility without overwhelming coworkers.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#office" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/bdc_edp.jpg" alt="Navy Intense">
-                <span class="world-flacon-thumb-name">Navy Intense</span>
-              </a>
-              <a href="occasions.html#office" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/voux_elegante.jpg" alt="Voux Elegante">
-                <span class="world-flacon-thumb-name">Voux Elegante</span>
-              </a>
-              <a href="occasions.html#office" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/mancera_cedrat_boise.jpg" alt="Wood Miracle">
-                <span class="world-flacon-thumb-name">Wood Miracle</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Office / Work"></div>
 
             <a href="occasions.html#office" class="btn-text-link">
               <span>Explore Work Scents</span>
@@ -475,25 +418,10 @@
             <div>
               <span class="world-badge-code">Evenings &amp; Dates</span>
               <h3 class="world-title">Dates &amp; Nights Out</h3>
-              <p class="world-narrative">
-                Aged rum, honeyed tobacco, dark cherry liqueur, and bourbon vanilla. Warm, inviting scents designed for close quarters.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#dates" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/after_effect_fa_paris.jpg" alt="After Effect">
-                <span class="world-flacon-thumb-name">After Effect</span>
-              </a>
-              <a href="occasions.html#dates" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_lost_cherry.jpg" alt="Astray Fruit">
-                <span class="world-flacon-thumb-name">Astray Fruit</span>
-              </a>
-              <a href="occasions.html#dates" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_tobacco_vanille.jpg" alt="Leaf Flavour">
-                <span class="world-flacon-thumb-name">Leaf Flavour</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Dates"></div>
 
             <a href="occasions.html#dates" class="btn-text-link">
               <span>Explore Date Night Scents</span>
@@ -506,25 +434,10 @@
             <div>
               <span class="world-badge-code">Black Tie &amp; Formal</span>
               <h3 class="world-title">Weddings &amp; Special Events</h3>
-              <p class="world-narrative">
-                Rich incense, smoked woods, and aristocratic florals. Distinctive fragrances for celebrations and landmark occasions.
-              </p>
+              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
             </div>
 
-            <div class="world-flacons-row">
-              <a href="occasions.html#wedding" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_noir_extreme.jpg" alt="Noir Extreme">
-                <span class="world-flacon-thumb-name">Noir Extreme</span>
-              </a>
-              <a href="occasions.html#wedding" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/spicebomb_extreme.jpg" alt="Intense Aroma">
-                <span class="world-flacon-thumb-name">Intense Aroma</span>
-              </a>
-              <a href="occasions.html#wedding" class="world-flacon-thumb-item">
-                <img class="world-flacon-thumb-img" src="assets/bottles/studio/tf_oud_wood.jpg" alt="TF Oud Wood">
-                <span class="world-flacon-thumb-name">TF Oud Wood</span>
-              </a>
-            </div>
+            <div class="world-flacons-row" data-occasion-preview="Wedding"></div>
 
             <a href="occasions.html#wedding" class="btn-text-link">
               <span>Explore Formal Scents</span>
@@ -551,13 +464,13 @@
       <div class="section-container">
         <div class="section-header-editorial">
           <span class="section-sup-title">Complete Catalog</span>
-          <h2 class="section-title-large">ALL 20 FRAGRANCES</h2>
+          <h2 class="section-title-large">ALL FRAGRANCES</h2>
           <p class="section-sub-desc">Browse the entire collection with dedicated filters for Gym, Running, Walking, Work, Dates, Season, Scent Family, and Bottle Type.</p>
         </div>
 
         <div style="text-align: center; margin-top: 1rem;">
           <a href="collection.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
-            <span>Browse All Fragrances (20 Bottles)</span>
+            <span>Browse All Fragrances (<span data-collection-count>0</span> Bottles)</span>
             <div class="icon-circle">&rarr;</div>
           </a>
         </div>
@@ -572,7 +485,7 @@
         <div class="section-header-editorial">
           <span class="section-sup-title">Combinations &amp; Pairings</span>
           <h2 class="section-title-large">FRAGRANCE LAYERING</h2>
-          <p class="section-sub-desc">Explore 6 tested 2-bottle combinations or pick any bottle in the collection to calculate compatibility scores and spray orders.</p>
+          <p class="section-sub-desc">Explore curated 2-bottle combinations or pick any bottle in the collection to calculate compatibility scores and spray orders.</p>
         </div>
 
         <div style="text-align: center; margin-top: 1rem;">
@@ -592,7 +505,7 @@
         <div class="section-header-editorial">
           <span class="section-sup-title">Tips &amp; Best Practices</span>
           <h2 class="section-title-large">FRAGRANCE GUIDE</h2>
-          <p class="section-sub-desc">Practical advice on how to spray without going noseblind, bottle maceration, proper storage, and understanding concentration strengths.</p>
+          <p class="section-sub-desc">Personal guidance on considerate application, storage, and trying combinations.</p>
         </div>
 
         <div style="text-align: center; margin-top: 1rem;">
@@ -630,7 +543,7 @@
           <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview">
         </div>
 
-        <div class="modal-info-stack">
+        <div class="modal-info-stack"><div id="modalInventoryDetails"></div>
           <div>
             <h4 class="modal-section-title">Scent Description</h4>
             <p id="modalDescription" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;"></p>
@@ -679,7 +592,7 @@
        ADD NEW BOTTLE MODAL
        ====================================================================== -->
   <div class="modal-overlay" id="addBottleModal" role="dialog" aria-modal="true" aria-labelledby="addBottleTitle">
-    <div class="modal-dossier-card" style="max-width: 540px;">
+    <div class="modal-dossier-card" style="max-width: 850px;">
       <div class="modal-header-row">
         <h2 class="modal-flacon-name" id="addBottleTitle">Add New Bottle</h2>
         <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Modal">
@@ -690,24 +603,7 @@
         </button>
       </div>
 
-      <form id="addFragranceForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Bottle Name</label>
-          <input type="text" id="newName" required placeholder="e.g. Citrus Particle (0616)" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Brand / House</label>
-          <input type="text" id="newBrand" required placeholder="e.g. Perfume Parlour" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Clone Inspiration (Optional)</label>
-          <input type="text" id="newCloneOf" placeholder="e.g. Molecule 01 + Mandarin" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem;">
-          <button type="button" id="cancelAddBtn" class="btn-luxury btn-luxury-ghost">Cancel</button>
-          <button type="submit" class="btn-luxury btn-luxury-primary">Save to Collection</button>
-        </div>
-      </form>
+      <form id="addFragranceForm" class="inventory-editor"></form>
     </div>
   </div>
 
@@ -719,7 +615,7 @@
       <div class="footer-brand-column">
         <span class="footer-headline">OTIS POWELL FRAGRANCE COLLECTION</span>
         <p class="footer-manifesto">
-          A personal collection of 20 curated fragrances with practical advice on wear occasions, spray routines, and scent layering.
+          A personal collection of curated fragrances with practical advice on wear occasions, spray routines, and scent layering.
         </p>
       </div>
 
@@ -749,14 +645,9 @@
       <div class="footer-nav-column">
         <span class="footer-col-title">Curator</span>
         <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
-          Otis Powell — personal collection of 20 bottles.
+          Otis Powell — personal fragrance collection.
         </p>
-        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-contact-card-btn" title="Otis Powell Digital Card — www.passportpowell.com/card" aria-label="Otis Powell Digital Card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="3"></rect>
-            <circle cx="8" cy="10" r="2.2"></circle>
-            <path d="M14 9h4M14 13h4M5 17c0-1.8 1.8-3 3.5-3s3.5 1.2 3.5 3"></path>
-          </svg>
+        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-contact-card-btn" title="Otis Powell Digital Card — www.passportpowell.com/card" aria-label="Otis Powell Digital Card"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.62 1.22 3.26.93.1-.72.4-1.22.72-1.5-2.51-.29-5.15-1.26-5.15-5.58 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.31 3.08 1.16a10.7 10.7 0 0 1 5.61 0c2.14-1.47 3.08-1.16 3.08-1.16.61 1.55.23 2.7.11 2.98.73.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.29-5.16 5.57.4.35.77 1.04.77 2.1v3.09c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
           <div class="footer-card-btn-content">
             <span class="footer-card-btn-label">Otis Powell Card</span>
             <span class="footer-card-btn-url">www.passportpowell.com/card</span>
@@ -770,15 +661,16 @@
     </div>
 
     <div class="footer-bottom-bar">
-      <span class="footer-copyright">&copy; 2026 Otis Powell. All rights reserved.</span>
+      <span class="footer-copyright">&copy; 2026 Otis Powell. Code: MIT. Photography rights remain separate.</span>
       <span class="footer-copyright">
         Digital Card: <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-bottom-card-link">www.passportpowell.com/card &rarr;</a>
       </span>
     </div>
-  </footer>
+  <p class="footer-private-access"><a href="https://desktop-smsroim.tail0be63c.ts.net/" target="_blank" rel="noopener noreferrer">Private device access</a></p></footer>
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/inventory.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

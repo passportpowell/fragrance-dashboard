@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fragrance Layering — Combinations &amp; Pairings | Otis Powell</title>
-  <meta name="description" content="Master fragrance layering with Otis Powell's 6 curated 2-bottle combinations and interactive pairing calculator. Understand spray order, molecular primers, and accord synergy.">
+  <meta name="description" content="Master fragrance layering with Otis Powell's curated 2-bottle combinations and interactive pairing calculator. Understand spray order, molecular primers, and accord synergy.">
   <link rel="canonical" href="https://fragrance-dashboard.vercel.app/layering">
   <meta property="og:title" content="Fragrance Layering — Combinations &amp; Pairings | Otis Powell">
-  <meta property="og:description" content="Discover 6 signature layering duos and an interactive pairing studio to calculate compatibility scores across 20 bottles.">
+  <meta property="og:description" content="Discover curated layering ideas and an interactive pairing studio to calculate compatibility scores across your collection.">
   <meta property="og:url" content="https://fragrance-dashboard.vercel.app/layering">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/studio/after_effect_fa_paris.jpg">
+  <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M9 2h6v3H9zM7 6h10l2 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10l2-4zm5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E">
   
@@ -18,9 +18,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="layering">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- NAVIGATION BAR -->
   <div class="maison-header-wrapper">
@@ -64,7 +66,7 @@
           </div>
         </button>
 
-        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
+        <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
@@ -76,7 +78,7 @@
   </div>
 
   <!-- Mobile Drawer Overlay -->
-  <div id="mobileDrawer" class="mobile-drawer-overlay">
+  <div id="mobileDrawer" class="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
     <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
         <line x1="18" y1="6" x2="6" y2="18"/>
@@ -96,7 +98,8 @@
   </div>
 
   <!-- Main Website Content -->
-  <main class="site-main">
+  <main class="site-main" id="main-content">
+<section class="inventory-toolbar" aria-label="Collection backup"><p id="inventoryStatus" role="status" aria-live="polite"></p><div class="inventory-actions"><button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button><button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export recovery data</button><label for="importInventoryFile">Import collection JSON <input id="importInventoryFile" type="file" accept="application/json,.json"></label></div><p id="importPreview" role="status" aria-live="polite"></p><button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button></section>
 
     <header class="page-hero-banner">
       <div class="eyebrow-pill">
@@ -106,7 +109,7 @@
       <h1 class="page-hero-title">FRAGRANCE LAYERING</h1>
       <span class="page-hero-subtitle">Best combinations, match scores, and how to spray them together</span>
       <p class="page-hero-desc">
-        Layering allows you to create a unique scent by combining two bottles. Check out our 6 tested combos below, or use the pairing tool to pick any bottle and see all other bottles ranked by match score.
+        Layering allows you to create a unique scent by combining two bottles. Check out our curated combos below, or use the pairing tool to pick any bottle and see all other bottles ranked by match score.
       </p>
     </header>
 
@@ -114,16 +117,16 @@
 
       <!-- View Selector -->
       <div class="layering-mode-nav">
-        <button id="modeCuratedDuosBtn" class="layering-mode-btn active">Recommended Combos (6)</button>
+        <button id="modeCuratedDuosBtn" class="layering-mode-btn active">Recommended Combos</button>
         <button id="modeInteractiveStudioBtn" class="layering-mode-btn">Pairing Calculator</button>
       </div>
 
       <!-- VIEW 1: RECOMMENDED COMBOS -->
       <div id="curatedDuosView">
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
-          <span class="section-sup-title">Tested Pairs</span>
+          <span class="section-sup-title">Curated Pairs</span>
           <h2 class="section-title-large">RECOMMENDED COMBINATIONS</h2>
-          <p class="section-sub-desc">Six tested combinations with high match ratings and clear step-by-step spray routines.</p>
+          <p class="section-sub-desc">Curated ideas with heuristic scores out of 100. Scores do not measure chemistry or guarantee performance.</p>
         </div>
 
         <div class="layering-duos-grid" id="layeringDuosContainer"></div>
@@ -134,7 +137,7 @@
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
           <span class="section-sup-title">Pairing Tool</span>
           <h2 class="section-title-large">PAIRING CALCULATOR</h2>
-          <p class="section-sub-desc">Pick your base bottle. The tool compares notes and ranks all other 19 bottles from highest to lowest compatibility.</p>
+          <p class="section-sub-desc">Pick your base bottle. The tool compares notes and ranks the other bottles using a heuristic score out of 100.</p>
         </div>
 
         <div class="interactive-studio-stage">
@@ -149,7 +152,7 @@
           <div>
             <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 1px solid var(--canvas-border); padding-bottom: 0.75rem;">
               <span class="triad-tier-label">Ranked Pairing Options</span>
-              <span id="companionsCountBadge" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary);">19 Pairings Ranked</span>
+              <span id="companionsCountBadge" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary);">Pairing options</span>
             </div>
 
             <div class="ranked-companions-list" id="rankedCompanionsContainer"></div>
@@ -182,7 +185,7 @@
           <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview">
         </div>
 
-        <div class="modal-info-stack">
+        <div class="modal-info-stack"><div id="modalInventoryDetails"></div>
           <div>
             <h4 class="modal-section-title">About This Scent</h4>
             <p id="modalDescription" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;"></p>
@@ -227,7 +230,7 @@
 
   <!-- ADD BOTTLE MODAL -->
   <div class="modal-overlay" id="addBottleModal" role="dialog" aria-modal="true" aria-labelledby="addBottleTitle">
-    <div class="modal-dossier-card" style="max-width: 540px;">
+    <div class="modal-dossier-card" style="max-width: 850px;">
       <div class="modal-header-row">
         <h2 class="modal-flacon-name" id="addBottleTitle">Add New Bottle</h2>
         <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Modal">
@@ -238,24 +241,7 @@
         </button>
       </div>
 
-      <form id="addFragranceForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Fragrance Name</label>
-          <input type="text" id="newName" required placeholder="e.g. Citrus Particle" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Brand</label>
-          <input type="text" id="newBrand" required placeholder="e.g. Perfume Parlour" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div>
-          <label style="font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase;">Clone Inspiration (Optional)</label>
-          <input type="text" id="newCloneOf" placeholder="e.g. Molecule 01 + Mandarin" style="width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.85rem; border: 1px solid var(--canvas-border); border-radius: 8px; background: var(--canvas-surface); color: var(--text-primary);">
-        </div>
-        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem;">
-          <button type="button" id="cancelAddBtn" class="btn-luxury btn-luxury-ghost">Cancel</button>
-          <button type="submit" class="btn-luxury btn-luxury-primary">Save Bottle</button>
-        </div>
-      </form>
+      <form id="addFragranceForm" class="inventory-editor"></form>
     </div>
   </div>
 
@@ -294,14 +280,9 @@
       <div class="footer-nav-column">
         <span class="footer-col-title">Curator</span>
         <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
-          Otis Powell — personal collection of 20 bottles.
+          Otis Powell — personal fragrance collection.
         </p>
-        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-contact-card-btn" title="Otis Powell Digital Card — www.passportpowell.com/card" aria-label="Otis Powell Digital Card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="3"></rect>
-            <circle cx="8" cy="10" r="2.2"></circle>
-            <path d="M14 9h4M14 13h4M5 17c0-1.8 1.8-3 3.5-3s3.5 1.2 3.5 3"></path>
-          </svg>
+        <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-contact-card-btn" title="Otis Powell Digital Card — www.passportpowell.com/card" aria-label="Otis Powell Digital Card"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.62 1.22 3.26.93.1-.72.4-1.22.72-1.5-2.51-.29-5.15-1.26-5.15-5.58 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.31 3.08 1.16a10.7 10.7 0 0 1 5.61 0c2.14-1.47 3.08-1.16 3.08-1.16.61 1.55.23 2.7.11 2.98.73.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.29-5.16 5.57.4.35.77 1.04.77 2.1v3.09c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
           <div class="footer-card-btn-content">
             <span class="footer-card-btn-label">Otis Powell Card</span>
             <span class="footer-card-btn-url">www.passportpowell.com/card</span>
@@ -315,14 +296,15 @@
     </div>
 
     <div class="footer-bottom-bar">
-      <span class="footer-copyright">&copy; 2026 Otis Powell. All rights reserved.</span>
+      <span class="footer-copyright">&copy; 2026 Otis Powell. Code: MIT. Photography rights remain separate.</span>
       <span class="footer-copyright">
         Digital Card: <a href="https://www.passportpowell.com/card" target="_blank" rel="noopener noreferrer" class="footer-bottom-card-link">www.passportpowell.com/card &rarr;</a>
       </span>
     </div>
-  </footer>
+  <p class="footer-private-access"><a href="https://desktop-smsroim.tail0be63c.ts.net/" target="_blank" rel="noopener noreferrer">Private device access</a></p></footer>
 
   <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/inventory.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

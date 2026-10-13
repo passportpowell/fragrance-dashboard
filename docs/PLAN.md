@@ -34,12 +34,16 @@ Build an ultra-luxurious, responsive Fragrance Dashboard tailored for fragrance 
 7. Protocol docs: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `SHARED_NOTES.md`, `docs/HANDOFF.md`, `docs/ACTIVE.md`, `docs/PLAN.md`.
 
 ## Acceptance Criteria
-- [ ] Responsive, ultra-clean UI matching modern luxury fragrance aesthetics.
-- [ ] Real-time filtering by Season, Time of Day, Occasion, Notes, Accords, and Clone details.
-- [ ] Fragrantica-style note pyramid and visual accord breakdown bars for each fragrance.
-- [ ] User can inspect details in an interactive modal with full accords, notes, performance, and clone info.
-- [ ] User can add new bottles or edit existing bottles, including uploading photos of their bottles.
-- [ ] User can export/import the inventory database to JSON.
-- [ ] SOTD "Scent of the Day" recommendation tool works dynamically based on current season/occasion.
-- [ ] Mandatory GitHub footer link to `https://www.passportpowell.com/card` is present with GitHub icon.
-- [ ] Automated validation test passes cleanly.
+- [x] Responsive, ultra-clean UI matching modern luxury fragrance aesthetics.
+- [x] Real-time filtering by Season, Time of Day, Occasion, Notes, Accords, and Clone details.
+- [x] Fragrantica-style note pyramid and visual accord breakdown bars for each fragrance.
+- [x] User can inspect details in an interactive modal with full accords, notes, performance, and clone info.
+- [x] User can add new bottles or edit existing bottles, including uploading photos of their bottles.
+- [x] User can export/import the inventory database to JSON.
+- [x] SOTD "Scent of the Day" recommendation tool works dynamically based on current season/occasion.
+- [x] Mandatory GitHub footer link to `https://www.passportpowell.com/card` is present with GitHub icon.
+- [x] Automated validation test passes cleanly.
+
+
+## Accepted implementation, 13 October 2026
+The original inventory-manager goal is retained within the existing five-page light-default editorial design. Browser-local storage is versioned; JSON export/import transfers owner changes between origins/devices. New unknown data stays unknown. Calendar season, occasion and time preferences drive suggestions; compatibility is a curated heuristic. Owner crops and SVG fallbacks replace inspiration-brand photography in production. Acceptance boxes above reflect local source/browser verification, not production deployment or scientific/physical-device certification. Complete closure: docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md.

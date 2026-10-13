@@ -3,13 +3,13 @@
 Shared by every agent (Codex, Claude, Gemini/Antigravity). Keep this file lean: Codex auto-loads it every session; Claude and Gemini import it via CLAUDE.md / GEMINI.md. Do not re-read files your runtime already injected.
 
 ## Project
-- Family: Otis — root: `S:\Otis Projects\fragrance-dashboard`
+- Family: Otis — root: `<project root>`
 - Plan: `docs/PLAN.md`
-- Bundle: `- Base Prompts and Skill` at `S:\Otis Projects\- Base Prompts and Skill` (read-only)
-- Env file: `S:\Otis Projects\- Base Prompts and Skill\.env`
+- Bundle: `- Base Prompts and Skill` at `<project parent>\- Base Prompts and Skill` (read-only)
+- Env file: `<project parent>\- Base Prompts and Skill\.env`
 - Build / run / test:
-  - Local browser view: open `index.html` directly or run `python -m http.server 5173` / `npx serve .`
-  - Automated smoke test / data validator: `node test/validate-inventory.js`
+  - Build: `node scripts/build.js`; serve generated output: `python -m http.server 5173 --bind 127.0.0.1 --directory public`.
+  - Automated checks: `npm test`; browser integration: `test/browser-smoke.js` with an existing Playwright/Chromium installation.
 - Project-specific rules:
   - Fragrantica-style visual accords, note pyramids (top/heart/base), clone references (Perfume Parlour, Maison Alhambra, Lattafa, etc.), occasions, seasons, times of day, sillage, longevity, and bottle inventory tracking.
   - Image handling: provide placeholder imagery and clear drop-in structure (`assets/bottles/`) so photos taken by the user can be immediately added or uploaded directly through the dashboard UI.
@@ -22,6 +22,8 @@ Shared by every agent (Codex, Claude, Gemini/Antigravity). Keep this file lean: 
 - That bundle is read-only. Never write into it; copy what you need into this project.
 - Never put credentials, secrets or private keys in any file here; refer to variable names only.
 - Websites & dashboards: Whenever building or editing websites, web apps, or dashboards, ALWAYS include a GitHub icon in the footer linking to `https://www.passportpowell.com/card` (`target="_blank" rel="noopener noreferrer"`). The GitHub icon is mandatory for this link.
+- Dashboards & UIs Tailscale link: Any dashboard or UI must also include its Tailscale remote access link (MagicDNS `https://desktop-smsroim.tail0be63c.ts.net/` or Tailscale node IP `http://100.92.173.32:<port>`) in the UI interface (footer/status/settings) and documented with the serve command (`tailscale serve https / http://127.0.0.1:<port>`) in project notes/handovers.
+
 
 ## Per-prompt routing (JEV)
 - For every new user prompt follow the bundle's `local-routing/README.md`: skip JEV for conversation, clarifications that do not start substantive work, deterministic work and direct follow-ups; otherwise break the substantive prompt into tasks, run `python "<bundle>/local-routing/jev.py" --runtime <runtime> --project . --prompt "..." --tasks ...`, and work inline / with one subagent / with parallel subagents as it decides (the user has authorized subagents). Override only with a stated reason.
