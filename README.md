@@ -48,4 +48,8 @@ See [assets/README.md](assets/README.md) for photography provenance and exclusio
 
 [Collection data](js/data.js), [inventory storage/schema](js/inventory.js), [interaction code](js/app.js), and [integrity validator](test/validate-inventory.js) are the implementation evidence. The optional `test/browser-smoke.js` uses an already-installed Playwright module and Chromium executable supplied with `--playwright <module path> --browser <executable path>`; it starts/stops an isolated loopback server and runs full manager, CSP, focus, cross-tab and layout checks. Browser fixtures never change the seed data.
 
-Built and curated by [Otis Powell](https://github.com/passportpowell) · [LinkedIn](https://www.linkedin.com/in/otispowell/). Concurrent README evidence/estimate/rights guidance was retained in this expanded implementation record.
+Built and curated by [Otis Powell](https://github.com/passportpowell) · [LinkedIn](https://www.linkedin.com/in/otispowell/). 
+
+## Review scope
+
+The earlier bounded live review recorded a Noir Extreme search/detail check on 12 October. The current source has additional security and keyboard fixes with 23 automated tests and 28 Chromium checks; this is not a full physical-device, screen-reader or scientific certification. Scores remain subjective heuristics, and clearing browser storage can remove owner changes unless a JSON backup is retained.
