@@ -1,12 +1,14 @@
 # Fragrance Dashboard — completed remediation
 
-Updated: 2026-10-13T18:45:00.000Z | Antigravity / Gemini
+Updated: 2026-10-13T19:20:00.000Z | Antigravity / Gemini
 
 ## State
 - User request: continue remaining audit items and align bottle packaging (Extrait vs EDP).
 - Perfume Parlour black flacons officially aligned to Extrait de Parfum (Navy Intense, Intenso Water, Sweet Water).
-- Cleaned Ne'emah brand nomenclature and refined pairing synergy rationale to natural English.
-- All 23 tests and source validation passing 100%.
+- Cleaned Ne'emah brand nomenclature and restored authentic editorial scent profiles with softened overclaims.
+- Hardened test/validate-inventory.js to reject schema/bounds mutations directly.
+- Hardened app.js theme and filter navigation in mock/headless testing environments.
+- All 23 tests passing 100%; allowlisted production build generates 37 files in public/.
 
 ## Implemented
 - Complete add/edit/remove inventory, photos, volume slider/gauges, notes/accord/performance/metadata views.

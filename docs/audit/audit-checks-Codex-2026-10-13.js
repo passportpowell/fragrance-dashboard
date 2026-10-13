@@ -45,9 +45,10 @@ report.occasionLists = [...read('occasions.html').matchAll(/<article\b[^>]*id="(
   const shown = [...m[2].matchAll(/openDetailModal\('([^']+)'\)/g)].map(x => x[1]);
   return { section: m[1], shown: shown.length, missingTagged: tag ? data.filter(d => d.occasions.includes(tag) && !shown.includes(d.id)).map(d => d.id) : [] };
 });
+const Inventory = require(path.join(root, 'js/inventory.js'));
 function context(storage = {}) {
   const errors = [];
-  const sandbox = { FRAGRANCE_DATABASE: data, document: { addEventListener() {}, getElementById() { return null; }, documentElement: { setAttribute() {} }, querySelectorAll() { return []; } }, window: { addEventListener() {} }, localStorage: { getItem: key => storage[key] || null, setItem: (key, value) => { storage[key] = value; } }, console: { error: (...a) => errors.push(String(a[0])), warn: (...a) => errors.push(String(a[0])) }, URLSearchParams };
+  const sandbox = { Inventory, FRAGRANCE_DATABASE: data, document: { addEventListener() {}, getElementById() { return null; }, documentElement: { setAttribute() {} }, querySelectorAll() { return []; } }, window: { addEventListener() {} }, localStorage: { getItem: key => storage[key] || null, setItem: (key, value) => { storage[key] = value; } }, console: { error: (...a) => errors.push(String(a[0])), warn: (...a) => errors.push(String(a[0])) }, URLSearchParams };
   sandbox.addEventListener = () => {};
   sandbox.window = sandbox;
   vm.createContext(sandbox);
@@ -63,11 +64,11 @@ malformed.run('loadCollection()');
 report.malformedStorage = { messages: malformed.errors, fallbackCount: malformed.run('collection.length') };
 const custom = context({ fragrance_atelier_collection_v3: JSON.stringify([{ ...data[0], userUploadedCustomPhoto: true, userPhoto: 'data:image/png;base64,AUDIT' }]) });
 custom.run('loadCollection()');
-report.photoPriority = custom.run('({ customPhoto: collection[0].userPhoto, renderedSource: collection[0].image || collection[0].userPhoto })');
+report.photoPriority = custom.run('({ customPhoto: collection[0].userPhoto, renderedSource: imageSource(collection[0]) })');
 const inject = context();
-const chip = { innerHTML: '', addEventListener() {}, querySelector: () => ({ addEventListener() {} }) };
+const chip = { innerHTML: '', setAttribute() {}, addEventListener() {}, querySelector: () => ({ addEventListener() {} }) };
 const grid = { innerHTML: '', appendChild() {} };
-const chips = { innerHTML: '', appendChild() {} };
+const chips = { innerHTML: '', appendChild() {}, replaceChildren() {} };
 inject.sandbox.document.getElementById = id => id === 'boutiqueProductGrid' ? grid : id === 'activeFilterChipsContainer' ? chips : null;
 inject.sandbox.document.createElement = () => chip;
 inject.run('loadCollection(); vaultFilters.search = "<img src=x onerror=alert(1)>"; renderCollectionGrid()');
@@ -84,12 +85,12 @@ report.sourceBytes = Object.fromEntries(['js/app.js', 'js/data.js', 'css/styles.
 report.skinContrast = (() => {
   const lum = h => { const rgb = h.match(/\w\w/g).map(v => parseInt(v, 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * rgb[0] + .7152 * rgb[1] + .0722 * rgb[2]; };
   const ratio = (a,b) => { const x=lum(a), y=lum(b); return +((Math.max(x,y)+.05)/(Math.min(x,y)+.05)).toFixed(2); };
-  return { goldOnLight: ratio('A8812D','FDFBF7'), tertiaryOnLight: ratio('969083','FDFBF7'), tertiaryOnDark: ratio('616775','090A0D') };
+  return { goldOnLight: ratio('7D5E1B','FDFBF7'), tertiaryOnLight: ratio('635F56','FDFBF7'), tertiaryOnDark: ratio('A4AAB5','090A0D') };
 })();
 const mutated = JSON.parse(JSON.stringify(data));
 Object.assign(mutated[0], { rating: 999, remainingMl: 99999, image: 'assets/missing-audit.jpg' });
 mutated[0].mainAccords[0].percentage = 999;
-const validator = { require: p => p === '../js/data.js' ? { ...require(path.join(root, 'js/data.js')), FRAGRANCE_DATABASE: mutated } : require(p), __dirname: path.join(root, 'test'), console: { log() {}, error() {} }, process: { exit: code => { throw Error(`exit ${code}`); } } };
+const validator = { require: p => p === '../js/data.js' ? { ...require(path.join(root, 'js/data.js')), FRAGRANCE_DATABASE: mutated } : require(path.resolve(root, 'test', p)), __dirname: path.join(root, 'test'), console: { log() {}, error() {} }, process: { exit: code => { throw Error(`exit ${code}`); } } };
 try { vm.runInNewContext(read('test/validate-inventory.js'), validator); report.validatorAcceptedInvalidRatingVolumeAccordAndMissingImage = true; }
 catch (e) { report.validatorAcceptedInvalidRatingVolumeAccordAndMissingImage = false; report.validatorMutationError = String(e); }
 async function finish() {

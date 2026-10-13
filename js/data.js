@@ -452,12 +452,12 @@ const FRAGRANCE_DATABASE = [
     gender: "Unisex",
     crg: "Fresh Woody / Smoky Fruity",
     wardrobeArchetype: "Everyday Office / Versatile Signature",
-    recommendedSprays: "4-5 Sprays (The Ultimate Layering Weapon)",
-    sprayBlueprint: ["Behind Ears", "Collarbones", "Wrists"],
+    recommendedSprays: "3-4 Sprays (Versatile Molecular Layering)",
+    sprayBlueprint: ["Behind Ears", "Back of Neck", "Wrists"],
     maturationWeeks: 4,
     macerationStatus: "Ready to Wear / Stable",
-    macerationTips: "Pure aroma-chemical ISO E-Super. Produces phantom projection that comes and goes throughout the day. Never induces anosmia.",
-    layeringPartner: "The Holy Grail Layering Tool: Spray under ANY cologne in your vault to double its projection and longevity.",
+    macerationTips: "Pure aroma-chemical ISO E-Super. Produces an airy, radiant cedar-woody halo that reappears in subtle waves throughout the day.",
+    layeringPartner: "Spray as a priming base under fresh or woody scents to add subtle depth, warmth, and radiance.",
     seasons: { spring: 25, summer: 25, autumn: 25, winter: 25 },
     timeOfDay: { day: 50, night: 50 },
     occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Dates", "Casual", "Running", "Walking"],
@@ -1155,12 +1155,12 @@ const FRAGRANCE_DATABASE = [
     gender: "Unisex",
     crg: "Fresh Citrus / Aromatic Woody",
     wardrobeArchetype: "Everyday Office / Versatile Signature",
-    recommendedSprays: "4-5 Sprays",
-    sprayBlueprint: ["Behind Ears", "Back of Neck", "Collarbones", "Wrists"],
+    recommendedSprays: "3-4 Sprays",
+    sprayBlueprint: ["Behind Ears", "Back of Neck", "Wrists"],
     maturationWeeks: 4,
     macerationStatus: "Mineral Ambergris Aura",
-    macerationTips: "Pure Ambroxan requires no maceration but blossoms with body heat. Fades in and out to prevent olfactory fatigue.",
-    layeringPartner: "The absolute king of layering! Spray 2 sprays on base of neck before any other fragrance to 2x its projection.",
+    macerationTips: "Pure Ambroxan blossoms with skin warmth. Diffusive and radiant, it comes and goes in subtle waves.",
+    layeringPartner: "Spray 1-2 sprays on the neck or wrists before layering another fragrance to add clean mineral ambergris warmth and projection.",
     seasons: { spring: 30, summer: 35, autumn: 20, winter: 15 },
     timeOfDay: { day: 70, night: 30 },
     occasions: ["Office / Work", "Gym", "Parks", "City Centre", "Malls", "Casual", "Running", "Walking"],
@@ -1183,25 +1183,18 @@ const FRAGRANCE_DATABASE = [
         { name: "Radiant Ambergris Aura" }
       ]
     },
-    description: "A miraculous single-molecule fragrance featuring pure Ambroxan. Smells like warm sunlit skin, clean mineral ambergris, and sweet oceanic air. Highly diffusive and radiant, it works as both an irresistible skin scent and an ultra-potent projection booster when layered.",
+    description: "A single-molecule fragrance featuring pure Ambroxan. Smells like warm sunlit skin, clean mineral ambergris, and sweet oceanic air. Highly diffusive and radiant, it works as both an intimate skin scent and a subtle projection base when layered.",
     image: "assets/bottles/studio/molecule_02.jpg",
     userPhoto: "assets/bottles/cropped/pp_second_particle_1980.jpg",
     batchYear: 2024
   }
 ];
 
-// Historical profiles are curated estimates, not verified product specifications.
-// Owner photographs show the actual collection instead of inspiration-brand packaging.
+// Curated profiles with owner photographs of the actual collection.
 FRAGRANCE_DATABASE.forEach(item => {
   item.image = item.userPhoto || 'assets/bottles/default-bottle.svg';
   if (item.brand === "Ne'emah / Ene'emahe") item.brand = "Ne'emah";
-  item.provenance = 'Historical curated profile; ratings, volumes, similarity, performance and wear scores are provisional estimates. Verify packaging against your label.';
-  item.description = `${item.name} is part of the personal collection. Listed notes and accords describe a provisional scent profile.`;
-  item.macerationStatus = 'Unverified; add your own observation';
-  item.macerationTips = 'Record how the bottle smells over time. Store upright away from heat and direct sunlight; no fixed resting time is guaranteed.';
-  item.layeringPartner = 'Try a small amount of a suggested pairing and record your preference. Scores are suggestions, not measured performance.';
-  item.recommendedSprays = ((item.recommendedSprays.match(/^\d+(?:-\d+)?/) || [''])[0] || '') + ' sprays';
-  item.sprayBlueprint = ['Behind ears', 'Back of neck', 'Clothing if suitable'];
+  item.provenance = 'Curated personal collection profile. Ratings, volumes, similarity, performance and wear scores are provisional estimates.';
 });
 
 // Available Filter Dimensions
