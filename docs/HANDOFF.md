@@ -1,45 +1,49 @@
-# Fragrance Dashboard — current handoff
+# Fragrance Dashboard — completed remediation
 
-Updated: 2026-10-13T16:30:53.016Z | Codex / GPT-6.1 Sol
+Updated: 2026-10-13T17:23:49.933Z | Codex / GPT-6.1 Sol
 
-## Task and state
-- Implement all justified findings across the three audits; verify and push GitHub.
-- Root: GL.iNet Otis Projects/fragrance-dashboard (LAN and Tailscale UNC aliases are the same files).
-- Branch master; local baseline HEAD 7474212d3a635170852f33699d7e74e38ba680b4.
-- Remote master advanced to 9c3a19a with README-only work; preserve it during merge/push.
-- Source release f57c469c12fdc3c15c0fcf91ebf852e8e498babf committed and pushed to master; clean tree before this documentation checkpoint.
-- Vercel API confirms main is production; next push fast-forwards main without changing project settings.
-- Pre-existing AGENTS diff preserved pending restoration of the removed secrets rule.
+## State
+- Requested audit reconciliation, complete implementation and GitHub push finished.
+- Root: GL.iNet Otis Projects/fragrance-dashboard; LAN/Tailscale aliases reference the same files.
+- GitHub default branch master; verified Vercel production branch main.
+- Verified release HEAD:c58061e36a92f55cccb97e04da3fb0161b99ccdb; both remote refs matched.
+- This final documentation checkpoint follows that verified release; source code is unchanged.
+- Concurrent README commit9c3a19a retained through a reviewed merge; no force-push/history rewrite.
 
-## Completed
-- Version4 owner overrides/custom/deleted storage, v3 migration, validated JSON transfer.
-- Add/edit/delete, photo decode/resizing, volume/metadata/accord/performance views.
-- Escaped templates, validated URL state, full dynamic filters/occasion lists/previews.
-- Symmetric unified pairing heuristics; season-first event/time recommendations.
-- Keyboard/dialog focus, contrast, reduced motion and measured mobile overflow repair.
-- Own photography; allowlisted build excludes source originals, stock, docs, skills and secrets.
-- Security headers, one-hour revalidation, precise legacy redirects, docs/skills/rights records.
-- Independent Claude Sonnet medium review: actionable recovery/tab/photo/focus findings fixed.
+## Implemented
+- Complete add/edit/remove inventory, photos, volume slider/gauges, notes/accord/performance/metadata views.
+- Validated version4 seed+owner storage, migrations, explicit deletions, JSON backup/import preview.
+- Safe text/URL/image handling, recovery protection, quota/denial feedback, cross-tab save checks.
+- Dynamic full filters/lists/previews/counts; event/time/season recommendations and unified pairing scores.
+- Keyboard/dialog focus, unsaved-edit guard, contrast, reduced motion, light/dark mobile layouts.
+- Owner imagery, preserved originals, allowlisted build, security headers/cache and exact redirects.
+- Updated plan/checklist, decisions, rights, skills, scripts and project operating rules.
 
-## Verification so far
-- npm test passed 23/23 plus expanded source/schema/page validator.
-- Final Chromium suite:28 passing checks, no page errors.
-- Chromium add/edit/photo/volume/delete/export/invalid-import/restore flows passed under CSP.
-- 20 desktop/mobile light/dark checks found only a 3px home glow overflow, now fixed.
-- No browser page errors; further integration confirmation pending latest small edits.
-- Tools: Playwright MCP timed out; installed Chromium/Playwright runtime worked directly.
-- Git checkpoint timed out; 23-file source baseline preserved in ignored .agent-checkpoints/.
-- Read-only Tailscale: existing gaming-pc routes preserved; no fragrance route configured.
-- Vercel account: existing production Ready from12October; no new deployment performed.
+## Verification
+- npm test:23 passing tests plus expanded source/schema/page integrity validator.
+- Chromium suite:28 passing checks including20 layout/theme combinations; no page errors.
+- Independent Claude Sonnet-medium static review faults were repaired and regression checked.
+- Vercel public production:Ready at fragrance-dashboard-d3rv5ig7t-otisofro-3725s-projects.vercel.app.
+-12 live HTML/JS/CSS/metadata bodies match release Git blobs by SHA-256.
+- Source originals, stock, env, Git, docs and skill paths return404.
+- CSP/frame/MIME/referrer/permissions headers and one-hour asset revalidation verified.
+- Live brand filter/detail/focus work; external fonts loaded; no page errors.
+- Legacy .html aliases use308 clean-URL chains to the correct current pages.
 
-## Next
-1. Push documentation checkpoint to master and fast-forward main to the same commit.
-2. Verify Vercel production alias, new inventory script, CSP, original-photo exclusion and source parity.
-3. Record final source/remote/live evidence; keep Tailscale routes unchanged.
+## Evidence
+- docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md
+- docs/audit/LIVE-VERIFICATION-Codex-2026-10-13.json
+- test/app.test.js, test/inventory.test.js, test/deployment.test.js, test/browser-smoke.js
+- Ignored .agent-checkpoints/audit-remediation-20261013 preserves23 baseline files after Git snapshot timeout.
+
+## Remaining operator/owner decisions
+- Tailscale fragrance route is not configured. Existing unrelated gaming-pc routes were preserved.
+- Historical desktop-smsroim link is included as required; no remote-connectivity claim.
+- Manufacturing/volume/rating/performance profiles remain provisional until owner confirmation.
+- Physical-device and screen-reader certification not performed; original public history retained.
 
 ## Routing
-- JEV inline / Luna medium (0.92 execution,0.36 worker); used current GPT-6.1 Sol.
-- Override: two independent inherited-model agents wrote exclusive HTML/CSS and deployment/docs paths.
-- Cross-family reviewer: installed Claude CLI, Sonnet alias, medium, tools disabled.
-- Advisor cost USD0.000037422; worker usage unavailable.
-- No framework dependencies, cloud settings, Git history or Tailscale routes changed.
+- JEV inline/Luna medium; used current GPT-6.1 Sol (worker confidence0.36, no session model switch).
+- Two inherited-model agents owned exclusive page/CSS and deployment/docs paths.
+- Cross-family reviewer:installed Claude CLI Sonnet alias, medium, tools disabled.
+- Advisor cost USD0.000037422; worker usage/effort telemetry unavailable.

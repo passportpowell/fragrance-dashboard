@@ -1,5 +1,10 @@
 # Fragrance Dashboard — Session Log
 
+- 2026-10-13T17:23:50.018Z | Codex / GPT-6.1 Sol | Full audit remediation pushed to master and configured production main; concurrent README history preserved.
+  Verification:23 tests,28 Chromium checks; production Ready,12 SHA-256 body matches,private/source404s,headers/cache and live filter/dialog checked.
+  Evidence: docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md and LIVE-VERIFICATION-Codex-2026-10-13.json. Tailscale routes preserved.
+
+
 - 2026-10-13T16:30:53.184Z | Codex / GPT-6.1 Sol | Audit remediation implemented; exclusive page and deployment agents complete; independent review faults repaired.
   Checks:22 tests and source validator pass; browser manager/CSP flows pass. Final integration and push pending; remote README work will be preserved.
   Pointer: docs/AUDIT-REMEDIATION.md and current docs/HANDOFF.md.

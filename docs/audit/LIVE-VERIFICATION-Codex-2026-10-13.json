@@ -1,0 +1,145 @@
+{
+  "verifiedAt": "2026-10-13T17:17:40.731Z",
+  "commit": "c58061e36a92f55cccb97e04da3fb0161b99ccdb",
+  "parity": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "collection.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "occasions.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "layering.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "guide.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/app.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/data.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/inventory.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/theme.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "css/styles.css",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "robots.txt",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "sitemap.xml",
+      "status": 200,
+      "matchesGit": true
+    }
+  ],
+  "denied": [
+    {
+      "path": "/assets/bottles/user_photos/shelf_1_pp_row.jpg",
+      "status": 404
+    },
+    {
+      "path": "/assets/bottles/studio/bdc_edp.jpg",
+      "status": 404
+    },
+    {
+      "path": "/.git/HEAD",
+      "status": 404
+    },
+    {
+      "path": "/.env.local",
+      "status": 404
+    },
+    {
+      "path": "/docs/HANDOFF.md",
+      "status": 404
+    },
+    {
+      "path": "/.agents/skills/impeccable/SKILL.md",
+      "status": 404
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/vault",
+      "status": 308,
+      "location": "/collection"
+    },
+    {
+      "path": "/vault.html",
+      "status": 308,
+      "location": "/vault"
+    },
+    {
+      "path": "/scentscapes",
+      "status": 308,
+      "location": "/occasions"
+    },
+    {
+      "path": "/scentscapes.html",
+      "status": 308,
+      "location": "/scentscapes"
+    },
+    {
+      "path": "/codex",
+      "status": 308,
+      "location": "/guide"
+    },
+    {
+      "path": "/codex.html",
+      "status": 308,
+      "location": "/codex"
+    }
+  ],
+  "browser": {
+    "brandFilter": "Dolce & Gabbana",
+    "resultCount": 1,
+    "dialog": "The One for Men (EDP)",
+    "focusContained": true,
+    "fonts": "loaded",
+    "pageErrors": []
+  },
+  "production": {
+    "deployment": "fragrance-dashboard-d3rv5ig7t-otisofro-3725s-projects.vercel.app",
+    "status": "Ready",
+    "branch": "main",
+    "assetCache": "public, max-age=3600, must-revalidate",
+    "securityHeaders": [
+      "Content-Security-Policy",
+      "X-Frame-Options",
+      "X-Content-Type-Options",
+      "Referrer-Policy",
+      "Permissions-Policy"
+    ]
+  }
+}

@@ -47,3 +47,6 @@ Date: 13 October 2026. Scope: all three audit documents; source implementation, 
 - Independent reviewer: installed Claude CLI, Sonnet alias, medium, tools disabled. Real recovery/tab/upload/focus issues were fixed and rechecked. UTF-8 UI text was checked in actual files/screens rather than accepting pipe-encoding artifacts as defects.
 - Baseline protection: Git snapshot timed out on LAN SMB. An ignored 23-file source backup preserves the pre-remediation workspace. No source photos or unrelated work were discarded.
 - Final Git commit/remote verification is recorded in HANDOFF and the final user response.
+
+## Published verification
+The authorized normal Git pushes reached both master and configured production main at c58061e36a92f55cccb97e04da3fb0161b99ccdb. Vercel production is Ready;12 source bodies match Git SHA-256,6 private/source routes return404, and legacy .html routes redirect through clean aliases to their intended pages. Live brand filtering/detail/focus and loaded fonts were confirmed with no page errors. Raw evidence: LIVE-VERIFICATION-Codex-2026-10-13.json. This evidence is retained in a following documentation-only commit.

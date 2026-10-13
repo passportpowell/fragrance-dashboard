@@ -12,7 +12,7 @@ Complete the five-page fragrance inventory dashboard and close all justified aud
 - [x] Own-photo publication allowlist, headers/cache/redirects and safe scripts.
 - [x] Independent review and automated/browser verification.
 - [x] Commit, reconcile concurrent README and push master.
-- [~] Fast-forward configured main production branch and verify live release.
+- [x] Fast-forward configured main production branch and verify live release.
 
 ## Fog of war
 - Source profiles remain provisional until the owner verifies labels and measurements.
