@@ -79,3 +79,5 @@ test('stale tabs refuse last-writer overwrite',async()=>{
   assert.equal(await run('commitCollection(collection,"saved")'),false);
   assert(run('collection.some(i=>i.id==="user-custom-other")'));
 });
+
+ test('layering recommendations enforce the inclusive 90 score threshold',()=>{const {run}=environment();assert(run('collection.every(i=>getTopLayeringOptionsForFragrance(i).every(o=>o.score>=90))'));assert(run('getTopLayeringOptionsForFragrance(collection.find(i=>i.id==="user-dg-the-one-edp")).some(o=>o.score===90)'));run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner"},{id:"b",name:"B",brand:"Owner"}])');assert.equal(run('getTopLayeringOptionsForFragrance(collection[0]).length'),0);});
