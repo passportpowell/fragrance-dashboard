@@ -1,3 +1,9 @@
+## 2026-10-16 17:22 UTC — Codex / GPT-6.1 Sol
+- Completed3 exchanges: Gemini3.8 Flash High + Sonnet5.5 High via Gemini CLI; all6 calls succeeded.
+- Retained4 exploratory pairs with cautions; blocked unreviewed/edited-profile scores; improved5 pages.
+- 27 Node tests,29 Chromium checks and37-file production build passed; no page errors.
+- Evidence: docs/audit/LAYERING-REVIEW-Codex-2026-10-16_18-22-BST.md.
+
 ## 2026-10-16 16:58 UTC — Codex / GPT-6.1 Sol
 - Published minimum90 layering first (ce185b9), then supplied NQ64 recommendation.
 - Audited accuracy; fixed detail bypass,104g/ml error, unsupported claims, footer counts and score labels.

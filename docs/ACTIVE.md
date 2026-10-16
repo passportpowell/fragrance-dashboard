@@ -1,22 +1,19 @@
-# Active checklist — audit remediation
+# Active checklist — layering review and rebuild
 
 ## Destination
-Complete the five-page fragrance inventory dashboard and close all justified audit findings.
+Complete requested90+ recommendation rule, NQ64 advice, accuracy audit, then three-round model review and improved dashboard rebuild.
 
 ## Frontier
-- [x] Reconcile all three audits and preserve originals.
-- [x] Secure input/storage, migrations and JSON transfer.
-- [x] Complete bottle management, photos, metadata and analytical views.
-- [x] Dynamic lists/filters and event/time recommendations.
-- [x] Keyboard, focus, contrast, reduced motion and responsive fixes.
-- [x] Own-photo publication allowlist, headers/cache/redirects and safe scripts.
-- [x] Independent review and automated/browser verification.
-- [x] Commit, reconcile concurrent README and push master.
-- [x] Fast-forward configured main production branch and verify live release.
+- [x] Threshold implemented and separately pushed: ce185b9.
+- [x] NQ64 advice delivered; revised to Navy Intense solo after review.
+- [x] Accuracy audit fixed and separately pushed: d737b3e.
+- [x] Three exchanges between requested models via Gemini CLI, six successful calls.
+- [x] Four-pair shortlist, per-pair rationale/caution, truthful score labels and page copy.
+- [x] 27 Node tests,29 Chromium checks, source validation and rebuild passed.
+- [~] Publish reviewed release and verify live bodies and behaviour.
 
 ## Fog of war
-- Source profiles remain provisional until the owner verifies labels and measurements.
-- Real-device/screen-reader acceptance and external image permissions are not certified.
+Pair scores are subjective, untested editorial ratings. Detailed owned-bottle facts still require owner evidence.
 
-## Operational boundary
-Vercel publishes through its verified existing main branch. A dedicated Tailscale route remains an operator action; existing server routing and cloud settings are unchanged. See docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md for every finding and decision.
+## Blockers
+No source blocker. SMB Git index writes were unreliable; prior audit committed using a local temporary index and compare-and-swap update-ref. No source reset, deletion or history rewrite.

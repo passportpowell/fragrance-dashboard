@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fragrance Layering — Combinations &amp; Pairings | Otis Powell</title>
-  <meta name="description" content="Master fragrance layering with Otis Powell's curated 2-bottle combinations and interactive pairing calculator. Understand spray order, molecular primers, and accord synergy.">
+  <meta name="description" content="Explore four editorial fragrance layering ideas and find shortlisted partners from the collection. Scores are subjective and combinations are untested.">
   <link rel="canonical" href="https://fragrance-dashboard.vercel.app/layering">
   <meta property="og:title" content="Fragrance Layering — Combinations &amp; Pairings | Otis Powell">
-  <meta property="og:description" content="Discover curated layering ideas and an interactive pairing studio to calculate compatibility scores across your collection.">
+  <meta property="og:description" content="Explore shortlisted fragrance pairings with clear scent rationales and cautions. Editorial scores are not measured compatibility.">
   <meta property="og:url" content="https://fragrance-dashboard.vercel.app/layering">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
@@ -106,9 +106,9 @@
         <span>Scent Combinations</span>
       </div>
       <h1 class="page-hero-title">FRAGRANCE LAYERING</h1>
-      <span class="page-hero-subtitle">Best combinations, match scores, and how to spray them together</span>
+      <span class="page-hero-subtitle">Four layering ideas, with a reason to try each</span>
       <p class="page-hero-desc">
-        Layering allows you to create a unique scent by combining two bottles. Check out our curated combos below, or use the pairing tool to pick any bottle and see all other bottles ranked by match score.
+        Start with scents you enjoy on their own. Explore the four shortlisted combinations below, or choose a bottle to find its listed partners. Each suggestion includes a scent rationale and something to watch for.
       </p>
     </header>
 
@@ -117,26 +117,26 @@
       <!-- View Selector -->
       <div class="layering-mode-nav">
         <button id="modeCuratedDuosBtn" class="layering-mode-btn active">Recommended Combos</button>
-        <button id="modeInteractiveStudioBtn" class="layering-mode-btn">Pairing Calculator</button>
+        <button id="modeInteractiveStudioBtn" class="layering-mode-btn">Find a Pairing</button>
       </div>
 
       <!-- VIEW 1: RECOMMENDED COMBOS -->
       <div id="curatedDuosView">
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
           <span class="section-sup-title">Curated Pairs</span>
-          <h2 class="section-title-large">RECOMMENDED COMBINATIONS</h2>
-          <p class="section-sub-desc">Only pairings scoring 90/100 or above are shown. Scores are editorial estimates, not measured compatibility percentages. Scores do not measure chemistry or guarantee performance.</p>
+          <h2 class="section-title-large">LAYERING IDEAS TO TRY</h2>
+          <p class="section-sub-desc">Only shortlisted pairs rated 90/100 or above appear. Scores are hand-assigned editorial ratings based on recorded scent profiles. They are not measured compatibility percentages or wear-test results; small score differences are not meaningful.</p>
         </div>
 
         <div class="layering-duos-grid" id="layeringDuosContainer"></div>
       </div>
 
-      <!-- VIEW 2: PAIRING CALCULATOR -->
+      <!-- VIEW 2: FIND A PAIRING -->
       <div id="interactiveStudioView" style="display: none;">
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
           <span class="section-sup-title">Pairing Tool</span>
-          <h2 class="section-title-large">PAIRING CALCULATOR</h2>
-          <p class="section-sub-desc">Pick your base bottle. The tool compares notes and ranks the other bottles using a heuristic score out of 100.</p>
+          <h2 class="section-title-large">FIND A PAIRING</h2>
+          <p class="section-sub-desc">Choose a bottle to see its shortlisted partners at 90/100 or above. No result means no pairing is listed, not that other combinations are unsuitable.</p>
         </div>
 
         <div class="interactive-studio-stage">
@@ -150,7 +150,7 @@
 
           <div>
             <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 1px solid var(--canvas-border); padding-bottom: 0.75rem;">
-              <span class="triad-tier-label">Ranked Pairing Options</span>
+              <span class="triad-tier-label">Shortlisted Partners</span>
               <span id="companionsCountBadge" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary);">Pairing options</span>
             </div>
 

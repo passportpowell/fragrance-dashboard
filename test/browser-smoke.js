@@ -88,6 +88,17 @@ const server=http.createServer((req,res)=>{
     await page.locator('#sotdOccasionSelect').selectOption('Gym');await page.locator('#sotdTimeSelect').selectOption('night');
     assert(await page.evaluate(()=>getInSeasonCandidates(sotdActiveSeason).every(c=>c.item.occasions.includes('Gym'))));
     checks.push('recommendation occasion/time controls');
+    await page.goto(url+'/layering.html',{waitUntil:'domcontentloaded'});
+    assert.equal(await page.locator('.duo-editorial-card').count(),4);
+    assert(await page.locator('#layeringDuosContainer').innerText().then(text=>text.includes('Caution:')&&text.includes('editorial, untested')));
+    await page.locator('#modeInteractiveStudioBtn').click();
+    await page.locator('#baseFragranceSelect').selectOption('user-pp-navy-intense-0061');
+    assert.equal(await page.locator('.companion-rank-card').count(),0);
+    assert((await page.locator('#rankedCompanionsContainer').innerText()).includes('No listed pairing meets'));
+    await page.locator('#baseFragranceSelect').selectOption('user-after-effect-fa-paris');
+    assert.equal(await page.locator('.companion-rank-card').count(),3);
+    assert(await page.locator('.companion-synergy-score').allTextContents().then(values=>values.every(value=>Number(value)>=90)));
+    checks.push('four reviewed pairs, explicit cautions, minimum90 and Navy empty state');
     for(const size of [{width:1440,height:1000},{width:375,height:812}]){
       await page.setViewportSize(size);
       for(const theme of ['light','dark']){
