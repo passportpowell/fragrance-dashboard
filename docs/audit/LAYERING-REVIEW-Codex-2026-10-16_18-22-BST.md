@@ -55,3 +55,7 @@ Personal starting recommendation: Navy Intense on its own, initially two sprays,
 - Final code and live publication verification follows this report; see HANDOFF and final response.
 
 Routing: JEV inline/Luna medium recommendation; used current GPT-6.1 Sol session for integration. User explicitly selected the two external review models and high effort.
+
+## Published verification
+
+Release822712bdd4ded9a5e5d01fd1685d5cc6ee41482e reached master and main. Vercel built only a preview for that dual-ref push despite configured main production; its exact Git SHA and READY state were checked, then it was promoted to the existing production site. Production is Ready at fragrance-dashboard-qakl2wl7j-otisofro-3725s-projects.vercel.app. All12 checked production bodies match release Git blobs by SHA-256. Live Chromium:4 curated cards, Navy0 partners, After Effect scores96/95/93, no page errors or mobile overflow. Four private/source paths returned404; configured security headers were present. [Raw evidence](LIVE-VERIFICATION-Codex-2026-10-16.json).

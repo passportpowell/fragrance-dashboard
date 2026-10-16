@@ -1,11 +1,11 @@
 # Fragrance Dashboard — current state
-Updated: 2026-10-16 17:23 UTC | Codex / GPT-6.1 Sol
+Updated: 2026-10-16 17:27 UTC | Codex / GPT-6.1 Sol
 
 ## Request order
 - Minimum90 layering separately pushed: ce185b9 on master and main.
 - Initial NQ64 advice delivered, then revised after review: Navy Intense solo, start2 sprays.
 - Accuracy audit separately pushed: d737b3e; Vercel production Ready.
-- New request: three model exchanges, refine pair accuracy/copy and rebuild dashboard. Implementation complete; publishing next.
+- New request: three model exchanges, refine pair accuracy/copy and rebuild dashboard. Complete and published: code release822712b.
 
 ## Reviewed release
 - All6 review calls succeeded through Gemini CLI,3 rounds each, high effort.
@@ -22,7 +22,9 @@ Updated: 2026-10-16 17:23 UTC | Codex / GPT-6.1 Sol
 -27 Node tests passed;20-record/5-page source validation passed;37-file build passed.
 -29 Chromium checks passed: four-pair rendering, cautions, Navy no-result, minimum90,20 layout/theme cases and storage/editor/focus checks; no page errors.
 - Snapshot refs/agent-checkpoints/layering-review-20261016 and mechanical change review completed.
-- Publish reviewed release next, then verify remote refs and live source/behaviour.
+- Code release822712b pushed to both branches; production Ready after promoting verified preview.
+-12 live source bodies match release Git SHA-256. Live mobile:4 curated pairs, Navy0, After Effect3 scores>=90; no page errors/overflow.
+-4 private/source paths404; security headers present. Evidence LIVE-VERIFICATION-Codex-2026-10-16.json.
 
 ## Evidence
 - docs/audit/LAYERING-REVIEW-Codex-2026-10-16_18-22-BST.md
@@ -32,6 +34,7 @@ Updated: 2026-10-16 17:23 UTC | Codex / GPT-6.1 Sol
 ## Operations and limits
 - GitHub default master; Vercel production main. Push both normally, no force.
 - Public https://fragrance-dashboard.vercel.app
+- Production fragrance-dashboard-qakl2wl7j-otisofro-3725s-projects.vercel.app. Main configured; last dual-ref push created preview only, so the verified release was explicitly promoted.
 - SMB index writes unreliable. Temporary index E:/fragrance-audit-git/index allowed commit-tree then update-ref with expected parent. Sources remain in original project.
 - Storage schema unchanged; owner edits/backups preserved. Detailed bottle facts and personal performance still provisional.
 - Dedicated Tailscale route remains unconfigured; unrelated routes untouched.

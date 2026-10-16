@@ -1,3 +1,8 @@
+## 2026-10-16 17:27 UTC — Codex / GPT-6.1 Sol
+- Published reviewed release822712b to master/main; verified READY preview SHA, promoted to existing production after main webhook produced no release.
+-12 production bodies match Git; live4 pairs/Navy0/After Effect3; no page errors/mobile overflow;4 private routes404.
+- Evidence: docs/audit/LIVE-VERIFICATION-Codex-2026-10-16.json.
+
 ## 2026-10-16 17:22 UTC — Codex / GPT-6.1 Sol
 - Completed3 exchanges: Gemini3.8 Flash High + Sonnet5.5 High via Gemini CLI; all6 calls succeeded.
 - Retained4 exploratory pairs with cautions; blocked unreviewed/edited-profile scores; improved5 pages.

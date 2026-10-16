@@ -10,7 +10,7 @@ Complete requested90+ recommendation rule, NQ64 advice, accuracy audit, then thr
 - [x] Three exchanges between requested models via Gemini CLI, six successful calls.
 - [x] Four-pair shortlist, per-pair rationale/caution, truthful score labels and page copy.
 - [x] 27 Node tests,29 Chromium checks, source validation and rebuild passed.
-- [~] Publish reviewed release and verify live bodies and behaviour.
+- [x] Published reviewed release822712b;12 live body hashes and pairing behaviour verified.
 
 ## Fog of war
 Pair scores are subjective, untested editorial ratings. Detailed owned-bottle facts still require owner evidence.

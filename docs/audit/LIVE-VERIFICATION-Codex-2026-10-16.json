@@ -1,0 +1,103 @@
+{
+  "verifiedAt": "2026-10-16T17:26:14.222Z",
+  "release": "822712bdd4ded9a5e5d01fd1685d5cc6ee41482e",
+  "production": "https://fragrance-dashboard-qakl2wl7j-otisofro-3725s-projects.vercel.app",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "collection.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "occasions.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "layering.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "guide.html",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/app.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/data.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/inventory.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "js/theme.js",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "css/styles.css",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "robots.txt",
+      "status": 200,
+      "matchesGit": true
+    },
+    {
+      "file": "sitemap.xml",
+      "status": 200,
+      "matchesGit": true
+    }
+  ],
+  "browser": {
+    "curatedCards": 4,
+    "mobileNoOverflow": true,
+    "navyPartners": 0,
+    "afterEffectScores": [
+      "96",
+      "95",
+      "93"
+    ],
+    "pageErrors": []
+  },
+  "denied": [
+    {
+      "path": "/.env",
+      "status": 404
+    },
+    {
+      "path": "/.git/HEAD",
+      "status": 404
+    },
+    {
+      "path": "/docs/HANDOFF.md",
+      "status": 404
+    },
+    {
+      "path": "/assets/bottles/user_photos/shelf_1_pp_row.jpg",
+      "status": 404
+    }
+  ],
+  "headers": {
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()"
+  }
+}
