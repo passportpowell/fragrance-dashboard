@@ -99,7 +99,6 @@
 
   <!-- Main Website Content -->
   <main class="site-main" id="main-content">
-<section class="inventory-toolbar" aria-label="Collection backup"><p id="inventoryStatus" role="status" aria-live="polite"></p><div class="inventory-actions"><button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button><button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export recovery data</button><label for="importInventoryFile">Import collection JSON <input id="importInventoryFile" type="file" accept="application/json,.json"></label></div><p id="importPreview" role="status" aria-live="polite"></p><button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button></section>
 
     <header class="page-hero-banner">
       <div class="eyebrow-pill">
@@ -114,7 +113,24 @@
     </header>
 
     <section class="section-container"><article class="scentscape-realm-block" id="gym"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Gym</h2><p class="section-sub-desc"><span data-occasion-count="Gym">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Gym"></div></article><article class="scentscape-realm-block" id="running"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Running</h2><p class="section-sub-desc"><span data-occasion-count="Running">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Running"></div></article><article class="scentscape-realm-block" id="walking"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Walking</h2><p class="section-sub-desc"><span data-occasion-count="Walking">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Walking"></div></article><article class="scentscape-realm-block" id="work"><span id="office"></span><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Office / Work</h2><p class="section-sub-desc"><span data-occasion-count="Office / Work">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Office / Work"></div></article><article class="scentscape-realm-block" id="dates"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Dates</h2><p class="section-sub-desc"><span data-occasion-count="Dates">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Dates"></div></article><article class="scentscape-realm-block" id="wedding"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Wedding</h2><p class="section-sub-desc"><span data-occasion-count="Wedding">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Wedding"></div></article><article class="scentscape-realm-block" id="parks"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Parks</h2><p class="section-sub-desc"><span data-occasion-count="Parks">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Parks"></div></article><article class="scentscape-realm-block" id="city-centre"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">City Centre</h2><p class="section-sub-desc"><span data-occasion-count="City Centre">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="City Centre"></div></article><article class="scentscape-realm-block" id="malls"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Malls</h2><p class="section-sub-desc"><span data-occasion-count="Malls">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Malls"></div></article><article class="scentscape-realm-block" id="clubbing"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Clubbing / Evening</h2><p class="section-sub-desc"><span data-occasion-count="Clubbing / Evening">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Clubbing / Evening"></div></article><article class="scentscape-realm-block" id="casual"><div class="scentscape-realm-header"><h2 class="scentscape-realm-title">Casual</h2><p class="section-sub-desc"><span data-occasion-count="Casual">0 tagged bottles</span>. Personal preferences; respect venue rules and nearby people.</p></div><div class="scentscape-bottles-grid" data-occasion-grid="Casual"></div></article></section>
-</main>
+    <section class="inventory-toolbar" aria-label="Collection backup">
+      <div class="inventory-toolbar-header">
+        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
+      </div>
+      <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
+      <div class="inventory-actions">
+        <button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button>
+        <button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost" hidden>Export recovery data</button>
+        <label for="importInventoryFile" class="inventory-file-label">
+          <span>Import collection JSON</span>
+          <input id="importInventoryFile" type="file" accept="application/json,.json">
+        </label>
+      </div>
+      <p id="importPreview" role="status" aria-live="polite"></p>
+      <button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button>
+    </section>
+  </main>
 
   <!-- BOTTLE DETAILS MODAL -->
   <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

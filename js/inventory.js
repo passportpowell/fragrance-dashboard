@@ -127,7 +127,7 @@
       parsed=raw?JSON.parse(raw):null;
       const state=raw?parsed:legacy?migrateLegacy(JSON.parse(legacy),seed):emptyState();
       const warnings=state.migrationWarnings||[];
-      return {collection:merge(state,seed),state,storedRaw:raw,recovery:legacy||null,recoveryRequired:warnings.length>0,warning:warnings.length?'Recovered valid legacy records. '+warnings.length+' entries need review; export recovery data before saving.':legacy?'Previous inventory migrated. Current metadata refreshed; volume and custom photos retained. Legacy backup remains in browser storage.':''};
+      return {collection:merge(state,seed),state,storedRaw:raw,recovery:legacy||null,recoveryRequired:warnings.length>0,warning:warnings.length?'Recovered valid legacy records. '+warnings.length+' entries need review; export recovery data before saving.':''};
     }catch(error){
       if(parsed?.version===4&&Array.isArray(parsed.custom)&&Array.isArray(parsed.deleted)&&parsed.overrides&&typeof parsed.overrides==='object'){
         const seeds=records(seed),recovered=[],ids=new Set();

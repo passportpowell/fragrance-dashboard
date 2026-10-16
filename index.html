@@ -107,7 +107,6 @@
 
   <!-- Primary Website Main -->
   <main class="site-main" id="main-content">
-<section class="inventory-toolbar" aria-label="Collection backup"><p id="inventoryStatus" role="status" aria-live="polite"></p><div class="inventory-actions"><button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button><button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export recovery data</button><label for="importInventoryFile">Import collection JSON <input id="importInventoryFile" type="file" accept="application/json,.json"></label></div><p id="importPreview" role="status" aria-live="polite"></p><button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button></section>
 
     <!-- ======================================================================
          SECTION 1: HERO SECTION
@@ -515,6 +514,24 @@
           </a>
         </div>
       </div>
+    </section>
+
+    <section class="inventory-toolbar" aria-label="Collection backup">
+      <div class="inventory-toolbar-header">
+        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
+      </div>
+      <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
+      <div class="inventory-actions">
+        <button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button>
+        <button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost" hidden>Export recovery data</button>
+        <label for="importInventoryFile" class="inventory-file-label">
+          <span>Import collection JSON</span>
+          <input id="importInventoryFile" type="file" accept="application/json,.json">
+        </label>
+      </div>
+      <p id="importPreview" role="status" aria-live="polite"></p>
+      <button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button>
     </section>
 
   </main>

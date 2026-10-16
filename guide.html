@@ -99,7 +99,6 @@
 
   <!-- Main Website Content -->
   <main class="site-main" id="main-content">
-<section class="inventory-toolbar" aria-label="Collection backup"><p id="inventoryStatus" role="status" aria-live="polite"></p><div class="inventory-actions"><button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button><button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export recovery data</button><label for="importInventoryFile">Import collection JSON <input id="importInventoryFile" type="file" accept="application/json,.json"></label></div><p id="importPreview" role="status" aria-live="polite"></p><button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button></section>
 
     <header class="page-hero-banner">
       <div class="eyebrow-pill">
@@ -112,7 +111,24 @@
     </header>
 
     <section class="section-container" style="max-width:1050px"><p class="section-sub-desc">Personal guidance. No timed performance guarantees or scientific verification are implied.</p><article class="codex-chapter-wrap" id="noseblind"><span class="codex-chapter-numeral">1.</span><div class="codex-chapter-content"><h2 class="codex-chapter-h2">Considerate application</h2><p class="codex-prose">Start lightly and consider fragrance-free spaces and nearby people. Your own perception can change during wear, so avoid repeatedly adding more simply because you cannot smell it. Follow product directions and stop use if irritation occurs.</p></div></article><article class="codex-chapter-wrap" id="maceration"><span class="codex-chapter-numeral">2.</span><div class="codex-chapter-content"><h2 class="codex-chapter-h2">Give new bottles a fair trial</h2><p class="codex-prose">Try a new bottle on separate days before judging it. Resting a bottle is a personal practice, not a guarantee of improved strength or smoothness. There is no need to waste sprays or deliberately introduce air. Record your own impressions.</p></div></article><article class="codex-chapter-wrap" id="concentrations"><span class="codex-chapter-numeral">3.</span><div class="codex-chapter-content"><h2 class="codex-chapter-h2">Read the label, then observe</h2><p class="codex-prose">Extrait, Eau de Parfum, body spray and daily fragrance are product labels. They do not establish a universal oil percentage or wear time. Performance and volume estimates remain provisional until you confirm them.</p></div></article><article class="codex-chapter-wrap" id="storage"><span class="codex-chapter-numeral">4.</span><div class="codex-chapter-content"><h2 class="codex-chapter-h2">Keep bottles protected</h2><p class="codex-prose">Follow manufacturer storage directions. Keep caps fitted and bottles upright, away from direct sunlight and excessive heat. Store somewhere stable and safe rather than a hot car or sunny window.</p></div></article><article class="codex-chapter-wrap" id="boosters"><span class="codex-chapter-numeral">5.</span><div class="codex-chapter-content"><h2 class="codex-chapter-h2">Try layering as an experiment</h2><p class="codex-prose">Try each fragrance alone first, then test a small combination. This dashboard cannot establish that molecular-style fragrances bind to skin, prevent noseblindness or extend longevity. Pairing scores are heuristics based on tags and accords, not laboratory measurements.</p></div></article></section>
-</main>
+    <section class="inventory-toolbar" aria-label="Collection backup">
+      <div class="inventory-toolbar-header">
+        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
+      </div>
+      <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
+      <div class="inventory-actions">
+        <button id="exportInventoryBtn" type="button" class="btn-luxury btn-luxury-ghost">Export collection</button>
+        <button id="exportRecoveryBtn" type="button" class="btn-luxury btn-luxury-ghost" hidden>Export recovery data</button>
+        <label for="importInventoryFile" class="inventory-file-label">
+          <span>Import collection JSON</span>
+          <input id="importInventoryFile" type="file" accept="application/json,.json">
+        </label>
+      </div>
+      <p id="importPreview" role="status" aria-live="polite"></p>
+      <button id="applyImportBtn" type="button" class="btn-luxury btn-luxury-primary" hidden>Apply reviewed import</button>
+    </section>
+  </main>
 
   <!-- BOTTLE DETAILS MODAL -->
   <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

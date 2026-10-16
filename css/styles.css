@@ -2647,8 +2647,19 @@ button, input, select {
 :focus-visible { outline: 3px solid var(--gold-primary); outline-offset: 4px; }
 .skip-link { position: fixed; z-index: 2000; top: .5rem; left: .5rem; padding: .8rem 1rem; background: var(--canvas-card); color: var(--text-primary); transform: translateY(-200%); }
 .skip-link:focus { transform: none; }
-.inventory-toolbar { margin: 1.5rem auto; padding: 1.25rem; max-width: 1400px; border: 1px solid var(--canvas-border); border-radius: var(--radius-md); background: var(--canvas-card); }
-.inventory-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.inventory-toolbar { margin: 3.5rem auto 2rem; padding: 1.5rem; max-width: 1400px; width: 100%; box-sizing: border-box; border: 1px solid var(--canvas-border); border-radius: var(--radius-md); background: var(--canvas-card); overflow: hidden; }
+.inventory-toolbar-header { margin-bottom: 1.25rem; }
+.inventory-toolbar-title { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; letter-spacing: 0.01em; }
+.inventory-toolbar-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+#inventoryStatus:empty, #inventoryStatus[hidden] { display: none !important; }
+#inventoryStatus { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.75rem 1rem; margin-bottom: 1rem; border-radius: var(--radius-sm); background: rgba(125, 94, 27, 0.08); border: 1px solid var(--gold-primary); color: var(--text-primary); font-size: 0.88rem; line-height: 1.5; box-sizing: border-box; max-width: 100%; }
+#inventoryStatus.is-error { background: rgba(185, 28, 28, 0.08); border-color: #b91c1c; }
+.status-dismiss-btn { background: transparent; border: none; font-size: 1.25rem; line-height: 1; color: var(--text-secondary); cursor: pointer; padding: 0.15rem 0.4rem; border-radius: var(--radius-sm); flex-shrink: 0; }
+.status-dismiss-btn:hover { color: var(--text-primary); }
+.inventory-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; width: 100%; box-sizing: border-box; }
+.inventory-actions .btn-luxury { white-space: normal; max-width: 100%; box-sizing: border-box; justify-content: center; }
+.inventory-file-label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; color: var(--text-secondary); max-width: 100%; box-sizing: border-box; }
+.inventory-file-label input[type="file"] { font-size: 0.8rem; color: var(--text-primary); max-width: 100%; box-sizing: border-box; }
 .inventory-toolbar p { color: var(--text-secondary); overflow-wrap: anywhere; }
 .inventory-actions label { display: grid; gap: .4rem; font-size: .85rem; }
 .inventory-editor { display: flex; flex-direction: column; gap: 1rem; }
@@ -2678,8 +2689,9 @@ button.boutique-product-card { font: inherit; color: var(--text-primary); text-a
  .maison-nav-actions { gap: .3rem; }
  .maison-nav-actions .btn-luxury { padding: .5rem; font-size: .75rem; }
  .maison-nav-actions .icon-circle { display: none; }
- .inventory-toolbar { margin: 1rem .75rem; }
- .inventory-actions { align-items: stretch; flex-direction: column; }
+ .inventory-toolbar { margin: 2rem 0.75rem 1rem; padding: 1.15rem; width: auto; max-width: calc(100vw - 1.5rem); box-sizing: border-box; }
+ .inventory-actions { align-items: stretch; flex-direction: column; gap: 0.75rem; width: 100%; box-sizing: border-box; }
+ .inventory-actions .btn-luxury { width: 100%; max-width: 100%; padding: 0.75rem 1rem; font-size: 0.84rem; box-sizing: border-box; text-align: center; justify-content: center; }
  .inventory-actions input { max-width: 100%; }
  .editor-grid, .inventory-facts { grid-template-columns: minmax(0,1fr); }
  .scentscape-bottles-grid { grid-template-columns: minmax(0,1fr); }
