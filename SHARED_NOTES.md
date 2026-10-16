@@ -1,3 +1,9 @@
+## 2026-10-16 16:58 UTC — Codex / GPT-6.1 Sol
+- Published minimum90 layering first (ce185b9), then supplied NQ64 recommendation.
+- Audited accuracy; fixed detail bypass,104g/ml error, unsupported claims, footer counts and score labels.
+- 26 Node tests + source validator +28 Chromium checks passed; same-family review correction applied.
+- Evidence: docs/audit/ACCURACY-AUDIT-Codex-2026-10-16_17-58-BST.md.
+
 # Fragrance Dashboard — Session Log
 
 - 2026-10-13T17:23:50.018Z | Codex / GPT-6.1 Sol | Full audit remediation pushed to master and configured production main; concurrent README history preserved.

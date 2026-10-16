@@ -1,49 +1,39 @@
-# Fragrance Dashboard — completed remediation
+# Fragrance Dashboard — current state
 
-Updated: 2026-10-13T19:20:00.000Z | Antigravity / Gemini
+Updated: 2026-10-16 16:58 UTC | Codex / GPT-6.1 Sol
 
-## State
-- User request: continue remaining audit items and align bottle packaging (Extrait vs EDP).
-- Perfume Parlour black flacons officially aligned to Extrait de Parfum (Navy Intense, Intenso Water, Sweet Water).
-- Cleaned Ne'emah brand nomenclature and restored authentic editorial scent profiles with softened overclaims.
-- Hardened test/validate-inventory.js to reject schema/bounds mutations directly.
-- Hardened app.js theme and filter navigation in mock/headless testing environments.
-- All 23 tests passing 100%; allowlisted production build generates 37 files in public/.
+## Current request and sequence
+1. Enforce >=90/100 layering options and push separately: complete, ce185b9 on master and main.
+2. NQ64 Birmingham recommendation: Navy Intense + Particle; start 2 + 1 sprays. Given to user before audit. Score91 is editorial.
+3. Accuracy audit and separate publication: fixes complete and tests passed; publishing next.
 
-## Implemented
-- Complete add/edit/remove inventory, photos, volume slider/gauges, notes/accord/performance/metadata views.
-- Validated version4 seed+owner storage, migrations, explicit deletions, JSON backup/import preview.
-- Safe text/URL/image handling, recovery protection, quota/denial feedback, cross-tab save checks.
-- Dynamic full filters/lists/previews/counts; event/time/season recommendations and unified pairing scores.
-- Keyboard/dialog focus, unsaved-edit guard, contrast, reduced motion, light/dark mobile layouts.
-- Owner imagery, preserved originals, allowlisted build, security headers/cache and exact redirects.
-- Updated plan/checklist, decisions, rights, skills, scripts and project operating rules.
+## Changes
+- Home, curated, interactive and bottle-detail recommendations use inclusive90 threshold; honest solo fallback.
+- Existing uncommitted curated scores were preserved. They are not measured probabilities.
+- Corrected104g aerosol wrongly treated104ml; unknown ml remains blank.
+- Removed unverified maturation, molecular purity and projection guarantees; expanded provisional provenance.
+- Dynamic footer counts; consistent editorial-score copy.
 
 ## Verification
-- npm test:23 passing tests plus expanded source/schema/page integrity validator.
-- Chromium suite:28 passing checks including20 layout/theme combinations; no page errors.
-- Independent Claude Sonnet-medium static review faults were repaired and regression checked.
-- Vercel public production:Ready at fragrance-dashboard-d3rv5ig7t-otisofro-3725s-projects.vercel.app.
--12 live HTML/JS/CSS/metadata bodies match release Git blobs by SHA-256.
-- Source originals, stock, env, Git, docs and skill paths return404.
-- CSP/frame/MIME/referrer/permissions headers and one-hour asset revalidation verified.
-- Live brand filter/detail/focus work; external fonts loaded; no page errors.
-- Legacy .html aliases use308 clean-URL chains to the correct current pages.
+- 26 Node tests passed;20-record/five-page source validator passed; build passed.
+- 28 Chromium checks passed including20 page/viewport/theme combinations; no page errors.
+- Claude review unavailable: weekly limit. Fresh-context same-family review found score-label gap; fixed.
+- First release Vercel production Ready. Verify audit release bodies after second push.
 
 ## Evidence
-- docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md
-- docs/audit/LIVE-VERIFICATION-Codex-2026-10-13.json
-- test/app.test.js, test/inventory.test.js, test/deployment.test.js, test/browser-smoke.js
-- Ignored .agent-checkpoints/audit-remediation-20261013 preserves23 baseline files after Git snapshot timeout.
+- docs/audit/ACCURACY-AUDIT-Codex-2026-10-16_17-58-BST.md
+- docs/audit/LAYERING-Codex-2026-10-16.md
+- Historical closure: docs/audit/REMEDIATION-Codex-2026-10-13_18-07-30-BST.md
 
-## Remaining operator/owner decisions
-- Tailscale fragrance route is not configured. Existing unrelated gaming-pc routes were preserved.
-- Historical desktop-smsroim link is included as required; no remote-connectivity claim.
-- Manufacturing/volume/rating/performance profiles remain provisional until owner confirmation.
-- Physical-device and screen-reader certification not performed; original public history retained.
+## Publication
+- GitHub master default; existing Vercel production branch main. Push both by normal fast-forward.
+- Public URL: https://fragrance-dashboard.vercel.app
+- No storage schema changes; preserve explicit owner edits and backups.
+
+## Limits
+- Detailed source profiles, scores, concentrations, years and volumes remain provisional unless confirmed.
+- Manufacturer checks in audit support selected references/profiles, not every owned-bottle fact.
+- Dedicated Tailscale route remains unconfigured; existing unrelated routes unchanged.
 
 ## Routing
-- JEV inline/Luna medium; used current GPT-6.1 Sol (worker confidence0.36, no session model switch).
-- Two inherited-model agents owned exclusive page/CSS and deployment/docs paths.
-- Cross-family reviewer:installed Claude CLI Sonnet alias, medium, tools disabled.
-- Advisor cost USD0.000037422; worker usage/effort telemetry unavailable.
+JEV inline / GPT-6 Luna medium; actual GPT-6.1 Sol current session, no model switch available.
