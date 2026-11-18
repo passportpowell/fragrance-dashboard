@@ -12,12 +12,14 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F5F6" id="themeColorMeta">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Otis Powell Fragrance Collection \u2014 Curated Bottles, Layering & Guides", "url": "https://fragrance-dashboard.vercel.app/", "description": "Personal fragrance collection by Otis Powell featuring seasonal scent recommendations, occasion guides, bottle layering tools, and wear guides.", "author": {"@type": "Person", "name": "Otis Powell", "url": "https://www.passportpowell.com/card"}}</script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M9 2h6v3H9zM7 6h10l2 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10l2-4zm5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E">
   
   <!-- High-End Editorial Typography Stack -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script src="js/theme.js"></script>
 <link rel="stylesheet" href="css/styles.css">
@@ -34,7 +36,7 @@
       <!-- Brand Logo -->
       <a href="index.html" class="maison-brand" aria-label="Otis Powell Fragrance Collection Home">
         <div class="brand-monogram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M12 2L3 7v9l9 5 9-5V7l-9-5z"/>
             <path d="M12 22V12"/>
             <path d="M21 7l-9 5-9-5"/>
@@ -48,7 +50,7 @@
 
       <!-- Primary Navigation Links -->
       <nav class="maison-nav-links" aria-label="Primary Navigation">
-        <a href="index.html" class="maison-nav-link active">Home</a>
+        <a href="index.html" class="maison-nav-link active" aria-current="page">Home</a>
         <a href="collection.html" class="maison-nav-link">All Fragrances</a>
         <a href="occasions.html" class="maison-nav-link">Occasions</a>
         <a href="layering.html" class="maison-nav-link">Layering</a>
@@ -58,7 +60,7 @@
       <!-- Utility Actions -->
       <div class="maison-nav-actions">
         <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
@@ -66,7 +68,7 @@
         <button id="addFragranceBtn" class="btn-luxury btn-luxury-primary" title="Add New Bottle">
           <span>Add Bottle</span>
           <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
               <line x1="12" y1="5" x2="12" y2="19"/>
               <line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
@@ -74,7 +76,7 @@
         </button>
 
         <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -88,19 +90,19 @@
   <!-- Mobile Drawer Overlay -->
   <div id="mobileDrawer" class="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
     <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
     </button>
     <div class="mobile-drawer-links">
-      <a href="index.html" class="mobile-drawer-link active">Home</a>
+      <a href="index.html" class="mobile-drawer-link active" aria-current="page">Home</a>
       <a href="collection.html" class="mobile-drawer-link">All Fragrances</a>
       <a href="occasions.html" class="mobile-drawer-link">Occasions</a>
       <a href="layering.html" class="mobile-drawer-link">Layering</a>
       <a href="guide.html" class="mobile-drawer-link">Guide</a>
     </div>
-    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;">
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);">
       Otis Powell // Personal Collection
     </div>
   </div>
@@ -109,32 +111,32 @@
   <main class="site-main" id="main-content">
 
     <!-- ======================================================================
-         SECTION 1: HERO SECTION
+         SECTION 1: ARCHITECTURAL HERO DOSSIER
          ====================================================================== -->
     <section id="heroSection" class="hero-editorial-section" aria-label="Collection Overview">
       <div class="hero-grid-split">
         
-        <!-- Left Story Block -->
+        <!-- Left Story & Telemetry Block -->
         <div class="hero-story-block">
           <div class="eyebrow-pill">
             <span class="eyebrow-pill-dot"></span>
-            <span><span data-collection-count>0</span> Bottles // Personal Collection</span>
+            <span>Archive No. 01–<span data-collection-count>20</span> · Birmingham, UK · Personal Vault</span>
           </div>
 
           <div class="hero-title-wrap">
             <h1 class="hero-main-h1">OTIS'S FRAGRANCE COLLECTION</h1>
-            <span class="hero-italic-subtitle">Your collection, from everyday favourites to evening choices</span>
+            <span class="hero-italic-subtitle">Architectural scent wardrobe, accord profiles &amp; pairing ledger</span>
           </div>
 
           <p class="hero-narrative-copy">
-            Explore the bottles you own, find a starting suggestion for the occasion, and keep track of your collection. Try a shortlisted layer when you want something different.
+            Explore the bottles you own, inspect note pyramids and accord strengths, find a starting suggestion for the occasion, and track remaining bottle volume in millilitres.
           </p>
 
           <div class="hero-action-row">
             <a href="collection.html" class="btn-luxury btn-luxury-primary">
               <span>Browse All Fragrances</span>
               <div class="icon-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
                   <line x1="7" y1="17" x2="17" y2="7"/>
                   <polyline points="7 7 17 7 17 17"/>
                 </svg>
@@ -142,9 +144,9 @@
             </a>
 
             <a href="layering.html" class="btn-luxury btn-luxury-ghost">
-              <span>Layering Guide</span>
+              <span>Layering Atelier (30 Pairs)</span>
               <div class="icon-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px;">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 14px; height: 14px;">
                   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                   <polyline points="2 17 12 22 22 17"/>
                   <polyline points="2 12 12 17 22 12"/>
@@ -152,14 +154,46 @@
               </div>
             </a>
           </div>
+
+          <dl class="hero-telemetry-grid" aria-label="Collection statistics">
+            <div class="hero-telemetry-cell">
+              <dt>Vault Flacons</dt>
+              <dd><span data-collection-count>20</span> Bottles</dd>
+              <span>14 Clones · 6 Originals</span>
+            </div>
+            <div class="hero-telemetry-cell">
+              <dt>Curated Pairings</dt>
+              <dd>30 Duos</dd>
+              <span>Rated 90/100 or above</span>
+            </div>
+            <div class="hero-telemetry-cell">
+              <dt>Wear Scenarios</dt>
+              <dd>11 Contexts</dd>
+              <span>Gym &amp; Office to Black Tie</span>
+            </div>
+            <div class="hero-telemetry-cell">
+              <dt>Tracked Volume</dt>
+              <dd id="heroTotalVolume">1,280 ml</dd>
+              <span>Live browser ledger</span>
+            </div>
+          </dl>
         </div>
 
-        <!-- Right Visual Showcase -->
+        <!-- Right Visual Showcase Dossier -->
         <div class="hero-visual-stage">
-          <div class="hero-stage-aura"></div>
           <div class="hero-image-frame">
-            <img class="hero-flacon-img" src="assets/bottles/cropped/after_effect_fa_paris.jpg" alt="After Effect Extrait de Parfum">
-            <span class="hero-frame-caption">Featured Bottle // French Avenue After Effect</span>
+            <div class="hero-frame-top-meta">
+              <span>REF // FA-01</span>
+              <span>EXTRAIT DE PARFUM · 80ML</span>
+            </div>
+            <img class="hero-flacon-img" src="assets/bottles/cropped/after_effect_fa_paris.jpg" alt="After Effect Extrait de Parfum" width="320" height="380" fetchpriority="high">
+            <div class="hero-frame-spec-bar">
+              <div>
+                <strong class="hero-spec-name">After Effect — French Avenue</strong>
+                <span class="hero-spec-origin">Inspired by Initio Side Effect · Warm Spicy &amp; Rum</span>
+              </div>
+              <button type="button" class="btn-text-link" data-detail="user-after-effect-fa-paris">Dossier &rarr;</button>
+            </div>
           </div>
         </div>
 
@@ -174,13 +208,12 @@
         
         <div class="section-header-editorial">
           <div class="sotd-season-indicator-pill" id="sotdSeasonBadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
               <circle cx="12" cy="12" r="4"/>
               <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
             </svg>
             <span id="sotdSeasonBadgeText">Autumn Selection // October</span>
           </div>
-          <span class="section-sup-title" id="sotdSupTitle">Today's Recommendation</span>
           <h2 class="section-title-large">SCENT OF THE DAY</h2>
           <p class="section-sub-desc" id="sotdSectionDesc">
             Suggested from seasonal collection tags, rather than a weather forecast.
@@ -191,22 +224,22 @@
             <button class="sotd-season-btn active" data-season="autumn" type="button">
               <span>Autumn</span>
               <span class="sotd-season-badge-tag" id="sotdTagAutumn">Current</span>
-              <span class="sotd-season-count" id="sotdCountAutumn">0</span>
+              <span class="sotd-season-count" id="sotdCountAutumn"></span>
             </button>
             <button class="sotd-season-btn" data-season="winter" type="button">
               <span>Winter</span>
               <span class="sotd-season-badge-tag" id="sotdTagWinter" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountWinter">0</span>
+              <span class="sotd-season-count" id="sotdCountWinter"></span>
             </button>
             <button class="sotd-season-btn" data-season="spring" type="button">
               <span>Spring</span>
               <span class="sotd-season-badge-tag" id="sotdTagSpring" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountSpring">0</span>
+              <span class="sotd-season-count" id="sotdCountSpring"></span>
             </button>
             <button class="sotd-season-btn" data-season="summer" type="button">
               <span>Summer</span>
               <span class="sotd-season-badge-tag" id="sotdTagSummer" style="display:none;">Current</span>
-              <span class="sotd-season-count" id="sotdCountSummer">0</span>
+              <span class="sotd-season-count" id="sotdCountSummer"></span>
             </button>
           </div>
         </div>
@@ -216,7 +249,8 @@
           <!-- Bottle Photo Column -->
           <div class="curator-photo-column">
             <div class="sotd-season-chip" id="sotdPhotoSeasonTag">Seasonal suggestion</div>
-            <img id="sotdImg" src="assets/bottles/cropped/pp_herb_garden_1598.jpg" alt="Scent of the Day Bottle">
+            <img id="sotdImg" src="assets/bottles/cropped/pp_herb_garden_1598.jpg" alt="Scent of the Day Bottle" width="280" height="380">
+            <div id="sotdAccordsPreview" class="sotd-accords-preview" aria-label="Primary scent accords"></div>
           </div>
 
           <!-- Editorial Narrative Column -->
@@ -248,7 +282,7 @@
 
             <!-- Application Routine -->
             <div class="application-ritual-bar" id="sotdBlueprint">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <circle cx="12" cy="12" r="9"/>
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -259,7 +293,7 @@
             <!-- Quick Layering Companion Highlight -->
             <div class="sotd-quick-layer-highlight" id="sotdQuickLayerHighlight">
               <div class="sotd-quick-layer-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
                 <span>Recommended Layering</span>
@@ -273,7 +307,7 @@
               <button id="sotdInspectBtn" class="btn-luxury btn-luxury-primary">
                 <span>View Bottle Details</span>
                 <div class="icon-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
                     <circle cx="11" cy="11" r="8"/>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                   </svg>
@@ -283,7 +317,7 @@
               <button id="sotdRefreshBtn" class="btn-luxury btn-luxury-ghost" title="Pick another recommendation from in-season options">
                 <span>Pick Another Scent</span>
                 <div class="icon-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="width: 14px; height: 14px;">
                     <path d="M23 4v6h-6"/>
                     <path d="M1 20v-6h6"/>
                     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
@@ -300,12 +334,11 @@
         <div class="sotd-layering-container" id="sotdLayeringContainer">
           <div class="sotd-layering-header">
             <div>
-              <span class="sotd-options-kicker">Layering Combinations</span>
               <h3 class="sotd-options-title" id="sotdLayeringTitle">Recommended Layering Options for Today</h3>
             </div>
             <a href="layering.html" class="sotd-layering-hub-link" title="Open Layering Studio">
               <span>Open Layering Lab</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -321,7 +354,6 @@
         <div class="sotd-options-container" id="sotdOptionsContainer">
           <div class="sotd-options-header">
             <div>
-              <span class="sotd-options-kicker">Options For This Season</span>
               <h3 class="sotd-options-title" id="sotdOptionsTitle">Seasonal Options in Your Collection</h3>
             </div>
             <span class="sotd-options-hint">Click any bottle below to set as Scent of the Day</span>
@@ -341,7 +373,6 @@
       <div class="section-container">
         
         <div class="section-header-editorial">
-          <span class="section-sup-title">Where &amp; When to Wear</span>
           <h2 class="section-title-large">WHEN TO WEAR EACH SCENT</h2>
           <p class="section-sub-desc">Tailored scent picks for workouts, running, walking, office days, and date nights.</p>
         </div>
@@ -353,7 +384,7 @@
             <div>
               <span class="world-badge-code">Workouts &amp; Training</span>
               <h3 class="world-title">Gym &amp; Workouts</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">Crisp marine minerals, zesty mandarin, and clean woods that stay composed when body heat rises. Keep application to one or two under-shirt sprays.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Gym"></div>
@@ -369,7 +400,7 @@
             <div>
               <span class="world-badge-code">Cardio &amp; High Heat</span>
               <h3 class="world-title">Running &amp; Outdoor Cardio</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">Bracing sea-salt ozone, green citrus, and airy cedar profiles built for open-air movement and high-output sessions.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Running"></div>
@@ -385,7 +416,7 @@
             <div>
               <span class="world-badge-code">Casual &amp; Outdoors</span>
               <h3 class="world-title">Walking &amp; Daily Strolls</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">Versatile aromatic fougères, crisp orchard apple, and smoky birch-citrus trails that catch the outdoor breeze.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Walking"></div>
@@ -401,7 +432,7 @@
             <div>
               <span class="world-badge-code">Office &amp; Professional</span>
               <h3 class="world-title">Work &amp; Everyday Office</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">Tailored grapefruit, fresh ginger, vetiver, and dry cedarwood for shared meeting rooms and focused desk hours.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Office / Work"></div>
@@ -417,7 +448,7 @@
             <div>
               <span class="world-badge-code">Evenings &amp; Dates</span>
               <h3 class="world-title">Dates &amp; Nights Out</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">Aged Martinique rum, golden honey, pistachio kulfi, Griotte cherry liqueur, and warm amber built for close evening settings.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Dates"></div>
@@ -433,7 +464,7 @@
             <div>
               <span class="world-badge-code">Black Tie &amp; Formal</span>
               <h3 class="world-title">Weddings &amp; Special Events</h3>
-              <p class="world-narrative">Choose from bottles tagged for this occasion. Start lightly and consider the people and space around you.</p>
+              <p class="world-narrative">High-longevity extrait and eau de parfum statements featuring blonde tobacco leaf, rosewood, cardamom, and Madagascar vanilla.</p>
             </div>
 
             <div class="world-flacons-row" data-occasion-preview="Wedding"></div>
@@ -457,68 +488,53 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 4: ALL FRAGRANCES TEASER
+         SECTION 4: ARCHITECTURAL ATELIER DIRECTORY (VAULT, LAYERING & CODEX)
          ====================================================================== -->
-    <section class="section-container-spacious" style="background: var(--canvas-surface); border-top: 1px solid var(--canvas-border); border-bottom: 1px solid var(--canvas-border);">
+    <section class="section-container-spacious atelier-directory-section" aria-label="Collection Directory">
       <div class="section-container">
-        <div class="section-header-editorial">
-          <span class="section-sup-title">Complete Catalog</span>
-          <h2 class="section-title-large">ALL FRAGRANCES</h2>
-          <p class="section-sub-desc">Browse the entire collection with dedicated filters for Gym, Running, Walking, Work, Dates, Season, Scent Family, and Bottle Type.</p>
-        </div>
+        <div class="atelier-directory-grid">
+          <article class="directory-slab">
+            <div class="directory-slab-top">
+              <span class="directory-index-num">01 // ARCHIVE</span>
+              <h2 class="directory-slab-title">ALL FRAGRANCES</h2>
+              <p class="directory-slab-desc">Filter all <span data-collection-count>20</span> bottles by occasion, season, scent family, concentration, sillage, and remaining millilitres.</p>
+            </div>
+            <a href="collection.html" class="btn-luxury btn-luxury-primary">
+              <span>Browse Vault (<span data-collection-count>20</span> Bottles)</span>
+              <div class="icon-circle">&rarr;</div>
+            </a>
+          </article>
 
-        <div style="text-align: center; margin-top: 1rem;">
-          <a href="collection.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
-            <span>Browse All Fragrances (<span data-collection-count>0</span> Bottles)</span>
-            <div class="icon-circle">&rarr;</div>
-          </a>
-        </div>
-      </div>
-    </section>
+          <article class="directory-slab">
+            <div class="directory-slab-top">
+              <span class="directory-index-num">02 // PAIRING LAB</span>
+              <h2 class="directory-slab-title">FRAGRANCE LAYERING</h2>
+              <p class="directory-slab-desc">Explore 30 curated two-bottle combinations or select any base bottle to inspect its shortlisted partners rated 90/100 or above.</p>
+            </div>
+            <a href="layering.html" class="btn-luxury btn-luxury-ghost">
+              <span>Open Layering Atelier</span>
+              <div class="icon-circle">&rarr;</div>
+            </a>
+          </article>
 
-    <!-- ======================================================================
-         SECTION 5: LAYERING TEASER
-         ====================================================================== -->
-    <section class="section-container-spacious">
-      <div class="section-container">
-        <div class="section-header-editorial">
-          <span class="section-sup-title">Combinations &amp; Pairings</span>
-          <h2 class="section-title-large">FRAGRANCE LAYERING</h2>
-          <p class="section-sub-desc">Explore four editorial layering ideas, or choose a bottle to see any shortlisted partner. Only scores of 90/100 or above appear.</p>
-        </div>
-
-        <div style="text-align: center; margin-top: 1rem;">
-          <a href="layering.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
-            <span>Open Layering Guide</span>
-            <div class="icon-circle">&rarr;</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         SECTION 6: FRAGRANCE GUIDE TEASER
-         ====================================================================== -->
-    <section class="section-container-spacious" style="background: var(--canvas-surface); border-top: 1px solid var(--canvas-border);">
-      <div class="section-container">
-        <div class="section-header-editorial">
-          <span class="section-sup-title">Tips &amp; Best Practices</span>
-          <h2 class="section-title-large">FRAGRANCE GUIDE</h2>
-          <p class="section-sub-desc">Personal guidance on considerate application, storage, and trying combinations.</p>
-        </div>
-
-        <div style="text-align: center; margin-top: 1rem;">
-          <a href="guide.html" class="btn-luxury btn-luxury-primary" style="display: inline-flex;">
-            <span>Read Fragrance Guide</span>
-            <div class="icon-circle">&rarr;</div>
-          </a>
+          <article class="directory-slab">
+            <div class="directory-slab-top">
+              <span class="directory-index-num">03 // WEAR CODEX</span>
+              <h2 class="directory-slab-title">FRAGRANCE GUIDE</h2>
+              <p class="directory-slab-desc">Practical guidance on considerate application, noseblindness, bottle storage, and evaluating new bottles across separate wears.</p>
+            </div>
+            <a href="guide.html" class="btn-luxury btn-luxury-ghost">
+              <span>Read Wear Guide</span>
+              <div class="icon-circle">&rarr;</div>
+            </a>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="inventory-toolbar" aria-label="Collection backup">
       <div class="inventory-toolbar-header">
-        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <h2 class="inventory-toolbar-title">Collection Data &amp; Backup</h2>
         <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
       </div>
       <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
@@ -545,10 +561,10 @@
         <div>
           <span class="eyebrow-pill" id="modalConcentration">EXTRAIT DE PARFUM</span>
           <h2 class="modal-flacon-name" id="modalTitle">Bottle Details</h2>
-          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;"></span>
+          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);"></span>
         </div>
         <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Details">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
@@ -557,17 +573,17 @@
 
       <div class="modal-content-split">
         <div class="modal-bottle-stage">
-          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview">
+          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview" width="220" height="280">
         </div>
 
         <div class="modal-info-stack"><div id="modalInventoryDetails"></div>
           <div>
-            <h4 class="modal-section-title">Scent Description</h4>
+            <h3 class="modal-section-title">Scent Description</h3>
             <p id="modalDescription" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;"></p>
           </div>
 
           <div>
-            <h4 class="modal-section-title">Notes Breakdown</h4>
+            <h3 class="modal-section-title">Notes Breakdown</h3>
             <div class="scent-triad-box">
               <div class="triad-tier">
                 <span class="triad-tier-label">Top</span>
@@ -585,9 +601,9 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">Spray Routine</h4>
+            <h3 class="modal-section-title">Spray Routine</h3>
             <div class="application-ritual-bar" id="modalRitual">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <circle cx="12" cy="12" r="9"/>
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -597,7 +613,7 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">Recommended Layering Partner</h4>
+            <h3 class="modal-section-title">Recommended Layering Partner</h3>
             <p id="modalLayeringPartner" style="font-size: 0.88rem; color: var(--gold-primary); font-family: var(--font-mono);"></p>
           </div>
         </div>
@@ -613,7 +629,7 @@
       <div class="modal-header-row">
         <h2 class="modal-flacon-name" id="addBottleTitle">Add New Bottle</h2>
         <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>

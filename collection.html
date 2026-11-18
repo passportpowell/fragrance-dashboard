@@ -12,11 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F5F6" id="themeColorMeta">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "All Fragrances \u2014 Otis Powell Collection", "url": "https://fragrance-dashboard.vercel.app/collection", "description": "Browse all 20 fragrances in Otis Powell's personal collection with multi-dimensional filters for occasions, seasons, scent profiles, and concentrations.", "mainEntity": {"@type": "ItemList", "name": "Otis Powell Fragrance Vault", "numberOfItems": 20}}</script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M9 2h6v3H9zM7 6h10l2 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10l2-4zm5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script src="js/theme.js"></script>
 <link rel="stylesheet" href="css/styles.css">
@@ -29,7 +31,7 @@
     <header class="maison-navbar">
       <a href="index.html" class="maison-brand" aria-label="Home">
         <div class="brand-monogram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M12 2L3 7v9l9 5 9-5V7l-9-5z"/>
             <path d="M12 22V12"/>
             <path d="M21 7l-9 5-9-5"/>
@@ -43,7 +45,7 @@
 
       <nav class="maison-nav-links" aria-label="Primary Navigation">
         <a href="index.html" class="maison-nav-link">Home</a>
-        <a href="collection.html" class="maison-nav-link active">All Fragrances</a>
+        <a href="collection.html" class="maison-nav-link active" aria-current="page">All Fragrances</a>
         <a href="occasions.html" class="maison-nav-link">Occasions</a>
         <a href="layering.html" class="maison-nav-link">Layering</a>
         <a href="guide.html" class="maison-nav-link">Guide</a>
@@ -51,7 +53,7 @@
 
       <div class="maison-nav-actions">
         <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
@@ -59,7 +61,7 @@
         <button id="addFragranceBtn" class="btn-luxury btn-luxury-primary" title="Add New Bottle">
           <span>Add Bottle</span>
           <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
               <line x1="12" y1="5" x2="12" y2="19"/>
               <line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
@@ -67,7 +69,7 @@
         </button>
 
         <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -80,19 +82,19 @@
   <!-- Mobile Drawer Overlay -->
   <div id="mobileDrawer" class="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
     <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
     </button>
     <div class="mobile-drawer-links">
       <a href="index.html" class="mobile-drawer-link">Home</a>
-      <a href="collection.html" class="mobile-drawer-link active">All Fragrances</a>
+      <a href="collection.html" class="mobile-drawer-link active" aria-current="page">All Fragrances</a>
       <a href="occasions.html" class="mobile-drawer-link">Occasions</a>
       <a href="layering.html" class="mobile-drawer-link">Layering</a>
       <a href="guide.html" class="mobile-drawer-link">Guide</a>
     </div>
-    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;">
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);">
       Otis Powell // Personal Collection
     </div>
   </div>
@@ -102,7 +104,7 @@
     <header class="page-hero-banner">
       <div class="eyebrow-pill">
         <span class="eyebrow-pill-dot"></span>
-        <span><span data-collection-count>0</span> Bottles // Personal Collection</span>
+        <span><span data-collection-count>20</span> Bottles // Personal Collection</span>
       </div>
       <h1 class="page-hero-title">ALL FRAGRANCES</h1>
       <span class="page-hero-subtitle">Browse and filter every bottle in the collection</span>
@@ -112,24 +114,44 @@
     </header>
 
     <section class="section-container" style="padding-top: 3rem;">
-      <div class="vault-filter-system" id="vaultFilterSystem"><div class="filter-group-row"><span class="filter-group-label">Occasion / Activity</span><div class="filter-pills-wrap" data-group="occasion"></div></div><div class="filter-group-row"><span class="filter-group-label">Scent Profile</span><div class="filter-pills-wrap" data-group="scentType"></div></div><div class="filter-group-row"><span class="filter-group-label">Season</span><div class="filter-pills-wrap" data-group="season"></div></div><div class="filter-group-row"><span class="filter-group-label">Time of Day</span><div class="filter-pills-wrap" data-group="timeOfDay"></div></div><div class="filter-group-row"><span class="filter-group-label">Bottle Type</span><div class="filter-pills-wrap" data-group="originType"></div></div><div class="filter-group-row"><span class="filter-group-label">Brand</span><div class="filter-pills-wrap" data-group="brand"></div></div><div class="filter-group-row"><span class="filter-group-label">Concentration</span><div class="filter-pills-wrap" data-group="concentration"></div></div><div class="filter-group-row"><span class="filter-group-label">Wardrobe Archetype</span><div class="filter-pills-wrap" data-group="wardrobeArchetype"></div></div><div class="filter-group-row"><span class="filter-group-label">Longevity</span><div class="filter-pills-wrap" data-group="longevity"></div></div><div class="filter-group-row"><span class="filter-group-label">Sillage</span><div class="filter-pills-wrap" data-group="sillage"></div></div></div>
+      <h2 class="sr-only">Browse and Filter Collection</h2>
+      <div class="vault-filter-system" id="vaultFilterSystem">
+        <div class="filter-group-row"><span class="filter-group-label">Occasion / Activity</span><div class="filter-pills-wrap" data-group="occasion"></div></div>
+        <div class="filter-group-row"><span class="filter-group-label">Season</span><div class="filter-pills-wrap" data-group="season"></div></div>
+        <div class="filter-group-row"><span class="filter-group-label">Scent Profile</span><div class="filter-pills-wrap" data-group="scentType"></div></div>
+        <details class="vault-more-filters" id="vaultMoreFilters">
+          <summary class="vault-more-filters-summary">
+            <span>More Filters (Time, Brand, Concentration, Archetype, Longevity &amp; Sillage)</span>
+            <span id="moreFiltersActiveCount" class="filter-active-pill" hidden>0 active</span>
+          </summary>
+          <div class="vault-more-filters-body">
+            <div class="filter-group-row"><span class="filter-group-label">Time of Day</span><div class="filter-pills-wrap" data-group="timeOfDay"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Bottle Type</span><div class="filter-pills-wrap" data-group="originType"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Brand</span><div class="filter-pills-wrap" data-group="brand"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Concentration</span><div class="filter-pills-wrap" data-group="concentration"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Wardrobe Archetype</span><div class="filter-pills-wrap" data-group="wardrobeArchetype"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Longevity</span><div class="filter-pills-wrap" data-group="longevity"></div></div>
+            <div class="filter-group-row"><span class="filter-group-label">Sillage</span><div class="filter-pills-wrap" data-group="sillage"></div></div>
+          </div>
+        </details>
+      </div>
 
       <!-- Control Bar -->
       <div class="vault-control-bar">
         <div class="vault-live-counter">
           <span>Showing:</span>
-          <strong id="vaultFilteredCount">0</strong>
-          <span>of <span data-collection-count>0</span> Bottles</span>
+          <strong id="vaultFilteredCount">20</strong>
+          <span>of <span data-collection-count>20</span> Bottles</span>
           <div id="activeFilterChipsContainer" class="active-filters-chips-row"></div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
           <div class="boutique-search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
               <circle cx="11" cy="11" r="8"/>
               <line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            <input type="text" id="vaultSearchInput" aria-label="Search collection by name, notes, brand or inspiration" class="boutique-search-input" placeholder="Search by name, note, or clone...">
+            <input type="search" id="vaultSearchInput" autocomplete="off" spellcheck="false" aria-label="Search collection by name, notes, brand or inspiration" class="boutique-search-input" placeholder="Search by name, note, or clone…">
           </div>
 
           <select id="vaultSortSelect" class="vault-sort-select" aria-label="Sort Collection">
@@ -145,7 +167,7 @@
     </section>
     <section class="inventory-toolbar" aria-label="Collection backup">
       <div class="inventory-toolbar-header">
-        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <h2 class="inventory-toolbar-title">Collection Data &amp; Backup</h2>
         <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
       </div>
       <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
@@ -169,10 +191,10 @@
         <div>
           <span class="eyebrow-pill" id="modalConcentration">EAU DE PARFUM</span>
           <h2 class="modal-flacon-name" id="modalTitle">Bottle Details</h2>
-          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;"></span>
+          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);"></span>
         </div>
         <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Details">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
@@ -181,17 +203,17 @@
 
       <div class="modal-content-split">
         <div class="modal-bottle-stage">
-          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview">
+          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview" width="220" height="280">
         </div>
 
         <div class="modal-info-stack"><div id="modalInventoryDetails"></div>
           <div>
-            <h4 class="modal-section-title">About This Scent</h4>
+            <h3 class="modal-section-title">About This Scent</h3>
             <p id="modalDescription" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;"></p>
           </div>
 
           <div>
-            <h4 class="modal-section-title">Fragrance Notes</h4>
+            <h3 class="modal-section-title">Fragrance Notes</h3>
             <div class="scent-triad-box">
               <div class="triad-tier">
                 <span class="triad-tier-label">Top Notes</span>
@@ -209,9 +231,9 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">How to Spray</h4>
+            <h3 class="modal-section-title">How to Spray</h3>
             <div class="application-ritual-bar" id="modalRitual">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <circle cx="12" cy="12" r="9"/>
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -221,7 +243,7 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">Layering Tip</h4>
+            <h3 class="modal-section-title">Layering Tip</h3>
             <p id="modalLayeringPartner" style="font-size: 0.88rem; color: var(--gold-primary); font-family: var(--font-mono);"></p>
           </div>
         </div>
@@ -235,7 +257,7 @@
       <div class="modal-header-row">
         <h2 class="modal-flacon-name" id="addBottleTitle">Add New Bottle</h2>
         <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>

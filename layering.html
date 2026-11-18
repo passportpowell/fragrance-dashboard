@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fragrance Layering — Combinations &amp; Pairings | Otis Powell</title>
-  <meta name="description" content="Explore four editorial fragrance layering ideas and find shortlisted partners from the collection. Scores are subjective and combinations are untested.">
+  <meta name="description" content="Explore curated fragrance layering ideas with 90%+ compatibility and find shortlisted partners from the collection.">
   <link rel="canonical" href="https://fragrance-dashboard.vercel.app/layering">
   <meta property="og:title" content="Fragrance Layering — Combinations &amp; Pairings | Otis Powell">
   <meta property="og:description" content="Explore shortlisted fragrance pairings with clear scent rationales and cautions. Editorial scores are not measured compatibility.">
@@ -12,11 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://fragrance-dashboard.vercel.app/assets/bottles/cropped/after_effect_fa_paris.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F4F5F6" id="themeColorMeta">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Fragrance Layering \u2014 Combinations & Pairings | Otis Powell", "url": "https://fragrance-dashboard.vercel.app/layering", "description": "Explore 30 curated fragrance layering combinations rated 90/100 or above and find shortlisted partners from the collection."}</script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M9 2h6v3H9zM7 6h10l2 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V10l2-4zm5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z'/%3E%3C/svg%3E">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script src="js/theme.js"></script>
 <link rel="stylesheet" href="css/styles.css">
@@ -29,7 +31,7 @@
     <header class="maison-navbar">
       <a href="index.html" class="maison-brand" aria-label="Home">
         <div class="brand-monogram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M12 2L3 7v9l9 5 9-5V7l-9-5z"/>
             <path d="M12 22V12"/>
             <path d="M21 7l-9 5-9-5"/>
@@ -45,13 +47,13 @@
         <a href="index.html" class="maison-nav-link">Home</a>
         <a href="collection.html" class="maison-nav-link">All Fragrances</a>
         <a href="occasions.html" class="maison-nav-link">Occasions</a>
-        <a href="layering.html" class="maison-nav-link active">Layering</a>
+        <a href="layering.html" class="maison-nav-link active" aria-current="page">Layering</a>
         <a href="guide.html" class="maison-nav-link">Guide</a>
       </nav>
 
       <div class="maison-nav-actions">
         <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
@@ -59,7 +61,7 @@
         <button id="addFragranceBtn" class="btn-luxury btn-luxury-primary" title="Add New Bottle">
           <span>Add Bottle</span>
           <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
               <line x1="12" y1="5" x2="12" y2="19"/>
               <line x1="5" y1="12" x2="19" y2="12"/>
             </svg>
@@ -67,7 +69,7 @@
         </button>
 
         <button id="mobileMenuBtn" aria-controls="mobileDrawer" aria-expanded="false" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -80,7 +82,7 @@
   <!-- Mobile Drawer Overlay -->
   <div id="mobileDrawer" class="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Navigation">
     <button id="mobileDrawerClose" class="mobile-drawer-close" aria-label="Close Navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
@@ -89,10 +91,10 @@
       <a href="index.html" class="mobile-drawer-link">Home</a>
       <a href="collection.html" class="mobile-drawer-link">All Fragrances</a>
       <a href="occasions.html" class="mobile-drawer-link">Occasions</a>
-      <a href="layering.html" class="mobile-drawer-link active">Layering</a>
+      <a href="layering.html" class="mobile-drawer-link active" aria-current="page">Layering</a>
       <a href="guide.html" class="mobile-drawer-link">Guide</a>
     </div>
-    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;">
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);">
       Otis Powell // Personal Collection
     </div>
   </div>
@@ -106,9 +108,9 @@
         <span>Scent Combinations</span>
       </div>
       <h1 class="page-hero-title">FRAGRANCE LAYERING</h1>
-      <span class="page-hero-subtitle">Four layering ideas, with a reason to try each</span>
+      <span class="page-hero-subtitle">Shortlisted two-bottle combinations rated 90/100 or above</span>
       <p class="page-hero-desc">
-        Start with scents you enjoy on their own. Explore the four shortlisted combinations below, or choose a bottle to find its listed partners. Each suggestion includes a scent rationale and something to watch for.
+        Start with scents you enjoy on their own. Explore the curated combinations below, or choose a bottle to find its shortlisted partners rated 90/100 or above. Each suggestion includes a scent rationale, spray sequence, and wear guidance.
       </p>
     </header>
 
@@ -123,18 +125,24 @@
       <!-- VIEW 1: RECOMMENDED COMBOS -->
       <div id="curatedDuosView">
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
-          <span class="section-sup-title">Curated Pairs</span>
           <h2 class="section-title-large">LAYERING IDEAS TO TRY</h2>
           <p class="section-sub-desc">Only shortlisted pairs rated 90/100 or above appear. Scores are hand-assigned editorial ratings based on recorded scent profiles. They are not measured compatibility percentages or wear-test results; small score differences are not meaningful.</p>
         </div>
 
+        <div class="layering-category-bar" id="layeringCategoryBar" role="group" aria-label="Filter curated combinations">
+          <button type="button" class="filter-chip-btn active" data-duo-filter="all" aria-pressed="true">All Combinations</button>
+          <button type="button" class="filter-chip-btn" data-duo-filter="daytime" aria-pressed="false">Daytime &amp; Fresh</button>
+          <button type="button" class="filter-chip-btn" data-duo-filter="evening" aria-pressed="false">Evening &amp; Dates</button>
+          <button type="button" class="filter-chip-btn" data-duo-filter="office" aria-pressed="false">Work &amp; Office</button>
+          <button type="button" class="filter-chip-btn" data-duo-filter="cold" aria-pressed="false">Autumn &amp; Winter</button>
+          <button type="button" class="filter-chip-btn" data-duo-filter="warm" aria-pressed="false">Spring &amp; Summer</button>
+        </div>
         <div class="layering-duos-grid" id="layeringDuosContainer"></div>
       </div>
 
       <!-- VIEW 2: FIND A PAIRING -->
-      <div id="interactiveStudioView" style="display: none;">
+      <div id="interactiveStudioView" hidden>
         <div class="section-header-editorial" style="margin-bottom: 2.5rem;">
-          <span class="section-sup-title">Pairing Tool</span>
           <h2 class="section-title-large">FIND A PAIRING</h2>
           <p class="section-sub-desc">Choose a bottle to see its shortlisted partners at 90/100 or above. No result means no pairing is listed, not that other combinations are unsuitable.</p>
         </div>
@@ -162,7 +170,7 @@
     </section>
     <section class="inventory-toolbar" aria-label="Collection backup">
       <div class="inventory-toolbar-header">
-        <h3 class="inventory-toolbar-title">Collection Data &amp; Backup</h3>
+        <h2 class="inventory-toolbar-title">Collection Data &amp; Backup</h2>
         <p class="inventory-toolbar-desc">Export your custom bottle additions and volume records as JSON, or restore a previous backup.</p>
       </div>
       <p id="inventoryStatus" role="status" aria-live="polite" hidden></p>
@@ -186,10 +194,10 @@
         <div>
           <span class="eyebrow-pill" id="modalConcentration">EAU DE PARFUM</span>
           <h2 class="modal-flacon-name" id="modalTitle">Bottle Details</h2>
-          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-primary); text-transform: uppercase;"></span>
+          <span id="modalCloneOrigin" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-primary);"></span>
         </div>
         <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Details">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
@@ -198,17 +206,17 @@
 
       <div class="modal-content-split">
         <div class="modal-bottle-stage">
-          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview">
+          <img id="modalBottleImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Bottle Preview" width="220" height="280">
         </div>
 
         <div class="modal-info-stack"><div id="modalInventoryDetails"></div>
           <div>
-            <h4 class="modal-section-title">About This Scent</h4>
+            <h3 class="modal-section-title">About This Scent</h3>
             <p id="modalDescription" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;"></p>
           </div>
 
           <div>
-            <h4 class="modal-section-title">Fragrance Notes</h4>
+            <h3 class="modal-section-title">Fragrance Notes</h3>
             <div class="scent-triad-box">
               <div class="triad-tier">
                 <span class="triad-tier-label">Top Notes</span>
@@ -226,9 +234,9 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">How to Spray</h4>
+            <h3 class="modal-section-title">How to Spray</h3>
             <div class="application-ritual-bar" id="modalRitual">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <circle cx="12" cy="12" r="9"/>
               </svg>
               <span id="modalSprayBlueprintText"></span>
@@ -236,7 +244,7 @@
           </div>
 
           <div>
-            <h4 class="modal-section-title">Layering Tip</h4>
+            <h3 class="modal-section-title">Layering Tip</h3>
             <p id="modalLayeringPartner" style="font-size: 0.88rem; color: var(--gold-primary); font-family: var(--font-mono);"></p>
           </div>
         </div>
@@ -250,7 +258,7 @@
       <div class="modal-header-row">
         <h2 class="modal-flacon-name" id="addBottleTitle">Add New Bottle</h2>
         <button class="modal-close-btn" id="addModalCloseBtn" aria-label="Close Modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>

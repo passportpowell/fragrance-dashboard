@@ -1,0 +1,49 @@
+{
+  "tool": "seo_audit.py",
+  "version": "1.0.0",
+  "mode": "source",
+  "target": "N:\\Otis Projects\\Apps & Dev\\fragrance-dashboard\\public",
+  "generated_utc": "2026-11-18T12:23:48+00:00",
+  "pages_audited": 5,
+  "summary": {
+    "critical": 0,
+    "high": 6,
+    "medium": 1,
+    "low": 6,
+    "info": 0
+  },
+  "findings": [
+    {
+      "id": "CANONICAL_STAGING_HOST",
+      "severity": "high",
+      "where": "index.html, collection.html, layering.html, occasions.html, guide.html",
+      "message": "Canonical points to fragrance-dashboard.vercel.app (expected until custom domain is assigned).",
+      "evidence": "https://fragrance-dashboard.vercel.app/*",
+      "auto_fix_safe": false
+    },
+    {
+      "id": "SITEMAP_STAGING_URLS",
+      "severity": "high",
+      "where": "sitemap.xml",
+      "message": "5 sitemap URL(s) use fragrance-dashboard.vercel.app host and lack <lastmod>.",
+      "evidence": "https://fragrance-dashboard.vercel.app/, /collection, /occasions, /layering, /guide",
+      "auto_fix_safe": true
+    },
+    {
+      "id": "HIDDEN_TEXT_REVIEW",
+      "severity": "medium",
+      "where": "layering.html:135",
+      "message": "Interactive Studio tab hidden via inline style=\"display: none;\" instead of semantic hidden attribute.",
+      "evidence": "38 words in #interactiveStudioView",
+      "auto_fix_safe": true
+    },
+    {
+      "id": "IMG_DIMENSIONS_MISSING",
+      "severity": "low",
+      "where": "index.html, collection.html, layering.html, occasions.html, guide.html",
+      "message": "#modalBottleImg, .hero-flacon-img, and #sotdImg lack intrinsic width and height attributes (CLS risk).",
+      "evidence": "data:image/svg+xml placeholder and hero/SOTD images",
+      "auto_fix_safe": true
+    }
+  ]
+}

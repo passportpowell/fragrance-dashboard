@@ -53,7 +53,7 @@ test('all pair scores are symmetric, finite and agree with curated views', () =>
   const {run}=environment();
   assert(run('collection.every(a=>collection.every(b=>{const x=calculatePairingSynergy(a,b).score,y=calculatePairingSynergy(b,a).score;return x===y&&Number.isFinite(x)&&x>=0&&x<=100}))'));
   assert(run('CURATED_SIGNATURE_DUOS.every(d=>calculatePairingSynergy(collection.find(i=>i.id===d.baseId),collection.find(i=>i.id===d.companionId)).score===d.score)'));
-  assert(run('collection.every(i=>getTopLayeringOptionsForFragrance(i).filter(o=>["user-pp-particle-iso-e-super","user-pp-second-particle-1980","user-pp-citrus-particle-0616"].includes(o.partner.id)).length<=1)'));
+  assert(run('collection.every(i=>getTopLayeringOptionsForFragrance(i).filter(o=>["user-pp-particle-iso-e-super","user-pp-second-particle-1980","user-pp-citrus-particle-0616"].includes(o.partner.id)).length===0)'));
 });
 test('storage denial does not stop theme or seed loading', () => {
   const {run,sandbox}=environment();
@@ -80,9 +80,22 @@ test('stale tabs refuse last-writer overwrite',async()=>{
   assert(run('collection.some(i=>i.id==="user-custom-other")'));
 });
 
- test('layering recommendations enforce the inclusive 90 score threshold',()=>{const {run}=environment();assert(run('collection.every(i=>getTopLayeringOptionsForFragrance(i).every(o=>o.score>=90))'));run('CURATED_SIGNATURE_DUOS.push({baseId:"user-dg-the-one-edp",companionId:"user-pp-particle-iso-e-super",score:90})');assert(run('getTopLayeringOptionsForFragrance(collection.find(i=>i.id==="user-dg-the-one-edp")).some(o=>o.score===90)'));run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner"},{id:"b",name:"B",brand:"Owner"}])');assert.equal(run('getTopLayeringOptionsForFragrance(collection[0]).length'),0);});
+ test('layering recommendations enforce the inclusive 90 score threshold',()=>{const {run}=environment();assert(run('collection.every(i=>getTopLayeringOptionsForFragrance(i).every(o=>o.score>=90))'));run('CURATED_SIGNATURE_DUOS.push({baseId:"user-dg-the-one-edp",companionId:"user-laya-edp",score:90})');assert(run('getTopLayeringOptionsForFragrance(collection.find(i=>i.id==="user-dg-the-one-edp"),10).some(o=>o.score===90)'));run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner"},{id:"b",name:"B",brand:"Owner"}])');assert.equal(run('getTopLayeringOptionsForFragrance(collection[0]).length'),0);});
 
-test('all layering views enforce cutoff and ignore legacy free-text tips',()=>{const {run,sandbox}=environment();const nodes=Object.fromEntries(['layeringDuosContainer','modeCuratedDuosBtn','rankedCompanionsContainer','companionsCountBadge','modalLayeringPartner','modalInventoryDetails'].map(id=>[id,{}]));sandbox.document.getElementById=id=>nodes[id]||null;run('CURATED_SIGNATURE_DUOS.push({title:"Below threshold",baseId:collection[0].id,companionId:collection[1].id,score:89});renderLayeringDuos();updateInteractivePairings(collection[0].id)');assert(!nodes.layeringDuosContainer.innerHTML.includes('Below threshold'));assert(!nodes.rankedCompanionsContainer.innerHTML.includes('>89<'));assert(run('layeringAdvice(collection.find(i=>i.id==="user-pp-astray-fruit-1947")).includes("95/100")'));run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner",layeringPartner:"Unsupported performance promise"},{id:"b",name:"B",brand:"Owner"}]);updateInteractivePairings("a")');assert(nodes.rankedCompanionsContainer.innerHTML.includes('No listed pairing meets'));assert(run('layeringAdvice(collection[0]).includes("on its own")'));});
+test('all layering views enforce cutoff and ignore legacy free-text tips',()=>{const {run,sandbox}=environment();const nodes=Object.fromEntries(['layeringDuosContainer','modeCuratedDuosBtn','rankedCompanionsContainer','companionsCountBadge','modalLayeringPartner','modalInventoryDetails'].map(id=>[id,{}]));sandbox.document.getElementById=id=>nodes[id]||null;run('CURATED_SIGNATURE_DUOS.push({title:"Below threshold",baseId:collection[0].id,companionId:collection[1].id,score:89});renderLayeringDuos();updateInteractivePairings(collection[0].id)');assert(!nodes.layeringDuosContainer.innerHTML.includes('Below threshold'));assert(!nodes.rankedCompanionsContainer.innerHTML.includes('>89<'));assert(run('layeringAdvice(collection.find(i=>i.id==="user-pp-astray-fruit-1947")).includes("96/100")'));run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner",layeringPartner:"Unsupported performance promise"},{id:"b",name:"B",brand:"Owner"}]);updateInteractivePairings("a")');assert(nodes.rankedCompanionsContainer.innerHTML.includes('No listed pairing meets'));assert(run('layeringAdvice(collection[0]).includes("on its own")'));});
 test('seed does not convert aerosol grams to millilitres or assert maturation',()=>{const {run}=environment();assert.equal(seed.find(i=>i.id==='user-bbw-mahogany-woods').bottleSize,null);assert(seed.every(i=>i.macerationStatus==='Not recorded'&&i.maturationWeeks==null));});
 
 test('unreviewed tag matches and edited profiles cannot inherit curated recommendations',()=>{const {run}=environment();run('collection=Inventory.records([{id:"a",name:"A",brand:"Owner",mainAccords:[{name:"Woody",percentage:90}]},{id:"b",name:"B",brand:"Owner",mainAccords:[{name:"Woody",percentage:90}]}])');assert(run('calculatePairingSynergy(collection[0],collection[1]).score<90'));assert.equal(run('getTopLayeringOptionsForFragrance(collection[0]).length'),0);run('collection=Inventory.records(FRAGRANCE_DATABASE);collection.find(i=>i.id==="user-after-effect-fa-paris").notes.top=[{name:"Changed profile"}]');assert(run('getTopLayeringOptionsForFragrance(collection.find(i=>i.id==="user-after-effect-fa-paris")).length===0'));});
+
+test('pluralization, accord bridge pills, and duo category filtering work accurately', () => {
+  const { run } = environment();
+  assert.equal(run('plural(1, "tagged bottle")'), '1 tagged bottle');
+  assert.equal(run('plural(4, "tagged bottle")'), '4 tagged bottles');
+  assert.equal(run('plural(1, "suggestion")'), '1 suggestion');
+  const bridge = run('accordBridgeMarkup(collection[0], collection[2])');
+  assert(bridge.includes('Shared:'));
+  assert.equal(run('matchesDuoFilter(collection[0], collection[2], "evening")'), true);
+  assert.equal(run('matchesDuoFilter(collection[0], collection[2], "cold")'), true);
+  assert.equal(run('matchesDuoFilter(collection.find(i=>i.id==="user-pp-navy-intense-0061"), collection.find(i=>i.id==="user-pp-intenso-water-1329"), "daytime")'), true);
+});
+

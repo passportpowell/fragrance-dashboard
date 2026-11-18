@@ -1,3 +1,26 @@
+## 2026-11-18 13:12 UTC — Antigravity / Gemini 4 Hydrogen (XHigh)
+- Completed architectural theme & layout overhaul (`Le Laboratoire Architectural` / `Nocturne Extrait`, `Bodoni Moda` + `Manrope` + `JetBrains Mono`), rich accord-bar bottle spec cards, Hero Telemetry Strip, unified SOTD workbench, 3-col directory, and sticky `occasions.html` quick-jump rail.
+- Restored `HANDOVER.md` pointer, updated `README.md`, hardened `scripts/build.js` against Windows `public/` handle locks, and reduced Impeccable detector findings from 105 down to 1 (`copy-lint.mjs`: `0 FAIL / 0 WARN` across all 5 pages; `npm test`: `28/28` pass).
+- Preparing clean Git commit and fast-forward push to `origin/master` and `origin/main` (`https://github.com/passportpowell/fragrance-dashboard.git`).
+
+## 2026-11-18 12:47 UTC — Antigravity / Gemini 4 Hydrogen (XHigh)
+- Implemented Tickets T1–T6 in full: restored 61 root files & all 20 cropped bottle photos; applied `UIUX Pro Max -> Taste -> Impeccable`, `transitions-polish`, `break-ui`, `web-design-guidelines`, `Schema.org` JSON-LD, collapsible mobile filter drawer, layering category filters, shared accord bridge pills, and `"Log 1 wear (-0.3ml)"` button.
+- Verification: `28/28` Node tests pass (`npm test`), `37` files built in `public/`, `copy-lint.mjs` `0 FAIL / 0 WARN` on all 5 pages, `seo_audit.py` `0` medium/low issues, Impeccable detector reduced from 105 to 12 (0 quality warnings).
+- Live preview server running on `http://localhost:55670/` (PID `26772`). Pointer: `docs/HANDOFF.md`, `docs/ACTIVE.md`.
+
+## 2026-11-18 12:32 UTC — Antigravity / Gemini 4 Argon (High)
+- Audited project using `- Base Prompts and Skill` (`UIUX Pro Max -> Taste -> Impeccable`, `web-design-guidelines`, `review-animations`, `transitions-polish`, `break-ui`, `seo-ai-visibility`, `codebase-design`).
+- Identified P0 deleted root working-tree files (61 files) & 8 missing cropped bottle photos in `public/`, P1 stale `browser-smoke.js`, 105 Impeccable detector findings (12.5/20 score), 20 `transition: all` rules, and SEO/JSON-LD gaps.
+- Verification: `search.py`, `copy-lint.mjs`, `impeccable.cmd detect`, and `seo_audit.py` executed; `npm test` blocked by missing root `js/inventory.js` (Ticket T1).
+- Pointer: `docs/audit/PROJECT-AUDIT-2026-11-18.md`, `docs/seo/seo-audit-2026-11-18.json`, `docs/ACTIVE.md`, `docs/HANDOFF.md`.
+
+## 2026-10-30 23:55 UTC — Antigravity / Gemini 3.8 Flash (High)
+- Overhauled layering engine in `js/app.js`: eliminated synthetic primers (Particle / Iso E Super / Ambroxan) as companion suggestions for any fragrance.
+- Enforced strict $\ge 90\%$ compatibility threshold (`MIN_LAYERING_SCORE = 90`).
+- Expanded `CURATED_SIGNATURE_DUOS` to 39 verified symmetric pairs so all 20 bottles have 3 to 8 high-synergy options ($\ge 90\%$).
+- When Particle bottles are selected as base, options strictly exclude any ISO, E-Super, or Ambroxan.
+- 27 Node tests pass (`npm test`); 37 production files built and verified in `public/` (`npm run build`). Full handover at `HANDOVER.md`.
+
 ## 2026-10-16 17:27 UTC — Codex / GPT-6.1 Sol
 - Published reviewed release822712b to master/main; verified READY preview SHA, promoted to existing production after main webhook produced no release.
 -12 production bodies match Git; live4 pairs/Navy0/After Effect3; no page errors/mobile overflow;4 private routes404.

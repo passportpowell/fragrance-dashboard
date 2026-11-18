@@ -19,7 +19,7 @@ for (const file of files) {
 if (path.dirname(output) !== root || path.basename(output) !== 'public') throw new Error('Unsafe output path');
 if (fs.existsSync(output) && fs.realpathSync(output) !== output) throw new Error('Output must not be a link/junction');
 // Delete only the explicitly contained generated directory; source assets remain intact.
-fs.rmSync(output, { recursive: true, force: true });
+if (fs.existsSync(output)) { for (const entry of fs.readdirSync(output)) fs.rmSync(path.join(output, entry), { recursive: true, force: true }); } else { fs.mkdirSync(output, { recursive: true }); }
 for (const file of files) {
   const destination = path.join(output, file);
   fs.mkdirSync(path.dirname(destination), { recursive: true });

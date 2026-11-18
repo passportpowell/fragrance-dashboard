@@ -6,86 +6,95 @@
    ========================================================================== */
 
 :root {
-  /* Canvas & Foundation (Default Light Mode - Fine Warm Alabaster) */
-  --canvas-base: #FDFBF7;
-  --canvas-surface: #F8F5EE;
+  /* Architectural Mineral Stone Light Mode (Zero Beige/Cream Slop) */
+  --canvas-base: #F4F5F6;
+  --canvas-surface: #EAECEF;
   --canvas-card: #FFFFFF;
-  --canvas-pedestal: #F3EFE6;
-  --canvas-border: rgba(28, 25, 23, 0.08);
-  --canvas-border-subtle: rgba(28, 25, 23, 0.05);
+  --canvas-pedestal: #EFF1F4;
+  --canvas-border: #D5DAE2;
+  --canvas-border-subtle: #E3E7ED;
 
-  /* Champagne Gold Scale */
-  --gold-primary: #7D5E1B; /* Rich warm antique gold for high legibility on light */
-  --gold-radiant: #C5A059;
-  --gold-light: #E2CF97;
-  --gold-deep: #7D5E1B;
-  --gold-glow: rgba(197, 160, 89, 0.16);
-  --gold-badge-bg: rgba(197, 160, 89, 0.12);
+  /* Perfumery Ambergris & Cognac Resin Accent Scale (WCAG AA+ on white & stone) */
+  --gold-primary: #8C4A27;
+  --gold-radiant: #B56235;
+  --gold-light: #DFB499;
+  --gold-deep: #6E381B;
+  --gold-glow: rgba(140, 74, 39, 0.14);
+  --gold-badge-bg: rgba(140, 74, 39, 0.09);
 
-  /* Editorial Typography Hierarchy */
-  --text-primary: #141518;      /* Deep caviar espresso */
-  --text-secondary: #635F56;    /* Warm taupe */
-  --text-tertiary: #635F56;     /* Muted sand */
+  /* High-Contrast Architectural Ink Hierarchy */
+  --text-primary: #111318;
+  --text-secondary: #454B57;
+  --text-tertiary: #58606E;
   --text-inverse: #FFFFFF;
 
-  /* Surfaces & Glass */
-  --surface-glass: rgba(253, 251, 247, 0.92);
-  --surface-glass-heavy: rgba(248, 245, 238, 0.98);
+  /* Surfaces & Header Bar */
+  --surface-glass: rgba(244, 245, 246, 0.94);
+  --surface-glass-heavy: rgba(255, 255, 255, 0.96);
 
-  /* Physical Shadows & Spring Dynamics */
-  --shadow-subtle: 0 4px 20px rgba(45, 35, 20, 0.04);
-  --shadow-card: 0 12px 35px -8px rgba(45, 35, 20, 0.06);
-  --shadow-hover: 0 24px 50px -12px rgba(45, 35, 20, 0.12);
-  --shadow-pedestal: 0 20px 40px -10px rgba(45, 35, 20, 0.08);
+  /* Committed 1px Edge Discipline (No Ghost Border+Shadow at Rest) */
+  --shadow-subtle: none;
+  --shadow-card: none;
+  --shadow-hover: 0 8px 12px -4px rgba(17, 19, 24, 0.08);
+  --shadow-pedestal: none;
 
-  /* Concentric Geometric Radii */
-  --radius-xl: 32px;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 8px;
-  --radius-pill: 9999px;
+  /* Tailored Architectural Radii (Le Labo / Byredo / Malle Precision) */
+  --radius-xl: 12px;
+  --radius-lg: 10px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
+  --radius-pill: 6px;
 
-  /* Fonts */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography Stack (Bodoni Moda + Manrope + JetBrains Mono) */
+  --font-display: 'Bodoni Moda', Georgia, serif;
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Timing */
-  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  /* Timing & Motion Tokens (transitions-polish) */
+  --duration-stagger: 40ms;
+  --duration-micro: 80ms;
+  --duration-quick: 150ms;
+  --duration-fast: 250ms;
+  --duration-medium: 350ms;
+  --duration-slow: 400ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
 }
 
 /* ==========================================================================
-   Obsidian Dark Mode Override
+   Nocturne Extrait Dark Mode Override (Deep Smoked Onyx & Burnished Amber)
    ========================================================================== */
 [data-theme="dark"] {
-  --canvas-base: #090A0D;
-  --canvas-surface: #101217;
-  --canvas-card: #13151C;
-  --canvas-pedestal: #1A1D26;
-  --canvas-border: rgba(255, 255, 255, 0.08);
-  --canvas-border-subtle: rgba(255, 255, 255, 0.04);
+  color-scheme: dark;
+  --canvas-base: #0B0D10;
+  --canvas-surface: #11151C;
+  --canvas-card: #151A23;
+  --canvas-pedestal: #1B212D;
+  --canvas-border: #262E3D;
+  --canvas-border-subtle: #1E2532;
 
-  --gold-primary: #D4AF37;
-  --gold-radiant: #E5C558;
-  --gold-light: #F2D888;
-  --gold-deep: #A68226;
-  --gold-glow: rgba(212, 175, 55, 0.22);
-  --gold-badge-bg: rgba(212, 175, 55, 0.15);
+  --gold-primary: #E09F5A;
+  --gold-radiant: #F0B673;
+  --gold-light: #F7D1A1;
+  --gold-deep: #B57838;
+  --gold-glow: rgba(224, 159, 90, 0.18);
+  --gold-badge-bg: rgba(224, 159, 90, 0.12);
 
-  --text-primary: #F7F6F2;
-  --text-secondary: #9FA5B2;
-  --text-tertiary: #A4AAB5;
-  --text-inverse: #090A0D;
+  --text-primary: #F3F5F8;
+  --text-secondary: #A3ACB9;
+  --text-tertiary: #8C96A6;
+  --text-inverse: #0B0D10;
 
-  --surface-glass: rgba(12, 14, 18, 0.88);
-  --surface-glass-heavy: rgba(9, 10, 13, 0.96);
+  --surface-glass: rgba(11, 13, 16, 0.92);
+  --surface-glass-heavy: rgba(21, 26, 35, 0.96);
 
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
-  --shadow-hover: 0 28px 60px -15px rgba(0, 0, 0, 0.9);
-  --shadow-pedestal: 0 20px 45px -10px rgba(0, 0, 0, 0.95);
+  --shadow-subtle: none;
+  --shadow-card: none;
+  --shadow-hover: 0 8px 12px -4px rgba(0, 0, 0, 0.45);
+  --shadow-pedestal: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -154,10 +163,9 @@ button, input, select {
   background: var(--gold-badge-bg);
   border: 1px solid var(--gold-glow);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   width: fit-content;
 }
@@ -167,7 +175,7 @@ button, input, select {
   height: 6px;
   border-radius: 50%;
   background: var(--gold-primary);
-  box-shadow: 0 0 8px var(--gold-primary);
+  box-shadow: none;
 }
 
 /* ==========================================================================
@@ -184,7 +192,7 @@ button, input, select {
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.25s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   user-select: none;
 }
 
@@ -210,7 +218,7 @@ button, input, select {
 .btn-luxury-primary {
   background: var(--text-primary);
   color: var(--text-inverse);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .btn-luxury-primary .icon-circle {
@@ -296,7 +304,7 @@ button, input, select {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  transition: all 0.3s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .maison-brand {
@@ -314,7 +322,7 @@ button, input, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px var(--gold-glow);
+  box-shadow: var(--shadow-subtle);
 }
 
 .brand-monogram svg {
@@ -329,9 +337,8 @@ button, input, select {
 
 .brand-subtitle {
   font-family: var(--font-mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 600;
 }
@@ -340,9 +347,9 @@ button, input, select {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   color: var(--text-primary);
-  line-height: 1.1;
+  line-height: 1.32;
 }
 
 .maison-nav-links {
@@ -357,7 +364,7 @@ button, input, select {
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .maison-nav-link:hover {
@@ -372,8 +379,8 @@ button, input, select {
 }
 
 .theme-toggle-btn {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-pill);
   background: var(--canvas-surface);
   border: 1px solid var(--canvas-border);
@@ -382,7 +389,7 @@ button, input, select {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .theme-toggle-btn:hover {
@@ -429,7 +436,7 @@ button, input, select {
 .section-sup-title {
   font-family: var(--font-display);
   font-size: 0.82rem;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--gold-primary);
   font-weight: 700;
@@ -440,7 +447,7 @@ button, input, select {
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: 1.32;
 }
 
 .section-sub-desc {
@@ -487,7 +494,7 @@ button, input, select {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 5vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.32;
   letter-spacing: -0.02em;
   color: var(--text-primary);
 }
@@ -498,7 +505,7 @@ button, input, select {
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
   color: var(--gold-primary);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.32;
 }
 
 .hero-narrative-copy {
@@ -525,6 +532,7 @@ button, input, select {
 }
 
 .hero-stage-aura {
+  display: none;
   position: absolute;
   width: 380px;
   height: 380px;
@@ -567,9 +575,9 @@ button, input, select {
   position: absolute;
   bottom: 1.5rem;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.04em;
   color: var(--text-tertiary);
 }
 
@@ -630,14 +638,13 @@ button, input, select {
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.1;
+  line-height: 1.32;
 }
 
 .curator-lineage-tag {
   font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 600;
 }
@@ -668,7 +675,7 @@ button, input, select {
 
 .triad-tier-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--gold-primary);
@@ -687,7 +694,7 @@ button, input, select {
   align-items: center;
   gap: 0.75rem;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   color: var(--text-secondary);
 }
 
@@ -719,8 +726,7 @@ button, input, select {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
   margin-bottom: 0.85rem;
   box-shadow: var(--shadow-subtle);
 }
@@ -747,7 +753,7 @@ button, input, select {
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   box-shadow: var(--shadow-subtle);
 }
 
@@ -761,12 +767,12 @@ button, input, select {
   background: var(--text-primary);
   color: var(--text-inverse);
   border-color: var(--text-primary);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
 }
 
 .sotd-season-badge-tag {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   padding: 2px 6px;
   border-radius: 4px;
@@ -810,7 +816,6 @@ button, input, select {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--gold-primary);
   box-shadow: var(--shadow-subtle);
 }
@@ -839,7 +844,7 @@ button, input, select {
 .sotd-options-kicker {
   display: block;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--gold-primary);
@@ -899,7 +904,7 @@ button, input, select {
   border: 1.5px solid var(--canvas-border);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.3s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   position: relative;
   user-select: none;
 }
@@ -914,7 +919,9 @@ button, input, select {
 .sotd-option-card.active {
   border-color: var(--gold-primary);
   background: var(--canvas-card);
-  box-shadow: 0 0 0 2px var(--gold-glow), var(--shadow-card);
+  outline: 2px solid var(--gold-primary);
+  outline-offset: -2px;
+  box-shadow: var(--shadow-card);
 }
 
 .sotd-option-active-badge {
@@ -922,7 +929,7 @@ button, input, select {
   top: 8px;
   right: 8px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -949,18 +956,18 @@ button, input, select {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.35;
   margin-bottom: 0.35rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 2.1em;
+  min-height: 2.7em;
 }
 
 .sotd-option-match {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   color: var(--gold-primary);
   padding: 2px 8px;
@@ -981,7 +988,7 @@ button, input, select {
   border: 1px solid var(--canvas-border);
   border-radius: var(--radius-md);
   margin-top: 1rem;
-  transition: all 0.3s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .sotd-quick-layer-badge {
@@ -989,9 +996,9 @@ button, input, select {
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   font-weight: 700;
   color: var(--gold-primary);
   background: var(--gold-badge-bg);
@@ -1044,11 +1051,11 @@ button, input, select {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   font-weight: 600;
   color: var(--gold-primary);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .sotd-layering-hub-link:hover {
@@ -1071,7 +1078,7 @@ button, input, select {
   flex-direction: column;
   justify-content: space-between;
   gap: 1.25rem;
-  transition: all 0.3s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   position: relative;
 }
 
@@ -1136,7 +1143,7 @@ button, input, select {
 
 .sotd-layering-flacon-role {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   color: var(--text-tertiary);
   letter-spacing: 0.05em;
@@ -1147,7 +1154,7 @@ button, input, select {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.32;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1197,7 +1204,7 @@ button, input, select {
   align-items: flex-start;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   color: var(--gold-primary);
   background: var(--canvas-pedestal);
   padding: 0.65rem 0.85rem;
@@ -1241,7 +1248,7 @@ button, input, select {
   justify-content: space-between;
   gap: 2rem;
   box-shadow: var(--shadow-card);
-  transition: all 0.35s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   position: relative;
   overflow: hidden;
 }
@@ -1254,9 +1261,8 @@ button, input, select {
 
 .world-badge-code {
   font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 600;
 }
@@ -1267,7 +1273,7 @@ button, input, select {
   font-weight: 700;
   color: var(--text-primary);
   margin-top: 0.35rem;
-  line-height: 1.2;
+  line-height: 1.32;
 }
 
 .world-narrative {
@@ -1357,7 +1363,7 @@ button, input, select {
   color: var(--text-secondary);
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .boutique-pill:hover {
@@ -1380,7 +1386,7 @@ button, input, select {
   border: 1px solid var(--canvas-border);
   border-radius: var(--radius-pill);
   min-width: 260px;
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .boutique-search-box:focus-within {
@@ -1416,7 +1422,7 @@ button, input, select {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-subtle);
-  transition: all 0.4s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   cursor: pointer;
 }
 
@@ -1458,9 +1464,8 @@ button, input, select {
 
 .boutique-brand-name {
   font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 600;
 }
@@ -1470,7 +1475,7 @@ button, input, select {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.32;
 }
 
 .boutique-lineage-note {
@@ -1495,8 +1500,7 @@ button, input, select {
 
 .boutique-concentration-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
+  font-size: 0.6875rem;
   letter-spacing: 0.1em;
   color: var(--text-tertiary);
 }
@@ -1526,7 +1530,7 @@ button, input, select {
   justify-content: space-between;
   gap: 1.75rem;
   box-shadow: var(--shadow-card);
-  transition: all 0.35s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .duo-editorial-card:hover {
@@ -1600,7 +1604,7 @@ button, input, select {
   align-items: center;
   gap: 0.65rem;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   color: var(--gold-primary);
   padding-top: 1rem;
   border-top: 1px solid var(--canvas-border-subtle);
@@ -1644,7 +1648,7 @@ button, input, select {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.32;
 }
 
 .codex-story-text {
@@ -1668,12 +1672,20 @@ button, input, select {
   justify-content: center;
   padding: 1.5rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  overscroll-behavior: contain;
+  transition: opacity var(--duration-quick) var(--ease-smooth-out), display var(--duration-quick) allow-discrete;
 }
 
 .modal-overlay.open {
   display: flex;
   opacity: 1;
+  transition: opacity var(--duration-fast) var(--ease-smooth-out);
+}
+
+@starting-style {
+  .modal-overlay.open {
+    opacity: 0;
+  }
 }
 
 .modal-dossier-card {
@@ -1705,8 +1717,8 @@ button, input, select {
 }
 
 .modal-close-btn {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-pill);
   background: var(--canvas-surface);
   border: 1px solid var(--canvas-border);
@@ -1715,7 +1727,7 @@ button, input, select {
   justify-content: center;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .modal-close-btn:hover {
@@ -1759,7 +1771,7 @@ button, input, select {
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   margin-bottom: 0.5rem;
 }
@@ -1794,7 +1806,7 @@ button, input, select {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   color: var(--text-primary);
 }
 
@@ -1815,7 +1827,7 @@ button, input, select {
   font-family: var(--font-display);
   font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 700;
 }
@@ -1849,7 +1861,7 @@ button, input, select {
 
 .footer-copyright {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   color: var(--text-tertiary);
 }
 
@@ -1864,7 +1876,7 @@ button, input, select {
   color: var(--text-primary);
   font-size: 0.84rem;
   font-weight: 600;
-  transition: all 0.25s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .footer-github-link:hover {
@@ -1890,7 +1902,7 @@ button, input, select {
   background: var(--canvas-pedestal);
   border: 1px solid var(--canvas-border);
   text-decoration: none;
-  transition: all 0.3s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
   width: 100%;
   max-width: 270px;
 }
@@ -1899,7 +1911,7 @@ button, input, select {
   border-color: var(--gold-primary);
   background: var(--canvas-card);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-subtle), 0 0 0 1px var(--gold-glow);
+  box-shadow: var(--shadow-subtle);
 }
 
 .footer-contact-card-btn svg {
@@ -1922,12 +1934,12 @@ button, input, select {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.32;
 }
 
 .footer-card-btn-url {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   color: var(--gold-primary);
   letter-spacing: 0.02em;
 }
@@ -1970,8 +1982,8 @@ button, input, select {
 
 .mobile-menu-toggle {
   display: none;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-pill);
   background: var(--canvas-surface);
   border: 1px solid var(--canvas-border);
@@ -2044,7 +2056,7 @@ button, input, select {
 .page-hero-banner {
   width: 100%;
   padding: 7rem 1.5rem 3.5rem;
-  background: radial-gradient(circle at 50% 0%, var(--canvas-surface) 0%, var(--canvas-bg) 75%);
+  background: radial-gradient(circle at 50% 0%, var(--canvas-surface) 0%, var(--canvas-base) 75%);
   border-bottom: 1px solid var(--canvas-border);
   text-align: center;
   display: flex;
@@ -2062,7 +2074,7 @@ button, input, select {
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--text-primary);
-  line-height: 1.08;
+  line-height: 1.32;
   margin-bottom: 0.5rem;
 }
 
@@ -2107,9 +2119,9 @@ button, input, select {
 
 .filter-group-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 700;
   width: 140px;
@@ -2126,7 +2138,10 @@ button, input, select {
 }
 
 .filter-chip-btn {
-  padding: 0.42rem 1rem;
+  padding: 0.55rem 1.1rem;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-weight: 500;
@@ -2135,7 +2150,7 @@ button, input, select {
   color: var(--text-secondary);
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .filter-chip-btn:hover {
@@ -2184,7 +2199,7 @@ button, input, select {
   border: 1px solid var(--canvas-border);
   color: var(--text-primary);
   font-size: 0.82rem;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   outline: none;
   cursor: pointer;
 }
@@ -2206,7 +2221,7 @@ button, input, select {
   background: var(--canvas-surface);
   border: 1px solid var(--gold-primary);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   color: var(--gold-primary);
   font-weight: 600;
   text-transform: uppercase;
@@ -2227,7 +2242,7 @@ button, input, select {
 
 .clear-all-filters-btn {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   color: var(--text-tertiary);
   background: none;
@@ -2252,8 +2267,8 @@ button, input, select {
 }
 
 .scentscape-realm-header {
-  border-left: 3px solid var(--gold-primary);
-  padding-left: 1.5rem;
+  border-bottom: 1px solid var(--canvas-border);
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -2295,9 +2310,9 @@ button, input, select {
 
 .scentscape-blueprint-title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   color: var(--gold-primary);
   font-weight: 700;
 }
@@ -2327,7 +2342,7 @@ button, input, select {
   border: 1px solid var(--canvas-border);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .layering-mode-btn.active {
@@ -2363,7 +2378,7 @@ button, input, select {
   background: var(--canvas-surface);
   border: 1px solid var(--canvas-border);
   color: var(--text-primary);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   outline: none;
 }
@@ -2403,7 +2418,7 @@ button, input, select {
   gap: 1.75rem;
   align-items: center;
   box-shadow: var(--shadow-subtle);
-  transition: all 0.3s var(--ease-spring);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), opacity var(--duration-fast) var(--ease-smooth-out), background-color var(--duration-quick) ease, border-color var(--duration-quick) ease, color var(--duration-quick) ease, box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 
 .companion-rank-card:hover {
@@ -2477,7 +2492,7 @@ button, input, select {
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.32;
 }
 
 .codex-lead-quote {
@@ -2485,7 +2500,7 @@ button, input, select {
   font-style: italic;
   font-size: 1.15rem;
   color: var(--gold-primary);
-  border-left: 2px solid var(--gold-primary);
+  border-left: 1px solid var(--canvas-border);
   padding-left: 1.25rem;
   line-height: 1.7;
 }
@@ -2685,7 +2700,7 @@ button.boutique-product-card { font: inherit; color: var(--text-primary); text-a
 .modal-dossier-card { max-height: calc(100dvh - 2rem); overflow-y: auto; }
 @media (max-width: 600px) {
  .brand-title { font-size: 1rem; }
- .brand-subtitle { font-size: 8px; }
+ .brand-subtitle { font-size: 0.6875rem; }
  .maison-nav-actions { gap: .3rem; }
  .maison-nav-actions .btn-luxury { padding: .5rem; font-size: .75rem; }
  .maison-nav-actions .icon-circle { display: none; }
@@ -2700,7 +2715,14 @@ button.boutique-product-card { font: inherit; color: var(--text-primary); text-a
  .hero-main-h1, .page-hero-title, .modal-flacon-name { overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) {
- *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transform: none !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    transition-duration: 150ms !important;
+  }
 }
 
 .accord-row { display: grid; grid-template-columns: minmax(80px,1fr) 2fr auto; gap: .7rem; align-items: center; margin: .5rem 0; }
@@ -2723,3 +2745,715 @@ body.dialog-open { overflow: hidden; }
 
 .filter-chip-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 .boutique-fragrance-name, .boutique-brand-name, .world-flacon-thumb-name, .duo-card-title, .companion-rank-meta { overflow-wrap: anywhere; min-width: 0; }
+
+
+/* ==========================================================================
+   AUDIT UPGRADES: A11Y, TABULAR NUMS, COLLAPSIBLE FILTERS & ACCORD BRIDGES
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero-main-h1, .page-hero-title, .section-title-large, .modal-flacon-name, .world-title, .codex-chapter-h2 {
+  text-wrap: balance;
+}
+
+.sotd-season-count, .sotd-layering-score-pill, .companion-synergy-score, .vault-live-counter, .inventory-facts dd, meter {
+  font-variant-numeric: tabular-nums;
+}
+
+.modal-dossier-card, .mobile-drawer-overlay {
+  overscroll-behavior: contain;
+}
+
+.status-dismiss-btn {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sotd-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.sotd-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.vault-more-filters {
+  border-top: 1px solid var(--canvas-border-subtle);
+  padding-top: 1rem;
+}
+
+.vault-more-filters-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  min-height: 2.75rem;
+  user-select: none;
+}
+
+.vault-more-filters-summary:hover {
+  border-color: var(--gold-primary);
+  background: var(--canvas-card);
+}
+
+.vault-more-filters-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.filter-active-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--gold-badge-bg);
+  color: var(--gold-primary);
+}
+
+.layering-category-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.duo-accord-bridges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.duo-accord-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  color: var(--text-secondary);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .boutique-product-card:hover,
+  .sotd-option-card:hover,
+  .world-card:hover,
+  .duo-editorial-card:hover,
+  .companion-rank-card:hover,
+  .sotd-layering-card:hover,
+  .theme-toggle-btn:hover,
+  .modal-close-btn:hover {
+    transform: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   ARCHITECTURAL ATELIER OVERHAUL (ZERO-SLOP GRID, CARDS & WORKBENCH)
+   ========================================================================== */
+
+/* 1. Full-Width Architectural Top Header Rail */
+.maison-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--canvas-border);
+}
+
+.maison-navbar {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0.75rem 2rem;
+}
+
+.maison-nav-link {
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.maison-nav-link.active {
+  background: var(--gold-badge-bg);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-glow);
+}
+
+/* 2. Hero Architectural Split & Live Telemetry Strip */
+.hero-editorial-section {
+  min-height: auto;
+  padding: 3.5rem 2rem 4.5rem;
+  border-bottom: 1px solid var(--canvas-border);
+  background: var(--canvas-base);
+}
+
+.hero-grid-split {
+  max-width: 1440px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+}
+
+.hero-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-md);
+  background: var(--canvas-card);
+  margin-top: 1.25rem;
+  overflow: hidden;
+}
+
+.hero-telemetry-cell {
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-right: 1px solid var(--canvas-border);
+}
+
+.hero-telemetry-cell:last-child {
+  border-right: none;
+}
+
+.hero-telemetry-cell dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.hero-telemetry-cell dd {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-telemetry-cell span {
+  font-size: 0.75rem;
+  color: var(--gold-primary);
+  font-weight: 500;
+}
+
+.hero-image-frame {
+  max-width: 480px;
+  height: auto;
+  min-height: 500px;
+  padding: 0;
+  justify-content: space-between;
+  border-radius: var(--radius-lg);
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  box-shadow: none;
+}
+
+.hero-frame-top-meta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.35rem;
+  border-bottom: 1px solid var(--canvas-border);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  background: var(--canvas-surface);
+}
+
+.hero-flacon-img {
+  margin: 2rem auto;
+  max-width: 280px;
+  max-height: 330px;
+}
+
+.hero-frame-spec-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
+  border-top: 1px solid var(--canvas-border);
+  background: var(--canvas-surface);
+}
+
+.hero-spec-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.hero-spec-origin {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* 3. Scent of the Day Workbench (Flattened Non-Nested Architecture) */
+.section-container {
+  max-width: 1440px;
+  padding: 4.5rem 2rem;
+}
+
+.section-header-editorial {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--canvas-border);
+  width: 100%;
+}
+
+.sotd-season-nav {
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+}
+
+.sotd-filter-bar {
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+}
+
+.curator-magazine-spread {
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  padding: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.curator-photo-column {
+  height: auto;
+  min-height: 440px;
+  border: none;
+  border-right: 1px solid var(--canvas-border);
+  border-radius: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.5rem 2rem 1.75rem;
+  background: var(--canvas-pedestal);
+}
+
+.sotd-accords-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--canvas-border);
+}
+
+.sotd-accord-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sotd-accord-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.sotd-accord-bar-track {
+  width: 100%;
+  height: 5px;
+  background: var(--canvas-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.sotd-accord-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.curator-story-column {
+  padding: 2.75rem 3rem;
+  justify-content: space-between;
+}
+
+/* 3-Column Horizontal Olfactory Note Pyramid */
+.scent-triad-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0;
+  background: var(--canvas-surface);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.triad-tier {
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.15rem;
+  border-right: 1px solid var(--canvas-border);
+}
+
+.triad-tier:last-child {
+  border-right: none;
+}
+
+.triad-tier-label {
+  width: auto;
+}
+
+/* Flatten SOTD Layering & In-Season Containers (Eliminates nested-cards) */
+.sotd-layering-container,
+.sotd-options-container {
+  margin-top: 3rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sotd-layering-card {
+  background: var(--canvas-card);
+}
+
+/* 4. 3-Column Occasion Matrix & Consolidated Atelier Directory */
+.worlds-editorial-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.world-card {
+  padding: 2rem 1.75rem;
+  border-radius: var(--radius-lg);
+  gap: 1.5rem;
+}
+
+.atelier-directory-section {
+  background: var(--canvas-surface);
+  border-top: 1px solid var(--canvas-border);
+  border-bottom: 1px solid var(--canvas-border);
+}
+
+.atelier-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-lg);
+  background: var(--canvas-card);
+  overflow: hidden;
+}
+
+.directory-slab {
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  border-right: 1px solid var(--canvas-border);
+}
+
+.directory-slab:last-child {
+  border-right: none;
+}
+
+.directory-slab-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.directory-index-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+}
+
+.directory-slab-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.directory-slab-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* 5. Rich Perfumer's Spec Cards (.boutique-product-card) */
+.boutique-product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.boutique-product-card {
+  border-radius: var(--radius-lg);
+  justify-content: space-between;
+}
+
+.boutique-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--canvas-border-subtle);
+  background: var(--canvas-surface);
+  width: 100%;
+}
+
+.card-rating-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  background: var(--gold-badge-bg);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.boutique-pedestal-stage {
+  height: 235px;
+  padding: 1.5rem 1.5rem 2.25rem;
+  border-bottom: 1px solid var(--canvas-border-subtle);
+}
+
+.boutique-origin-tag {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.boutique-card-info {
+  padding: 1.35rem 1.25rem;
+  gap: 0.55rem;
+  flex: 1;
+}
+
+.card-accord-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  margin: 0.35rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--canvas-surface);
+  border-top: 1px solid var(--canvas-border-subtle);
+  border-bottom: 1px solid var(--canvas-border-subtle);
+}
+
+.card-accord-row {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-accord-name {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-accord-track {
+  height: 5px;
+  background: var(--canvas-border);
+  border-radius: 3px;
+  overflow: hidden;
+  display: block;
+}
+
+.card-accord-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.card-inspect-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+}
+
+/* 6. Page Hero Banners & Sticky Occasion Jump Rail */
+.page-hero-banner {
+  padding: 4rem 2rem 3rem;
+  text-align: left;
+  align-items: flex-start;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.page-hero-desc {
+  margin: 0;
+}
+
+.occasion-jump-rail {
+  position: sticky;
+  top: 4.25rem;
+  z-index: 80;
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--canvas-border);
+  padding: 0.65rem 2rem;
+}
+
+.occasion-jump-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.occasion-jump-pill {
+  padding: 0.45rem 0.9rem;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--canvas-card);
+  border: 1px solid var(--canvas-border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: border-color var(--duration-quick) ease, color var(--duration-quick) ease, background-color var(--duration-quick) ease;
+}
+
+.occasion-jump-pill:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.layering-mode-nav,
+.layering-category-bar {
+  justify-content: flex-start;
+}
+
+/* Responsive Breakpoints for Architectural Grids */
+@media (max-width: 1100px) {
+  .worlds-editorial-grid,
+  .atelier-directory-grid {
+    grid-template-columns: 1fr;
+  }
+  .directory-slab {
+    border-right: none;
+    border-bottom: 1px solid var(--canvas-border);
+  }
+  .directory-slab:last-child {
+    border-bottom: none;
+  }
+  .curator-magazine-spread {
+    grid-template-columns: 1fr;
+  }
+  .curator-photo-column {
+    border-right: none;
+    border-bottom: 1px solid var(--canvas-border);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-editorial-section,
+  .section-container,
+  .page-hero-banner,
+  .maison-navbar,
+  .occasion-jump-rail {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .hero-telemetry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-telemetry-cell:nth-child(2) {
+    border-right: none;
+  }
+  .hero-telemetry-cell:nth-child(1),
+  .hero-telemetry-cell:nth-child(2) {
+    border-bottom: 1px solid var(--canvas-border);
+  }
+  .scent-triad-box {
+    grid-template-columns: 1fr;
+  }
+  .triad-tier {
+    border-right: none;
+    border-bottom: 1px solid var(--canvas-border);
+  }
+  .triad-tier:last-child {
+    border-bottom: none;
+  }
+  .curator-story-column {
+    padding: 1.75rem 1.25rem;
+  }
+}
